@@ -1,0 +1,21 @@
+title: "Kitchen"
+path: "kitchen"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Kitchen"
+      ulm_card_asmodai_banner_icon: 'mdi:fridge'
+
+  #
+  # Devices group title.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Devices
+

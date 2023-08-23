@@ -1,0 +1,21 @@
+title: "Wetroom"
+path: "wetroom"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Wetroom"
+      ulm_card_asmodai_banner_icon: 'mdi:shower-head'
+
+  #
+  # Devices group title.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Devices
+

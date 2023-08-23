@@ -1,0 +1,21 @@
+title: "Bedroom"
+path: "bedroom"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Main Bedroom"
+      ulm_card_asmodai_banner_icon: 'mdi:bed'
+
+  #
+  # Devices group.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Devices
+

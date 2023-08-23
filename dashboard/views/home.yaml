@@ -1,0 +1,207 @@
+title: "Home"
+path:  "home"
+cards:
+
+  #
+  # Welcome card.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_welcome"
+    variables:
+      ulm_card_asmodai_welcome_info_path: "info"
+      ulm_card_asmodai_welcome_info_icon: "mdi:information-outline"
+      ulm_weather: "weather.openweathermap"
+      ulm_temperature: "sensor.openweathermap_temperature"
+      ulm_weather_page: "weather"
+      entity_1:
+        nav: "security"
+        icon: "mdi:shield"
+        name: "Secure"
+        color: "red"
+      entity_2:
+        nav: "garden"
+        icon: "mdi:flower"
+        name: "Garden"
+        color: "green"
+      entity_3:
+        nav: "shopping"
+        icon: "mdi:cart"
+        name: "Shopping"
+        color: "blue"
+      entity_4:
+        nav: "events"
+        icon: "mdi:calendar"
+        name: "Events"
+        color: "yellow"
+      entity_5:
+        nav: "power"
+        icon: "mdi:transmission-tower"
+        name: "Power"
+        color: "purple"
+
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: auto auto auto
+      grid-template-rows: auto
+      grid-template-areas: |
+        "garden general lights"
+      place-content: center
+    cards:
+      - view_layout:
+          grid-area: garden
+        type: custom:button-card
+        template: custom_chip_asmodai_waste
+        variables:
+          custom_chip_asmodai_waste_entity: sensor.waste_collection_garden
+          custom_chip_asmodai_waste_icon: 'mdi:leaf'
+          custom_chip_asmodai_waste_icon_color: 'rgb(128, 201, 148)'
+      - view_layout:
+          grid-area: general
+        type: custom:button-card
+        template: custom_chip_asmodai_waste
+        variables:
+          custom_chip_asmodai_waste_entity: sensor.waste_collection_general
+          custom_chip_asmodai_waste_icon: 'mdi:trash-can'
+          custom_chip_asmodai_waste_icon_color: 'rgb(137, 179, 248)'
+      - view_layout:
+          grid-area: lights
+        type: custom:button-card
+        template: custom_chip_asmodai_lights_count
+        variables:
+          custom_chip_asmodai_lights_count_entity: sensor.current_lights_on
+        
+  #
+  # Rooms.
+  #
+  - type: horizontal-stack
+    cards:
+      # Hallway.
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Hallway
+        entity: light.room_hallway
+        icon: mdi:home-floor-g
+        variables:
+          ulm_custom_card_esh_room_light_entity: light.room_hallway
+          ulm_card_esh_room_presence_entity: binary_sensor.esp1_hallway_occupancy
+          ulm_card_light_enable_popup: true
+          ulm_card_dynamic_color: true
+        tap_action:
+          action: navigate
+          navigation_path: 'hallway'
+        label: >
+          [[[
+            return "🌡️ " + states['sensor.esp1_hallway_temperature'].state + "°C" + " 💧 " + states['sensor.esp1_hallway_humidity'].state + "%"
+          ]]]
+      # Landing.
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Landing
+        entity: light.room_landing
+        icon: mdi:home-floor-1
+        variables:
+          ulm_custom_card_esh_room_light_entity: light.room_landing
+          ulm_card_esh_room_presence_entity: binary_sensor.esp1_landing_occupancy
+          ulm_card_light_enable_popup: true
+          ulm_card_dynamic_color: true
+        tap_action:
+          action: navigate
+          navigation_path: 'landing'
+        label: >
+          [[[
+            return "🌡️ " + states['sensor.esp1_landing_temperature'].state + "°C" + " 💧 " + states['sensor.esp1_landing_humidity'].state + "%"
+          ]]]
+  - type: horizontal-stack
+    cards:
+      # Kitchen
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Kitchen
+        icon: mdi:fridge
+        tap_action:
+          action: navigate
+          navigation_path: 'kitchen'
+        label: >
+          [[[
+            return "🌡️ IT BURNS! °C  💧 100%"
+          ]]]
+      # Living Room
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Living Room
+        entity: light.room_living_room
+        icon: mdi:sofa
+        variables:
+          ulm_custom_card_esh_room_light_entity: light.room_living_room
+          ulm_card_light_enable_popup: true
+          ulm_card_dynamic_color: true
+        tap_action:
+          action: navigate
+          navigation_path: 'livingroom'
+        label: >
+          [[[
+            return "🌡️ 9001°C  💧 100%"
+          ]]]
+  - type: horizontal-stack
+    cards:
+        # Will be my room.
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Main Bedroom
+        icon: mdi:bed
+        tap_action:
+          action: navigate
+          navigation_path: 'bedroom'
+        label: >
+          [[[
+            return "🌡️ 9001°C  💧 100%"
+          ]]]
+      # Will be 'office'.
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Paul's Bedroom
+        entity: light.room_office
+        icon: mdi:desk
+        variables:
+          ulm_custom_card_esh_room_light_entity: light.room_office
+          ulm_card_light_enable_popup: true
+          ulm_card_dynamic_color: true
+        tap_action:
+          action: navigate
+          navigation_path: 'office'
+          #[[[
+          #  return "🌡️ " + states['sensor.temperature'].state + "°C" + " 💧 " + states['sensor.humidity'].state + "%"
+          #]]]
+        label: >
+          [[[
+            return "🌡️ 9001°C  💧 100%"
+          ]]]
+  - type: horizontal-stack
+    cards:
+        # Lower wet room.
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Lower Wetroom
+        icon: mdi:shower-head
+        tap_action:
+          action: navigate
+          navigation_path: 'wetroom'
+        label: >
+          [[[
+            return "🌡️ 9001°C  💧 100%"
+          ]]]
+      # Upper bathroom.
+      - type: 'custom:button-card'
+        template: card_esh_room
+        name: Upper Bathroom
+        icon: mdi:shower
+        tap_action:
+          action: navigate
+          navigation_path: 'bathroom'
+        label: >
+          [[[
+            return "🌡️ 9001°C  💧 100%"
+          ]]]
+
+# EOF

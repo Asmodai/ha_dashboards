@@ -1,0 +1,16 @@
+title: "Information"
+path: "info"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Information"
+      ulm_card_asmodai_banner_icon: 'mdi:information-outline'
+
+  # Include the common info view.
+  - !include "../../common/info.yaml"

@@ -1,0 +1,654 @@
+title: "Philips TV"
+path: "philips_tv"
+cards:
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "livingroom"
+      ulm_card_asmodai_banner_name: "Philips TV"
+      ulm_card_asmodai_banner_icon: 'mdi:remote-tv'
+  - type: vertical-stack
+    cards:
+      - square: false
+        columns: 3
+        type: grid
+        cards:
+######################################################################
+            #
+            # Information.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Info
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:information
+            icon_height: 24px
+            #
+            # Ambilight
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: AmbilightOnOff
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:lightbulb
+            icon_height: 24px
+            show_state: false
+            #
+            # Source.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Source
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:hdmi-port
+            icon_height: 24px
+######################################################################
+            #
+            # Empty.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: none
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:border-none-variant
+            icon_height: 1px
+            show_state: false
+            #
+            # Cursor up.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: CursorUp
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:chevron-up
+            icon_height: 58px
+            #
+            # Empty.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: none
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:border-none-variant
+            icon_height: 1px
+            show_state: false
+######################################################################
+            #
+            # Cursor left.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: CursorLeft
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:chevron-left
+            icon_height: 58px
+            #
+            # Confirm.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Confirm
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:radiobox-blank
+            icon_height: 58px
+            #
+            # Cursor right.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: CursorRight
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:chevron-right
+            icon_height: 58px
+######################################################################
+            #
+            # Empty.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: none
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:border-none-variant
+            icon_height: 1px
+            show_state: false
+            #
+            # Cursor Down.
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: CursorDown
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:chevron-down
+            icon_height: 58px
+            #
+            # Empty
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: none
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:border-none-variant
+            icon_height: 1px
+            show_state: false
+######################################################################
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Back
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:backspace
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Home
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:home
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Options
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:heating-coil
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Rewind
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:rewind
+            icon_height: 24px
+            show_state: false
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Play
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:play
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: FastForward
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:fast-forward
+            icon_height: 24px
+            show_state: false
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Stop
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:stop
+            icon_height: 24px
+            show_state: false
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Pause
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:pause
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Record
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:record
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: VolumeUp
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:volume-plus
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: none
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:border-none-variant
+            icon_height: 1px
+            show_state: false
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: ChannelStepUp
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:arrow-up-bold
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Mute
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:volume-mute
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: SmartTV
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:microsoft-windows
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: WatchTV
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:television-box
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: VolumeDown
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:volume-minus
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: none
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:border-none-variant
+            icon_height: 1px
+            show_state: false
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: ChannelStepDown
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:arrow-down-bold
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit1
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-1
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit2
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-2
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit3
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-3
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit4
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-4
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit5
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-5
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit6
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-6
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit7
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-7
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit8
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-8
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit9
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-9
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: TvGuide
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:television-guide
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Digit0
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:numeric-0
+            show_state: false
+            icon_height: 24px
+          - show_name: false
+            show_icon: true
+            type: button
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              data:
+                command: Teletext
+              target:
+                area_id: living_room
+                device_id: 065c1f3b2671262cd7ded943b1a4935a
+                entity_id: remote.tv_43pus8807_12_remote
+            entity: remote.tv_43pus8807_12_remote
+            icon: mdi:format-size
+            icon_height: 24px
+            show_state: false

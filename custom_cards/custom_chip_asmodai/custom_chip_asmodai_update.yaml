@@ -1,0 +1,31 @@
+---
+##
+## Home Assistant Upgrade chip.
+##
+## This is near-identical to Minimalist's `chip_update`, except that there is
+## no tap action.
+##
+## This is due to my Home Assistant instance running via Docker container, with
+## no supervisor.  Updates are performed via shell script.
+##
+custom_chip_asmodai_update:
+  template:
+    - "ulm_language_variables"
+    - "chips"
+  tap_action:
+    action: "none"
+  show_icon: true
+  state:
+    - operator: "default"
+      color: "red"
+      icon: "mdi:cloud-download"
+      label: "[[[ return variables.ulm_updates_available  ]]]"
+    - value: "off"
+      color: "green"
+      icon: "mdi:cloud-check-variant"
+      label: "[[[ return variables.ulm_no_updates_available  ]]]"
+  styles:
+    grid:
+      - grid-template-areas: "'i l'"
+
+# EOF

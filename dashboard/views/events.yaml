@@ -1,0 +1,26 @@
+title: "Events"
+path:  "events"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Events"
+      ulm_card_asmodai_banner_icon: 'mdi:calendar'
+
+  #
+  # Calendar.
+  #
+  - type: calendar
+    entities:
+      - calendar.cardiff_council
+      - calendar.holidays_in_the_united_kingdom
+      - calendar.asmodai_gmail_com
+    initial_view: listWeek
+
+# EOF
+

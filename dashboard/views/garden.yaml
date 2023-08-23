@@ -1,0 +1,35 @@
+title: "Garden"
+path: "garden"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Garden"
+      ulm_card_asmodai_banner_icon: 'mdi:flower'
+
+  #
+  # Lights group title.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Lights
+
+  #
+  # Devices group title.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Devices
+
+  #
+  # Sensors group title.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Sensors
+

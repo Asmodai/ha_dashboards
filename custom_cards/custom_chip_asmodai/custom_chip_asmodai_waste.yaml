@@ -1,0 +1,24 @@
+---
+##
+## Waste collection chip
+##
+custom_chip_asmodai_waste:
+  template: chip_mdi_icon_state
+  tap_action:
+    action: "none"
+  variables:
+    ulm_chip_mdi_icon_state_entity:     "[[[ return variables.custom_chip_asmodai_waste_entity ]]]"
+    ulm_chip_mdi_icon_state_icon:       "[[[ return variables.custom_chip_asmodai_waste_icon ]]]"
+    ulm_chip_mdi_icon_state_icon_color: "[[[ return variables.custom_chip_asmodai_waste_icon_color ]]]"
+    ulm_chip_mdi_icon_state_label_color: >
+      [[[
+        if (states[variables.custom_chip_asmodai_waste_entity].attributes.daysTo < 2) {
+          return 'rgb(241, 139, 130)';
+        } else if (states[variables.custom_chip_asmodai_waste_entity].attributes.daysTo <= 4) {
+          return 'primary-text-color';
+        } else {
+          return 'grey';
+        }
+      ]]]
+
+# EOF

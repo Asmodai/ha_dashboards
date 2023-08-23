@@ -1,0 +1,50 @@
+---
+custom_chip_asmodai_occupancy:
+  template: "chips"
+  triggers_update: "all"
+  show_icon: true
+  icon: |
+    [[[
+      if (variables.custom_chip_asmodai_occypancy_entity === undefined) {
+        return "mdi:help-box-outline";
+      }
+      
+      if (states[variables.custom_chip_asmodai_occypancy_entity].state == "on") {
+        return "mdi:account-box";
+      }
+      
+      return "mdi:account-box-outline";
+    ]]]
+  label: |
+    [[[
+      if (variables.custom_chip_asmodai_occypancy_entity === undefined) {
+        return "Unavailable";
+      }
+    
+      if (states[variables.custom_chip_asmodai_occypancy_entity].state == "on") {
+        return "Occupied";
+      }
+      
+      return "Unoccupied";
+    ]]]
+  tap_action:
+    action: "none"
+  styles:
+    card:
+      - padding-top: "6px"
+      - padding-button: "6px"
+      - padding-left: "12px"
+    grid:
+      - grid-template-areas: "'i l'"
+      - grid-template-columns: "max_content auto"
+      - grid-template-rows: "min-content"
+    img_cell:
+      - place-self: "center"
+      - width: "24px"
+      - height: "24px"
+    icon:
+      - color: "[[[ if (variables.custom_chip_asmodai_occypancy_entity === undefined) { return 'grey'; } if (states[variables.custom_chip_asmodai_occypancy_entity].state == 'on') { return 'rgb(255, 145, 1)'; } return 'grey'; ]]]"
+    label:
+      - font-size: "12px"
+      - margin-left: "0px"
+      - color: "[[[ if (variables.custom_chip_asmodai_occypancy_entity === undefined) { return 'grey'; } if (!variables.custom_chip_asmodai_occypancy_entity) { return 'grey'; } return variables.custom_chip_asmodai_occupancy_label_color ]]]"

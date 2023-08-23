@@ -1,0 +1,45 @@
+title: "Weather"
+path: "weather"
+cards:
+
+  #
+  # 'Welcome' block.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Time and Weather"
+      ulm_card_asmodai_banner_icon: 'mdi:home'
+
+  #
+  # Time and date.
+  #
+  - type: 'custom:digital-clock'
+    dateFormat:
+      weekday: 'long'
+      day: '2-digit'
+      month: 'long'
+    timeFormat:
+      hour: '2-digit'
+      minute: '2-digit'
+
+  #
+  # Weather data.
+  #
+  - type: 'custom:weather-card'
+    entity: "weather.openweathermap"
+    current: true
+    details: true
+    forecast: true
+
+  #
+  # Solar cycle.
+  #
+  - type: 'custom:button-card'
+    template: custom_card_httpedo13_sun
+    variables:
+      showAzimuth: true
+      showElevation: true
+
+# EOF

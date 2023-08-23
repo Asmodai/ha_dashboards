@@ -1,0 +1,81 @@
+title: "Living Room"
+path: "livingroom"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Living Room"
+      ulm_card_asmodai_banner_icon: 'mdi:sofa'
+      ulm_card_asmodai_banner_light_entity: light.room_living_room
+      ulm_card_asmodai_banner_scene_filter: "scene.living_room_*"
+      ulm_card_asmodai_banner_scene_exclude: "scene.living_room_herp_*"
+
+  #
+  # Lights.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Lights
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.zone_living_room_ceiling_1
+        variables:
+          ulm_card_light_name: "Ceiling #1"
+          ulm_card_light_icon: "mdi:chandelier"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.zone_living_room_ceiling_2
+        variables:
+          ulm_card_light_name: "Ceiling #2"
+          ulm_card_light_icon: "mdi:chandelier"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_cabinet
+        variables:
+          ulm_card_light_name: "Cabinet"
+          ulm_card_light_icon: "mdi:wardrobe-outline"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
+  #
+  # Media players.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Media Players
+  - type: "custom:button-card"
+    template: card_asmodai_media_player
+    entity: media_player.tv_43pus8807_12
+    variables:
+      ulm_card_asmodai_media_player_name: "Philips TV"
+      ulm_card_asmodai_media_player_enable_art: false
+      ulm_card_asmodai_media_player_enable_controls: true
+      ulm_card_asmodai_media_player_enable_volume_buttons: true
+      ulm_card_asmodai_media_player_enable_popup: true
+      ulm_card_asmodai_media_player_more_info: true
+      ulm_card_asmodai_media_player_collapsible: true
+      ulm_card_asmodai_media_player_power_button: true
+      ulm_card_asmodai_media_player_force_background_color: true
+      ulm_card_asmodai_media_player_navigation_path: 'philips_tv'
+
+# EOF
+

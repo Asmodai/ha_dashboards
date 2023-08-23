@@ -1,0 +1,49 @@
+title: "Paul's Bedroom"
+path: "office"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Paul's Bedroom"
+      ulm_card_asmodai_banner_icon: 'mdi:desk'
+      ulm_card_asmodai_banner_light_entity: light.room_office
+      ulm_card_asmodai_banner_scene_filter: "scene.office_*"
+      ulm_card_asmodai_banner_scene_exclude: "scene.office_desk_*"
+
+  #
+  # Light group.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Lights
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.office_ceiling
+        variables:
+          ulm_card_light_name: "Ceiling"
+          ulm_card_light_icon: "mdi:ceiling-light"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        name: Desk
+        icon: mdi:desk
+        entity: light.zone_office_desk
+        variables:
+          ulm_card_light_icon: "mdi:led-strip-variant"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
+# EOF
+

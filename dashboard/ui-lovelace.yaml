@@ -1,0 +1,23 @@
+---
+button_card_templates: !include_dir_merge_named "../../custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+
+title: "Mobile Dash"
+background: "var(--background-image)"
+views:
+  - !include views/home.yaml
+  - !include views/hallway.yaml
+  - !include views/kitchen.yaml
+  - !include views/g_bathroom.yaml
+  - !include views/living_room.yaml
+  - !include views/landing.yaml
+  - !include views/u_bathroom.yaml
+  - !include views/office.yaml
+  - !include views/bedroom.yaml
+  - !include views/philips_tv.yaml
+  - !include views/weather.yaml
+  - !include views/shopping.yaml
+  - !include views/events.yaml
+  - !include views/security.yaml
+  - !include views/garden.yaml
+  - !include views/power.yaml
+  - !include views/info.yaml

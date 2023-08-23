@@ -1,0 +1,42 @@
+title: "Power Consumption"
+path:  "power"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Power Consumption"
+      ulm_card_asmodai_banner_icon: 'mdi:transmission-tower'
+
+  #
+  # External links.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: External Links
+  - type: horizontal-stack
+    cards:
+      - type: button
+        # Grafana.
+        show_name: true
+        show_icon: true
+        name: Grafana
+        icon: mdi:chart-areaspline
+        icon_height: 64px
+        tap_action:
+          action: url
+          url_path: http://holodeck:8080/
+      - type: button
+        # Weather.
+        show_name: true
+        show_icon: true
+        name: Weather
+        icon: mdi:theme-light-dark
+        icon_height: 64px
+        tap_action:
+          action: url
+          url_path: http://holodeck:8080/

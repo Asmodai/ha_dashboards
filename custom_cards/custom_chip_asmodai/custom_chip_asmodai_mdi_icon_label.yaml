@@ -1,0 +1,23 @@
+---
+custom_chip_asmodai_mdi_icon_label:
+  template: "chips"
+  show_icon: true
+  styles:
+    card:
+      - padding-top: "6px"
+      - padding-button: "6px"
+      - padding-left: "12px"
+    grid:
+      - grid-template-areas: "'i l'"
+      - grid-template-columns: "max_content auto"
+      - grid-template-rows: "min-content"
+    img_cell:
+      - place-self: "center"
+      - width: "24px"
+      - height: "24px"
+    icon:
+      - color: "[[[ return variables.ulm_chip_mdi_icon_state_icon_color; ]]]"
+    label:
+      - font-size: "12px"
+      - margin-left: "0px"
+      - color: "[[[ return variables.ulm_chip_mdi_icon_state_label_color; ]]]"

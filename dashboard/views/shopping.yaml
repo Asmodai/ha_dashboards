@@ -1,0 +1,23 @@
+title: "Shopping"
+path:  "shopping"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      ulm_card_asmodai_banner_back_path: "home"
+      ulm_card_asmodai_banner_name: "Shopping"
+      ulm_card_asmodai_banner_icon: 'mdi:cart'
+
+  #
+  # Shopping list.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Shopping List
+  - type: shopping-list
+
+# EOF
