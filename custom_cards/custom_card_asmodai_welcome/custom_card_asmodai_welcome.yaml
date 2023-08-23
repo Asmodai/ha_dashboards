@@ -397,7 +397,7 @@ card_asmodai_welcome_topbar:
     item2:
       card:
         type: custom:button-card
-        template: custom_chip_asmodai_temperature
+        template: chip_asmodai_temperature
         variables:
           ulm_chip_temperature_weather: "[[[ return variables.ulm_weather]]]"
           ulm_chip_temperature_outside: "[[[ return variables.ulm_temperature ]]]"

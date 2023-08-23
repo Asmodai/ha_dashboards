@@ -8,7 +8,7 @@
 ## This is due to my Home Assistant instance running via Docker container, with
 ## no supervisor.  Updates are performed via shell script.
 ##
-custom_chip_asmodai_update:
+chip_asmodai_update:
   template:
     - "ulm_language_variables"
     - "chips"

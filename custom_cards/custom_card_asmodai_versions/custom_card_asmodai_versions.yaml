@@ -103,7 +103,7 @@ custom_card_asmodai_versions:
     footer:
       card:
         type: custom:button-card
-        template: custom_chip_asmodai_update
+        template: chip_asmodai_update
         entity: "[[[ return variables.custom_card_asmodai_versions_update_entity ]]]"
         styles:
           card:

@@ -6,7 +6,7 @@
 ## substantial difference is that the chip's label now includes the SI unit
 ## symbol for degrees celsius :)
 ##
-custom_chip_asmodai_temperature:
+chip_asmodai_temperature:
   template:
     - "chips"
     - "ulm_actions_card"

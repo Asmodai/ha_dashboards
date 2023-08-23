@@ -290,7 +290,7 @@ card_asmodai_banner_bottom:
     item1:
       card:
         type: custom:button-card
-        template: custom_chip_asmodai_mdi_icon_label
+        template: chip_asmodai_mdi_icon_label
         label: "Scenes"
         icon: "mdi:palette"
         styles:
@@ -321,7 +321,7 @@ card_asmodai_banner_bottom:
     item2:
       card:
         type: custom:button-card
-        template: custom_chip_asmodai_mdi_icon_label
+        template: chip_asmodai_mdi_icon_label
         label: "Presets"
         icon: "mdi:brightness-percent"
         styles:
@@ -345,7 +345,7 @@ card_asmodai_banner_bottom:
     item3:
       card:
         type: custom:button-card
-        template: custom_chip_asmodai_occupancy
+        template: chip_asmodai_occupancy
         variables:
           custom_chip_asmodai_occypancy_entity: >
             [[[ return variables.ulm_card_asmodai_banner_occupancy_entity ]]]

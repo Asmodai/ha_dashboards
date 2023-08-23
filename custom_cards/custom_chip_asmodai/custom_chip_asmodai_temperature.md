@@ -19,7 +19,7 @@ minimal. This chip will display `°C` instead of just a degrees symbol.
 ## Usage
 ```yaml
 - type: custom:button-card
-  template: custom_chip_asmodai_temperature
+  template: chip_asmodai_temperature
   variables:
     ulm_chip_temperature_inside: sensor.my_internal_temperature_sensor
     ulm_chip_temperature_outside: sensor.my_external_temperature_sensor

@@ -15,7 +15,7 @@ supervisor.  All HA updates are performed via shell scripts.
 ## Usage
 ```yaml
 - type: custom:button-card
-  template: custom_chip_asmodai_upgrade
+  template: chip_asmodai_update
   entity: binary_sensor.home_assistant_versions_update_available
 ```
 

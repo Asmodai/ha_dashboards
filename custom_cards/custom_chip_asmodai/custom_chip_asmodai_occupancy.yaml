@@ -1,5 +1,5 @@
 ---
-custom_chip_asmodai_occupancy:
+chip_asmodai_occupancy:
   template: "chips"
   triggers_update: "all"
   show_icon: true
@@ -47,4 +47,4 @@ custom_chip_asmodai_occupancy:
     label:
       - font-size: "12px"
       - margin-left: "0px"
-      - color: "[[[ if (variables.custom_chip_asmodai_occypancy_entity === undefined) { return 'grey'; } if (!variables.custom_chip_asmodai_occypancy_entity) { return 'grey'; } return variables.custom_chip_asmodai_occupancy_label_color ]]]"
+      - color: "[[[ if (variables.custom_chip_asmodai_occypancy_entity === undefined) { return 'grey'; } if (!variables.custom_chip_asmodai_occypancy_entity) { return 'grey'; } return variables.chip_asmodai_occupancy_label_color ]]]"

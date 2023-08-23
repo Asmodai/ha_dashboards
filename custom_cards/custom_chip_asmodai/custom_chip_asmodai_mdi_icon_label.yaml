@@ -1,5 +1,5 @@
 ---
-custom_chip_asmodai_mdi_icon_label:
+chip_asmodai_mdi_icon_label:
   template: "chips"
   show_icon: true
   styles:

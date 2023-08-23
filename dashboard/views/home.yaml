@@ -51,25 +51,25 @@ cards:
       - view_layout:
           grid-area: garden
         type: custom:button-card
-        template: custom_chip_asmodai_waste
+        template: chip_asmodai_waste
         variables:
-          custom_chip_asmodai_waste_entity: sensor.waste_collection_garden
-          custom_chip_asmodai_waste_icon: 'mdi:leaf'
-          custom_chip_asmodai_waste_icon_color: 'rgb(128, 201, 148)'
+          chip_asmodai_waste_entity: sensor.waste_collection_garden
+          chip_asmodai_waste_icon: 'mdi:leaf'
+          chip_asmodai_waste_icon_color: 'rgb(128, 201, 148)'
       - view_layout:
           grid-area: general
         type: custom:button-card
-        template: custom_chip_asmodai_waste
+        template: chip_asmodai_waste
         variables:
-          custom_chip_asmodai_waste_entity: sensor.waste_collection_general
-          custom_chip_asmodai_waste_icon: 'mdi:trash-can'
-          custom_chip_asmodai_waste_icon_color: 'rgb(137, 179, 248)'
+          chip_asmodai_waste_entity: sensor.waste_collection_general
+          chip_asmodai_waste_icon: 'mdi:trash-can'
+          chip_asmodai_waste_icon_color: 'rgb(137, 179, 248)'
       - view_layout:
           grid-area: lights
         type: custom:button-card
-        template: custom_chip_asmodai_lights_count
+        template: chip_asmodai_lights_count
         variables:
-          custom_chip_asmodai_lights_count_entity: sensor.current_lights_on
+          chip_asmodai_lights_count_entity: sensor.current_lights_on
         
   #
   # Rooms.
@@ -78,13 +78,13 @@ cards:
     cards:
       # Hallway.
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Hallway
         entity: light.room_hallway
         icon: mdi:home-floor-g
         variables:
-          ulm_custom_card_esh_room_light_entity: light.room_hallway
-          ulm_card_esh_room_presence_entity: binary_sensor.esp1_hallway_occupancy
+          ulm_custom_card_asmodai_room_light_entity: light.room_hallway
+          ulm_card_asmodai_room_presence_entity: binary_sensor.esp1_hallway_occupancy
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
@@ -96,13 +96,13 @@ cards:
           ]]]
       # Landing.
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Landing
         entity: light.room_landing
         icon: mdi:home-floor-1
         variables:
-          ulm_custom_card_esh_room_light_entity: light.room_landing
-          ulm_card_esh_room_presence_entity: binary_sensor.esp1_landing_occupancy
+          ulm_custom_card_asmodai_room_light_entity: light.room_landing
+          ulm_card_asmodai_room_presence_entity: binary_sensor.esp1_landing_occupancy
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
@@ -116,7 +116,7 @@ cards:
     cards:
       # Kitchen
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Kitchen
         icon: mdi:fridge
         tap_action:
@@ -128,12 +128,12 @@ cards:
           ]]]
       # Living Room
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Living Room
         entity: light.room_living_room
         icon: mdi:sofa
         variables:
-          ulm_custom_card_esh_room_light_entity: light.room_living_room
+          ulm_custom_card_asmodai_room_light_entity: light.room_living_room
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
@@ -147,7 +147,7 @@ cards:
     cards:
         # Will be my room.
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Main Bedroom
         icon: mdi:bed
         tap_action:
@@ -159,20 +159,17 @@ cards:
           ]]]
       # Will be 'office'.
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Paul's Bedroom
         entity: light.room_office
         icon: mdi:desk
         variables:
-          ulm_custom_card_esh_room_light_entity: light.room_office
+          ulm_custom_card_asmodai_room_light_entity: light.room_office
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
           action: navigate
           navigation_path: 'office'
-          #[[[
-          #  return "🌡️ " + states['sensor.temperature'].state + "°C" + " 💧 " + states['sensor.humidity'].state + "%"
-          #]]]
         label: >
           [[[
             return "🌡️ 9001°C  💧 100%"
@@ -181,7 +178,7 @@ cards:
     cards:
         # Lower wet room.
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Lower Wetroom
         icon: mdi:shower-head
         tap_action:
@@ -193,7 +190,7 @@ cards:
           ]]]
       # Upper bathroom.
       - type: 'custom:button-card'
-        template: card_esh_room
+        template: card_asmodai_room
         name: Upper Bathroom
         icon: mdi:shower
         tap_action:

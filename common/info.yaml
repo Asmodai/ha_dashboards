@@ -20,7 +20,7 @@ layout:
   mediaquery:
     # Mobile.
     "(max-width: 800px)":
-      grid-template-columns: "100%"
+      grid-template-columns: "1fr"
       grid-template-rows: "auto"
       grid-template-areas: |
         "people"

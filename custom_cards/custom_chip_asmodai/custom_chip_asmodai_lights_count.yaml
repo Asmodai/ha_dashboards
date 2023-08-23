@@ -2,12 +2,12 @@
 ##
 ## Total lights "on" count chip.
 ##
-custom_chip_asmodai_lights_count:
+chip_asmodai_lights_count:
   template: chip_mdi_icon_state
   tap_action:
     action: "none"
   variables:
-    ulm_chip_mdi_icon_state_entity:     "[[[ return variables.custom_chip_asmodai_lights_count_entity ]]]"
+    ulm_chip_mdi_icon_state_entity:     "[[[ return variables.chip_asmodai_lights_count_entity ]]]"
     ulm_chip_mdi_icon_state_icon:       'mdi:lightbulb-on'
     ulm_chip_mdi_icon_state_icon_color: 'rgb(252, 214, 99)'
 
