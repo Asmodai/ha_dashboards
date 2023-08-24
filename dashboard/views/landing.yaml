@@ -8,13 +8,13 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Landing"
-      ulm_card_asmodai_banner_icon: 'mdi:home-floor-1'
-      ulm_card_asmodai_banner_light_entity: light.room_landing
-      ulm_card_asmodai_banner_scene_filter: "scene.landing*"
-      ulm_card_asmodai_banner_scene_exclude: "scene.landing_nope*"
-      ulm_card_asmodai_banner_occupancy_entity: binary_sensor.esp1_landing_occupancy
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Landing"
+      custom_card_asmodai_banner_icon: 'mdi:home-floor-1'
+      custom_card_asmodai_banner_light_entity: light.room_landing
+      custom_card_asmodai_banner_scene_filter: "scene.landing*"
+      custom_card_asmodai_banner_scene_exclude: "scene.landing_nope*"
+      custom_card_asmodai_banner_occupancy_entity: binary_sensor.esp1_landing_occupancy
       entity_1:
         scene: "scene.landing_purple"
         icon: "mdi:palette"
@@ -79,6 +79,11 @@ cards:
         entity: sensor.esp1_landing_humidity
   - type: horizontal-stack
     cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: Pressure
+        entity: sensor.aqara_landing_pressure
       - type: sensor
         graph: line
         detail: 1

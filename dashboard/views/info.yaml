@@ -2,15 +2,68 @@ title: "Information"
 path: "info"
 cards:
 
-  #
-  # Banner.
-  #
+  ##
+  ## Banner.
+  ##
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Information"
-      ulm_card_asmodai_banner_icon: 'mdi:information-outline'
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Information"
+      custom_card_asmodai_banner_icon: 'mdi:information-outline'
 
-  # Include the common info view.
-  - !include "../../common/info.yaml"
+  ##
+  ## Current users.
+  ##
+  ## This is tucked away here because I'm pretty much the only
+  ## person here that uses this stuff.
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_person_info
+        variables:
+          ulm_card_person_entity: person.paul
+          ulm_card_person_use_entity_picture: true
+          ulm_card_person_zone1: zone.home
+          ulm_multiline: false
+          ulm_card_person_battery_entity: sensor.pixel_4a_battery_level
+          ulm_card_person_battery_state_entity: sensor.pixel_4a_battery_state
+          
+  ##
+  ## Disable light automation.
+  ##
+  - type: entities
+    entities:
+      - input_boolean.disable_light_automation
+
+  ##
+  ## Home Assistant software information.
+  ##
+  ## N.B. The 'updates' chip doesn't do anything as of this
+  ## moment due to the use of HA in a Docker container.
+  ## This could be scripted and then fired via a service
+  ## call, but Not Yet(tm).
+  - type: custom:button-card
+    template: custom_card_asmodai_versions
+    variables:
+      custom_card_asmodai_versions_current_entity: sensor.current_version
+      custom_card_asmodai_versions_latest_entity:  sensor.home_assistant_versions
+      custom_card_asmodai_versions_update_entity:  binary_sensor.home_assistant_versions_update_available
+
+  ##
+  ## Device battery information.
+  ##
+  - type: custom:stack-in-card
+    cards:
+      - type: custom:button-card
+        template: card_title
+        name: "Battery Information"
+      - type: entities
+        entities:
+          - sensor.aqara_bedroom_battery
+          - sensor.aqara_hallway_battery
+          - sensor.aqara_kitchen_battery
+          - sensor.aqara_landing_battery
+          - sensor.aqara_livingroom_battery
+          - sensor.aqara_office_battery
+

@@ -8,38 +8,13 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Hallway"
-      ulm_card_asmodai_banner_icon: 'mdi:home-floor-g'
-      ulm_card_asmodai_banner_light_entity: light.room_hallway
-      ulm_card_asmodai_banner_scene_filter: "scene.hallway*"
-      ulm_card_asmodai_banner_scene_exclude: "scene.hallway_nope*"
-      ulm_card_asmodai_banner_occupancy_entity: binary_sensor.esp1_hallway_occupancy
-      entity_1:
-        scene: "scene.hallway_purple"
-        icon: "mdi:palette"
-        name: Purple
-        color: purple
-      entity_2:
-        scene: "scene.hallway_tokyo"
-        name: Tokyo
-        icon: "mdi:palette"
-        color: purple
-      entity_3:
-        scene: "scene.hallway_concentrate"
-        name: Normal
-        icon: "mdi:palette"
-        color: blue
-      entity_4:
-        scene: "scene.hallway_read"
-        name: Read
-        icon: "mdi:palette"
-        color: yellow
-      entity_5:
-        scene: "scene.hallway_nightlight"
-        name: Nightlight
-        icon: "mdi:palette"
-        color: yellow
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Hallway"
+      custom_card_asmodai_banner_icon: 'mdi:home-floor-g'
+      custom_card_asmodai_banner_light_entity: light.room_hallway
+      custom_card_asmodai_banner_scene_filter: "scene.hallway*"
+      custom_card_asmodai_banner_scene_exclude: "scene.hallway_nope*"
+      custom_card_asmodai_banner_occupancy_entity: binary_sensor.esp1_hallway_occupancy
 
   #
   # Lights.
@@ -79,6 +54,11 @@ cards:
         entity: sensor.esp1_hallway_humidity
   - type: horizontal-stack
     cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: Pressure
+        entity: sensor.aqara_hallway_pressure
       - type: sensor
         graph: line
         detail: 1

@@ -8,12 +8,12 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Living Room"
-      ulm_card_asmodai_banner_icon: 'mdi:sofa'
-      ulm_card_asmodai_banner_light_entity: light.room_living_room
-      ulm_card_asmodai_banner_scene_filter: "scene.living_room_*"
-      ulm_card_asmodai_banner_scene_exclude: "scene.living_room_herp_*"
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Living Room"
+      custom_card_asmodai_banner_icon: 'mdi:sofa'
+      custom_card_asmodai_banner_light_entity: light.room_living_room
+      custom_card_asmodai_banner_scene_filter: "scene.living_room_*"
+      custom_card_asmodai_banner_scene_exclude: "scene.living_room_herp_*"
 
   #
   # Lights.
@@ -66,16 +66,41 @@ cards:
     template: card_asmodai_media_player
     entity: media_player.tv_43pus8807_12
     variables:
-      ulm_card_asmodai_media_player_name: "Philips TV"
-      ulm_card_asmodai_media_player_enable_art: false
-      ulm_card_asmodai_media_player_enable_controls: true
-      ulm_card_asmodai_media_player_enable_volume_buttons: true
-      ulm_card_asmodai_media_player_enable_popup: true
-      ulm_card_asmodai_media_player_more_info: true
-      ulm_card_asmodai_media_player_collapsible: true
-      ulm_card_asmodai_media_player_power_button: true
-      ulm_card_asmodai_media_player_force_background_color: true
-      ulm_card_asmodai_media_player_navigation_path: 'philips_tv'
+      custom_card_asmodai_media_player_name: "Philips TV"
+      custom_card_asmodai_media_player_enable_art: false
+      custom_card_asmodai_media_player_enable_controls: true
+      custom_card_asmodai_media_player_enable_volume_buttons: true
+      custom_card_asmodai_media_player_enable_popup: true
+      custom_card_asmodai_media_player_more_info: true
+      custom_card_asmodai_media_player_collapsible: true
+      custom_card_asmodai_media_player_power_button: true
+      custom_card_asmodai_media_player_force_background_color: true
+      custom_card_asmodai_media_player_navigation_path: 'philips_tv'
+      
+  #
+  # Sensors.
+  - type: 'custom:button-card'
+    template: card_title
+    label: Sensors
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: "Temperature"
+        entity: sensor.aqara_livingroom_temperature
+      - type: sensor
+        graph: line
+        detail: 1
+        name: "Humidity"
+        entity: sensor.aqara_livingroom_humidity
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: Pressure
+        entity: sensor.aqara_livingroom_pressure
 
 # EOF
 

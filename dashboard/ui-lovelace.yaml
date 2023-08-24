@@ -4,6 +4,7 @@ button_card_templates: !include_dir_merge_named "../../custom_components/ui_love
 title: "Mobile Dash"
 background: "var(--background-image)"
 views:
+  ## Include all subviews.
   - !include views/home.yaml
   - !include views/hallway.yaml
   - !include views/kitchen.yaml

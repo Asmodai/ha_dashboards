@@ -11,18 +11,18 @@ card_asmodai_room:
     - "ulm_translation_engine"
   size: "20px"
   variables:
-    ulm_custom_card_asmodai_room_light_entity: null
-    ulm_custom_card_asmodai_room_climate_entity: null
+    custom_card_asmodai_room_light_entity: null
+    custom_card_asmodai_room_climate_entity: null
     ulm_card_thermostat_enable_popup: false
     ulm_card_light_enable_popup: false
     ulm_card_dynamic_color: false
-    ulm_card_asmodai_room_light_icon_on: "mdi:lightbulb"
-    ulm_card_asmodai_room_light_icon_off: "mdi:lightbulb-off"
-    ulm_card_asmodai_room_presence_entity: null
+    custom_card_asmodai_room_light_icon_on: "mdi:lightbulb"
+    custom_card_asmodai_room_light_icon_off: "mdi:lightbulb-off"
+    custom_card_asmodai_room_presence_entity: null
   label: >-
     [[[
-      var label_entity = variables.ulm_custom_card_asmodai_room_light_entity
-        ? states[variables.ulm_custom_card_asmodai_room_light_entity]
+      var label_entity = variables.custom_card_asmodai_room_light_entity
+        ? states[variables.custom_card_asmodai_room_light_entity]
         : entity;
       if (!label_entity) {
         return "<br />";
@@ -40,9 +40,9 @@ card_asmodai_room:
       - padding: "12px"
       - background-color: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity) {
-              var color = states[variables.ulm_custom_card_asmodai_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_asmodai_room_light_entity].state == "on") {
+            if (variables.custom_card_asmodai_room_light_entity) {
+              var color = states[variables.custom_card_asmodai_room_light_entity].attributes.rgb_color;
+              if (states[variables.custom_card_asmodai_room_light_entity].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 0.2)';
                 }
@@ -54,11 +54,11 @@ card_asmodai_room:
     grid:
       - grid-template-areas: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity && variables.ulm_custom_card_asmodai_room_climate_entity) {
+            if (variables.custom_card_asmodai_room_light_entity && variables.custom_card_asmodai_room_climate_entity) {
               return "'i light' 'n climate' 'l climate'";
-            } else if (variables.ulm_custom_card_asmodai_room_light_entity) {
+            } else if (variables.custom_card_asmodai_room_light_entity) {
               return "'i light' 'n n' 'l l'";
-            } else if (variables.ulm_custom_card_asmodai_room_climate_entity) {
+            } else if (variables.custom_card_asmodai_room_climate_entity) {
               return "'i .' 'n climate' 'l climate'";
             } else {
               return "'i .' 'n n' 'l l'";
@@ -69,22 +69,22 @@ card_asmodai_room:
     icon:
       - filter: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity
-                && states[variables.ulm_custom_card_asmodai_room_light_entity].state == "on"
+            if (variables.custom_card_asmodai_room_light_entity
+                && states[variables.custom_card_asmodai_room_light_entity].state == "on"
                 && variables.ulm_card_dynamic_color) {
               return "contrast(0.6) saturate(1.7)";
             }
           ]]]
       - color: >-
           [[[
-            if (variables.ulm_card_asmodai_room_presence_entity) {
-              if (states[variables.ulm_card_asmodai_room_presence_entity].state == 'on') {
+            if (variables.custom_card_asmodai_room_presence_entity) {
+              if (states[variables.custom_card_asmodai_room_presence_entity].state == 'on') {
                 return 'rgba(var(--color-yellow), 1)';
               }
             }
-            if (variables.ulm_custom_card_asmodai_room_light_entity) {
-              var color = states[variables.ulm_custom_card_asmodai_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_asmodai_room_light_entity].state == "on") {
+            if (variables.custom_card_asmodai_room_light_entity) {
+              var color = states[variables.custom_card_asmodai_room_light_entity].attributes.rgb_color;
+              if (states[variables.custom_card_asmodai_room_light_entity].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 1)';
                 }
@@ -101,9 +101,9 @@ card_asmodai_room:
       - margin-left: "12px"
       - background-color: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity) {
-              var color = states[variables.ulm_custom_card_asmodai_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_asmodai_room_light_entity].state == "on") {
+            if (variables.custom_card_asmodai_room_light_entity) {
+              var color = states[variables.custom_card_asmodai_room_light_entity].attributes.rgb_color;
+              if (states[variables.custom_card_asmodai_room_light_entity].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 0.3)';
                 }
@@ -120,11 +120,11 @@ card_asmodai_room:
       - margin-left: "12px"
       - margin-top: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity && variables.ulm_custom_card_asmodai_room_climate_entity) {
+            if (variables.custom_card_asmodai_room_light_entity && variables.custom_card_asmodai_room_climate_entity) {
               return "8px";
-            } else if (variables.ulm_custom_card_asmodai_room_light_entity) {
+            } else if (variables.custom_card_asmodai_room_light_entity) {
               return "12px";
-            } else if (variables.ulm_custom_card_asmodai_room_climate_entity) {
+            } else if (variables.custom_card_asmodai_room_climate_entity) {
               return "8px";
             } else {
               return "12px";
@@ -132,11 +132,11 @@ card_asmodai_room:
           ]]]
       - max-width: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity && variables.ulm_custom_card_asmodai_room_climate_entity) {
+            if (variables.custom_card_asmodai_room_light_entity && variables.custom_card_asmodai_room_climate_entity) {
               return "85%";
-            } else if (variables.ulm_custom_card_asmodai_room_light_entity) {
+            } else if (variables.custom_card_asmodai_room_light_entity) {
               return "100%";
-            } else if (variables.ulm_custom_card_asmodai_room_climate_entity) {
+            } else if (variables.custom_card_asmodai_room_climate_entity) {
               return "85%";
             } else {
               return "100%";
@@ -144,9 +144,9 @@ card_asmodai_room:
           ]]]
       - color: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity) {
-              var color = states[variables.ulm_custom_card_asmodai_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_asmodai_room_light_entity].state == "on") {
+            if (variables.custom_card_asmodai_room_light_entity) {
+              var color = states[variables.custom_card_asmodai_room_light_entity].attributes.rgb_color;
+              if (states[variables.custom_card_asmodai_room_light_entity].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 1)';
                 }
@@ -158,8 +158,8 @@ card_asmodai_room:
           ]]]
       - filter: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity
-                && states[variables.ulm_custom_card_asmodai_room_light_entity].state == "on"
+            if (variables.custom_card_asmodai_room_light_entity
+                && states[variables.custom_card_asmodai_room_light_entity].state == "on"
                 && variables.ulm_card_dynamic_color) {
               return "contrast(0.6) saturate(1.7)";
             }
@@ -173,11 +173,11 @@ card_asmodai_room:
       - margin-left: "12px"
       - margin-bottom: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity && variables.ulm_custom_card_asmodai_room_climate_entity) {
+            if (variables.custom_card_asmodai_room_light_entity && variables.custom_card_asmodai_room_climate_entity) {
               return "0px";
-            } else if (variables.ulm_custom_card_asmodai_room_light_entity) {
+            } else if (variables.custom_card_asmodai_room_light_entity) {
               return "3px";
-            } else if (variables.ulm_custom_card_asmodai_room_climate_entity) {
+            } else if (variables.custom_card_asmodai_room_climate_entity) {
               return "0px";
             } else {
               return "3px";
@@ -185,11 +185,11 @@ card_asmodai_room:
           ]]]
       - max-width: >-
           [[[
-            if (variables.ulm_custom_card_asmodai_room_light_entity && variables.ulm_custom_card_asmodai_room_climate_entity) {
+            if (variables.custom_card_asmodai_room_light_entity && variables.custom_card_asmodai_room_climate_entity) {
               return "85%";
-            } else if (variables.ulm_custom_card_asmodai_room_light_entity) {
+            } else if (variables.custom_card_asmodai_room_light_entity) {
               return "100%";
-            } else if (variables.ulm_custom_card_asmodai_room_climate_entity) {
+            } else if (variables.custom_card_asmodai_room_climate_entity) {
               return "85%";
             } else {
               return "100%";
@@ -206,7 +206,7 @@ card_asmodai_room:
       light:
         - display: >
             [[[
-              if (variables.ulm_custom_card_asmodai_room_light_entity) {
+              if (variables.custom_card_asmodai_room_light_entity) {
                   return "block";
               } else {
                   return "none";
@@ -215,7 +215,7 @@ card_asmodai_room:
       climate:
         - display: >
             [[[
-              if (variables.ulm_custom_card_asmodai_room_climate_entity) {
+              if (variables.custom_card_asmodai_room_climate_entity) {
                 return "block";
               } else {
                 return "none";
@@ -224,20 +224,20 @@ card_asmodai_room:
   custom_fields:
     light:
       card:
-        entity: "[[[ return variables.ulm_custom_card_asmodai_room_light_entity ]]]"
+        entity: "[[[ return variables.custom_card_asmodai_room_light_entity ]]]"
         name: "[[[ return name ]]]"
         triggers_update: "all"
         state:
           - value: "on"
-            icon: "[[[ return variables.ulm_card_asmodai_room_light_icon_on; ]]]"
+            icon: "[[[ return variables.custom_card_asmodai_room_light_icon_on; ]]]"
             styles:
               icon:
                 - color: "rgba(var(--color-yellow), 1)"
               img_cell:
                 - background-color: >-
                     [[[
-                      if (variables.ulm_custom_card_asmodai_room_light_entity) {
-                        var color = states[variables.ulm_custom_card_asmodai_room_light_entity].attributes.rgb_color;
+                      if (variables.custom_card_asmodai_room_light_entity) {
+                        var color = states[variables.custom_card_asmodai_room_light_entity].attributes.rgb_color;
                         if (color && variables.ulm_card_dynamic_color) {
                           return 'rgba(' + color + ', 0.3)';
                         }
@@ -245,7 +245,7 @@ card_asmodai_room:
                       return 'rgba(var(--color-yellow), 0.2)';
                     ]]]
           - value: "off"
-            icon: "[[[ return variables.ulm_card_asmodai_room_light_icon_off; ]]]"
+            icon: "[[[ return variables.custom_card_asmodai_room_light_icon_off; ]]]"
         type: "custom:button-card"
         template:
           - "widget_icon"
@@ -259,7 +259,7 @@ card_asmodai_room:
               vars.ulm_custom_popup = {
                 'template': 'popup_light_brightness',
                 'popup_variables': {
-                  'ulm_popup_light_entity': variables.ulm_custom_card_asmodai_room_light_entity,
+                  'ulm_popup_light_entity': variables.custom_card_asmodai_room_light_entity,
                 }
               };
             }
@@ -267,7 +267,7 @@ card_asmodai_room:
           ]]]
     climate:
       card:
-        entity: "[[[ return variables.ulm_custom_card_asmodai_room_climate_entity ]]]"
+        entity: "[[[ return variables.custom_card_asmodai_room_climate_entity ]]]"
         name: "[[[ return name ]]]"
         state:
           - value: "auto"
@@ -330,7 +330,7 @@ card_asmodai_room:
               vars.ulm_custom_popup = {
                 'template': 'popup_thermostat_temperature',
                 'popup_variables': {
-                  'ulm_popup_thermostat_entity': variables.ulm_custom_card_asmodai_room_climate_entity,
+                  'ulm_popup_thermostat_entity': variables.custom_card_asmodai_room_climate_entity,
                 }
               };
             }

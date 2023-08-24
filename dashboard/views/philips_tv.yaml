@@ -4,9 +4,9 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "livingroom"
-      ulm_card_asmodai_banner_name: "Philips TV"
-      ulm_card_asmodai_banner_icon: 'mdi:remote-tv'
+      custom_card_asmodai_banner_back_path: "livingroom"
+      custom_card_asmodai_banner_name: "Philips TV"
+      custom_card_asmodai_banner_icon: 'mdi:remote-tv'
   - type: vertical-stack
     cards:
       - square: false

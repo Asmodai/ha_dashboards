@@ -6,13 +6,13 @@
 card_asmodai_banner:
   template: "ulm_language_variables"
   variables:
-    ulm_card_asmodai_banner_name:             "[[[ return variables.ulm_card_asmodai_banner_name ]]]"
-    ulm_card_asmodai_banner_icon:             "[[[ return variables.ulm_card_asmodai_banner_icon ]]]"
-    ulm_card_asmodai_banner_back_path:        "[[[ return variables.ulm_card_asmodai_banner_back_path ]]]"
-    ulm_card_asmodai_banner_light_entity:     "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
-    ulm_card_asmodai_banner_scene_filter:     "[[[ return variables.ulm_card_asmodai_banner_scene_filter ]]]"
-    ulm_card_asmodai_banner_scene_exclude:    "[[[ return variables.ulm_card_asmodai_banner_scene_exclude ]]]"
-    ulm_card_asmodai_banner_occupancy_entity: "[[[ return variables.ulm_card_asmodai_banner_occupancy_entity ]]]"
+    custom_card_asmodai_banner_name:             "[[[ return variables.custom_card_asmodai_banner_name ]]]"
+    custom_card_asmodai_banner_icon:             "[[[ return variables.custom_card_asmodai_banner_icon ]]]"
+    custom_card_asmodai_banner_back_path:        "[[[ return variables.custom_card_asmodai_banner_back_path ]]]"
+    custom_card_asmodai_banner_light_entity:     "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
+    custom_card_asmodai_banner_scene_filter:     "[[[ return variables.custom_card_asmodai_banner_scene_filter ]]]"
+    custom_card_asmodai_banner_scene_exclude:    "[[[ return variables.custom_card_asmodai_banner_scene_exclude ]]]"
+    custom_card_asmodai_banner_occupancy_entity: "[[[ return variables.custom_card_asmodai_banner_occupancy_entity ]]]"
   show_icon: false
   show_label: true
   show_name: false
@@ -22,7 +22,7 @@ card_asmodai_banner:
           [[[
             var areas = "\'top\'"
           
-            if (variables.ulm_card_asmodai_banner_light_entity) {
+            if (variables.custom_card_asmodai_banner_light_entity) {
               areas += " \'light\'"
             }
             
@@ -43,7 +43,7 @@ card_asmodai_banner:
       light:
         - display: >
             [[[
-              if (variables.ulm_card_asmodai_banner_light_entity) {
+              if (variables.custom_card_asmodai_banner_light_entity) {
                 return "block";
               } else {
                 return "none";
@@ -57,13 +57,13 @@ card_asmodai_banner:
         type: "custom:button-card"
         template: "card_asmodai_banner_topbar"
         variables:
-          ulm_card_asmodai_banner_name:             "[[[ return variables.ulm_card_asmodai_banner_name ]]]"
-          ulm_card_asmodai_banner_icon:             "[[[ return variables.ulm_card_asmodai_banner_icon ]]]"
-          ulm_card_asmodai_banner_back_path:        "[[[ return variables.ulm_card_asmodai_banner_back_path ]]]"
-          ulm_card_asmodai_banner_light_entity:     "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
-          ulm_card_asmodai_banner_scene_filter:     "[[[ return variables.ulm_card_asmodai_banner_scene_filter ]]]"
-          ulm_card_asmodai_banner_scene_exclude:    "[[[ return variables.ulm_card_asmodai_banner_scene_exclude ]]]"
-          ulm_card_asmodai_banner_occupancy_entity: "[[[ return variables.ulm_card_asmodai_banner_occupancy_entity ]]]"
+          custom_card_asmodai_banner_name:             "[[[ return variables.custom_card_asmodai_banner_name ]]]"
+          custom_card_asmodai_banner_icon:             "[[[ return variables.custom_card_asmodai_banner_icon ]]]"
+          custom_card_asmodai_banner_back_path:        "[[[ return variables.custom_card_asmodai_banner_back_path ]]]"
+          custom_card_asmodai_banner_light_entity:     "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
+          custom_card_asmodai_banner_scene_filter:     "[[[ return variables.custom_card_asmodai_banner_scene_filter ]]]"
+          custom_card_asmodai_banner_scene_exclude:    "[[[ return variables.custom_card_asmodai_banner_scene_exclude ]]]"
+          custom_card_asmodai_banner_occupancy_entity: "[[[ return variables.custom_card_asmodai_banner_occupancy_entity ]]]"
         styles:
           card:
             - border-radius: "none"
@@ -78,8 +78,8 @@ card_asmodai_banner:
         template: "card_light"
         entity: >
           [[[
-            if (variables.ulm_card_asmodai_banner_light_entity) {
-              return variables.ulm_card_asmodai_banner_light_entity;
+            if (variables.custom_card_asmodai_banner_light_entity) {
+              return variables.custom_card_asmodai_banner_light_entity;
             } else {
               return "light.room_office";
             }
@@ -101,10 +101,10 @@ card_asmodai_banner:
         type: "custom:button-card"
         template: "card_asmodai_banner_bottom"
         variables:
-          ulm_card_asmodai_banner_scene_filter:     "[[[ return variables.ulm_card_asmodai_banner_scene_filter ]]]"
-          ulm_card_asmodai_banner_scene_exclude:    "[[[ return variables.ulm_card_asmodai_banner_scene_exclude ]]]"
-          ulm_card_asmodai_banner_occupancy_entity: "[[[ return variables.ulm_card_asmodai_banner_occupancy_entity ]]]"
-          ulm_card_asmodai_banner_light_entity:     "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+          custom_card_asmodai_banner_scene_filter:     "[[[ return variables.custom_card_asmodai_banner_scene_filter ]]]"
+          custom_card_asmodai_banner_scene_exclude:    "[[[ return variables.custom_card_asmodai_banner_scene_exclude ]]]"
+          custom_card_asmodai_banner_occupancy_entity: "[[[ return variables.custom_card_asmodai_banner_occupancy_entity ]]]"
+          custom_card_asmodai_banner_light_entity:     "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
         styles:
           card:
             - border-radius: "none"
@@ -180,7 +180,7 @@ card_asmodai_banner_presets:
   type: "custom:button-card"
   template: "list_3_items"
   variables:
-    ulm_card_asmodai_banner_light_entity: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+    custom_card_asmodai_banner_light_entity: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
     light_brightness_low: 1
     light_brightness_medium: 50
     light_brightness_high: 100
@@ -192,36 +192,36 @@ card_asmodai_banner_presets:
       card:
         type: "custom:button-card"
         template: "widget_icon"
-        entity: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+        entity: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
         tap_action:
           action: "call-service"
           service: "light.turn_on"
           service_data:
-            entity_id: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+            entity_id: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
             brightness_pct: "[[[ return variables.light_brightness_low ]]]"
         icon: "mdi:lightbulb-on-10"
     item2:
       card:
         type: "custom:button-card"
         template: "widget_icon"
-        entity: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+        entity: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
         tap_action:
           action: "call-service"
           service: "light.turn_on"
           service_data:
-            entity_id: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+            entity_id: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
             brightness_pct: "[[[ return variables.light_brightness_medium ]]]"
         icon: "mdi:lightbulb-on-50"
     item3:
       card:
         type: "custom:button-card"
         template: "widget_icon"
-        entity: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+        entity: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
         tap_action:
           action: "call-service"
           service: "light.turn_on"
           service_data:
-            entity_id: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+            entity_id: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
             brightness_pct: "[[[ return variables.light_brightness_high ]]]"
         icon: "mdi:lightbulb-on"
 
@@ -233,10 +233,10 @@ card_asmodai_banner_bottom:
   show_label: false
   show_name: true
   variables:
-    ulm_card_asmodai_banner_scene_filter:     "[[[ return variables.ulm_card_asmodai_banner_scene_filter ]]]"
-    ulm_card_asmodai_banner_scene_exclude:    "[[[ if (variables.ulm_card_asmodai_banner_scene_exclude === undefined) { return ''; } return variables.ulm_card_asmodai_banner_scene_exclude; ]]]"
-    ulm_card_asmodai_banner_occupancy_entity: "[[[ return variables.ulm_card_asmodai_banner_occupancy_entity ]]]"
-    ulm_card_asmodai_banner_light_entity:     "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+    custom_card_asmodai_banner_scene_filter:     "[[[ return variables.custom_card_asmodai_banner_scene_filter ]]]"
+    custom_card_asmodai_banner_scene_exclude:    "[[[ if (variables.custom_card_asmodai_banner_scene_exclude === undefined) { return ''; } return variables.custom_card_asmodai_banner_scene_exclude; ]]]"
+    custom_card_asmodai_banner_occupancy_entity: "[[[ return variables.custom_card_asmodai_banner_occupancy_entity ]]]"
+    custom_card_asmodai_banner_light_entity:     "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
   styles:
     grid:
       - grid-template-areas: "'item1 item2 item3'"
@@ -256,7 +256,7 @@ card_asmodai_banner_bottom:
         - padding: 0px
         - display: >
             [[[
-              if (variables.ulm_card_asmodai_banner_scene_filter !== undefined) {
+              if (variables.custom_card_asmodai_banner_scene_filter !== undefined) {
                 return "block";
               } else {
                 return "none";
@@ -268,7 +268,7 @@ card_asmodai_banner_bottom:
         - padding: 0px
         - display: >
             [[[
-              if (variables.ulm_card_asmodai_banner_scene_filter !== undefined) {
+              if (variables.custom_card_asmodai_banner_scene_filter !== undefined) {
                 return "block";
               } else {
                 return "none";
@@ -280,7 +280,7 @@ card_asmodai_banner_bottom:
         - padding: 0px
         - display: >
             [[[
-              if (variables.ulm_card_asmodai_banner_occupancy_entity !== undefined) {
+              if (variables.custom_card_asmodai_banner_occupancy_entity !== undefined) {
                 return "block";
               } else {
                 return "none";
@@ -316,8 +316,8 @@ card_asmodai_banner_bottom:
                     - cursor: "default"
                     - "--mdc-ripple-press-opacity": 0   # prevent click animation
                 variables:
-                  scene_include: "[[[ return variables.ulm_card_asmodai_banner_scene_filter ]]]"
-                  scene_exclude: "[[[ return variables.ulm_card_asmodai_banner_scene_exclude ]]]"
+                  scene_include: "[[[ return variables.custom_card_asmodai_banner_scene_filter ]]]"
+                  scene_exclude: "[[[ return variables.custom_card_asmodai_banner_scene_exclude ]]]"
     item2:
       card:
         type: custom:button-card
@@ -341,14 +341,14 @@ card_asmodai_banner_bottom:
                 type: custom:button-card
                 template: card_asmodai_banner_presets
                 variables:
-                  ulm_card_asmodai_banner_light_entity: "[[[ return variables.ulm_card_asmodai_banner_light_entity ]]]"
+                  custom_card_asmodai_banner_light_entity: "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
     item3:
       card:
         type: custom:button-card
         template: chip_asmodai_occupancy
         variables:
           custom_chip_asmodai_occypancy_entity: >
-            [[[ return variables.ulm_card_asmodai_banner_occupancy_entity ]]]
+            [[[ return variables.custom_card_asmodai_banner_occupancy_entity ]]]
         styles:
           card:
             - border-radius: "none"
@@ -381,11 +381,11 @@ card_asmodai_banner_topbar:
         type: "custom:button-card"
         template: "chip_mdi_icon_only"
         variables:
-          ulm_card_asmodai_banner_back_path: "[[[ return variables.ulm_card_asmodai_banner_back_path ]]]"
+          custom_card_asmodai_banner_back_path: "[[[ return variables.custom_card_asmodai_banner_back_path ]]]"
           ulm_chip_mdi_icon_only_icon: "mdi:arrow-left"
         tap_action:
           action: "navigate"
-          navigation_path: "[[[ return variables.ulm_card_asmodai_banner_back_path ]]]"
+          navigation_path: "[[[ return variables.custom_card_asmodai_banner_back_path ]]]"
         styles:
           card:
             - align-self: "end"
@@ -402,8 +402,8 @@ card_asmodai_banner_topbar:
       card:
         type: "custom:button-card"
         template: "chip_icon_label"
-        label: "[[[ return variables.ulm_card_asmodai_banner_name ]]]"
-        icon:  "[[[ return variables.ulm_card_asmodai_banner_icon ]]]"
+        label: "[[[ return variables.custom_card_asmodai_banner_name ]]]"
+        icon:  "[[[ return variables.custom_card_asmodai_banner_icon ]]]"
         tap_action:
           action: "none"
         styles:

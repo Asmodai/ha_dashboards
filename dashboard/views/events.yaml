@@ -8,9 +8,9 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Events"
-      ulm_card_asmodai_banner_icon: 'mdi:calendar'
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Events"
+      custom_card_asmodai_banner_icon: 'mdi:calendar'
 
   #
   # Calendar.

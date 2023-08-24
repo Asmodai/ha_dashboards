@@ -83,8 +83,8 @@ cards:
         entity: light.room_hallway
         icon: mdi:home-floor-g
         variables:
-          ulm_custom_card_asmodai_room_light_entity: light.room_hallway
-          ulm_card_asmodai_room_presence_entity: binary_sensor.esp1_hallway_occupancy
+          custom_card_asmodai_room_light_entity: light.room_hallway
+          custom_card_asmodai_room_presence_entity: binary_sensor.esp1_hallway_occupancy
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
@@ -92,7 +92,7 @@ cards:
           navigation_path: 'hallway'
         label: >
           [[[
-            return "🌡️ " + states['sensor.esp1_hallway_temperature'].state + "°C" + " 💧 " + states['sensor.esp1_hallway_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_hallway_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_hallway_humidity'].state + "%"
           ]]]
       # Landing.
       - type: 'custom:button-card'
@@ -101,8 +101,8 @@ cards:
         entity: light.room_landing
         icon: mdi:home-floor-1
         variables:
-          ulm_custom_card_asmodai_room_light_entity: light.room_landing
-          ulm_card_asmodai_room_presence_entity: binary_sensor.esp1_landing_occupancy
+          custom_card_asmodai_room_light_entity: light.room_landing
+          custom_card_asmodai_room_presence_entity: binary_sensor.esp1_landing_occupancy
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
@@ -110,7 +110,7 @@ cards:
           navigation_path: 'landing'
         label: >
           [[[
-            return "🌡️ " + states['sensor.esp1_landing_temperature'].state + "°C" + " 💧 " + states['sensor.esp1_landing_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_landing_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_landing_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:
@@ -123,8 +123,9 @@ cards:
           action: navigate
           navigation_path: 'kitchen'
         label: >
+        label: >
           [[[
-            return "🌡️ IT BURNS! °C  💧 100%"
+            return "🌡️ " + states['sensor.aqara_kitchen_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_kitchen_humidity'].state + "%"
           ]]]
       # Living Room
       - type: 'custom:button-card'
@@ -133,15 +134,16 @@ cards:
         entity: light.room_living_room
         icon: mdi:sofa
         variables:
-          ulm_custom_card_asmodai_room_light_entity: light.room_living_room
+          custom_card_asmodai_room_light_entity: light.room_living_room
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
           action: navigate
           navigation_path: 'livingroom'
         label: >
+        label: >
           [[[
-            return "🌡️ 9001°C  💧 100%"
+            return "🌡️ " + states['sensor.aqara_livingroom_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_livingroom_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:
@@ -154,8 +156,9 @@ cards:
           action: navigate
           navigation_path: 'bedroom'
         label: >
+        label: >
           [[[
-            return "🌡️ 9001°C  💧 100%"
+            return "🌡️ " + states['sensor.aqara_bedroom_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_bedroom_humidity'].state + "%"
           ]]]
       # Will be 'office'.
       - type: 'custom:button-card'
@@ -164,7 +167,7 @@ cards:
         entity: light.room_office
         icon: mdi:desk
         variables:
-          ulm_custom_card_asmodai_room_light_entity: light.room_office
+          custom_card_asmodai_room_light_entity: light.room_office
           ulm_card_light_enable_popup: true
           ulm_card_dynamic_color: true
         tap_action:
@@ -172,7 +175,7 @@ cards:
           navigation_path: 'office'
         label: >
           [[[
-            return "🌡️ 9001°C  💧 100%"
+            return "🌡️ " + states['sensor.aqara_office_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_office_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:

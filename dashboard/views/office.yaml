@@ -8,12 +8,12 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Paul's Bedroom"
-      ulm_card_asmodai_banner_icon: 'mdi:desk'
-      ulm_card_asmodai_banner_light_entity: light.room_office
-      ulm_card_asmodai_banner_scene_filter: "scene.office_*"
-      ulm_card_asmodai_banner_scene_exclude: "scene.office_desk_*"
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Paul's Bedroom"
+      custom_card_asmodai_banner_icon: 'mdi:desk'
+      custom_card_asmodai_banner_light_entity: light.room_office
+      custom_card_asmodai_banner_scene_filter: "scene.office_*"
+      custom_card_asmodai_banner_scene_exclude: "scene.office_desk_*"
 
   #
   # Light group.
@@ -44,6 +44,31 @@ cards:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
+
+  #
+  # Sensors.
+  - type: 'custom:button-card'
+    template: card_title
+    label: Sensors
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: "Temperature"
+        entity: sensor.aqara_office_temperature
+      - type: sensor
+        graph: line
+        detail: 1
+        name: "Humidity"
+        entity: sensor.aqara_office_humidity
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: Pressure
+        entity: sensor.aqara_office_pressure
 
 # EOF
 

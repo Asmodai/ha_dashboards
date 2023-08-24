@@ -8,9 +8,9 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Kitchen"
-      ulm_card_asmodai_banner_icon: 'mdi:fridge'
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Kitchen"
+      custom_card_asmodai_banner_icon: 'mdi:fridge'
 
   #
   # Devices group title.
@@ -19,3 +19,27 @@ cards:
     template: card_title
     label: Devices
 
+  #
+  # Sensors.
+  - type: 'custom:button-card'
+    template: card_title
+    label: Sensors
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: "Temperature"
+        entity: sensor.aqara_kitchen_temperature
+      - type: sensor
+        graph: line
+        detail: 1
+        name: "Humidity"
+        entity: sensor.aqara_kitchen_humidity
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        graph: line
+        detail: 1
+        name: Pressure
+        entity: sensor.aqara_kitchen_pressure

@@ -8,9 +8,9 @@ cards:
   - type: "custom:button-card"
     template: "card_asmodai_banner"
     variables:
-      ulm_card_asmodai_banner_back_path: "home"
-      ulm_card_asmodai_banner_name: "Garden"
-      ulm_card_asmodai_banner_icon: 'mdi:flower'
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Garden"
+      custom_card_asmodai_banner_icon: 'mdi:flower'
 
   #
   # Lights group title.
