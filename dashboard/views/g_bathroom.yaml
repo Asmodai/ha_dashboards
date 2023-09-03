@@ -19,3 +19,82 @@ cards:
     template: card_title
     label: Devices
 
+  #
+  # Sensors.
+  - type: 'custom:button-card'
+    template: card_title
+    label: Sensors
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_wetroom_temperature_temperature
+        variables:
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.aqara_wetroom_temperature_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_wetroom_temperature_temperature"].state;
+            
+              if (state < 20) {
+                return "var(--google-blue)";
+              } else if (state > 24) {
+                return "var(--google-yellow)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_wetroom_temperature_humidity
+        variables:
+          ulm_card_graph_name: Humidity
+          ulm_card_graph_entity: sensor.aqara_wetroom_temperature_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_wetroom_temperature_humidity"].state;
+            
+              if (state < 30) {
+                return "rgb(148, 137, 248)";
+              } else if (state < 40) {
+                return "rgb(137, 179, 248)";
+              } else if (state > 60) {
+                return "rgb(252, 163, 99)";
+              } else if (state > 50) {
+                return "rgb(252, 214, 99)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_wetroom_temperature_pressure
+        variables:
+          ulm_card_graph_name: Pressure
+          ulm_card_graph_entity: sensor.aqara_wetroom_temperature_pressure
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_wetroom_temperature_pressure"].state;
+            
+              if (state < 1009.144) {
+                return "var(--google-blue)";
+              } else if (state > 1022.689) {
+                return "var(--google-yellow)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]

@@ -10,8 +10,9 @@ cards:
     variables:
       ulm_card_asmodai_welcome_info_path: "info"
       ulm_card_asmodai_welcome_info_icon: "mdi:information-outline"
-      ulm_weather: "weather.openweathermap"
-      ulm_temperature: "sensor.openweathermap_temperature"
+      ulm_weather:      "weather.openweathermap"
+      ulm_temperature:  "sensor.openweathermap_temperature"
+      ulm_humidity:     "sensor.openweathermap_humidity"
       ulm_weather_page: "weather"
       entity_1:
         nav: "security"
@@ -92,7 +93,7 @@ cards:
           navigation_path: 'hallway'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_hallway_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_hallway_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C"
           ]]]
       # Landing.
       - type: 'custom:button-card'
@@ -110,7 +111,7 @@ cards:
           navigation_path: 'landing'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_landing_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_landing_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_landing_temperature_temperature'].state + "°C"
           ]]]
   - type: horizontal-stack
     cards:
@@ -123,9 +124,8 @@ cards:
           action: navigate
           navigation_path: 'kitchen'
         label: >
-        label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_kitchen_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_kitchen_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_kitchen_temperature_temperature'].state + "°C"
           ]]]
       # Living Room
       - type: 'custom:button-card'
@@ -141,29 +141,27 @@ cards:
           action: navigate
           navigation_path: 'livingroom'
         label: >
-        label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_livingroom_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_livingroom_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_livingroom_temperature_temperature'].state + "°C"
           ]]]
   - type: horizontal-stack
     cards:
         # Will be my room.
       - type: 'custom:button-card'
         template: card_asmodai_room
-        name: Main Bedroom
+        name: Bedroom
         icon: mdi:bed
         tap_action:
           action: navigate
           navigation_path: 'bedroom'
         label: >
-        label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_bedroom_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_bedroom_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C"
           ]]]
       # Will be 'office'.
       - type: 'custom:button-card'
         template: card_asmodai_room
-        name: Paul's Bedroom
+        name: Office
         entity: light.room_office
         icon: mdi:desk
         variables:
@@ -175,33 +173,33 @@ cards:
           navigation_path: 'office'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_office_temperature'].state + "°C" + " 💧 " + states['sensor.aqara_office_humidity'].state + "%"
+            return "🌡️ " + states['sensor.aqara_office_temperature_temperature'].state + "°C"
           ]]]
   - type: horizontal-stack
     cards:
         # Lower wet room.
       - type: 'custom:button-card'
         template: card_asmodai_room
-        name: Lower Wetroom
+        name: Wetroom
         icon: mdi:shower-head
         tap_action:
           action: navigate
           navigation_path: 'wetroom'
         label: >
           [[[
-            return "🌡️ 9001°C  💧 100%"
+            return "🌡️ " + states['sensor.aqara_wetroom_temperature_temperature'].state + "°C"
           ]]]
       # Upper bathroom.
       - type: 'custom:button-card'
         template: card_asmodai_room
-        name: Upper Bathroom
+        name: Bathroom
         icon: mdi:shower
         tap_action:
           action: navigate
           navigation_path: 'bathroom'
         label: >
           [[[
-            return "🌡️ 9001°C  💧 100%"
+            return "🌡️ " + states['sensor.aqara_bathroom_temperature_temperature'].state + "°C"
           ]]]
 
 # EOF

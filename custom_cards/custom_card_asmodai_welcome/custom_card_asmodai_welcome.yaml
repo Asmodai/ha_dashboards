@@ -17,8 +17,9 @@
 card_asmodai_welcome:
   template: "ulm_language_variables"
   variables:
-    ulm_weather: "[[[ return variables.ulm_weather ]]]"
-    ulm_temperature: "[[[ return variables.ulm_temperature ]]]"
+    ulm_weather:      "[[[ return variables.ulm_weather ]]]"
+    ulm_temperature:  "[[[ return variables.ulm_temperature ]]]"
+    ulm_humidity:     "[[[ return variables.ulm_humidity ]]]"
     ulm_weather_page: "[[[ return variables.ulm_weather_page ]]]"
     entity_1:
       color: >
@@ -84,6 +85,7 @@ card_asmodai_welcome:
             "[[[ return variables.ulm_card_asmodai_welcome_info_icon ]]]"
           ulm_weather: "[[[ return variables.ulm_weather ]]]"
           ulm_temperature: "[[[ return variables.ulm_temperature ]]]"
+          ulm_humidity: "[[[ return variables.ulm_humidity ]]]"
           ulm_weather_page: "[[[ return variables.ulm_weather_page ]]]"
         styles:
           card:
@@ -399,9 +401,10 @@ card_asmodai_welcome_topbar:
         type: custom:button-card
         template: chip_asmodai_temperature
         variables:
-          ulm_chip_temperature_weather: "[[[ return variables.ulm_weather]]]"
-          ulm_chip_temperature_outside: "[[[ return variables.ulm_temperature ]]]"
-          ulm_weather_page: "[[[ return variables.ulm_weather_page ]]]"
+          ulm_chip_temperature_weather:  "[[[ return variables.ulm_weather]]]"
+          ulm_chip_temperature_outside:  "[[[ return variables.ulm_temperature ]]]"
+          ulm_chip_temperature_humidity: "[[[ return variables.ulm_humidity ]]]"
+          ulm_weather_page:              "[[[ return variables.ulm_weather_page ]]]"
         tap_action:
           action: "navigate"
           navigation_path: "[[[ return variables.ulm_weather_page ]]]"

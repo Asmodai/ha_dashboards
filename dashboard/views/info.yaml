@@ -55,15 +55,18 @@ cards:
   ##
   - type: custom:stack-in-card
     cards:
-      - type: custom:button-card
-        template: card_title
-        name: "Battery Information"
-      - type: entities
-        entities:
-          - sensor.aqara_bedroom_battery
-          - sensor.aqara_hallway_battery
-          - sensor.aqara_kitchen_battery
-          - sensor.aqara_landing_battery
-          - sensor.aqara_livingroom_battery
-          - sensor.aqara_office_battery
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Battery Levels
+          state_color: true
+        sort:
+          method: state
+          numeric: true
+        filter:
+          include:
+            - entity_id: '*_battery'
+              domain: sensor
+          exclude:
+            - entity_id: '*_browser_*'
 

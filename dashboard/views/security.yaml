@@ -13,6 +13,14 @@ cards:
       custom_card_asmodai_banner_icon: 'mdi:shield'
 
   #
+  # Alarm panel.
+  #
+  - type: custom:alarmo-card
+    entity: alarm_control_panel.alarmo
+    use_clear_icon: true
+    name: Self-Destruct System
+
+  #
   # Devices group title.
   #
   - type: 'custom:button-card'

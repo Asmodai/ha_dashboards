@@ -12,6 +12,7 @@ chip_asmodai_temperature:
     - "ulm_actions_card"
   variables:
     ulm_card_weather_enable_popup: false
+    ulm_chip_temperature_humidity: "[[[ return variables.ulm_chip_temperature_humidity ]]]"
   triggers_update: "all"
   label: |
     [[[
@@ -33,8 +34,9 @@ chip_asmodai_temperature:
         "windy":           "🌪️",
         "default":         "🌡️"
       }
+      var humicon = "💧"
       
-      function convertTemperature(temp) {
+      function convertFloat(temp) {
         if (parseFloat(temp) == temp && Math.floor(temp) != temp) {
             return parseFloat(temp).toFixed(1);
         }
@@ -43,15 +45,26 @@ chip_asmodai_temperature:
       }
       
       var outside_temp = states[variables.ulm_chip_temperature_outside].state;
+      var label = (icon[state] || icon["default"]) + "&nbsp;&nbsp;" + convertFloat(outside_temp) + "°C";
       var inside_temp  = null;
+      var humidity     = null;
+      
       if (variables.ulm_chip_temperature_inside) {
         inside_temp = states[variables.ulm_chip_temperature_inside].state;
       }
       
-      var label = (icon[state] || icon["default"]) + "&nbsp;&nbsp;" + convertTemperature(outside_temp) + "°C";
-      if (inside_temp) {
-        label = label + " / " + convertTemperature(inside_temp) + "°C";
+      if (variables.ulm_chip_temperature_humidity) {
+        humidity = states[variables.ulm_chip_temperature_humidity].state;
       }
+      
+      if (inside_temp) {
+        label += " │ " + convertFloat(inside_temp) + "°C";
+      }
+      
+      if (humidity) {
+        label += " │ " + humicon + "&nbsp;&nbsp;" + convertFloat(humidity) + "%";
+      }
+      
       return label;
     ]]]
 

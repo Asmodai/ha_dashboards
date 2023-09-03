@@ -15,31 +15,6 @@ cards:
       custom_card_asmodai_banner_scene_filter: "scene.landing*"
       custom_card_asmodai_banner_scene_exclude: "scene.landing_nope*"
       custom_card_asmodai_banner_occupancy_entity: binary_sensor.esp1_landing_occupancy
-      entity_1:
-        scene: "scene.landing_purple"
-        icon: "mdi:palette"
-        name: Purple
-        color: purple
-      entity_2:
-        scene: "scene.landing_tokyo"
-        name: Tokyo
-        icon: "mdi:palette"
-        color: purple
-      entity_3:
-        scene: "scene.landing_concentrate"
-        name: Normal
-        icon: "mdi:palette"
-        color: blue
-      entity_4:
-        scene: "scene.landing_read"
-        name: Read
-        icon: "mdi:palette"
-        color: yellow
-      entity_5:
-        scene: "scene.landing_nightlight"
-        name: Nightlight
-        icon: "mdi:palette"
-        color: yellow
 
   #
   # Lights.
@@ -67,27 +42,100 @@ cards:
     label: Sensors
   - type: horizontal-stack
     cards:
-      - type: sensor
-        graph: line
-        detail: 1
-        name: "Temperature"
-        entity: sensor.esp1_landing_temperature
-      - type: sensor
-        graph: line
-        detail: 1
-        name: "Humidity"
-        entity: sensor.esp1_landing_humidity
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_landing_temperature_temperature
+        variables:
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.aqara_landing_temperature_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_landing_temperature_temperature"].state;
+            
+              if (state < 20) {
+                return "var(--google-blue)";
+              } else if (state > 24) {
+                return "var(--google-yellow)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_landing_temperature_humidity
+        variables:
+          ulm_card_graph_name: Humidity
+          ulm_card_graph_entity: sensor.aqara_landing_temperature_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_landing_temperature_humidity"].state;
+            
+              if (state < 30) {
+                return "rgb(148, 137, 248)";
+              } else if (state < 40) {
+                return "rgb(137, 179, 248)";
+              } else if (state > 60) {
+                return "rgb(252, 163, 99)";
+              } else if (state > 50) {
+                return "rgb(252, 214, 99)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
   - type: horizontal-stack
     cards:
-      - type: sensor
-        graph: line
-        detail: 1
-        name: Pressure
-        entity: sensor.aqara_landing_pressure
-      - type: sensor
-        graph: line
-        detail: 1
-        name: "Illuminance"
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_landing_temperature_pressure
+        variables:
+          ulm_card_graph_name: Pressure
+          ulm_card_graph_entity: sensor.aqara_landing_temperature_pressure
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_landing_temperature_pressure"].state;
+            
+              if (state < 1009.144) {
+                return "var(--google-blue)";
+              } else if (state > 1022.689) {
+                return "var(--google-yellow)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+      - type: 'custom:button-card'
+        template: card_graph
         entity: sensor.esp1_landing_illuminance
+        variables:
+          ulm_card_graph_name: Illuminance
+          ulm_card_graph_entity: sensor.esp1_landing_illuminance
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.esp1_landing_illuminance"].state;
+            
+              if (state < 100) {
+                return "var(--google-yellow)";
+              } else if (state > 150) {
+                return "var--(google-blue)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+
 
 # EOF
