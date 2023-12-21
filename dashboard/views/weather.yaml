@@ -42,4 +42,11 @@ cards:
       showAzimuth: true
       showElevation: true
 
+  #
+  # Moon phase.
+  #
+  - type: entities
+    entities:
+      - sensor.moon_phase
+
 # EOF

@@ -21,13 +21,13 @@ card_asmodai_banner:
       - grid-template-areas: >
           [[[
             var areas = "\'top\'"
-          
+
             if (variables.custom_card_asmodai_banner_light_entity) {
               areas += " \'light\'"
             }
-            
+
             areas += " \'bottom\'"
-            
+
             return areas
           ]]]
       - grid-template-columns: "1fr"
@@ -57,13 +57,9 @@ card_asmodai_banner:
         type: "custom:button-card"
         template: "card_asmodai_banner_topbar"
         variables:
-          custom_card_asmodai_banner_name:             "[[[ return variables.custom_card_asmodai_banner_name ]]]"
-          custom_card_asmodai_banner_icon:             "[[[ return variables.custom_card_asmodai_banner_icon ]]]"
-          custom_card_asmodai_banner_back_path:        "[[[ return variables.custom_card_asmodai_banner_back_path ]]]"
-          custom_card_asmodai_banner_light_entity:     "[[[ return variables.custom_card_asmodai_banner_light_entity ]]]"
-          custom_card_asmodai_banner_scene_filter:     "[[[ return variables.custom_card_asmodai_banner_scene_filter ]]]"
-          custom_card_asmodai_banner_scene_exclude:    "[[[ return variables.custom_card_asmodai_banner_scene_exclude ]]]"
-          custom_card_asmodai_banner_occupancy_entity: "[[[ return variables.custom_card_asmodai_banner_occupancy_entity ]]]"
+          custom_card_asmodai_banner_name:      "[[[ return variables.custom_card_asmodai_banner_name ]]]"
+          custom_card_asmodai_banner_icon:      "[[[ return variables.custom_card_asmodai_banner_icon ]]]"
+          custom_card_asmodai_banner_back_path: "[[[ return variables.custom_card_asmodai_banner_back_path ]]]"
         styles:
           card:
             - border-radius: "none"
@@ -110,7 +106,7 @@ card_asmodai_banner:
             - border-radius: "none"
             - box-shadow: "none"
             - padding-bottom: "0px"
-        
+
 #
 # Scene icons.
 #

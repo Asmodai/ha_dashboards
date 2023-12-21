@@ -12,8 +12,8 @@ cards:
       custom_card_asmodai_banner_name: "Hallway"
       custom_card_asmodai_banner_icon: 'mdi:home-floor-g'
       custom_card_asmodai_banner_light_entity: light.room_hallway
-      custom_card_asmodai_banner_scene_filter: "scene.hallway*"
-      custom_card_asmodai_banner_scene_exclude: "scene.hallway_nope*"
+      custom_card_asmodai_banner_scene_filter: "scene.(room_)?hallway*"
+      custom_card_asmodai_banner_scene_exclude: "scene.(room_)?hallway_nope*"
       custom_card_asmodai_banner_occupancy_entity: binary_sensor.esp1_hallway_occupancy
 
   #

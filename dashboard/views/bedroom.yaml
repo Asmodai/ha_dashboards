@@ -9,7 +9,7 @@ cards:
     template: "card_asmodai_banner"
     variables:
       custom_card_asmodai_banner_back_path: "home"
-      custom_card_asmodai_banner_name: "Main Bedroom"
+      custom_card_asmodai_banner_name: "Bedroom"
       custom_card_asmodai_banner_icon: 'mdi:bed'
 
   #
@@ -39,7 +39,7 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.aqara_bedroom_temperature_temperature"].state;
-            
+
               if (state < 20) {
                 return "var(--google-blue)";
               } else if (state > 24) {
@@ -61,7 +61,7 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.aqara_bedroom_temperature_humidity"].state;
-            
+
               if (state < 30) {
                 return "rgb(148, 137, 248)";
               } else if (state < 40) {
@@ -89,7 +89,7 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.aqara_bedroom_temperature_pressure"].state;
-            
+
               if (state < 1009.144) {
                 return "var(--google-blue)";
               } else if (state > 1022.689) {

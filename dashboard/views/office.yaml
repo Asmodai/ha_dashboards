@@ -9,11 +9,11 @@ cards:
     template: "card_asmodai_banner"
     variables:
       custom_card_asmodai_banner_back_path: "home"
-      custom_card_asmodai_banner_name: "Paul's Bedroom"
+      custom_card_asmodai_banner_name: "Office"
       custom_card_asmodai_banner_icon: 'mdi:desk'
       custom_card_asmodai_banner_light_entity: light.room_office
-      custom_card_asmodai_banner_scene_filter: "scene.office_*"
-      custom_card_asmodai_banner_scene_exclude: "scene.office_desk_*"
+      custom_card_asmodai_banner_scene_filter: "scene.(room_)?office_*"
+      custom_card_asmodai_banner_scene_exclude: "scene.(room_)?office_desk_*"
 
   #
   # Light group.
@@ -35,15 +35,61 @@ cards:
           ulm_card_light_enable_collapse: true
       - type: "custom:button-card"
         template: card_light
-        name: Desk
-        icon: mdi:desk
         entity: light.zone_office_desk
         variables:
+          ulm_card_light_name: "Desk"
           ulm_card_light_icon: "mdi:led-strip-variant"
           ulm_card_light_enable_slider: true
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
+
+  #
+  # 'Studio' lights.
+  #
+  - type: vertical-stack
+    cards:
+    - type: custom:stack-in-card
+      cards:
+        - type: 'custom:button-card'
+          template: card_light
+          entity: light.office_studio
+          variables:
+            ulm_card_light_name: "Studio"
+            ulm_card_light_icon: "mdi:light-flood-up"
+            ulm_card_light_enable_slider: true
+            ulm_card_light_enable_color: true
+            ulm_card_light_force_background_color: false
+            ulm_card_light_enable_collapse: true
+            ulm_card_light_color_palette: true
+        - type: 'custom:button-card'
+          template: card_scenes_welcome
+          variables:
+            entity_1:
+              entity_id: "scene.room_studio_normal"
+              icon:      "mdi:brightness-6"
+              name:      "Normal"
+              color:     "blue"
+            entity_2:
+              entity_id: "scene.room_studio_energise"
+              icon:      "mdi:brightness-7"
+              name:      "Energise"
+              color:     "yellow"
+            entity_3:
+              entity_id: "scene.room_studio_purple"
+              icon:      "mdi:light-flood-up"
+              name:      "Purple"
+              color:     "purple"
+            entity_4:
+              entity_id: "scene.room_studio_red"
+              icon:      "mdi:light-flood-up"
+              name:      "Red"
+              color:     "red"
+            entity_5:
+              entity_id: "scene.room_studio_candle"
+              icon:      "mdi:candle"
+              name:      "Candle"
+              color:     "yellow"
 
   #
   # Sensors.
@@ -65,7 +111,7 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.aqara_office_temperature_temperature"].state;
-            
+
               if (state < 20) {
                 return "var(--google-blue)";
               } else if (state > 24) {
@@ -74,6 +120,30 @@ cards:
                 return "var(--google-green)";
               }
             ]]]
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_office_desk_temperature_temperature
+        variables:
+          ulm_card_graph_name: Desk Temperature
+          ulm_card_graph_entity: sensor.aqara_office_desk_temperature_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_office_desk_temperature_temperature"].state;
+
+              if (state < 20) {
+                return "var(--google-blue)";
+              } else if (state > 24) {
+                return "var(--google-yellow)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+  - type: horizontal-stack
+    cards:
       - type: 'custom:button-card'
         template: card_graph
         entity: sensor.aqara_office_temperature_humidity
@@ -87,7 +157,33 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.aqara_office_temperature_humidity"].state;
-            
+
+              if (state < 30) {
+                return "rgb(148, 137, 248)";
+              } else if (state < 40) {
+                return "rgb(137, 179, 248)";
+              } else if (state > 60) {
+                return "rgb(252, 163, 99)";
+              } else if (state > 50) {
+                return "rgb(252, 214, 99)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_office_desk_temperature_humidity
+        variables:
+          ulm_card_graph_name: Desk Humidity
+          ulm_card_graph_entity: sensor.aqara_office_desk_temperature_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_office_desk_temperature_humidity"].state;
+
               if (state < 30) {
                 return "rgb(148, 137, 248)";
               } else if (state < 40) {
@@ -115,7 +211,29 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.aqara_office_temperature_pressure"].state;
-            
+
+              if (state < 1009.144) {
+                return "var(--google-blue)";
+              } else if (state > 1022.689) {
+                return "var(--google-yellow)";
+              } else {
+                return "var(--google-green)";
+              }
+            ]]]
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.aqara_office_desk_temperature_pressure
+        variables:
+          ulm_card_graph_name: Desk Pressure
+          ulm_card_graph_entity: sensor.aqara_office_desk_temperature_pressure
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+          ulm_card_graph_color: |
+            [[[
+              var state = states["sensor.aqara_office_desk_temperature_pressure"].state;
+
               if (state < 1009.144) {
                 return "var(--google-blue)";
               } else if (state > 1022.689) {
@@ -145,7 +263,7 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.fibaro_wall_plug_1_electric_consumption_w"].state;
-            
+
               if (state > 2000) {
                 return "rgb(241, 139, 130)";
               } else if (state > 1400) {
@@ -169,7 +287,7 @@ cards:
           ulm_card_graph_color: |
             [[[
               var state = states["sensor.fibaro_wall_plug_2_electric_consumption_w"].state;
-            
+
               if (state > 2000) {
                 return "rgb(241, 139, 130)";
               } else if (state > 1400) {

@@ -71,7 +71,7 @@ cards:
         template: chip_asmodai_lights_count
         variables:
           chip_asmodai_lights_count_entity: sensor.current_lights_on
-        
+
   #
   # Rooms.
   #
@@ -93,7 +93,8 @@ cards:
           navigation_path: 'hallway'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_hallway_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_hallway_temperature_humidity'].state + "%"
           ]]]
       # Landing.
       - type: 'custom:button-card'
@@ -111,7 +112,8 @@ cards:
           navigation_path: 'landing'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_landing_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_landing_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_landing_temperature_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:
@@ -125,7 +127,8 @@ cards:
           navigation_path: 'kitchen'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_kitchen_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_kitchen_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_kitchen_temperature_humidity'].state + "%"
           ]]]
       # Living Room
       - type: 'custom:button-card'
@@ -142,7 +145,8 @@ cards:
           navigation_path: 'livingroom'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_livingroom_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_livingroom_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_livingroom_temperature_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:
@@ -156,7 +160,8 @@ cards:
           navigation_path: 'bedroom'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_bedroom_temperature_humidity'].state + "%"
           ]]]
       # Will be 'office'.
       - type: 'custom:button-card'
@@ -173,7 +178,8 @@ cards:
           navigation_path: 'office'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_office_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_office_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_office_temperature_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:
@@ -187,7 +193,8 @@ cards:
           navigation_path: 'wetroom'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_wetroom_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_wetroom_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_wetroom_temperature_humidity'].state + "%"
           ]]]
       # Upper bathroom.
       - type: 'custom:button-card'
@@ -199,7 +206,8 @@ cards:
           navigation_path: 'bathroom'
         label: >
           [[[
-            return "🌡️ " + states['sensor.aqara_bathroom_temperature_temperature'].state + "°C"
+            return "🌡️ " + states['sensor.aqara_bathroom_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_bathroom_temperature_humidity'].state + "%"
           ]]]
 
 # EOF

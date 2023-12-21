@@ -26,15 +26,16 @@ cards:
           ulm_card_person_use_entity_picture: true
           ulm_card_person_zone1: zone.home
           ulm_multiline: false
-          ulm_card_person_battery_entity: sensor.pixel_4a_battery_level
-          ulm_card_person_battery_state_entity: sensor.pixel_4a_battery_state
-          
+          ulm_card_person_battery_entity: sensor.pixel_8_battery_level
+          ulm_card_person_battery_state_entity: sensor.pixel_8_battery_state
+
   ##
   ## Disable light automation.
   ##
   - type: entities
     entities:
       - input_boolean.disable_light_automation
+      - input_boolean.disable_display_light_automation
 
   ##
   ## Home Assistant software information.
