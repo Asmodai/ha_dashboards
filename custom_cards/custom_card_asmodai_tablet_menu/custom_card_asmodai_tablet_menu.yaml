@@ -4,34 +4,51 @@ card_asmodai_tablet_menu:
   show_name: false
   show_label: false
   variables:
+    colors:
+      active:   "#eae1fe"
+      inactive: "#b083fe"
+      disabled: "#5c279d"
+      parent:   "#54b4ff"
+      hilite:   "rgba(234, 225, 254, 0.4)"
+    parent:
+      icon: mdi:home-outline
+      path: "home"
     element_1:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_2:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_3:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_4:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_5:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_6:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_7:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
     element_8:
-      color: "#b083fe"
       icon: mdi:button-pointer
+      active: false
+      disabled: false
   styles:
     grid:
-      - grid-template-areas: "'e1 e2 e3 e4 e5 e6 e7 e8'"
-      - grid-template-columns: "auto auto auto auto auto auto auto auto"
+      - grid-template-areas: "'pi e1 e2 e3 e4 e5 e6 e7 e8'"
+      - grid-template-columns: "auto auto auto auto auto auto auto auto auto"
       - grid-template-rows: "auto"
       - row-gap: "8px"
     card:
@@ -47,72 +64,143 @@ card_asmodai_tablet_menu:
       - "--mdc-ripple-press-opacity": 0   # prevent click animation
       - height: 70px
     custom_fields:
+      pi:
+        - cursor: "default"
+        - border-radius: 0px
+        - "--mdc-ripple-press-opacity": 0.0     
       e1:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e2:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e3:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e4:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e5:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e6:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e7:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
       e8:
-        - margin-top: -5px
-        - padding: 5px
+        - border-radius: 0px
         - "--mdc-ripple-press-opacity": 0.12
   custom_fields:
+    pi:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.parent.icon  ]]]"
+        color: "[[[ return variables.colors.parent ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.parent.path ]]]"
     e1:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_1.icon  ]]]"
-        color: "[[[ return variables.element_1.color ]]]"
+        color: >
+          [[[
+            if (variables.element_1.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_1.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_1.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_1.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_1.disabled == true) {
+                return ""
+              }
+
+              return variables.element_1.active == true
+                      ? variables.parent.path
+                      : variables.element_1.path
+            ]]]
     e2:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_2.icon  ]]]"
-        color: "[[[ return variables.element_2.color ]]]"
+        color: >
+          [[[
+            if (variables.element_2.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_2.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_2.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_2.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_2.disabled == true) {
+                return ""
+              }
+
+              return variables.element_2.active == true
+                      ? variables.parent.path
+                      : variables.element_2.path
+            ]]]
     e3:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_3.icon  ]]]"
-        color: "[[[ return variables.element_3.color ]]]"
+        color: >
+          [[[
+            if (variables.element_3.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_3.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
@@ -121,79 +209,218 @@ card_asmodai_tablet_menu:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_3.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_3.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_3.disabled == true) {
+                return ""
+              }
+
+              return variables.element_3.active == true
+                      ? variables.parent.path
+                      : variables.element_3.path
+            ]]]
     e4:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_4.icon  ]]]"
-        color: "[[[ return variables.element_4.color ]]]"
+        color: >
+          [[[
+            if (variables.element_4.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_4.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_4.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_4.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_4.disabled == true) {
+                return ""
+              }
+
+              return variables.element_4.active == true
+                      ? variables.parent.path
+                      : variables.element_4.path
+            ]]]
     e5:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_5.icon  ]]]"
-        color: "[[[ return variables.element_5.color ]]]"
+        color: >
+          [[[
+            if (variables.element_5.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_5.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_5.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_5.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_5.disabled == true) {
+                return ""
+              }
+
+              return variables.element_5.active == true
+                      ? variables.parent.path
+                      : variables.element_5.path
+            ]]]
     e6:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_6.icon  ]]]"
-        color: "[[[ return variables.element_6.color ]]]"
+        color: >
+          [[[
+            if (variables.element_6.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_6.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_6.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_6.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_6.disabled == true) {
+                return ""
+              }
+
+              return variables.element_6.active == true
+                      ? variables.parent.path
+                      : variables.element_6.path
+            ]]]
     e7:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_7.icon  ]]]"
-        color: "[[[ return variables.element_7.color ]]]"
+        color: >
+          [[[
+            if (variables.element_7.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_7.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_7.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_7.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_7.disabled == true) {
+                return ""
+              }
+
+              return variables.element_7.active == true
+                      ? variables.parent.path
+                      : variables.element_7.path
+            ]]]
     e8:
       card:
         type: custom:button-card
         icon:  "[[[ return variables.element_8.icon  ]]]"
-        color: "[[[ return variables.element_8.color ]]]"
+        color: >
+          [[[
+            if (variables.element_8.active == true) {
+              return variables.colors.active;
+            }
+
+            if (variables.element_8.disabled == true) {
+              return variables.colors.disabled;
+            }
+
+            return variables.colors.inactive;
+          ]]]
         size:  50px
         styles:
           card:
-            - background-color: rgba(0,0,0,0.0)
+            - background-color: >
+                [[[
+                  return variables.element_8.active == true
+                          ? variables.colors.hilite
+                          : "rgba(0,0,0,0.0)";
+                ]]]
           icon:
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         tap_action:
           action: navigate
-          navigation_path: "[[[ return variables.element_8.path ]]]"
+          navigation_path: >
+            [[[
+              if (variables.element_8.disabled == true) {
+                return ""
+              }
+
+              return variables.element_8.active == true
+                      ? variables.parent.path
+                      : variables.element_8.path
+            ]]]

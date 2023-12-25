@@ -1,0 +1,85 @@
+---
+card_asmodai_tablet_banner:
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    room_name: "[[[ return variables.room_name; ]]]"
+  styles:
+    grid:
+      - grid-template-areas: "'room' 'time'"
+      - grid-template-columns: "'auto'"
+      - grid-template-rows: "'auto'"
+      - row-gap: "8px"
+    card:
+      - border-radius: 0px
+      - background-color: transparent !important
+      - padding: "0px"
+      - cursor: "default"
+      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+    custom_fields:
+      time:
+        - border: none;
+        - box-shadow: none;
+        - margin: 0px;
+        - background-color: rgba(0, 0, 0, 0.0) !important
+  custom_fields:
+    room:
+      card:
+        type: custom:button-card
+        name: >-
+          [[[
+            return variables.room_name != null
+                      ? variables.room_name
+                      : 'Room';
+          ]]]
+        tap_action:
+          action: none
+        styles:
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+          name:
+            - font-size: 2.2em
+            - font-family: roboto
+            - opacity: 1
+            - color: "#b083fe"
+            - font-weight: regular
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+            - height: 60px
+          card:
+            - margin-top: -20px
+            - padding: 20px
+            - background-color: transparent !important
+    time:
+      card:
+        type: custom:digital-clock
+        dateFormat:
+          weekday: 'long'
+          day: '2-digit'
+          month: 'long'
+        firstLineFormat: "HH:mm"
+        tap_action:
+          action: none
+        style:
+          .: |
+            ha-card {
+              background-color: rgba(0, 0, 0, 0.0) !important;
+            }
+            .first-line {
+              font-size: 6.6em !important;
+              font-family: roboto !important;
+              font-weight: 300 !important;
+              color: #eae1fe !important;
+              text-transform: uppercase;
+              text-align: center !important;
+              filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
+            }
+            .second-line {
+              font-size: 1.4em !important;
+              font-weight: 300 !important;
+              font-family: roboto !important;
+              color: #b083fe !important;
+              text-transform: uppercase;
+              text-align: center !important;
+              filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
+            }

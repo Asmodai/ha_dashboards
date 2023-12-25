@@ -1,0 +1,24 @@
+view_layout:
+  grid-area: alarm
+type: entities
+entities:
+  - entity: alarm_control_panel.alarmo
+    icon: mdi:shield-home-outline
+    name: Alarm
+    secondary_info: none
+    state_color: true
+    tap_action:
+      action: none
+tap_action:
+  action: none
+style:
+  .: |
+    ha-card {
+      background-color: rgba(0, 0, 0, 0.0);
+      box-shadow: none;
+      width: 250px !important;
+      position: fixed !important;
+      bottom: 0% !important;
+      margin-left: -20px !important;
+      height: 65px !important;
+    }

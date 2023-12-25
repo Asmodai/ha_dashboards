@@ -1,0 +1,204 @@
+type: custom:grid-layout
+title: Sensors
+square: false
+layout:
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr fit-content(1fr)
+  grid-template-rows:    80% fit-content(20%)
+  grid-template-areas: |
+    "graph   graph   graph"
+    "alarm   footer  security"
+  justify-items: stretch
+  justify-self: stretch
+icon: mdi:access-point
+path: bathroom_sensors
+visible: false
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+######################################################################
+## GRAPH
+
+  - view_layout:
+      grid-area: graph
+    type: custom:vertical-stack-in-card
+    style:
+      .: |
+        ha-card { background-color: transparent; }
+    cards:
+
+######################################################################
+## ROW 1
+
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+
+          - type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
+            entities:
+              - entity: sensor.aqara_bathroom_temperature_temperature
+                name: Bathroom
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Bathroom Temperature
+            color_thresholds:
+              - value: 30
+                color: "#f17e82"
+              - value: 24
+                color: "#fcd663"
+              - value: 20
+                color: "#63fc91"
+              - value: 10
+                color: "#63a3fc"
+
+          - type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
+            entities:
+              - entity: sensor.aqara_bathroom_temperature_humidity
+                name: Bathroom
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Bathroom Humidity
+            color_thresholds:
+              - value: 60
+                color: "#f17e82"
+              - value: 50
+                color: "#fca363"
+              - value: 40
+                color: "#fcd663"
+              - value: 30
+                color: "#63fc91"
+              - value: 0
+                color: "#94b3f8"
+
+          - type: custom:gap-card
+            style:
+              .: |
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
+
+          - type: custom:gap-card
+            style:
+              .: |
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
+
+  #
+  # Alarm area.
+  #
+  - !include "../../includes/alarm.yaml"
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        parent:
+          icon: mdi:bathtub-outline
+          path: "bathroom"
+        element_1: # Home
+          icon: mdi:home-outline
+          path: "home"
+        element_2: # Lighting
+          icon: mdi:lightbulb-outline
+          path: "bathroom_lights"
+        element_3: # Heating
+          icon: mdi:radiator
+          path: "bathroom_heating"
+        element_4: # Multimedia
+          icon: mdi:multimedia
+          path: "bathroom_multimedia"
+        element_5: # Sensors
+          icon:  mdi:access-point
+          path: "bathroom_sensors"
+          active: true
+        element_6: # Weather
+          icon: mdi:weather-partly-cloudy
+          path: "bathroom_climate"
+        element_7: # Calendar
+          icon: mdi:calendar-month-outline
+          path: "bathroom_events"
+        element_8: # Shopping
+          icon: mdi:cart-outline
+          path: "bathroom_todo"
+    style:
+      .: |
+        ha-card {
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }

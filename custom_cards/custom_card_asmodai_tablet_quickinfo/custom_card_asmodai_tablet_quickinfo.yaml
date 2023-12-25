@@ -1,0 +1,85 @@
+---
+card_asmodai_tablet_quickinfo:
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    temperature_entity: "[[[ return variables.temperature_entity; ]]]"
+    pressure_entity:    "[[[ return variables.pressure_entity;    ]]]"
+    humidity_entity:    "[[[ return variables.humidity_entity;    ]]]"
+    illuminance_entity: "[[[ return variables.illuminance_entity; ]]]"
+    air_quality_entity: "[[[ return variables.air_quality_entity; ]]]"
+  styles:
+    grid:
+      - grid-template-areas:  "'info'"
+      - grid-template-columns: "'1fr'"
+      - grid-template-rows:    "min-content"
+      - row-gap: 8px
+    card:
+      - border-radius: 0px
+      - background-color: rgba(0, 0, 0, 0.0) !important
+      - padding: 0px
+      - cursor: default
+      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+    custom_fields:
+      info:
+        - text-align: left !important
+        - background-color: rgba(0, 0, 0, 0.0) !important
+  custom_fields:
+    info:
+      card:
+        type: entities
+        state_color: false
+        show_header_toggle: false
+        tap_action:
+          action: none
+        styles:
+          card:
+            - cursor: default
+            - padding: 0px
+        style:
+          .: |
+            ha-card {
+              background-color: rgba(0, 0, 0, 0.0) !important;
+            }
+        entities: |
+          [[[
+            var objs = [];
+
+            if (variables.temperature_entity) {
+              objs.push({ "entity":     variables.temperature_entity,
+                          "name":       "Temperature",
+                          "icon":       "mdi:thermometer",
+                          "tap_action": { "action": "none" } });
+            }
+
+            if (variables.humidity_entity) {
+              objs.push({ "entity":     variables.humidity_entity,
+                          "name":       "Humidity",
+                          "icon":       "mdi:water-percent",
+                          "tap_action": { "action": "none" } });
+            }
+
+            if (variables.pressure_entity) {
+              objs.push({ "entity":     variables.pressure_entity,
+                          "name":       "Pressure",
+                          "icon":       "mdi:gauge",
+                          "tap_action": { "action": "none" } });
+            }
+
+            if (variables.illuminance_entity) {
+              objs.push({ "entity":     variables.illuminance_entity,
+                          "name":       "Illuminance",
+                          "icon":       "mdi:brightness-7",
+                          "tap_action": { "action": "none" } });
+            }
+
+            if (variables.air_quality_entity) {
+              objs.push({ "entity":     variables.air_quality_entity,
+                          "name":       "Air Quality",
+                          "icon":       "mdi:gauge",
+                          "tap_action": { "action": "none" } });
+            }
+
+            return objs;
+          ]]]

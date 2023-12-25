@@ -16,7 +16,7 @@ layout:
   justify-items: stretch
   justify-self: stretch
 icon: mdi:weather-partly-cloudy
-path: office_climate
+path: bathroom_climate
 visible: false
 badges: []
 style:
@@ -111,7 +111,7 @@ cards:
             hours_12: false
             graph_span: 1d
             series:
-              - entity: sensor.aqara_office_temperature_temperature
+              - entity: sensor.aqara_bathroom_temperature_temperature
               - entity: sensor.openweathermap_temperature
                 name: Outside Temperature
 
@@ -186,7 +186,7 @@ cards:
             hours_12: false
             graph_span: 1d
             series:
-              - entity: sensor.aqara_office_temperature_humidity
+              - entity: sensor.aqara_bathroom_temperature_humidity
                 unit: '%'
                 type: area
               - entity: sensor.openweathermap_humidity
@@ -258,7 +258,7 @@ cards:
             hours_12: false
             graph_span: 1d
             series:
-              - entity: sensor.aqara_office_temperature_pressure
+              - entity: sensor.aqara_bathroom_temperature_pressure
                 unit: hPa
                 type: area
               - entity: sensor.openweathermap_pressure
@@ -288,33 +288,33 @@ cards:
       template: card_asmodai_tablet_menu
       variables:
         parent:
-          icon: mdi:desk
-          path: "office"
+          icon: mdi:bathtub-outline
+          path: "bathroom"
         element_1: # Home
           icon: mdi:home-outline
           path: "home"
         element_2: # Lighting
           icon: mdi:lightbulb-outline
-          path: "office_lights"
+          path: "bathroom_lights"
         element_3: # Heating
           icon: mdi:radiator
-          path: "office_heating"
+          path: "bathroom_heating"
         element_4: # Multimedia
           icon: mdi:multimedia
-          path: "office_multimedia"
+          path: "bathroom_multimedia"
         element_5: # Sensors
           icon:  mdi:access-point
-          path: "office_sensors"
+          path: "bathroom_sensors"
         element_6: # Weather
           icon: mdi:weather-partly-cloudy
-          path: "office_climate"
+          path: "bathroom_climate"
           active: true
         element_7: # Calendar
           icon: mdi:calendar-month-outline
-          path: "office_events"
+          path: "bathroom_events"
         element_8: # Shopping
           icon: mdi:cart-outline
-          path: "office_todo"
+          path: "bathroom_todo"
     style:
       .: |
         ha-card {

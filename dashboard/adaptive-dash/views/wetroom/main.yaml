@@ -1,0 +1,131 @@
+type: custom:grid-layout
+title: Wet Room
+square: false
+layout:
+  grid-template-columns: 300px auto auto auto 300px
+  grid-template-rows:    75% min-content auto
+  grid-template-areas: |
+    "left    empty1  main    empty2  right"
+    "button  button  button  button  button"
+    "alarm   footer  footer  footer  security"
+  justify-items: stretch
+icon: mdi:shower-head
+path: wetroom
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+  #
+  # Left-hand banner.
+  #
+  - view_layout:
+      grid-area: left
+    type: custom:button-card
+    template: card_asmodai_tablet_quickinfo
+    variables:
+      temperature_entity: sensor.aqara_wetroom_temperature_temperature
+      pressure_entity:    sensor.aqara_wetroom_temperature_pressure
+      humidity_entity:    sensor.aqara_wetroom_temperature_humidity
+    style:
+      .: |
+        ha-card {
+          margin: 0px;
+          margin-top: -20px;
+          margin-left: -20px;
+          background-color: rgba(0, 0, 0, 0.0);
+        }
+
+  #
+  # Main banner.
+  #
+  - view_layout:
+      grid-area: main
+    type: custom:button-card
+    template: card_asmodai_tablet_banner
+    variables:
+      room_name: Wet Room
+
+  #
+  # Right-hand banner.
+  #
+  - !include "../../includes/weather.yaml"
+
+  #
+  # Button area.
+  #
+  - view_layout:
+      grid-area: button
+    type: custom:mod-card
+    style:
+      .: |
+        ha-card {
+          border-radius: 20px;
+          background-color: rgba(0,0,0,0.0);
+          margin: auto;
+          position: absolute !important;
+          bottom: 100px !important;
+          padding: 10px;
+          left: 0;
+          right: 0;
+        }
+
+  #
+  # Alarm area.
+  #
+  - !include "../../includes/alarm.yaml"
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        parent:
+          icon: mdi:shower-head
+          path: "wetroom"
+        element_1: # Home
+          icon: mdi:home-outline
+          path: "home"
+        element_2: # Lighting
+          icon: mdi:lightbulb-outline
+          disabled: true
+        element_3: # Heating
+          icon: mdi:radiator
+          disabled: true
+        element_4: # Multimedia
+          icon: mdi:multimedia
+          disabled: true
+        element_5: # Sensors
+          icon:  mdi:access-point
+        element_6: # Weather
+          icon: mdi:weather-partly-cloudy
+        element_7: # Calendar
+          icon: mdi:calendar-month-outline
+        element_8: # Shopping
+          icon: mdi:cart-outline
+    style:
+      .: |
+        ha-card {
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }
