@@ -1,0 +1,25 @@
+view_layout:
+  grid-area: right
+type: custom:stack-in-card
+mode: vertical
+style:
+  .: |
+    ha-card {
+      margin: 0px;
+      margin-top: -10px;
+      margin-left: -20px;
+      background-color: rgba(0, 0, 0, 0.0);
+    }
+cards:
+  - type: custom:weather-card
+    entity: weather.openweathermap
+    current: true
+    details: true
+    forecast: true
+    hourly_forecast: false
+    tap_action: none
+    style:
+      .: |
+        svg {
+          filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.4));
+        }

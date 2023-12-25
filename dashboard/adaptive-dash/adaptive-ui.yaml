@@ -19,6 +19,9 @@ views:
   - !include "views/bedroom.yaml"
   - !include "views/office.yaml"
   - !include "views/office/sensors.yaml"
+  - !include "views/office/climate.yaml"
   - !include "views/landing.yaml"
   - !include "views/garden_rear.yaml"
   - !include "views/info.yaml"
+
+  - !include "views/common/climate.yaml"

@@ -27,7 +27,7 @@ background: >-
 cards:
 
 ######################################################################
-## HEADER
+## GRAPH
 
   - view_layout:
       grid-area: graph
@@ -50,7 +50,12 @@ cards:
           - type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.aqara_office_temperature_temperature
                 name: Office
@@ -81,7 +86,12 @@ cards:
           - type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.aqara_office_temperature_humidity
                 name: Office
@@ -114,12 +124,22 @@ cards:
           - type: custom:gap-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
 
           - type: custom:gap-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
 
 ######################################################################
 ## ROW 2
@@ -128,7 +148,9 @@ cards:
         horizontal: true
         style:
           .: |
-            ha-card { background-color: transparent; }
+            ha-card {
+              background-color: transparent;
+            }
         cards:
 
           - view_layout:
@@ -136,7 +158,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.aqara_office_desk_temperature_temperature
                 name: Desk
@@ -169,7 +196,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.aqara_office_desk_temperature_humidity
                 name: Desk
@@ -204,14 +236,24 @@ cards:
             type: custom:gap-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
 
           - view_layout:
               grid-area: bd
             type: custom:gap-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
 
 ######################################################################
 ## ROW 3
@@ -220,7 +262,9 @@ cards:
         horizontal: true
         style:
           .: |
-            ha-card { background-color: transparent; }
+            ha-card {
+              background-color: transparent;
+            }
         cards:
 
           - view_layout:
@@ -228,7 +272,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
                 name: Wall Plug 1
@@ -262,7 +311,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
                 name: Wall Plug 2
@@ -296,7 +350,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
                 name: Wall Plug 3
@@ -330,7 +389,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
                 name: Wall Plug 4
@@ -366,7 +430,9 @@ cards:
         horizontal: true
         style:
           .: |
-            ha-card { background-color: transparent; }
+            ha-card {
+              background-color: transparent;
+            }
         cards:
 
           - view_layout:
@@ -374,7 +440,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
                 name: Wall Plug 5
@@ -408,7 +479,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
                 name: Wall Plug 6
@@ -442,7 +518,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
                 name: Wall Plug 7
@@ -476,7 +557,12 @@ cards:
             type: custom:mini-graph-card
             style:
               .: |
-                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+                ha-card {
+                  width: 250px;
+                  height: 150px;
+                  padding: 5px;
+                  background-color: transparent;
+                }
             entities:
               - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
                 name: Wall Plug 8
@@ -555,18 +641,21 @@ cards:
           icon: mdi:lightbulb-outline
         element_3: # Heating
           icon: mdi:radiator
-        element_4: # OFFICE
+          color: "#58477b"
+        element_4: # Multimedia
+          icon: mdi:multimedia
+          color: "#58477b"
+        element_5: # Sensors
           icon:  mdi:arrow-left-circle
           color: "#eae1fe"
           path: "office"
-        element_5: # Weather
+        element_6: # Weather
           icon: mdi:weather-partly-cloudy
-        element_6: # Calendar
+          path: "office_climate"
+        element_7: # Calendar
           icon: mdi:calendar-month-outline
-        element_7: # Shopping
+        element_8: # Shopping
           icon: mdi:cart-outline
-        element_8: # Security
-          icon: mdi:shield-home-outline
     style:
       .: |
         ha-card {

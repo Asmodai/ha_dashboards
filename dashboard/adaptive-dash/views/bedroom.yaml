@@ -138,31 +138,7 @@ cards:
   #
   # Right-hand banner.
   #
-  - view_layout:
-      grid-area: right
-    type: custom:stack-in-card
-    mode: vertical
-    style:
-      .: |
-        ha-card {
-          margin: 0px;
-          margin-top: -10px;
-          margin-left: -20px;
-          background-color: rgba(0, 0, 0, 0.0);
-        }
-    cards:
-      - type: custom:weather-card
-        entity: weather.openweathermap
-        current: true
-        details: true
-        forecast: false
-        hourly_forecast: false
-        tap_action: none
-        style:
-          .: |
-            svg {
-              filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.4));
-            }
+  - !include "../includes/weather.yaml"
 
   #
   # Button area.
@@ -232,18 +208,21 @@ cards:
           path: "home"
         element_2: # Lighting
           icon: mdi:lightbulb-outline
+          color: "#58477b"
         element_3: # Heating
           icon: mdi:radiator
-        element_4: # Sensors
+          color: "#58477b"
+        element_4: # Multimedia
+          icon: mdi:multimedia
+          color: "#58477b"
+        element_5: # Sensors
           icon:  mdi:access-point
-        element_5: # Weather
+        element_6: # Weather
           icon: mdi:weather-partly-cloudy
-        element_6: # Calendar
+        element_7: # Calendar
           icon: mdi:calendar-month-outline
-        element_7: # Shopping
+        element_8: # Shopping
           icon: mdi:cart-outline
-        element_8: # Security
-          icon: mdi:shield-home-outline
     style:
       .: |
         ha-card {

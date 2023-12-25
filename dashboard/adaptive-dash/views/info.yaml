@@ -1,0 +1,168 @@
+type: custom:grid-layout
+title: Information
+square: false
+layout:
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr fit-content(1fr)
+  grid-template-rows:    80% fit-content(20%)
+  grid-template-areas: |
+    "main    main    main"
+    "alarm   footer  security"
+  justify-items: stretch
+  justify-self: stretch
+icon: mdi:information-outline
+path: info
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+  #
+  # Main view.
+  #
+  - view_layout:
+      grid-area: main
+    type: custom:vertical-stack-in-card
+    style:
+      .: |
+        ha-card { background-color: transparent; }
+    cards:
+    
+      ##
+      ## Disable light automation.
+      ##
+      - type: 'custom:button-card'
+        template: card_title
+        label: Settings
+        styles:
+          label:
+            - font-size: 1.2em
+            - font-family: roboto
+            - opacity: 1
+            - color: "#b083fe"
+            - font-weight: regular
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+      - type: entities
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        entities:
+          - input_boolean.disable_light_automation
+          - input_boolean.disable_display_light_automation
+
+      ##
+      ## Device battery information.
+      ##
+      - type: 'custom:button-card'
+        template: card_title
+        label: Battery Levels
+        styles:
+          label:
+            - font-size: 1.2em
+            - font-family: roboto
+            - opacity: 1
+            - color: "#b083fe"
+            - font-weight: regular
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+      - type: custom:auto-entities
+        card:
+          type: glance
+          state_color: true
+          style: |
+            ha-card { background-color: transparent; }
+        sort:
+          method: state
+          numeric: true
+        filter:
+          include:
+            - entity_id: '*_battery'
+              domain: sensor
+          exclude:
+            - entity_id: '*_browser_*'
+
+  #
+  # Alarm area.
+  #
+  - view_layout:
+      grid-area: alarm
+    type: entities
+    entities:
+      - entity: alarm_control_panel.home_alarm
+        icon: mdi:shield-home-outline
+        name: Alarm
+        secondary_info: none
+        tap_action:
+          action: none
+    tap_action:
+      action: none
+    style:
+      .: |
+        ha-card {
+          background-color: rgba(0, 0, 0, 0.0);
+          box-shadow: none;
+          width: 200px !important;
+          position: fixed !important;
+          bottom: 0% !important;
+          margin-left: -20px !important;
+          height: 65px !important;
+        }
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        element_1: # Information
+          icon:  mdi:arrow-left-circle
+          color: "#eae1fe"
+          path: "home"
+        element_2: # Alarm
+          icon:  mdi:shield-home-outline
+        element_3: # Doorbell
+          icon: mdi:doorbell
+        element_4: # CCTV
+          icon: mdi:cctv
+        element_5: # Security
+          icon: mdi:lock-outline
+        element_6: # Calendar
+          icon: mdi:calendar-month-outline
+        element_7: # Shopping
+          icon: mdi:cart-outline
+        element_8: # Menu
+          icon: mdi:menu
+    style:
+      .: |
+        ha-card {
+          border-radius: 0px;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          background-color: rgba(66, 46, 94, 0.8);
+          box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }
