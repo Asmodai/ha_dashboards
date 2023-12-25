@@ -23,7 +23,15 @@ views:
   - !include "views/kitchen/main.yaml"
   - !include "views/livingroom/main.yaml"
   - !include "views/hallway/main.yaml"
+  
+  - !include "views/garden_front/climate.yaml"
+  - !include "views/garden_front/events.yaml"
+  - !include "views/garden_front/heating.yaml"
+  - !include "views/garden_front/lights.yaml"
   - !include "views/garden_front/main.yaml"
+  - !include "views/garden_front/multimedia.yaml"
+  - !include "views/garden_front/sensors.yaml"
+  - !include "views/garden_front/todo.yaml"
   
   - !include "views/bathroom/climate.yaml"
   - !include "views/bathroom/events.yaml"
@@ -54,4 +62,11 @@ views:
   
   - !include "views/landing/main.yaml"
   
+  - !include "views/garden_rear/climate.yaml"
+  - !include "views/garden_rear/events.yaml"
+  - !include "views/garden_rear/heating.yaml"
+  - !include "views/garden_rear/lights.yaml"
   - !include "views/garden_rear/main.yaml"
+  - !include "views/garden_rear/multimedia.yaml"
+  - !include "views/garden_rear/sensors.yaml"
+  - !include "views/garden_rear/todo.yaml"

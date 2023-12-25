@@ -105,12 +105,15 @@ cards:
         element_2: # Lighting
           icon: mdi:lightbulb-outline
           path: "bedroom_lights"
+          disabled: true
         element_3: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"
+          disabled: true
         element_4: # Multimedia
           icon: mdi:multimedia
           path: "bedroom_multimedia"
+          disabled: true
         element_5: # Sensors
           icon:  mdi:access-point
           path: "bedroom_sensors"

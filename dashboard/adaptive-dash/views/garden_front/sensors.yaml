@@ -1,16 +1,23 @@
 type: custom:grid-layout
-title: Front Garden
+title: Sensors
 square: false
 layout:
-  grid-template-columns: 300px auto auto auto 300px
-  grid-template-rows:    75% min-content auto
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr fit-content(1fr)
+  grid-template-rows:    80% fit-content(20%)
   grid-template-areas: |
-    "left    empty1  main    empty2  right"
-    "button  button  button  button  button"
-    "alarm   footer  footer  footer  security"
+    "graph   graph   graph"
+    "alarm   footer  security"
   justify-items: stretch
-icon: mdi:pine-tree
-path: garden_front
+  justify-self: stretch
+icon: mdi:access-point
+path: garden_front_sensors
+visible: false
 badges: []
 style:
   .: |
@@ -20,59 +27,14 @@ background: >-
   url('/local/PurpleAbstractDark.png')
 cards:
 
-  #
-  # Left-hand banner.
-  #
+######################################################################
+## GRAPH
+
   - view_layout:
-      grid-area: left
+      grid-area: graph
     type: custom:button-card
-    template: card_asmodai_tablet_quickinfo
-    variables:
-      temperature_entity: sensor.aqara_livingroom_temperature_temperature
-      pressure_entity: sensor.aqara_livingroom_temperature_pressure
-      humidity_entity: sensor.aqara_livingroom_temperature_humidity
-    style:
-      .: |
-        ha-card {
-          margin: 0px;
-          margin-top: -20px;
-          margin-left: -20px;
-          background-color: rgba(0, 0, 0, 0.0);
-        }
-
-  #
-  # Main banner.
-  #
-  - view_layout:
-      grid-area: main
-    type: custom:button-card
-    template: card_asmodai_tablet_banner
-    variables:
-      room_name: Front Garden
-
-  #
-  # Right-hand banner.
-  #
-  - !include "../../includes/weather.yaml"
-
-  #
-  # Button area.
-  #
-  - view_layout:
-      grid-area: button
-    type: custom:mod-card
-    style:
-      .: |
-        ha-card {
-          border-radius: 20px;
-          background-color: rgba(0,0,0,0.0);
-          margin: auto;
-          position: absolute !important;
-          bottom: 100px !important;
-          padding: 10px;
-          left: 0;
-          right: 0;
-        }
+    template: card_title
+    label: "NOTHING TO SEE HERE!"
 
   #
   # Alarm area.
@@ -104,19 +66,16 @@ cards:
         element_2: # Lighting
           icon: mdi:lightbulb-outline
           path: "garden_front_lights"
-          disabled: true
         element_3: # Heating
           icon: mdi:radiator
           path: "garden_front_heating"
-          disabled: true
         element_4: # Multimedia
           icon: mdi:multimedia
           path: "garden_front_multimedia"
-          disabled: true
         element_5: # Sensors
           icon:  mdi:access-point
           path: "garden_front_sensors"
-          disabled: true
+          active: true
         element_6: # Weather
           icon: mdi:weather-partly-cloudy
           path: "garden_front_climate"
