@@ -1,0 +1,27 @@
+title: "Door"
+path: "door"
+cards:
+
+  #
+  # Banner.
+  #
+  - type: "custom:button-card"
+    template: "card_asmodai_banner"
+    variables:
+      custom_card_asmodai_banner_back_path: "home"
+      custom_card_asmodai_banner_name: "Door"
+      custom_card_asmodai_banner_icon: "mdi:doorbell"
+
+  #
+  # Devices.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Devices
+
+  #
+  # Sensors.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Sensors

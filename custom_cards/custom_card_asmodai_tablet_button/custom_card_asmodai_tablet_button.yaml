@@ -1,0 +1,25 @@
+---
+card_asmodai_tablet_button:
+  show_icon: true
+  show_name: true
+  show_label: false
+  variables:
+    custom_card_asmodai_tablet_button_icon: "[[[ return variables.custom_card_asmodai_tablet_button_icon ]]]"
+    custom_card_asmodai_tablet_button_name: "[[[ return variables.custom_card_asmodai_tablet_button_name ]]]"
+    custom_card_asmodai_tablet_button_path: "[[[ return variables.custom_card_asmodai_tablet_button_path ]]]"
+  type:   custom:button-card
+  icon:   "[[[ return variables.custom_card_asmodai_tablet_button_icon ]]]"
+  name:   "[[[ return variables.custom_card_asmodai_tablet_button_name ]]]"
+  style:
+    .: |
+      ha-card {
+        --keep-background: true;
+        background-color: rgba(66, 46, 94, 0.8);
+        box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+        border-radius: 20px;
+        padding: 5px;
+      }
+  tap_action:
+    action: navigate
+    navigation_path: "[[[ return variables.custom_card_asmodai_tablet_button_path ]]]"
+

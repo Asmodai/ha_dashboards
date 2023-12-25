@@ -1,0 +1,199 @@
+---
+card_asmodai_tablet_menu:
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    element_1:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_2:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_3:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_4:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_5:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_6:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_7:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+    element_8:
+      color: "#b083fe"
+      icon: mdi:button-pointer
+  styles:
+    grid:
+      - grid-template-areas: "'e1 e2 e3 e4 e5 e6 e7 e8'"
+      - grid-template-columns: "auto auto auto auto auto auto auto auto"
+      - grid-template-rows: "auto"
+      - row-gap: "8px"
+    card:
+      - border-radius: 0px
+      - border-top-right-radius: 20px
+      - border-top-left-radius: 20px
+      - background-color: rgba(66, 46, 94, 0.8)
+      - box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3)
+      - padding: "10px"
+      - padding-top: "0px"
+      - padding-bottom: "0px"
+      - cursor: "default"
+      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+      - height: 70px
+    custom_fields:
+      e1:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e2:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e3:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e4:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e5:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e6:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e7:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+      e8:
+        - margin-top: -5px
+        - padding: 5px
+        - "--mdc-ripple-press-opacity": 0.12
+  custom_fields:
+    e1:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_1.icon  ]]]"
+        color: "[[[ return variables.element_1.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_1.path ]]]"
+    e2:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_2.icon  ]]]"
+        color: "[[[ return variables.element_2.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_2.path ]]]"
+    e3:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_3.icon  ]]]"
+        color: "[[[ return variables.element_3.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_3.path ]]]"
+    e4:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_4.icon  ]]]"
+        color: "[[[ return variables.element_4.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_4.path ]]]"
+    e5:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_5.icon  ]]]"
+        color: "[[[ return variables.element_5.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_5.path ]]]"
+    e6:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_6.icon  ]]]"
+        color: "[[[ return variables.element_6.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_6.path ]]]"
+    e7:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_7.icon  ]]]"
+        color: "[[[ return variables.element_7.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_7.path ]]]"
+    e8:
+      card:
+        type: custom:button-card
+        icon:  "[[[ return variables.element_8.icon  ]]]"
+        color: "[[[ return variables.element_8.color ]]]"
+        size:  50px
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.0)
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        tap_action:
+          action: navigate
+          navigation_path: "[[[ return variables.element_8.path ]]]"

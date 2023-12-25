@@ -1,5 +1,5 @@
-title: "Garden"
-path: "garden"
+title: "Back Garden"
+path: "garden_back"
 cards:
 
   #
@@ -9,7 +9,7 @@ cards:
     template: "card_asmodai_banner"
     variables:
       custom_card_asmodai_banner_back_path: "home"
-      custom_card_asmodai_banner_name: "Garden"
+      custom_card_asmodai_banner_name: "Back Garden"
       custom_card_asmodai_banner_icon: 'mdi:flower'
 
   #

@@ -1,0 +1,54 @@
+---
+card_asmodai_tablet_scene:
+  show_icon: true
+  show_name: true
+  show_label: false
+  variables:
+    custom_card_asmodai_tablet_scene_icon:      "[[[ return variables.custom_card_asmodai_tablet_scene_icon ]]]"
+    custom_card_asmodai_tablet_scene_name:      "[[[ return variables.custom_card_asmodai_tablet_scene_name ]]]"
+    custom_card_asmodai_tablet_scene_entity_id: "[[[ return variables.custom_card_asmodai_tablet_scene_entity_id ]]]"
+  type:   custom:button-card
+  icon:   "[[[ return variables.custom_card_asmodai_tablet_scene_icon ]]]"
+  name:   "[[[ return variables.custom_card_asmodai_tablet_scene_name ]]]"
+  entity: "[[[ return variables.custom_card_asmodai_tablet_scene_entity_id ]]]"
+  style:
+    .: |
+      ha-card {
+        --keep-background: true;
+        background-color: rgba(66, 46, 94, 0.8);
+        box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+        border-radius: 20px;
+        padding: 5px;
+      }
+  tap_action:
+    action: "call-service"
+    service: >
+      [[[
+        if (variables.custom_card_asmodai_tablet_scene_entity_id.startsWith("scene.")) {
+          return "scene.turn_on";
+        }
+
+        if (variables.custom_card_asmodai_tablet_scene_entity_id.startsWith("script.")) {
+          return variables.custom_card_asmodai_tablet_scene_entity_id;
+        }
+
+        if (variables.custom_card_asmodai_tablet_scene_entity_id.startsWith("automation.")) {
+          return "automation.turn_on";
+        }
+      ]]]
+    service_data: |
+      [[[
+        if (variables.service_data){
+          return variables.service_data;
+        }
+        var ent = variables.custom_card_asmodai_tablet_scene_entity_id;
+        var obj;
+        if (typeof(ent) !== 'undefined' && ent !== undefined) {
+          if (ent.startsWith("input_select.")) {
+            obj = { entity_id: ent, option: variables.state };
+          } else {
+            obj = { entity_id: ent };
+          }
+          return obj;
+        }
+      ]]]

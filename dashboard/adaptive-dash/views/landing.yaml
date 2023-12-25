@@ -1,0 +1,332 @@
+type: custom:grid-layout
+title: Landing
+square: false
+layout:
+  grid-template-columns: 300px auto auto auto 300px
+  grid-template-rows:    75% min-content auto
+  grid-template-areas: |
+    "left    empty1  main    empty2  right"
+    "button  button  button  button  button"
+    "alarm   footer  footer  footer  security"
+  justify-items: stretch
+icon: mdi:home-floor-1
+path: landing
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+  #
+  # Left-hand banner.
+  #
+  - view_layout:
+      grid-area: left
+    type: custom:stack-in-card
+    mode: vertical
+    style:
+      .: |
+        ha-card {
+          margin: 0px;
+          margin-top: -20px;
+          margin-left: -20px;
+          background-color: rgba(0, 0, 0, 0.0);
+        }
+    cards:
+      - type: entities
+        entities:
+          ## TODO battery sensor
+          - type: custom:multiple-entity-row
+            entity: sensor.aqara_landing_temperature_temperature
+            name: Temperature
+            icon: mdi:thermometer
+            tap_action:
+              action: none
+          - type: custom:multiple-entity-row
+            entity: sensor.aqara_landing_temperature_humidity
+            name: Humidity
+            icon: mdi:water-percent
+            tap_action:
+              action: none
+          - type: custom:multiple-entity-row
+            entity: sensor.aqara_landing_temperature_pressure
+            name: Pressure
+            icon: mdi:gauge
+            tap_action:
+              action: none
+          - type: custom:multiple-entity-row
+            entity: sensor.esp1_landing_illuminance
+            name: Illuminance
+            icon: mdi:brightness-7
+            tap_action:
+              action: none
+        state_color: false
+        show_header_toggle: false
+        tap_action:
+          action: none
+
+  #
+  # Main banner.
+  #
+  - view_layout:
+      grid-area: main
+    type: custom:stack-in-card
+    mode: vertical
+    style:
+      .: |
+        ha-card {
+          margin: 0px;
+          background-color: rgba(0, 0, 0, 0.0);
+          border-radius: 0px;
+          border: none;
+          box-shadow: none;
+          height: 300px;
+        }
+    cards:
+      - type: custom:button-card
+        name: Landing
+        tap_action:
+          action: navigate
+          navigation_path: "home"
+        styles:
+          icon:
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+          name:
+            - font-size: 2.2em
+            - font-family: roboto
+            - opacity: 1
+            - color: "#b083fe"
+            - font-weight: regular
+            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+            - height: 60px
+            - text-align: center !important
+          card:
+            - margin-top: -20px
+            - padding: 20px
+      - type: custom:digital-clock
+        dateFormat:
+          weekday: 'long'
+          day: '2-digit'
+          month: 'long'
+        firstLineFormat: "HH:mm"
+        tap_action:
+          action: none
+        style:
+          .: |
+            .first-line {
+              font-size: 6.6em !important;
+              font-family: roboto !important;
+              font-weight: 300 !important;
+              color: #eae1fe !important;
+              text-transform: uppercase;
+              text-align: center !important;
+              filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
+            }
+            .second-line {
+              font-size: 1.4em !important;
+              font-weight: 300 !important;
+              font-family: roboto !important;
+              color: #b083fe !important;
+              text-transform: uppercase;
+              text-align: center !important;
+              filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
+            }
+        styles:
+          card:
+            - margin-top: 150px
+            - height: 500px
+            - border: null
+            - background-color: rgba(0, 0, 0, 0.0)
+
+  #
+  # Right-hand banner.
+  #
+  - view_layout:
+      grid-area: right
+    type: custom:stack-in-card
+    mode: vertical
+    style:
+      .: |
+        ha-card {
+          margin: 0px;
+          margin-top: -10px;
+          margin-left: -20px;
+          background-color: rgba(0, 0, 0, 0.0);
+        }
+    cards:
+      - type: custom:weather-card
+        entity: weather.openweathermap
+        current: true
+        details: true
+        forecast: false
+        hourly_forecast: false
+        tap_action: none
+        style:
+          .: |
+            svg {
+              filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.4));
+            }
+
+  #
+  # Button area.
+  #
+  - view_layout:
+      grid-area: button
+    type: custom:mod-card
+    style:
+      .: |
+        ha-card {
+          border-radius: 20px;
+          background-color: rgba(0,0,0,0.0);
+          margin: auto;
+          position: absolute !important;
+          bottom: 100px !important;
+          padding: 10px;
+          left: 0;
+          right: 0;
+        }
+    card:
+      type: vertical-stack
+      title: null
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:gap-card
+            - type: custom:button-card
+              template: card_light
+              entity: light.room_landing
+              variables:
+                ulm_card_light_name: "Lights"
+                ulm_card_light_icon: "mdi:home-floor-1"
+                ulm_card_light_enable_slider: true
+                ulm_card_light_enable_color: true
+                ulm_card_light_force_background_color: true
+                ulm_card_light_enable_collapse: false
+                ulm_card_Light_color: "#422e5e"
+              styles:
+                card:
+                  - --keep-background: 'true'
+                  - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+                  - border-radius: 20px;
+                  - background-color: rgba(66, 46, 94, 0.8)
+            - type: custom:gap-card
+        - type: horizontal-stack
+          cards:
+            - type: custom:gap-card
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:lightbulb-outline"
+                custom_card_asmodai_tablet_scene_name: "Normal"
+                custom_card_asmodai_tablet_scene_entity_id: scene.landing_purple
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:solar-power-variant-outline"
+                custom_card_asmodai_tablet_scene_name: "Energise"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_landing_energize
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunny"
+                custom_card_asmodai_tablet_scene_name: "Concentrate"
+                custom_card_asmodai_tablet_scene_entity_id: scene.landing_concentrate
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:book-outline"
+                custom_card_asmodai_tablet_scene_name: "Read"
+                custom_card_asmodai_tablet_scene_entity_id: scene.landing_read
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunset-up"
+                custom_card_asmodai_tablet_scene_name: "Relax"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_landing_relax
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:bed-outline"
+                custom_card_asmodai_tablet_scene_name: "Rest"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_landing_rest
+            - type: custom:gap-card
+
+  #
+  # Alarm area.
+  #
+  - view_layout:
+      grid-area: alarm
+    type: entities
+    entities:
+      - entity: alarm_control_panel.home_alarm
+        icon: mdi:shield-home-outline
+        name: Alarm
+        secondary_info: none
+        tap_action:
+          action: none
+    tap_action:
+      action: none
+    style:
+      .: |
+        ha-card {
+          background-color: rgba(0, 0, 0, 0.0);
+          box-shadow: none;
+          width: 200px !important;
+          position: fixed !important;
+          bottom: 0% !important;
+          margin-left: -20px !important;
+          height: 65px !important;
+        }
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        element_1: # Home
+          icon: mdi:home-outline
+          path: "home"
+        element_2: # Lighting
+          icon: mdi:lightbulb-outline
+        element_3: # Heating
+          icon: mdi:radiator
+        element_4: # Sensors
+          icon:  mdi:access-point
+        element_5: # Weather
+          icon: mdi:weather-partly-cloudy
+        element_6: # Calendar
+          icon: mdi:calendar-month-outline
+        element_7: # Shopping
+          icon: mdi:cart-outline
+        element_8: # Security
+          icon: mdi:shield-home-outline
+    style:
+      .: |
+        ha-card {
+          border-radius: 0px;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          background-color: rgba(66, 46, 94, 0.8);
+          box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }

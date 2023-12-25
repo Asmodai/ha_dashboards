@@ -1,0 +1,585 @@
+type: custom:grid-layout
+title: Office
+square: false
+layout:
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr fit-content(1fr)
+  grid-template-rows:    80% fit-content(20%)
+  grid-template-areas: |
+    "graph   graph   graph"
+    "alarm   footer  security"
+  justify-items: stretch
+  justify-self: stretch
+icon: mdi:desk
+path: office_sensors
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+######################################################################
+## HEADER
+
+  - view_layout:
+      grid-area: graph
+    type: custom:vertical-stack-in-card
+    style:
+      .: |
+        ha-card { background-color: transparent; }
+    cards:
+
+######################################################################
+## ROW 1
+
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+
+          - type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.aqara_office_temperature_temperature
+                name: Office
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Office Temperature
+            color_thresholds:
+              - value: 30
+                color: "#f17e82"
+              - value: 24
+                color: "#fcd663"
+              - value: 20
+                color: "#63fc91"
+              - value: 10
+                color: "#63a3fc"
+
+          - type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.aqara_office_temperature_humidity
+                name: Office
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Office Humidity
+            color_thresholds:
+              - value: 60
+                color: "#f17e82"
+              - value: 50
+                color: "#fca363"
+              - value: 40
+                color: "#fcd663"
+              - value: 30
+                color: "#63fc91"
+              - value: 0
+                color: "#94b3f8"
+
+          - type: custom:gap-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+
+          - type: custom:gap-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+
+######################################################################
+## ROW 2
+
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+
+          - view_layout:
+              grid-area: ba
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.aqara_office_desk_temperature_temperature
+                name: Desk
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Desk Temperature
+            color_thresholds:
+              - value: 30
+                color: "#f17e82"
+              - value: 24
+                color: "#fcd663"
+              - value: 20
+                color: "#63fc91"
+              - value: 10
+                color: "#63a3fc"
+
+          - view_layout:
+              grid-area: bb
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.aqara_office_desk_temperature_humidity
+                name: Desk
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Desk Humidity
+            color_thresholds:
+              - value: 60
+                color: "#f17e82"
+              - value: 50
+                color: "#fca363"
+              - value: 40
+                color: "#fcd663"
+              - value: 30
+                color: "#63fc91"
+              - value: 0
+                color: "#94b3f8"
+
+          - view_layout:
+              grid-area: bc
+            type: custom:gap-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+
+          - view_layout:
+              grid-area: bd
+            type: custom:gap-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+
+######################################################################
+## ROW 3
+
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+
+          - view_layout:
+              grid-area: ca
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
+                name: Wall Plug 1
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 1
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+          - view_layout:
+              grid-area: cb
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
+                name: Wall Plug 2
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 2
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+          - view_layout:
+              grid-area: cc
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
+                name: Wall Plug 3
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 3
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+          - view_layout:
+              grid-area: cd
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
+                name: Wall Plug 4
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 4
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+######################################################################
+## ROW 4
+
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+
+          - view_layout:
+              grid-area: da
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
+                name: Wall Plug 5
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 5
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+          - view_layout:
+              grid-area: db
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
+                name: Wall Plug 6
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 6
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+          - view_layout:
+              grid-area: dc
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_1_electric_consumption_w
+                name: Wall Plug 7
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 7
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+          - view_layout:
+              grid-area: dd
+            type: custom:mini-graph-card
+            style:
+              .: |
+                ha-card { width: 250px; height: 150px; padding: 5px; background-color: transparent; }
+            entities:
+              - entity: sensor.fibaro_wall_plug_2_electric_consumption_w
+                name: Wall Plug 8
+                show_state: true
+                show_points: true
+                show_legend: false
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Wall Plug 8
+            color_thresholds:
+              - value: 2000
+                color: "#f18b82"
+              - value: 1400
+                color: "#f17e82"
+              - value: 700
+                color: "#fcd663"
+              - value: 1
+                color: "#63fc91"
+            color_thresholds_transition: hard
+            unit: W
+
+  #
+  # Alarm area.
+  #
+  - view_layout:
+      grid-area: alarm
+    type: entities
+    entities:
+      - entity: alarm_control_panel.home_alarm
+        icon: mdi:shield-home-outline
+        name: Alarm
+        secondary_info: none
+        tap_action:
+          action: none
+    tap_action:
+      action: none
+    style:
+      .: |
+        ha-card {
+          background-color: rgba(0, 0, 0, 0.0);
+          box-shadow: none;
+          width: 200px !important;
+          position: fixed !important;
+          bottom: 0% !important;
+          margin-left: -20px !important;
+          height: 65px !important;
+        }
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        element_1: # Home
+          icon: mdi:home-outline
+          path: "home"
+        element_2: # Lighting
+          icon: mdi:lightbulb-outline
+        element_3: # Heating
+          icon: mdi:radiator
+        element_4: # OFFICE
+          icon:  mdi:arrow-left-circle
+          color: "#eae1fe"
+          path: "office"
+        element_5: # Weather
+          icon: mdi:weather-partly-cloudy
+        element_6: # Calendar
+          icon: mdi:calendar-month-outline
+        element_7: # Shopping
+          icon: mdi:cart-outline
+        element_8: # Security
+          icon: mdi:shield-home-outline
+    style:
+      .: |
+        ha-card {
+          border-radius: 0px;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          background-color: rgba(66, 46, 94, 0.8);
+          box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }

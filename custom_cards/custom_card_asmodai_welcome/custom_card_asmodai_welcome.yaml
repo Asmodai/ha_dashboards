@@ -24,32 +24,38 @@ card_asmodai_welcome:
     entity_1:
       color: >
         [[[
-          const colors = ['yellow', 'blue', 'red', 'purple','green', 'pink'];
+          const colors = ['yellow', 'blue', 'red', 'purple', 'green', 'pink'];
           return colors[Math.floor(Math.random() * colors.length)];
         ]]]
     entity_2:
       color: >
         [[[
-          const colors = ['yellow', 'blue', 'red', 'purple','green', 'pink'];
+          const colors = ['yellow', 'blue', 'red', 'purple', 'green', 'pink'];
           return colors[Math.floor(Math.random() * colors.length)];
         ]]]
     entity_3:
       color: >
         [[[
-          const colors = ['yellow', 'blue', 'red', 'purple','green', 'pink'];
+          const colors = ['yellow', 'blue', 'red', 'purple', 'green', 'pink'];
           return colors[Math.floor(Math.random() * colors.length)];
         ]]]
     entity_4:
       color: >
         [[[
-          const colors = ['yellow', 'blue', 'red', 'purple','green', 'pink'];
+          const colors = ['yellow', 'blue', 'red', 'purple', 'green', 'pink'];
           return colors[Math.floor(Math.random() * colors.length)];
         ]]]
     entity_5:
       color: >
         [[[
-          const colors = ['yellow', 'blue', 'red', 'purple','green', 'pink'];
+          const colors = ['yellow', 'blue', 'red', 'purple', 'green', 'pink'];
           return colors[Math.floor(Math.random() * colors.length)];
+        ]]]
+    entity_6:
+      color: >
+        [[[
+          const colors = ['yellow', 'blue', 'red', 'purple', 'green', 'pink'];
+          return colors[Math.floor(math.Random() * colors.length)];
         ]]]
   show_icon: false
   show_label: true
@@ -150,6 +156,7 @@ card_asmodai_welcome:
           entity_3: "[[[ return variables.entity_3 ]]]"
           entity_4: "[[[ return variables.entity_4 ]]]"
           entity_5: "[[[ return variables.entity_5 ]]]"
+          entity_6: "[[[ return variables.entity_6 ]]]"
 
 card_asmodai_welcome_title:
   tap_action:
@@ -191,10 +198,11 @@ card_asmodai_welcome_nav:
       - grid-template-areas: |
           [[[
             return "'" + [(variables.entity_1?.nav ? 'item1' : ''),
-                        (variables.entity_2?.nav ? 'item2' : ''),
-                        (variables.entity_3?.nav ? 'item3' : ''),
-                        (variables.entity_4?.nav ? 'item4' : ''),
-                        (variables.entity_5?.nav ? 'item5' : '')].join(' ') + "'";
+                          (variables.entity_2?.nav ? 'item2' : ''),
+                          (variables.entity_3?.nav ? 'item3' : ''),
+                          (variables.entity_4?.nav ? 'item4' : ''),
+                          (variables.entity_5?.nav ? 'item5' : ''),
+                          (variables.entity_6?.nav ? 'item6' : '')].join(' ') + "'";
           ]]]
       - grid-template-columns: |
           [[[
@@ -202,7 +210,8 @@ card_asmodai_welcome_nav:
                     (variables.entity_2?.nav ? '1fr' : ''),
                     (variables.entity_3?.nav ? '1fr' : ''),
                     (variables.entity_4?.nav ? '1fr' : ''),
-                    (variables.entity_5?.nav ? '1fr' : '')].join(' ');
+                    (variables.entity_5?.nav ? '1fr' : ''),
+                    (variables.entity_6?.nav ? '1fr' : '')].join(' ');
           ]]]
       - grid-template-rows: "min-content"
       - justify-items: "center"
@@ -223,7 +232,8 @@ card_asmodai_welcome_nav:
                       variables.entity_2?.nav,
                       variables.entity_3?.nav,
                       variables.entity_4?.nav,
-                      variables.entity_5?.nav].filter(el => el !== undefined).length;
+                      variables.entity_5?.nav,
+                      variables.entity_6?.nav].filter(el => el !== undefined).length;
             ]]]
           entity: "[[[ return variables.entity_1; ]]]"
     item2:
@@ -237,7 +247,8 @@ card_asmodai_welcome_nav:
                       variables.entity_2?.nav,
                       variables.entity_3?.nav,
                       variables.entity_4?.nav,
-                      variables.entity_5?.nav].filter(el => el !== undefined).length;
+                      variables.entity_5?.nav,
+                      variables.entity_6?.nav].filter(el => el !== undefined).length;
             ]]]
           entity: "[[[ return variables.entity_2; ]]]"
     item3:
@@ -251,7 +262,8 @@ card_asmodai_welcome_nav:
                       variables.entity_2?.nav,
                       variables.entity_3?.nav,
                       variables.entity_4?.nav,
-                      variables.entity_5?.nav].filter(el => el !== undefined).length;
+                      variables.entity_5?.nav,
+                      variables.entity_6?.nav].filter(el => el !== undefined).length;
             ]]]
           entity: "[[[ return variables.entity_3; ]]]"
     item4:
@@ -265,7 +277,8 @@ card_asmodai_welcome_nav:
                       variables.entity_2?.nav,
                       variables.entity_3?.nav,
                       variables.entity_4?.nav,
-                      variables.entity_5?.nav].filter(el => el !== undefined).length;
+                      variables.entity_5?.nav,
+                      variables.entity_6?.nav].filter(el => el !== undefined).length;
             ]]]
           entity: "[[[ return variables.entity_4; ]]]"
     item5:
@@ -279,10 +292,25 @@ card_asmodai_welcome_nav:
                       variables.entity_2?.nav,
                       variables.entity_3?.nav,
                       variables.entity_4?.nav,
-                      variables.entity_5?.nav].filter(el => el !== undefined).length;
+                      variables.entity_5?.nav,
+                      variables.entity_6?.nav].filter(el => el !== undefined).length;
             ]]]
           entity: "[[[ return variables.entity_5; ]]]"
-
+    item6:
+      card:
+        type: "custom:button-card"
+        template: "card_asmodai_welcome_pill_nav"
+        variables:
+          number_of_nav_pills: |
+            [[[
+              return [variables.entity_1?.nav,
+                      variables.entity_2?.nav,
+                      variables.entity_3?.nav,
+                      variables.entity_4?.nav,
+                      variables.entity_5?.nav,
+                      variables.entity_6?.nav].filter(el => el !== undefined).length;
+            ]]]
+          entity: "[[[ return variables.entity_6; ]]]"
 card_asmodai_welcome_pill_nav:
   tap_action:
     action: "navigate"
@@ -307,8 +335,8 @@ card_asmodai_welcome_pill_nav:
     card:
 #      - border-radius: "50px"
       - place-self: "center"
-      - width:  "[[[ return (42 * (1+(5-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
-      - height: "[[[ return (42 * (1+(5-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
+      - width:  "[[[ return (42 * (1+(6-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
+      - height: "[[[ return (42 * (1+(6-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
       - box-shadow: >
           [[[
             if (hass.themes.darkMode){
@@ -333,12 +361,12 @@ card_asmodai_welcome_pill_nav:
         styles:
           icon:
             - color: "[[[ return `rgba(var(--color-${variables.entity?.color}), 1)`;]]]"
-            - width: "[[[ return (20 * (1+(5-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
+            - width: "[[[ return (20 * (1+(6-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
           img_cell:
             - background-color: "[[[ return `rgba(var(--color-${variables.entity?.color}), 0.20)`;]]]"
             - border-radius: "50%"
-            - width: "[[[ return (42 * (1+(5-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
-            - height: "[[[ return (42 * (1+(5-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
+            - width: "[[[ return (42 * (1+(6-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
+            - height: "[[[ return (42 * (1+(6-Math.max(variables.number_of_nav_pills, 3))*0.25)) + 'px'; ]]]"
           grid:
             - grid-template-areas: "i"
           card:

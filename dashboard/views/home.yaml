@@ -20,25 +20,30 @@ cards:
         name: "Secure"
         color: "red"
       entity_2:
-        nav: "garden"
-        icon: "mdi:flower"
-        name: "Garden"
-        color: "green"
+        nav: "door"
+        icon: "mdi:doorbell"
+        name: "Door"
+        color: "pink"
       entity_3:
+        nav: "garden_back"
+        icon: "mdi:flower"
+        name: "Rear Garden"
+        color: "green"
+      entity_4:
+        nav: "garden_front"
+        icon: "mdi:pine-tree"
+        name: "Front Garden"
+        color: "green"
+      entity_5:
         nav: "shopping"
         icon: "mdi:cart"
         name: "Shopping"
         color: "blue"
-      entity_4:
+      entity_6:
         nav: "events"
         icon: "mdi:calendar"
         name: "Events"
         color: "yellow"
-      entity_5:
-        nav: "power"
-        icon: "mdi:transmission-tower"
-        name: "Power"
-        color: "purple"
 
   - type: custom:layout-card
     layout_type: custom:grid-layout

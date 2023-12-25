@@ -1,0 +1,24 @@
+---
+button_card_templates: !include_dir_merge_named "../../../custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+
+title: "Tablet Dash"
+theme: "amethyst-mobile"
+background: "var(--background-image)"
+kiosk_mode:
+  non_admin_settings:
+    hide_header: true
+    hide_sidebar: true
+views:
+  - !include "views/main.yaml"
+  - !include "views/wetroom.yaml"
+  - !include "views/kitchen.yaml"
+  - !include "views/livingroom.yaml"
+  - !include "views/hallway.yaml"
+  - !include "views/garden_front.yaml"
+  - !include "views/bathroom.yaml"
+  - !include "views/bedroom.yaml"
+  - !include "views/office.yaml"
+  - !include "views/office/sensors.yaml"
+  - !include "views/landing.yaml"
+  - !include "views/garden_rear.yaml"
+  - !include "views/info.yaml"

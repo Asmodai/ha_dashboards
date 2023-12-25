@@ -13,7 +13,7 @@ cards:
       custom_card_asmodai_banner_icon: 'mdi:sofa'
       custom_card_asmodai_banner_light_entity: light.room_living_room
       custom_card_asmodai_banner_scene_filter: "scene.(room_)?living_room_*"
-      custom_card_asmodai_banner_scene_exclude: "scene.(room_)?living_room_herp_*"
+      custom_card_asmodai_banner_scene_exclude: "scene.(room_)?living_room_tv_*"
 
   #
   # Lights.

@@ -19,6 +19,8 @@ views:
   - !include views/shopping.yaml
   - !include views/events.yaml
   - !include views/security.yaml
-  - !include views/garden.yaml
+  - !include views/door.yaml
+  - !include views/garden_front.yaml
+  - !include views/garden_back.yaml
   - !include views/power.yaml
   - !include views/info.yaml

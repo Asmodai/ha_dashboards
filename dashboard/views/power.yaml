@@ -11,3 +11,46 @@ cards:
       custom_card_asmodai_banner_back_path: "home"
       custom_card_asmodai_banner_name: "Power Consumption"
       custom_card_asmodai_banner_icon: 'mdi:transmission-tower'
+
+  #
+  # Power!
+  #
+  - type: grid
+    columns: 2
+    cards:
+      - type:   gauge
+        entity: sensor.electricity_maps_grid_fossil_fuel_percentage
+        name:   Grid Fossil Fuel
+        unit:   '%'
+        needle: false
+      - type:   sensor
+        graph:  line
+        entity: sensor.electricity_maps_co2_intensity
+        detail: 2
+        name:   Grid CO2 Intensity
+        icon:   mdi:molecule-co2
+
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type:   gauge
+        entity: sensor.fibaro_wall_plug_1_electric_consumption_w
+        name:   Wall Plug 1
+        unit:   W
+        min:    0
+        max:    3450
+        severity:
+          green:  0
+          yellow: 700
+          red:    1400
+      - type: gauge
+        entity: sensor.fibaro_wall_plug_2_electric_consumption_w
+        name: Wall Plug 2
+        unit: W
+        min:    0
+        max:    3450
+        severity:
+          green:  0
+          yellow: 700
+          red:    1400
