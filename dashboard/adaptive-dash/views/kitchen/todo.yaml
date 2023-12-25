@@ -1,16 +1,23 @@
 type: custom:grid-layout
-title: Kitchen
+title: Todo
 square: false
 layout:
-  grid-template-columns: 300px auto auto auto 300px
-  grid-template-rows:    75% min-content auto
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr fit-content(1fr)
+  grid-template-rows:    80% fit-content(20%)
   grid-template-areas: |
-    "left    empty1  main    empty2  right"
-    "button  button  button  button  button"
-    "alarm   footer  footer  footer  security"
+    "main  main   main"
+    "alarm footer security"
   justify-items: stretch
-icon: mdi:fridge-outline
-path: kitchen
+  justify-self: stretch
+icon: mdi:cart-outline
+path: kitchen_todo
+visible: false
 badges: []
 style:
   .: |
@@ -20,60 +27,17 @@ background: >-
   url('/local/PurpleAbstractDark.png')
 cards:
 
-  #
-  # Left-hand banner.
-  #
-  - view_layout:
-      grid-area: left
-    type: custom:button-card
-    template: card_asmodai_tablet_quickinfo
-    variables:
-      temperature_entity: sensor.aqara_kitchen_temperature_temperature
-      pressure_entity:    sensor.aqara_kitchen_temperature_pressure
-      humidity_entity:    sensor.aqara_kitchen_temperature_humidity
-      air_quality_entity: sensor.frient_kitchen_voc_voc
-    style:
-      .: |
-        ha-card {
-          margin: 0px;
-          margin-top: -20px;
-          margin-left: -20px;
-          background-color: rgba(0, 0, 0, 0.0);
-        }
+######################################################################
+## MAIN
 
-  #
-  # Main banner.
-  #
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_asmodai_tablet_banner
-    variables:
-      room_name: Kitchen
-
-  #
-  # Right-hand banner.
-  #
-  - !include "../../includes/weather.yaml"
-
-  #
-  # Button area.
-  #
-  - view_layout:
-      grid-area: button
-    type: custom:mod-card
+    type: custom:vertical-stack-in-card
     style:
       .: |
-        ha-card {
-          border-radius: 20px;
-          background-color: rgba(0,0,0,0.0);
-          margin: auto;
-          position: absolute !important;
-          bottom: 100px !important;
-          padding: 10px;
-          left: 0;
-          right: 0;
-        }
+        ha-card { background-color: transparent; }
+    cards:
+      - !include "../../includes/shopping.yaml"
 
   #
   # Alarm area.
@@ -105,15 +69,12 @@ cards:
         element_2: # Lighting
           icon: mdi:lightbulb-outline
           path: "kitchen_lights"
-          disabled: true
         element_3: # Heating
           icon: mdi:radiator
           path: "kitchen_heating"
-          disabled: true
         element_4: # Multimedia
           icon: mdi:multimedia
           path: "kitchen_multimedia"
-          disabled: true
         element_5: # Sensors
           icon:  mdi:access-point
           path: "kitchen_sensors"
@@ -126,6 +87,7 @@ cards:
         element_8: # Shopping
           icon: mdi:cart-outline
           path: "kitchen_todo"
+          active: true
     style:
       .: |
         ha-card {

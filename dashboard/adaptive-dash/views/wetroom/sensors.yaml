@@ -16,7 +16,7 @@ layout:
   justify-items: stretch
   justify-self: stretch
 icon: mdi:access-point
-path: bathroom_sensors
+path: wetroom_sensors
 visible: false
 badges: []
 style:
@@ -58,8 +58,8 @@ cards:
                   background-color: transparent;
                 }
             entities:
-              - entity: sensor.aqara_bathroom_temperature_temperature
-                name: Bathroom
+              - entity: sensor.aqara_wetroom_temperature_temperature
+                name: wetroom
                 show_state: true
                 show_points: true
                 show_legend: false
@@ -94,8 +94,8 @@ cards:
                   background-color: transparent;
                 }
             entities:
-              - entity: sensor.aqara_bathroom_temperature_humidity
-                name: Bathroom
+              - entity: sensor.aqara_wetroom_temperature_humidity
+                name: wetroom
                 show_state: true
                 show_points: true
                 show_legend: false
@@ -164,33 +164,33 @@ cards:
       template: card_asmodai_tablet_menu
       variables:
         parent:
-          icon: mdi:bathtub-outline
-          path: "bathroom"
+          icon: mdi:shower-head
+          path: "wetroom"
         element_1: # Home
           icon: mdi:home-outline
           path: "home"
         element_2: # Lighting
           icon: mdi:lightbulb-outline
-          path: "bathroom_lights"
+          path: "wetroom_lights"
         element_3: # Heating
           icon: mdi:radiator
-          path: "bathroom_heating"
+          path: "wetroom_heating"
         element_4: # Multimedia
           icon: mdi:multimedia
-          path: "bathroom_multimedia"
+          path: "wetroom_multimedia"
         element_5: # Sensors
           icon:  mdi:access-point
-          path: "bathroom_sensors"
+          path: "wetroom_sensors"
           active: true
         element_6: # Weather
           icon: mdi:weather-partly-cloudy
-          path: "bathroom_climate"
+          path: "wetroom_climate"
         element_7: # Calendar
           icon: mdi:calendar-month-outline
-          path: "bathroom_events"
+          path: "wetroom_events"
         element_8: # Shopping
           icon: mdi:cart-outline
-          path: "bathroom_todo"
+          path: "wetroom_todo"
     style:
       .: |
         ha-card {

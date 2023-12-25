@@ -16,7 +16,7 @@ layout:
   justify-items: stretch
   justify-self: stretch
 icon: mdi:access-point
-path: bathroom_sensors
+path: livingroom_sensors
 visible: false
 badges: []
 style:
@@ -58,8 +58,8 @@ cards:
                   background-color: transparent;
                 }
             entities:
-              - entity: sensor.aqara_bathroom_temperature_temperature
-                name: Bathroom
+              - entity: sensor.aqara_livingroom_temperature_temperature
+                name: livingroom
                 show_state: true
                 show_points: true
                 show_legend: false
@@ -94,8 +94,8 @@ cards:
                   background-color: transparent;
                 }
             entities:
-              - entity: sensor.aqara_bathroom_temperature_humidity
-                name: Bathroom
+              - entity: sensor.aqara_livingroom_temperature_humidity
+                name: livingroom
                 show_state: true
                 show_points: true
                 show_legend: false
@@ -122,7 +122,7 @@ cards:
               - value: 0
                 color: "#94b3f8"
 
-          - type: custom:gap-card
+          - type: custom:mini-graph-card
             style:
               .: |
                 ha-card {
@@ -131,6 +131,23 @@ cards:
                   padding: 5px;
                   background-color: transparent;
                 }
+            entities:
+              - entity: sensor.frient_livingroom_voc_voc
+                name: livingroom
+                show_state: true
+                show_points: true
+                show_legend: false
+                show_name: true
+            points_per_hour: 1
+            align_state: center
+            align_header: center
+            hour24: true
+            group_by: hour
+            show:
+              labels: false
+              labels_secondary: false
+              name: true
+            name: Air Quality
 
           - type: custom:gap-card
             style:
@@ -164,33 +181,33 @@ cards:
       template: card_asmodai_tablet_menu
       variables:
         parent:
-          icon: mdi:bathtub-outline
-          path: "bathroom"
+          icon: mdi:sofa-outline
+          path: "livingroom"
         element_1: # Home
           icon: mdi:home-outline
           path: "home"
         element_2: # Lighting
           icon: mdi:lightbulb-outline
-          path: "bathroom_lights"
+          path: "livingroom_lights"
         element_3: # Heating
           icon: mdi:radiator
-          path: "bathroom_heating"
+          path: "livingroom_heating"
         element_4: # Multimedia
           icon: mdi:multimedia
-          path: "bathroom_multimedia"
+          path: "livingroom_multimedia"
         element_5: # Sensors
           icon:  mdi:access-point
-          path: "bathroom_sensors"
+          path: "livingroom_sensors"
           active: true
         element_6: # Weather
           icon: mdi:weather-partly-cloudy
-          path: "bathroom_climate"
+          path: "livingroom_climate"
         element_7: # Calendar
           icon: mdi:calendar-month-outline
-          path: "bathroom_events"
+          path: "livingroom_events"
         element_8: # Shopping
           icon: mdi:cart-outline
-          path: "bathroom_todo"
+          path: "livingroom_todo"
     style:
       .: |
         ha-card {

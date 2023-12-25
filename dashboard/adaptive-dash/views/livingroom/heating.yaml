@@ -1,0 +1,98 @@
+type: custom:grid-layout
+title: Heating
+square: false
+layout:
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr fit-content(1fr)
+  grid-template-rows:    80% fit-content(20%)
+  grid-template-areas: |
+    "main  main   main"
+    "alarm footer security"
+  justify-items: stretch
+  justify-self: stretch
+icon: mdi:radiator
+path: livingroom_heating
+visible: false
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+######################################################################
+## MAIN
+
+  - view_layout:
+      grid-area: main
+    type: custom:button-card
+    template: card_title
+    label: "NOTHING TO SEE HERE!"
+
+  #
+  # Alarm area.
+  #
+  - !include "../../includes/alarm.yaml"
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        parent:
+          icon: mdi:sofa-outline
+          path: "livingroom"
+        element_1: # Home
+          icon: mdi:home-outline
+          path: "home"
+        element_2: # Lighting
+          icon: mdi:lightbulb-outline
+          path: "livingroom_lights"
+        element_3: # Heating
+          icon: mdi:radiator
+          path: "livingroom_heating"
+          active: true
+        element_4: # Multimedia
+          icon: mdi:multimedia
+          path: "livingroom_multimedia"
+        element_5: # Sensors
+          icon:  mdi:access-point
+          path: "livingroom_sensors"
+        element_6: # Weather
+          icon: mdi:weather-partly-cloudy
+          path: "livingroom_climate"
+        element_7: # Calendar
+          icon: mdi:calendar-month-outline
+          path: "livingroom_events"
+        element_8: # Shopping
+          icon: mdi:cart-outline
+          path: "livingroom_todo"
+    style:
+      .: |
+        ha-card {
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }

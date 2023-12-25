@@ -169,20 +169,27 @@ cards:
           path: "home"
         element_2: # Lighting
           icon: mdi:lightbulb-outline
+          path: "hallway_lights"
         element_3: # Heating
           icon: mdi:radiator
+          path: "hallway_heating"
           disabled: true
         element_4: # Multimedia
           icon: mdi:multimedia
+          path: "hallway_multimedia"
           disabled: true
         element_5: # Sensors
           icon:  mdi:access-point
+          path: "hallway_sensors"
         element_6: # Weather
           icon: mdi:weather-partly-cloudy
+          path: "hallway_climate"
         element_7: # Calendar
           icon: mdi:calendar-month-outline
+          path: "hallway_events"
         element_8: # Shopping
           icon: mdi:cart-outline
+          path: "hallway_todo"
     style:
       .: |
         ha-card {

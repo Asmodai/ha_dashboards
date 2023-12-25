@@ -1,0 +1,328 @@
+type: custom:grid-layout
+title: Climate
+square: false
+layout:
+  width: 250
+  max-width: 250
+  height: 88%
+  grid-width: 250
+  grid-max-width: 250
+  grid-item--max-width: 250
+  grid-template-columns: 1fr 1fr 1fr
+  grid-template-rows:    80% fit-content(20%)
+  grid-template-areas: |
+    "main  main   main"
+    "alarm footer security"
+  justify-items: stretch
+  justify-self: stretch
+icon: mdi:weather-partly-cloudy
+path: kitchen_climate
+visible: false
+badges: []
+style:
+  .: |
+    margin: 0px;
+background: >-
+  center / cover no-repeat fixed
+  url('/local/PurpleAbstractDark.png')
+cards:
+
+######################################################################
+## MAIN
+
+  - view_layout:
+      grid-area: main
+    type: custom:vertical-stack-in-card
+    style:
+      .: |
+        ha-card { background-color: transparent; }
+    cards:
+
+######################################################################
+## Temperatures
+
+      - type: custom:vertical-stack-in-card
+        horizontal: false
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+
+          - type: custom:apexcharts-card
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(0,0,0,0.0);
+                  margin:auto;
+                  position: absolute; 
+                  left: 0;
+                  right: 0;
+                  border: none;
+                  box-shadow: none;
+                  border-radius: 20px;
+                }
+                div#header__title {
+                  font-size: 17px;
+                  font-weight: bold;
+                  text-align: center;
+                  color: #b083fe !important;
+                }
+            apex_config:
+              annotations:
+                position: back
+                yaxis:
+                  - 'y': 0
+                    strokeDashArray: 5
+                    borderColor: '#5b5b5b'
+                    borderWidth: 1
+              xaxis:
+                labels:
+                  format: HH:mm
+                axisBorder:
+                  show: false
+              legend:
+                show: false
+              grid:
+                show: true
+              fill:
+                type: gradient
+                gradient:
+                  type: vertical
+                  shadeIntensity: 0.4
+                  opacityFrom: 0.9
+                  opacityTo: 0
+                  stops:
+                    - 1
+                    - 95
+                    - 100
+              chart:
+                dropshadow:
+                  enabled: true
+                height: 200px
+            header:
+              show: true
+              title: Temperature
+              show_states: true
+              colorize_states: true
+            all_series_config:
+              stroke_width: 2
+              unit: "°C"
+              type: area
+            hours_12: false
+            graph_span: 1d
+            series:
+              - entity: sensor.aqara_kitchen_temperature_temperature
+              - entity: sensor.openweathermap_temperature
+                name: Outside Temperature
+
+######################################################################
+## Humidity
+
+      - type: custom:vertical-stack-in-card
+        horizontal: true
+        style:
+          .: |
+            ha-card { background-color: transparent; }
+        cards:
+        
+          - type: custom:apexcharts-card
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(0,0,0,0.0);
+                  margin:auto;
+                  position: absolute; 
+                  left: 0;
+                  right: 0;
+                  border: none;
+                  box-shadow: none;
+                  border-radius: 20px;
+                }
+                div#header__title {
+                  font-size: 17px;
+                  font-weight: bold;
+                  text-align: center;
+                  color: #b083fe !important;
+                }
+            apex_config:
+              annotations:
+                position: back
+                yaxis:
+                  - 'y': 0
+                    strokeDashArray: 5
+                    borderColor: '#5b5b5b'
+                    borderWidth: 1
+              xaxis:
+                labels:
+                  format: HH:mm
+                axisBorder:
+                  show: false
+              legend:
+                show: false
+              grid:
+                show: true
+              fill:
+                type: gradient
+                gradient:
+                  type: vertical
+                  shadeIntensity: 0.4
+                  opacityFrom: 0.9
+                  opacityTo: 0
+                  stops:
+                    - 1
+                    - 95
+                    - 100
+              chart:
+                dropshadow:
+                  enabled: true
+                height: 200px
+            header:
+              show: true
+              title: Humidity
+              show_states: true
+              colorize_states: true
+            all_series_config:
+              stroke_width: 2
+            hours_12: false
+            graph_span: 1d
+            series:
+              - entity: sensor.aqara_kitchen_temperature_humidity
+                unit: '%'
+                type: area
+              - entity: sensor.openweathermap_humidity
+                name: Outside Humidity
+                unit: '%'
+                type: area
+
+######################################################################
+## Pressure
+
+          - type: custom:apexcharts-card
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(0,0,0,0.0);
+                  margin:auto;
+                  position: absolute; 
+                  left: 0;
+                  right: 0;
+                  border: none;
+                  box-shadow: none;
+                  border-radius: 20px;
+                }
+                div#header__title {
+                  font-size: 17px;
+                  font-weight: bold;
+                  text-align: center;
+                  color: #b083fe !important;
+                }
+            apex_config:
+              annotations:
+                position: back
+                yaxis:
+                  - 'y': 0
+                    strokeDashArray: 5
+                    borderColor: '#5b5b5b'
+                    borderWidth: 1
+              xaxis:
+                labels:
+                  format: HH:mm
+                axisBorder:
+                  show: false
+              legend:
+                show: false
+              grid:
+                show: true
+              fill:
+                type: gradient
+                gradient:
+                  type: vertical
+                  shadeIntensity: 0.4
+                  opacityFrom: 0.9
+                  opacityTo: 0
+                  stops:
+                    - 1
+                    - 95
+                    - 100
+              chart:
+                dropshadow:
+                  enabled: true
+                height: 200px
+            header:
+              show: true
+              title: Pressure
+              show_states: true
+              colorize_states: true
+            all_series_config:
+              stroke_width: 2
+            hours_12: false
+            graph_span: 1d
+            series:
+              - entity: sensor.aqara_kitchen_temperature_pressure
+                unit: hPa
+                type: area
+              - entity: sensor.openweathermap_pressure
+                name: Outside Pressure
+                unit: hPa
+                type: area
+
+  #
+  # Alarm area.
+  #
+  - !include "../../includes/alarm.yaml"
+
+  #
+  # Door/window sensor area.
+  #
+  #- view_layout:
+  #    grid-area: security
+
+  #
+  # Footer area.
+  #
+  - view_layout:
+      grid-area: footer
+    type: custom:mod-card
+    card:
+      type: custom:button-card
+      template: card_asmodai_tablet_menu
+      variables:
+        parent:
+          icon: mdi:fridge-outline
+          path: "kitchen"
+        element_1: # Home
+          icon: mdi:home-outline
+          path: "home"
+        element_2: # Lighting
+          icon: mdi:lightbulb-outline
+          path: "kitchen_lights"
+        element_3: # Heating
+          icon: mdi:radiator
+          path: "kitchen_heating"
+        element_4: # Multimedia
+          icon: mdi:multimedia
+          path: "kitchen_multimedia"
+        element_5: # Sensors
+          icon:  mdi:access-point
+          path: "kitchen_sensors"
+        element_6: # Weather
+          icon: mdi:weather-partly-cloudy
+          path: "kitchen_climate"
+          active: true
+        element_7: # Calendar
+          icon: mdi:calendar-month-outline
+          path: "kitchen_events"
+        element_8: # Shopping
+          icon: mdi:cart-outline
+          path: "kitchen_todo"
+    style:
+      .: |
+        ha-card {
+          width: 600px;
+          margin:auto;
+          position: absolute;
+          bottom: 0%;
+          left: 0;
+          right: 0;
+          height: 70px;
+        }
