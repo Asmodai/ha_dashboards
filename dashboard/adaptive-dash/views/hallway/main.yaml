@@ -92,6 +92,8 @@ cards:
                 ulm_card_light_force_background_color: true
                 ulm_card_light_enable_collapse: false
                 ulm_card_Light_color: "#422e5e"
+                ulm_card_light_enable_buttons: true
+                ulm_card_light_color_palette: true
               styles:
                 card:
                   - --keep-background: 'true'

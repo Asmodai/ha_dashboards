@@ -78,6 +78,7 @@ cards:
         card:
           type: glance
           state_color: true
+          show_last_changed: false
           style: |
             ha-card { background-color: transparent; }
         sort:

@@ -11,7 +11,7 @@ card_asmodai_tablet_quickinfo:
     air_quality_entity: "[[[ return variables.air_quality_entity; ]]]"
   styles:
     grid:
-      - grid-template-areas:  "'info'"
+      - grid-template-areas:   "'info'"
       - grid-template-columns: "'1fr'"
       - grid-template-rows:    "min-content"
       - row-gap: 8px

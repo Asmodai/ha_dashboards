@@ -33,8 +33,19 @@ cards:
   - view_layout:
       grid-area: main
     type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    template: card_asmodai_media_player
+    entity: media_player.tv_43pus8807_12
+    variables:
+      custom_card_asmodai_media_player_name: "Philips TV"
+      custom_card_asmodai_media_player_enable_art: false
+      custom_card_asmodai_media_player_enable_controls: true
+      custom_card_asmodai_media_player_enable_volume_buttons: true
+      custom_card_asmodai_media_player_enable_popup: true
+      custom_card_asmodai_media_player_more_info: true
+      custom_card_asmodai_media_player_collapsible: true
+      custom_card_asmodai_media_player_power_button: true
+      custom_card_asmodai_media_player_force_background_color: true
+      custom_card_asmodai_media_player_navigation_path: 'philips_tv'
 
   #
   # Alarm area.

@@ -32,9 +32,19 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    type: grid
+    columns: 7
+    square: false
+    cards:
+
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
+        entity: light.landing_ceiling
+        variables:
+          name: Ceiling
+          icon: mdi:ceiling-light
 
   #
   # Alarm area.

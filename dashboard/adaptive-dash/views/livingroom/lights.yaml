@@ -8,8 +8,8 @@ layout:
   grid-width: 250
   grid-max-width: 250
   grid-item--max-width: 250
-  grid-template-columns: 1fr 1fr fit-content(1fr)
-  grid-template-rows:    80% fit-content(20%)
+  grid-template-columns: "'1fr' '1fr' '1fr'"
+  grid-template-rows:    "'fit-content' 'fit-content(70%)' 'fit-content(20%)'"
   grid-template-areas: |
     "main  main   main"
     "alarm footer security"
@@ -32,9 +32,53 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    type: grid
+    columns: 7
+    square: false
+    cards:
+
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
+        entity: light.zone_living_room_ceiling_1
+        variables:
+          name: "Ceiling #1"
+          icon: mdi:chandelier
+
+      - type: custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_tablet_light
+        entity: light.zone_living_room_ceiling_2
+        variables:
+          name: "Ceiling #2"
+          icon: mdi:chandelier
+
+      - type: custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_tablet_light
+        entity: light.living_room_cabinet
+        variables:
+          name: Cabinet
+          icon: mdi:wardrobe-outline
+
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+      - type: custom:gap-card
+        view_layout:
+          column: 6
+
+      - type: custom:gap-card
+        view_layout:
+          column: 7
 
   #
   # Alarm area.
