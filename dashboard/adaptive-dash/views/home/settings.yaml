@@ -80,7 +80,7 @@ cards:
           path: "home_todo"
         element_8: # Menu
           icon: mdi:menu
-          path: "home_menu"
+          path: "home_settings"
           active: true
     style:
       .: |
