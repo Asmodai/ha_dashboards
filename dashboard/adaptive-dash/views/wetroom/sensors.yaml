@@ -166,31 +166,34 @@ cards:
         parent:
           icon: mdi:shower-head
           path: "wetroom"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "wetroom_lights"
-        element_3: # Heating
+          disabled: true
+        element_2: # Heating
           icon: mdi:radiator
           path: "wetroom_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "wetroom_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "wetroom_sensors"
           active: true
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "wetroom_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "wetroom_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "wetroom_todo"
+        element_8: # Settings
+          icon: mdi:menu
+          path: "wetroom_settings"
     style:
       .: |
         ha-card {

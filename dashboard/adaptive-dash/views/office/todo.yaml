@@ -63,31 +63,33 @@ cards:
         parent:
           icon: mdi:desk
           path: "office"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "office_lights"
-        element_3: # Heating
+        element_2: # Heating
           icon: mdi:radiator
           path: "office_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "office_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "office_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "office_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "office_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "office_todo"
           active: true
+        element_8: # Menu
+          icon: mdi:menu
+          path: "office_settings"
     style:
       .: |
         ha-card {

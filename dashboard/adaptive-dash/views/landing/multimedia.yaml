@@ -60,31 +60,33 @@ cards:
         parent:
           icon: mdi:home-floor-1
           path: "landing"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "landing_lights"
-        element_3: # Heating
+        element_2: # Heating
           icon: mdi:radiator
           path: "landing_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "landing_multimedia"
+          disabled: true
           active: true
-        element_5: # Sensors
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "landing_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "landing_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "landing_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "landing_todo"
+        element_8: # Settings
+          icon: mdi:menu
+          path: "landing_settings"
     style:
       .: |
         ha-card {

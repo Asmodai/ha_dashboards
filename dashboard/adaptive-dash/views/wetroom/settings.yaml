@@ -1,5 +1,5 @@
 type: custom:grid-layout
-title: Multimedia
+title: Settings
 square: false
 layout:
   width: 250
@@ -15,8 +15,8 @@ layout:
     "alarm footer security"
   justify-items: stretch
   justify-self: stretch
-icon: mdi:multimedia
-path: bathroom_multimedia
+icon: mdi:menu
+path: wetroom_settings
 visible: false
 badges: []
 style:
@@ -58,36 +58,36 @@ cards:
       template: card_asmodai_tablet_menu
       variables:
         parent:
-          icon: mdi:bathtub-outline
-          path: "bathroom"
+          icon: mdi:shower-head
+          path: "wetroom"
         element_1: # Lighting
           icon: mdi:lightbulb-outline
-          path: "bathroom_lights"
+          path: "wetroom_lights"
           disabled: true
         element_2: # Heating
           icon: mdi:radiator
-          path: "bathroom_heating"
+          path: "wetroom_heating"
           disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
-          path: "bathroom_multimedia"
+          path: "wetroom_multimedia"
           disabled: true
-          active: true
         element_4: # Sensors
           icon:  mdi:access-point
-          path: "bathroom_sensors"
+          path: "wetroom_sensors"
         element_5: # Weather
           icon: mdi:weather-partly-cloudy
-          path: "bathroom_climate"
+          path: "wetroom_climate"
         element_6: # Calendar
           icon: mdi:calendar-month-outline
-          path: "bathroom_events"
+          path: "wetroom_events"
         element_7: # Shopping
           icon: mdi:cart-outline
-          path: "bathroom_todo"
+          path: "wetroom_todo"
         element_8: # Settings
           icon: mdi:menu
-          path: "bathroom_settings"
+          path: "wetroom_settings"
+          active: true
     style:
       .: |
         ha-card {

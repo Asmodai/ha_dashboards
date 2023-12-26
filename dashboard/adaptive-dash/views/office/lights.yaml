@@ -32,9 +32,73 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    type: grid
+    columns: 7
+    square: false
+    cards:
+      
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
+        entity: light.office_ceiling
+        variables:
+          name: Ceiling
+          icon: mdi:ceiling-light
+
+      - type: custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_tablet_light
+        entity: light.zone_office_desk
+        variables:
+          name: Desk LED Strips
+          icon: mdi:led-strip-variant
+
+      - type: custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_tablet_light
+        entity: null
+        variables:
+          name: unused
+          icon: mdi:lightbulb-outline
+
+      - type: custom:button-card
+        view_layout:
+          column: 4
+        template: card_asmodai_tablet_light
+        entity: null
+        variables:
+          name: unused
+          icon: mdi:lightbulb-outline
+
+      - type: custom:button-card
+        view_layout:
+          column: 5
+        template: card_asmodai_tablet_light
+        entity: null
+        variables:
+          name: unused
+          icon: mdi:lightbulb-outline
+
+      - type: custom:button-card
+        view_layout:
+          column: 6
+        template: card_asmodai_tablet_light
+        entity: null
+        variables:
+          name: unused
+          icon: mdi:lightbulb-outline
+
+      - type: custom:button-card
+        view_layout:
+          column: 7
+        template: card_asmodai_tablet_light
+        entity: null
+        variables:
+          name: unused
+          icon: mdi:lightbulb-outline
 
   #
   # Alarm area.
@@ -60,31 +124,33 @@ cards:
         parent:
           icon: mdi:desk
           path: "office"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "office_lights"
           active: true
-        element_3: # Heating
+        element_2: # Heating
           icon: mdi:radiator
           path: "office_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "office_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "office_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "office_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "office_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "office_todo"
+        element_8: # Menu
+          icon: mdi:menu
+          path: "office_settings"
     style:
       .: |
         ha-card {

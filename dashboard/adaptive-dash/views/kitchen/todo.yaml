@@ -63,31 +63,34 @@ cards:
         parent:
           icon: mdi:fridge-outline
           path: "kitchen"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "kitchen_lights"
-        element_3: # Heating
+          disabled: true
+        element_2: # Heating
           icon: mdi:radiator
           path: "kitchen_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "kitchen_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "kitchen_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "kitchen_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "kitchen_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "kitchen_todo"
           active: true
+        element_8: # Settings
+          icon: mdi:menu
+          path: "kitchen_settings"
     style:
       .: |
         ha-card {

@@ -112,6 +112,8 @@ cards:
             graph_span: 1d
             series:
               - entity: sensor.aqara_office_temperature_temperature
+              - entity: sensor.aqara_office_desk_temperature_temperature
+                name: Office Desk Temperature
               - entity: sensor.openweathermap_temperature
                 name: Outside Temperature
 
@@ -183,16 +185,17 @@ cards:
               colorize_states: true
             all_series_config:
               stroke_width: 2
+              unit: '%'
+              type: area
             hours_12: false
             graph_span: 1d
             series:
               - entity: sensor.aqara_office_temperature_humidity
-                unit: '%'
-                type: area
+              - entity: sensor.aqara_office_desk_temperature_humidity
+                name: Office Desk Humidity
               - entity: sensor.openweathermap_humidity
                 name: Outside Humidity
-                unit: '%'
-                type: area
+
 
 ######################################################################
 ## Pressure
@@ -255,16 +258,16 @@ cards:
               colorize_states: true
             all_series_config:
               stroke_width: 2
+              unit: hPa
+              type: area
             hours_12: false
             graph_span: 1d
             series:
               - entity: sensor.aqara_office_temperature_pressure
-                unit: hPa
-                type: area
+              - entity: sensor.aqara_office_desk_temperature_pressure
+                name: Office Desk Pressure
               - entity: sensor.openweathermap_pressure
                 name: Outside Pressure
-                unit: hPa
-                type: area
 
   #
   # Alarm area.
@@ -290,31 +293,33 @@ cards:
         parent:
           icon: mdi:desk
           path: "office"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "office_lights"
-        element_3: # Heating
+        element_2: # Heating
           icon: mdi:radiator
           path: "office_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "office_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "office_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "office_climate"
           active: true
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "office_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "office_todo"
+        element_8: # Menu
+          icon: mdi:menu
+          path: "office_settings"
     style:
       .: |
         ha-card {

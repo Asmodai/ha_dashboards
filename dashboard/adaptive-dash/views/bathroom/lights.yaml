@@ -60,31 +60,34 @@ cards:
         parent:
           icon: mdi:bathtub-outline
           path: "bathroom"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "bathroom_lights"
           active: true
-        element_3: # Heating
+          disabled: true
+        element_2: # Heating
           icon: mdi:radiator
           path: "bathroom_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "bathroom_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "bathroom_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "bathroom_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "bathroom_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "bathroom_todo"
+        element_8: # Settings
+          icon: mdi:menu
+          path: "bathroom_settings"
     style:
       .: |
         ha-card {

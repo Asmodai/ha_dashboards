@@ -167,6 +167,8 @@ cards:
       type: custom:button-card
       template: card_asmodai_tablet_menu
       variables:
+        parent:
+          disabled: true
         element_1: # Information
           icon: mdi:information-outline
           path: "home_info"
@@ -190,7 +192,7 @@ cards:
           path: "home_todo"
         element_8: # Menu
           icon: mdi:menu
-          path: "home_menu"
+          path: "home_settings"
     style:
       .: |
         ha-card {

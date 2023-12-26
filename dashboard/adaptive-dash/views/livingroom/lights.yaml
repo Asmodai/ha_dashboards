@@ -60,31 +60,32 @@ cards:
         parent:
           icon: mdi:sofa-outline
           path: "livingroom"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "livingroom_lights"
           active: true
-        element_3: # Heating
+        element_2: # Heating
           icon: mdi:radiator
           path: "livingroom_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "livingroom_multimedia"
-        element_5: # Sensors
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "livingroom_sensors"
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "livingroom_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "livingroom_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "livingroom_todo"
+        element_8: #Settings
+          icon: mdi:menu
+          path: "livingroom_settings"
     style:
       .: |
         ha-card {

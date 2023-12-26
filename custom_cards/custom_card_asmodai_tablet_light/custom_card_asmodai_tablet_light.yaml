@@ -1,0 +1,200 @@
+---
+card_asmodai_tablet_light:
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    icon: "[[[ return variables.icon ? variables.icon : mdi:lightbulb; ]]]"
+    name: "[[[ return variables.name ? variables.name : 'Light'; ]]]"
+  styles:
+    grid:
+      - grid-template-areas:   "'btn' 'sld' 'opt'"
+      - grid-template-columns: "'1fr'"
+      - grid-template-rows:    "'min-content min-content min-content'"
+      - row-gap: 8px
+    card:
+      - border-radius: 0px
+      - background-color: rgba(0, 0, 0, 0.0) !important
+      - padding: 0px
+      - cursor: default
+      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+    custom_fields:
+      btn:
+        - "--mdc-ripple-press-opacity": 0.12
+        - display: >
+            [[[
+              if (!entity) {
+                return "none"
+              }
+
+              return "block";
+            ]]]
+      sld:
+        - display: >
+            [[[
+              if (!entity) {
+                return "none"
+              }
+
+              if (entity.state == "on") {
+                return "block";
+              }
+
+              return "none";
+            ]]]
+      opt:
+        - display: >
+            [[[
+              if (!entity) {
+                return "none"
+              }
+
+              if (entity.state == "on") {
+                return "block";
+              }
+
+              return "none";
+            ]]]
+  custom_fields:
+    btn:
+      card:
+        type: custom:button-card
+        tap_action:
+          action: toggle
+        entity: "[[[ return entity ? entity.entity_id : null; ]]]"
+        name: "[[[ return variables.name; ]]]"
+        icon: "[[[ return variables.icon; ]]]"
+        color: '#eae1fe'
+        style:
+          .: |
+            ha-card {
+              border-radius: 20px;
+            }
+            :host {
+              --paper-item-icon-color: '#eae1fe';
+            }
+        styles:
+          card:
+            - transform: scale(0.9, 0.9)
+        aspect_ratio: 1/1
+        show_label: true
+        label: |
+          [[[
+              if (!entity) {
+                return "0%";
+              }
+
+              var bri = entity.attributes.brightness;
+              return ((bri ? bri : '0') / 2.55 ).toFixed(0) + '%';
+          ]]]
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+                - background-color: rgba(75, 13, 136, 0.8)
+              icon:
+                - color: >
+                    [[[
+                      if (!entity) {
+                        return 'rgba(#1d1d1d,1)';
+                      }
+                    
+                      if (entity.attributes.rgb_color) {
+                        return 'rgba(' + entity.attributes.rgb_color + ',1)';
+                      }
+
+                      return 'rgba(#ffffff,1)';
+                    ]]]
+                - filter: >-
+                    drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)) drop-shadow(0px
+                    0px 20px rgb(255 255 255 / 1.0))
+              name:
+                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+              label:
+                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+                - color: '#9e77e2'
+          - value: 'off'
+            label: Off
+            styles:
+              card:
+                - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+                - background-color: rgba(66, 46, 94, 0.8)
+              icon:
+                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+                - color: rgba(255, 255, 255, 0.3)
+              name:
+                - color: '#8b839d'
+                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+              label:
+                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+                - color: '#695394'
+    sld:
+      card:
+        type: custom:dimmer-button
+        entity: "[[[ return entity ? entity.entity_id : null; ]]]"
+        name: null
+        mode: brightness
+        direction: vertical
+        bottom: null
+        height: 350px
+        background: rgba(66, 46, 94, 0.8)
+        foreground: '#a376f0'
+        icon: none
+        on_icon: null
+        off_icon: null
+        on_color: rgba(255, 255, 255, 0.0)
+        off_color: rgba(255, 255, 255, 0.0)
+        text_color: rgba(255, 255, 255, 0.0)
+        style:
+          .: |
+            ha-card {
+              border-radius: 20px;
+              box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+              width: 80px;
+              margin-left: auto;
+              margin-right: auto;
+              text-align: center;
+            }
+            div.button {
+              border-radius: 20px;
+            }
+            div.button.active {
+              transform: none;
+            }
+    opt:
+      card:
+        type: horizontal-stack
+        cards:
+          - type: custom:gap-card
+            height: 50
+          - type: custom:button-card
+            icon: mdi:palette
+            styles:
+              card:
+                - width: 50px
+                - height: 50px
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(66, 46, 94, 0.8);
+                  border-radius: 20px;
+                  width: 80px;
+                  box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+                }
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                service: browser_mod.popup
+                deviceID: this
+                data:
+                  title: "[[[ return variables.name; ]]]"
+                  content:
+                    type: custom:light-entity-card
+                    entity: "[[[ return entity ? entity.entity_id : null; ]]]"
+          - type: custom:gap-card
+            height: 50
+              
+              
+card_asmodai_tablet_light__button:
+  

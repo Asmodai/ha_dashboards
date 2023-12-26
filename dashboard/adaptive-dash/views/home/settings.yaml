@@ -1,5 +1,5 @@
 type: custom:grid-layout
-title: Multimedia
+title: Settings
 square: false
 layout:
   width: 250
@@ -15,8 +15,8 @@ layout:
     "alarm footer security"
   justify-items: stretch
   justify-self: stretch
-icon: mdi:multimedia
-path: bathroom_multimedia
+icon: mdi:menu
+path: home_settings
 visible: false
 badges: []
 style:
@@ -57,37 +57,31 @@ cards:
       type: custom:button-card
       template: card_asmodai_tablet_menu
       variables:
-        parent:
-          icon: mdi:bathtub-outline
-          path: "bathroom"
-        element_1: # Lighting
-          icon: mdi:lightbulb-outline
-          path: "bathroom_lights"
-          disabled: true
-        element_2: # Heating
-          icon: mdi:radiator
-          path: "bathroom_heating"
-          disabled: true
-        element_3: # Multimedia
-          icon: mdi:multimedia
-          path: "bathroom_multimedia"
-          disabled: true
-          active: true
-        element_4: # Sensors
-          icon:  mdi:access-point
-          path: "bathroom_sensors"
-        element_5: # Weather
-          icon: mdi:weather-partly-cloudy
-          path: "bathroom_climate"
+        element_1: # Information
+          icon: mdi:information-outline
+          path: "home_info"
+        element_2: # Alarm
+          icon:  mdi:shield-home-outline
+          path: "home_alarm"
+        element_3: # Doorbell
+          icon: mdi:doorbell
+          path: "home_door"
+        element_4: # CCTV
+          icon: mdi:cctv
+          path: "home_cctv"
+        element_5: # Security
+          icon: mdi:lock-outline
+          path: "home_security"
         element_6: # Calendar
           icon: mdi:calendar-month-outline
-          path: "bathroom_events"
+          path: "home_events"
         element_7: # Shopping
           icon: mdi:cart-outline
-          path: "bathroom_todo"
-        element_8: # Settings
+          path: "home_todo"
+        element_8: # Menu
           icon: mdi:menu
-          path: "bathroom_settings"
+          path: "home_menu"
+          active: true
     style:
       .: |
         ha-card {

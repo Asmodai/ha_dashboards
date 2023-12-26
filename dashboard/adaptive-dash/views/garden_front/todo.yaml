@@ -63,31 +63,35 @@ cards:
         parent:
           icon: mdi:pine-tree
           path: "garden_front"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "garden_front_lights"
-        element_3: # Heating
+          disabled: true
+        element_2: # Heating
           icon: mdi:radiator
           path: "garden_front_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "garden_front_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "garden_front_sensors"
-        element_6: # Weather
+          disabled: true
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "garden_front_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "garden_front_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "garden_front_todo"
           active: true
+        element_8: # Settings
+          icon: mdi:menu
+          path: "garden_front_settings"
     style:
       .: |
         ha-card {

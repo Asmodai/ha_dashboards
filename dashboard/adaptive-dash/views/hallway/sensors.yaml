@@ -183,31 +183,33 @@ cards:
         parent:
           icon: mdi:home-floor-g
           path: "hallway"
-        element_1: # Home
-          icon: mdi:home-outline
-          path: "home"
-        element_2: # Lighting
+        element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "hallway_lights"
-        element_3: # Heating
+        element_2: # Heating
           icon: mdi:radiator
           path: "hallway_heating"
-        element_4: # Multimedia
+          disabled: true
+        element_3: # Multimedia
           icon: mdi:multimedia
           path: "hallway_multimedia"
-        element_5: # Sensors
+          disabled: true
+        element_4: # Sensors
           icon:  mdi:access-point
           path: "hallway_sensors"
           active: true
-        element_6: # Weather
+        element_5: # Weather
           icon: mdi:weather-partly-cloudy
           path: "hallway_climate"
-        element_7: # Calendar
+        element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "hallway_events"
-        element_8: # Shopping
+        element_7: # Shopping
           icon: mdi:cart-outline
           path: "hallway_todo"
+        element_8: # Settings
+          icon: mdi:menu
+          path: "hallway_settings"
     style:
       .: |
         ha-card {

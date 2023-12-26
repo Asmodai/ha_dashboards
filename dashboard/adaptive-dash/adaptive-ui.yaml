@@ -15,8 +15,8 @@ views:
   - !include "views/home/events.yaml"
   - !include "views/home/info.yaml"
   - !include "views/home/main.yaml"
-  - !include "views/home/menu.yaml"
   - !include "views/home/security.yaml"
+  - !include "views/home/settings.yaml"
   - !include "views/home/todo.yaml"
     
   - !include "views/wetroom/climate.yaml"
@@ -26,6 +26,7 @@ views:
   - !include "views/wetroom/main.yaml"
   - !include "views/wetroom/multimedia.yaml"
   - !include "views/wetroom/sensors.yaml"
+  - !include "views/wetroom/settings.yaml"
   - !include "views/wetroom/todo.yaml"
   
   - !include "views/kitchen/climate.yaml"
@@ -35,6 +36,7 @@ views:
   - !include "views/kitchen/main.yaml"
   - !include "views/kitchen/multimedia.yaml"
   - !include "views/kitchen/sensors.yaml"
+  - !include "views/kitchen/settings.yaml"
   - !include "views/kitchen/todo.yaml"
   
   - !include "views/livingroom/climate.yaml"
@@ -44,6 +46,7 @@ views:
   - !include "views/livingroom/main.yaml"
   - !include "views/livingroom/multimedia.yaml"
   - !include "views/livingroom/sensors.yaml"
+  - !include "views/livingroom/settings.yaml"
   - !include "views/livingroom/todo.yaml"
   
   - !include "views/hallway/climate.yaml"
@@ -53,6 +56,7 @@ views:
   - !include "views/hallway/main.yaml"
   - !include "views/hallway/multimedia.yaml"
   - !include "views/hallway/sensors.yaml"
+  - !include "views/hallway/settings.yaml"
   - !include "views/hallway/todo.yaml"
   
   - !include "views/garden_front/climate.yaml"
@@ -62,6 +66,7 @@ views:
   - !include "views/garden_front/main.yaml"
   - !include "views/garden_front/multimedia.yaml"
   - !include "views/garden_front/sensors.yaml"
+  - !include "views/garden_front/settings.yaml"
   - !include "views/garden_front/todo.yaml"
   
   - !include "views/bathroom/climate.yaml"
@@ -71,6 +76,7 @@ views:
   - !include "views/bathroom/main.yaml"
   - !include "views/bathroom/multimedia.yaml"
   - !include "views/bathroom/sensors.yaml"
+  - !include "views/bathroom/settings.yaml"
   - !include "views/bathroom/todo.yaml"
   
   - !include "views/bedroom/climate.yaml"
@@ -80,6 +86,7 @@ views:
   - !include "views/bedroom/main.yaml"
   - !include "views/bedroom/multimedia.yaml"
   - !include "views/bedroom/sensors.yaml"
+  - !include "views/bedroom/settings.yaml"
   - !include "views/bedroom/todo.yaml"
 
   - !include "views/office/climate.yaml"
@@ -89,6 +96,7 @@ views:
   - !include "views/office/main.yaml"
   - !include "views/office/multimedia.yaml"
   - !include "views/office/sensors.yaml"
+  - !include "views/office/settings.yaml"
   - !include "views/office/todo.yaml"
   
   - !include "views/landing/climate.yaml"
@@ -98,6 +106,7 @@ views:
   - !include "views/landing/main.yaml"
   - !include "views/landing/multimedia.yaml"
   - !include "views/landing/sensors.yaml"
+  - !include "views/landing/settings.yaml"
   - !include "views/landing/todo.yaml"
   
   - !include "views/garden_rear/climate.yaml"
@@ -107,4 +116,5 @@ views:
   - !include "views/garden_rear/main.yaml"
   - !include "views/garden_rear/multimedia.yaml"
   - !include "views/garden_rear/sensors.yaml"
+  - !include "views/garden_rear/settings.yaml"
   - !include "views/garden_rear/todo.yaml"
