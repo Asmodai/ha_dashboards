@@ -1,15 +1,21 @@
 ---
 card_asmodai_tablet_button:
-  show_icon: true
-  show_name: true
-  show_label: false
+  show_icon:       true
+  show_name:       true
+  show_label:      false
+  triggers_update: "all"
   variables:
-    custom_card_asmodai_tablet_button_icon: "[[[ return variables.custom_card_asmodai_tablet_button_icon ]]]"
-    custom_card_asmodai_tablet_button_name: "[[[ return variables.custom_card_asmodai_tablet_button_name ]]]"
-    custom_card_asmodai_tablet_button_path: "[[[ return variables.custom_card_asmodai_tablet_button_path ]]]"
-  type:   custom:button-card
-  icon:   "[[[ return variables.custom_card_asmodai_tablet_button_icon ]]]"
-  name:   "[[[ return variables.custom_card_asmodai_tablet_button_name ]]]"
+    icon: "[[[ return variables.icon; ]]]"
+    name: "[[[ return variables.name; ]]]"
+    path: "[[[ return variables.path; ]]]"
+    colors:
+      default:  "#eae1fe"
+      occupied: "#ffd36e"
+    entities:
+      presence: "[[[ return variables.presence; ]]]"
+  type: custom:button-card
+  icon: "[[[ return variables.icon; ]]]"
+  name: "[[[ return variables.name; ]]]"
   style:
     .: |
       ha-card {
@@ -19,7 +25,38 @@ card_asmodai_tablet_button:
         border-radius: 20px;
         padding: 5px;
       }
+  styles:
+    name:
+      - color: >-
+          [[[
+            if (variables.entities.presence) {
+              if (states[variables.entities.presence].state == 'on') {
+                return variables.colors.occupied;
+              }
+            }
+
+            return variables.colors.default;
+          ]]]
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+    icon:
+      - color: >- 
+          [[[
+            if (!entity || entity.state == "off") {
+              return variables.colors.default;
+            }
+
+            return 'rgba(' + entity.attributes.rgb_color + ',0.8)';
+          ]]]
+      - filter: >-
+          [[[
+            if (!entity || entity.state == "off") {
+              return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))';
+            }
+
+            return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)) ' +
+                   'drop-shadow(0px 0px 3px rgba(' + entity.attributes.rgb_color + ', 0.8))'
+          ]]]
   tap_action:
     action: navigate
-    navigation_path: "[[[ return variables.custom_card_asmodai_tablet_button_path ]]]"
+    navigation_path: "[[[ return variables.path; ]]]"
 
