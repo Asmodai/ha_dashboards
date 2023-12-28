@@ -33,7 +33,7 @@ cards:
   - view_layout:
       grid-area: main
     type: grid
-    columns: 7
+    columns: 3
     square: false
     cards:
 
@@ -41,44 +41,41 @@ cards:
         view_layout:
           column: 1
         template: card_asmodai_tablet_light
-        entity: light.zone_living_room_ceiling_1
+        entity: light.room_living_room
         variables:
-          name: "Ceiling #1"
-          icon: mdi:chandelier
+          name: "All"
+          icon: "mdi:sofa-outline"
+          color_select_mode: true
 
       - type: custom:button-card
         view_layout:
           column: 2
         template: card_asmodai_tablet_light
-        entity: light.zone_living_room_ceiling_2
+        entity: light.zone_living_room_ceiling_1
         variables:
-          name: "Ceiling #2"
+          name: "Ceiling #1"
           icon: mdi:chandelier
+          color_select_mode: true
 
       - type: custom:button-card
         view_layout:
           column: 3
         template: card_asmodai_tablet_light
+        entity: light.zone_living_room_ceiling_2
+        variables:
+          name: "Ceiling #2"
+          icon: mdi:chandelier
+          color_select_mode: true
+
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
         entity: light.living_room_cabinet
         variables:
           name: Cabinet
           icon: mdi:wardrobe-outline
-
-      - type: custom:gap-card
-        view_layout:
-          column: 4
-
-      - type: custom:gap-card
-        view_layout:
-          column: 5
-
-      - type: custom:gap-card
-        view_layout:
-          column: 6
-
-      - type: custom:gap-card
-        view_layout:
-          column: 7
+          color_select_mode: true
 
   #
   # Alarm area.

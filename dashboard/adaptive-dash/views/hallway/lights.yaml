@@ -33,9 +33,19 @@ cards:
   - view_layout:
       grid-area: main
     type: grid
-    columns: 7
+    columns: 3
     square: false
     cards:
+      
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
+        entity: light.room_hallway
+        variables:
+          name: "All"
+          icon: "mdi:home-floor-g"
+          color_select_mode: true
       
       - type: custom:button-card
         view_layout:
@@ -45,6 +55,7 @@ cards:
         variables:
           name: Ceiling
           icon: mdi:ceiling-light
+          color_select_mode: true
 
   #
   # Alarm area.

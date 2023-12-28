@@ -82,24 +82,14 @@ cards:
           cards:
             - type: custom:gap-card
             - type: custom:button-card
-              template: card_light
+              template: card_asmodai_tablet_light
               entity: light.room_hallway
               variables:
-                ulm_card_light_name: "Lights"
-                ulm_card_light_icon: "mdi:home-floor-g"
-                ulm_card_light_enable_slider: true
-                ulm_card_light_enable_color: true
-                ulm_card_light_force_background_color: true
-                ulm_card_light_enable_collapse: false
-                ulm_card_Light_color: "#422e5e"
-                ulm_card_light_enable_buttons: true
-                ulm_card_light_color_palette: true
-              styles:
-                card:
-                  - --keep-background: 'true'
-                  - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
-                  - border-radius: 20px;
-                  - background-color: rgba(66, 46, 94, 0.8)
+                name: "Lights"
+                icon: "mdi:home-floor-g"
+                filters:
+                  include: "scene.(room_)?hallway*"
+                  exclude: "scene.(room_)?hallway_nope*"
             - type: custom:gap-card
         - type: horizontal-stack
           cards:

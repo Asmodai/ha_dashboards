@@ -1,208 +1,526 @@
 ---
 card_asmodai_tablet_light:
-  show_icon: false
-  show_name: false
-  show_label: false
+  template: 
+    - "ulm_translation_engine"
+    - "icon_more_info_new"
   variables:
-    icon: "[[[ return variables.icon ? variables.icon : mdi:lightbulb; ]]]"
-    name: "[[[ return variables.name ? variables.name : 'Light'; ]]]"
+    name: "[[[ return entity.attributes.friendly_name; ]]]"
+    icon: "[[[ return entity.attributes.icon; ]]]"
+    color_select_mode: false
+    filters:
+      include: null
+      exclude: null
+    colors:
+      background: "#422e5e"
+      button:     "#573d7c"
+      active:     "234,225,254"
+      inactive:   "143,142,144"
+      disabled:   "92,39,157"
+    options:
+      slider_min:   0
+      slider_max:   100
+      brightness_1: 10
+      brightness_2: 30
+      brightness_3: 50
+      brightness_4: 70
+      brightness_5: 100
+    icons:
+      scenes:       mdi:palette
+      brightness_1: mdi:lightbulb-on-10
+      brightness_2: mdi:lightbulb-on-30
+      brightness_3: mdi:lightbulb-on-50
+      brightness_4: mdi:lightbulb-on-70
+      brightness_5: mdi:lightbulb-on
+    show_icon:      true
+    show_name:      true
+    enable_buttons: true
+  show_icon:  false
+  show_name:  false
+  show_label: false
   styles:
     grid:
-      - grid-template-areas:   "'btn' 'sld' 'opt'"
-      - grid-template-columns: "'1fr'"
-      - grid-template-rows:    "'min-content(10%) auto min-content(5%)'"
-      - row-gap: 8px
+      - grid-template-areas: >
+          [[[
+            var areas  = [];
+
+            if (variables.show_icon || variables.show_name) {
+              areas.push("item1");
+            }
+
+            // Slider is always shown.
+            areas.push("slider");
+
+            if (variables.enable_buttons) {
+              areas.push("buttons");
+            }
+
+            return "\"" + areas.join("\" \"") + "\"";
+          ]]]
+      - grid-template-columns: "1fr"
+      - grid-template-rows: >
+          [[[
+            var rows = [];
+
+            if (variables.show_icon || variables.show_name) {
+              rows.push("min-content");
+            }
+
+            // Slider is always shown.
+            rows.push("min-content");
+
+            if (variables.enable_buttons) {
+              rows.push("min-content");
+            }
+
+            return rows.join(" ");
+          ]]]
+      - row-gap: "12px"
     card:
-      - border-radius: 0px
-      - background-color: rgba(0, 0, 0, 0.0) !important
-      - padding: 8px
-      - cursor: default
-      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+      - background-color: "[[[ return variables.colors.background; ]]]"
+      - --keep-background: 'true'
+      - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+      - border-radius: 20px;
+      - padding:          "12px"
     custom_fields:
-      btn:
-        - "--mdc-ripple-press-opacity": 0.12
+      title: 
         - display: >
             [[[
-              if (!entity) {
-                return "none"
-              }
-
-              return "block";
-            ]]]
-      sld:
-        - display: >
-            [[[
-              if (!entity) {
-                return "none"
-              }
-
-              if (entity.state == "on") {
-                return "block";
+              if (variables.show_icon || variables.show_name) {
+                return "block"
               }
 
               return "none";
-            ]]]
-      opt:
+            ]]]     
+      buttons:
         - display: >
             [[[
-              if (!entity) {
-                return "none"
-              }
-
-              if (entity.state == "on") {
-                return "block";
+              if (variables.enable_buttons) {
+                return "block"
               }
 
               return "none";
             ]]]
   custom_fields:
-    btn:
+    item1:
       card:
         type: custom:button-card
-        tap_action:
-          action: toggle
-        entity: "[[[ return entity ? entity.entity_id : null; ]]]"
-        name: "[[[ return variables.name; ]]]"
-        icon: "[[[ return variables.icon; ]]]"
-        color: '#eae1fe'
-        style:
-          .: |
-            ha-card {
-              border-radius: 20px;
+        styles:
+          grid:
+            - grid-template-areas:   "'item1 item2'"
+            - grid-template-columns: "min-content 1fr"
+            - grid-template-rows:    "min-content"
+        custom_fields:
+          item1:
+            card:
+              type:   custom:button-card
+              entity: "[[[ return entity ? entity.entity_id : null; ]]]"
+              icon:   "[[[ return variables.icon; ]]]"
+              styles:
+                icon:
+                  - color: >
+                      [[[
+                        if (!entity) {
+                          return 'rgba(' + variables.colors.disabled + ',1)';
+                        }
+                      
+                        if (entity.attributes.rgb_color) {
+                          return 'rgba(' + entity.attributes.rgb_color + ',1)';
+                        }
+
+                        return 'rgba(' + variables.colors.inactive + ',0.9)';
+                      ]]]
+                  - img_cell:
+                    - background-color: transparent
+          item2:
+            card:
+              type:   custom:button-card
+              entity: "[[[ return entity.entity_id; ]]]"
+              name:   "[[[ return variables.name; ]]]"
+              label: >
+                [[[
+                  var lbl = variables.ulm_translation_state;
+
+                  if (entity.attributes.brightness != null && entity.state === 'on') {
+                    var bri = Math.round(entity.attributes.brightness / 2.55);
+                    lbl = (bri ? bri : "0") + "%";
+                  }
+
+                  return lbl;
+                ]]]
+              state:
+                - operator: "template"
+                  value:    "[[[ return variables.ulm_active_state; ]]]"
+                  styles:
+                    name:
+                      - color: "rgb(250, 250, 250)"
+                    label:
+                      - color: "rgb(250, 250, 250)"
+    slider:
+      card:
+        type:   custom:my-slider
+        entity: "[[[ return entity.entity_id; ]]]"
+        radius: "14px"
+        height: "42px"
+        minSet: "[[[ return variables.options.slider_min; ]]]"
+        maxSet: "[[[ return variables.options.slider_max; ]]]"
+        mainSliderColor: >
+          [[[
+            if (!entity || entity.state == "unavailable") {
+              return 'rgba(' + variables.colors.disabled + ',1)';
             }
-            :host {
-              --paper-item-icon-color: '#eae1fe';
+          
+            if (entity.attributes.rgb_color) {
+              return 'rgba(' + entity.attributes.rgb_color + ',1)';
             }
+
+            return 'rgba(' + variables.colors.active + ',1)';
+          ]]]
+        secondarySliderColor: >
+          [[[
+            if (!entity || entity.state == "unavailable") {
+              return 'rgba(' + variables.colors.disabled + ',1)';
+            }
+          
+            if (entity.attributes.rgb_color) {
+              return 'rgba(' + entity.attributes.rgb_color + ',0.2)';
+            }
+
+            return 'rgba(' + variables.colors.active + ',0.2)';
+          ]]]
+        thumbColor: >
+          [[[
+            if (!entity || entity.state == "unavailable") {
+              return 'rgba(' + variables.colors.disabled + ',1)';
+            }
+          
+            if (entity.attributes.rgb_color) {
+              return 'rgba(' + entity.attributes.rgb_color + ',1)';
+            }
+
+            return 'rgba(' + variables.colors.active + ',1)';
+          ]]]
+        mainSliderColorOff: >
+          [[[
+            return 'rgba(' + variables.colors.disabled + ',0.05)';
+          ]]]
+        secondarySliderColorOff: >
+          [[[
+            return 'rgba(' + variables.colors.disabled + ',0.05)';
+          ]]]
+        thumbHorizontalPadding: "0px"
+        thumbVerticalPadding:   "0px"
+        thumbWidth:             "12px"
+        style: |
+          ha-card {
+            border-radius: 14px;
+            box-shadow: none;
+          }
+    buttons:
+      card:
+        type: custom:button-card
+        styles:
+          grid:
+            - grid-template-areas:   "'sty btn1 btn2 btn3 btn4 btn5'"
+            - grid-template-columns: "1fr  1fr  1fr  1fr  1fr  1fr"
+            - grid-template-rows:    "min-content"
+            - column-gap:            "7px"
+          card:
+            - box-shadow: "none"
+            - padding:    "0px"
+            - background: "none"
+        custom_fields:
+          sty: # Scenes
+            card:
+              type: custom:button-card
+              template: widget_icon
+              entity: "[[[ return entity ? entity.entity_id : null; ]]]"
+              styles:
+                card:
+                  - background-color: "[[[ return variables.colors.button; ]]]"
+                img_cell:
+                  - background-color: >
+                      [[[
+                        if (entity.state == "on") {
+                          return 'rgba(' + variables.colors.button + ',0.2)';
+                        }
+
+                        return 'rgba(' + variables.colors.button + ',0.6)';
+                      ]]]
+                icon:
+                  - color: >
+                      [[[
+                        if (entity.state == "off") {
+                          return 'rgba(' + variables.colors.inactive + ',0.9)';
+                        }
+
+                        return 'rgba(' + variables.colors.active + ',1)';
+                      ]]]
+              tap_action: >
+                  [[[
+                    if (!entity) {
+                      return { "action": "none" };
+                    }
+
+                    var title = variables.color_select_mode
+                                  ? "Select Color"
+                                  : "Select Style";
+                    var obj   = variables.color_select_mode
+                                  ? {
+                                      "type": "custom:light-entity-card",
+                                      "entity": entity.entity_id
+                                    }
+                                  : {
+                                      "type":     "custom:button-card",
+                                      "template": "card_asmodai_tablet_light_scenes",
+                                      "styles": {
+                                        "card": [
+                                          { "border-radius":              "none"    },
+                                          { "box-shadow":                 "none"    },
+                                          { "cursor":                     "default" },
+                                          { "--mdc-ripple-press-opacity": 0         },
+                                        ]
+                                      },
+                                      "variables": {
+                                        "light_entity":  entity.entity_id,
+                                        "scene_include": variables.filters.include,
+                                        "scene_exclude": variables.filters.exclude
+                                      }
+                                    };
+
+                    return {
+                      "action": "fire-dom-event",
+                      "browser_mod": {
+                        "service":  "browser_mod.popup",
+                        "deviceID": "this",
+                        "data": {
+                          "title":  title,
+                          "content": obj
+                        }
+                      }
+                    };
+                  ]]]
+              icon: "[[[ return variables.icons.scenes; ]]]"
+          btn1: # Brightness preset #1
+            card:
+              type: custom:button-card
+              template: widget_icon
+              entity: "[[[ return entity.entity_id; ]]]"
+              styles:
+                card:
+                  - background-color: "[[[ return variables.colors.button; ]]]"
+                img_cell:
+                  - background-color: >
+                      [[[
+                        if (entity.state == "on") {
+                          return 'rgba(' + variables.colors.button + ',0.2)';
+                        }
+
+                        return 'rgba(' + variables.colors.button + ',0.6)';
+                      ]]]
+                icon:
+                  - color: >
+                      [[[
+                        if (entity.state == "off") {
+                          return 'rgba(' + variables.colors.inactive + ',0.9)';
+                        }
+
+                        return 'rgba(' + variables.colors.active + ',1)';
+                      ]]]
+              tap_action:
+                action:  "call-service"
+                service: "light.turn_on"
+                service_data:
+                  entity_id:      "[[[ return entity.entity_id; ]]]"
+                  brightness_pct: "[[[ return variables.options.brightness_1; ]]]"
+              icon: "[[[ return variables.icons.brightness_1; ]]]"
+          btn2: # Brightness preset #2
+            card:
+              type: custom:button-card
+              template: widget_icon
+              entity: "[[[ return entity.entity_id; ]]]"
+              styles:
+                card:
+                  - background-color: "[[[ return variables.colors.button; ]]]"
+                img_cell:
+                  - background-color: >
+                      [[[
+                        if (entity.state == "on") {
+                          return 'rgba(' + variables.colors.button + ',0.2)';
+                        }
+
+                        return 'rgba(' + variables.colors.button + ',0.6)';
+                      ]]]
+                icon:
+                  - color: >
+                      [[[
+                        if (entity.state == "off") {
+                          return 'rgba(' + variables.colors.inactive + ',0.9)';
+                        }
+
+                        return 'rgba(' + variables.colors.active + ',1)';
+                      ]]]
+              tap_action:
+                action:  "call-service"
+                service: "light.turn_on"
+                service_data:
+                  entity_id:      "[[[ return entity.entity_id; ]]]"
+                  brightness_pct: "[[[ return variables.options.brightness_2; ]]]"
+              icon: "[[[ return variables.icons.brightness_2; ]]]"
+          btn3: # Brightness preset #3
+            card:
+              type: custom:button-card
+              template: widget_icon
+              entity: "[[[ return entity.entity_id; ]]]"
+              styles:
+                card:
+                  - background-color: "[[[ return variables.colors.button; ]]]"
+                img_cell:
+                  - background-color: >
+                      [[[
+                        if (entity.state == "on") {
+                          return 'rgba(' + variables.colors.button + ',0.2)';
+                        }
+
+                        return 'rgba(' + variables.colors.button + ',0.6)';
+                      ]]]
+                icon:
+                  - color: >
+                      [[[
+                        if (entity.state == "off") {
+                          return 'rgba(' + variables.colors.inactive + ',0.9)';
+                        }
+
+                        return 'rgba(' + variables.colors.active + ',1)';
+                      ]]]
+              tap_action:
+                action:  "call-service"
+                service: "light.turn_on"
+                service_data:
+                  entity_id:      "[[[ return entity.entity_id; ]]]"
+                  brightness_pct: "[[[ return variables.options.brightness_3; ]]]"
+              icon: "[[[ return variables.icons.brightness_3; ]]]"
+          btn4: # Brightness preset #4
+            card:
+              type: custom:button-card
+              template: widget_icon
+              entity: "[[[ return entity.entity_id; ]]]"
+              styles:
+                card:
+                  - background-color: "[[[ return variables.colors.button; ]]]"
+                img_cell:
+                  - background-color: >
+                      [[[
+                        if (entity.state == "on") {
+                          return 'rgba(' + variables.colors.button + ',0.2)';
+                        }
+
+                        return 'rgba(' + variables.colors.button + ',0.6)';
+                      ]]]
+                icon:
+                  - color: >
+                      [[[
+                        if (entity.state == "off") {
+                          return 'rgba(' + variables.colors.inactive + ',0.9)';
+                        }
+
+                        return 'rgba(' + variables.colors.active + ',1)';
+                      ]]]
+              tap_action:
+                action:  "call-service"
+                service: "light.turn_on"
+                service_data:
+                  entity_id:      "[[[ return entity.entity_id; ]]]"
+                  brightness_pct: "[[[ return variables.options.brightness_4; ]]]"
+              icon: "[[[ return variables.icons.brightness_4; ]]]"
+          btn5: # Brightness preset #5
+            card:
+              type: custom:button-card
+              template: widget_icon
+              entity: "[[[ return entity.entity_id; ]]]"
+              styles:
+                card:
+                  - background-color: "[[[ return variables.colors.button; ]]]"
+                img_cell:
+                  - background-color: >
+                      [[[
+                        if (entity.state == "on") {
+                          return 'rgba(' + variables.colors.button + ',0.2)';
+                        }
+
+                        return 'rgba(' + variables.colors.button + ',0.6)';
+                      ]]]
+                icon:
+                  - color: >
+                      [[[
+                        if (entity.state == "off") {
+                          return 'rgba(' + variables.colors.inactive + ',0.9)';
+                        }
+
+                        return 'rgba(' + variables.colors.active + ',1)';
+                      ]]]
+              tap_action:
+                action:  "call-service"
+                service: "light.turn_on"
+                service_data:
+                  entity_id:      "[[[ return entity ? entity.entity_id : null; ]]]"
+                  brightness_pct: "[[[ return variables.options.brightness_5; ]]]"
+              icon: "[[[ return variables.icons.brightness_5; ]]]"
+
+card_asmodai_tablet_light_scenes:
+  variables:
+    scene_include: "[[[ return variables.scene_include ]]]"
+    scene_exclude: "[[[ return variables.scene_exclude ]]]"
+    light_entity:  "[[[ return variables.light_entity ]]]"
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'item1'"
+      - grid-template-columns: "100%"
+      - grid-template-rows: "100%"
+      - row-gap: "5px"
+      - justify-items: "center"
+      - column-gap: "auto"
+    card:
+      - border-radius: "none"
+      - box-shadow: "none"
+      - padding: 0px
+    custom_fields:
+      item1:
+        - border-radius: "none"
+        - box-shadow: "none"
+        - padding: 0px
+  custom_fields:
+    item1:
+      card:
+        type: custom:auto-entities
         styles:
           card:
-            - transform: scale(0.9, 0.9)
-        aspect_ratio: 1/1
-        show_label: true
-        label: |
-          [[[
-              if (!entity) {
-                return "0%";
-              }
-
-              var bri = entity.attributes.brightness;
-              return ((bri ? bri : '0') / 2.55 ).toFixed(0) + '%';
-          ]]]
-        state:
-          - value: 'on'
-            styles:
-              card:
-                - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
-                - background-color: rgba(75, 13, 136, 0.8)
-              icon:
-                - color: >
-                    [[[
-                      if (!entity) {
-                        return 'rgba(#1d1d1d,1)';
-                      }
-                    
-                      if (entity.attributes.rgb_color) {
-                        return 'rgba(' + entity.attributes.rgb_color + ',1)';
-                      }
-
-                      return 'rgba(#ffffff,1)';
-                    ]]]
-                - filter: >
-                    [[[
-                      if (!entity) {
-                        return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))';
-                      }
-                      
-                      return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)) ' +
-                             'drop-shadow(0px 0px 20px rgba(' +
-                             entity.attributes.rgb_color +
-                             ', 1.0));'
-                    ]]]
-              name:
-                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-              label:
-                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-                - color: '#9e77e2'
-          - value: 'off'
-            label: Off
-            styles:
-              card:
-                - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
-                - background-color: rgba(66, 46, 94, 0.8)
-              icon:
-                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-                - color: rgba(255, 255, 255, 0.3)
-              name:
-                - color: '#8b839d'
-                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-              label:
-                - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-                - color: '#695394'
-    sld:
-      card:
-        type: custom:dimmer-button
-        entity: "[[[ return entity ? entity.entity_id : null; ]]]"
-        name: null
-        mode: brightness
-        direction: vertical
-        bottom: null
-        height: 300px
-        background: rgba(66, 46, 94, 0.8)
-        foreground: '#a376f0'
-        icon: none
-        on_icon: null
-        off_icon: null
-        on_color: rgba(255, 255, 255, 0.0)
-        off_color: rgba(255, 255, 255, 0.0)
-        text_color: rgba(255, 255, 255, 0.0)
-        style:
-          .: |
-            ha-card {
-              border-radius: 20px;
-              box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-              width: 80px;
-              margin-left: auto;
-              margin-right: auto;
-              text-align: center;
-            }
-            div.button {
-              border-radius: 20px;
-            }
-            div.button.active {
-              transform: none;
-            }
-    opt:
-      card:
-        type: horizontal-stack
-        cards:
-          - type: custom:gap-card
-            height: 50
-          - type: custom:button-card
-            icon: mdi:palette
-            styles:
-              card:
-                - width: 50px
-                - height: 50px
-            style:
-              .: |
-                ha-card {
-                  background-color: rgba(66, 46, 94, 0.8);
-                  border-radius: 20px;
-                  width: 80px;
-                  box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-                }
-            tap_action:
-              action: fire-dom-event
-              browser_mod:
-                service: browser_mod.popup
-                deviceID: this
-                data:
-                  title: "[[[ return variables.name; ]]]"
-                  content:
-                    type: custom:light-entity-card
-                    entity: "[[[ return entity ? entity.entity_id : null; ]]]"
-          - type: custom:gap-card
-            height: 50
-              
-              
-card_asmodai_tablet_light__button:
-  
+            - border-radius: "none"
+            - box-shadow: "none"
+        card:
+          type: entities
+          styles:
+            card:
+              - border-radius: "none"
+              - box-shadow: "none"
+        filter:
+          include:
+            - entity_id: "[[[ return variables.scene_include ]]]"
+              options:
+                show_name: true
+                show_icon: true
+                show_state: false
+                show_header_toggle: false
+                styles:
+                  card:
+                    - border-radius: "none"
+                    - box-shadow: "none"
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  service_data:
+                    entity_id: this.entity_id
+          exclude:
+            - entity_id: "[[[ return variables.scene_exclude ]]]"

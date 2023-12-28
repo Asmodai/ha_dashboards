@@ -33,7 +33,7 @@ cards:
   - view_layout:
       grid-area: main
     type: grid
-    columns: 7
+    columns: 3
     square: false
     cards:
       
@@ -41,64 +41,31 @@ cards:
         view_layout:
           column: 1
         template: card_asmodai_tablet_light
-        entity: light.office_ceiling
+        entity: light.room_office
         variables:
-          name: Ceiling
-          icon: mdi:ceiling-light
+          name: "All"
+          icon: "mdi:desk"
+          color_select_mode: true
 
       - type: custom:button-card
         view_layout:
           column: 2
         template: card_asmodai_tablet_light
-        entity: light.zone_office_desk
+        entity: light.office_ceiling
         variables:
-          name: Desk LED Strips
-          icon: mdi:led-strip-variant
+          name: Ceiling
+          icon: mdi:ceiling-light
+          color_select_mode: true
 
       - type: custom:button-card
         view_layout:
           column: 3
         template: card_asmodai_tablet_light
-        entity: null
+        entity: light.zone_office_desk
         variables:
-          name: unused
-          icon: mdi:lightbulb-outline
-
-      - type: custom:button-card
-        view_layout:
-          column: 4
-        template: card_asmodai_tablet_light
-        entity: null
-        variables:
-          name: unused
-          icon: mdi:lightbulb-outline
-
-      - type: custom:button-card
-        view_layout:
-          column: 5
-        template: card_asmodai_tablet_light
-        entity: null
-        variables:
-          name: unused
-          icon: mdi:lightbulb-outline
-
-      - type: custom:button-card
-        view_layout:
-          column: 6
-        template: card_asmodai_tablet_light
-        entity: null
-        variables:
-          name: unused
-          icon: mdi:lightbulb-outline
-
-      - type: custom:button-card
-        view_layout:
-          column: 7
-        template: card_asmodai_tablet_light
-        entity: null
-        variables:
-          name: unused
-          icon: mdi:lightbulb-outline
+          name: Desk LED Strips
+          icon: mdi:led-strip-variant
+          color_select_mode: true
 
   #
   # Alarm area.
