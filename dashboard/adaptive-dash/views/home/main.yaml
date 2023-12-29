@@ -82,41 +82,45 @@ cards:
             - type: custom:gap-card
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: null
               variables:
                 icon: mdi:shower-head
                 name: "Wet Room"
                 path: 'wetroom'
+                entities:
+                  light: null
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: null
               variables:
                 icon: mdi:fridge-outline
                 name: "Kitchen"
                 path: 'kitchen'
+                entities:
+                  light: null
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: light.room_living_room
               variables:
                 icon: mdi:sofa-outline
                 name: "Living Room"
                 path: 'livingroom'
+                entities:
+                  light: light.room_living_room
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: light.room_hallway
               variables:
                 icon: mdi:home-floor-g
                 name: "Hallway"
                 path: 'hallway'
                 entities:
+                  light: light.room_hallway
                   presence: binary_sensor.esp1_hallway_occupancy
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: null
               variables:
                 icon: mdi:pine-tree
                 name: "Front Garden"
                 path: 'garden_front'
+                entities:
+                  light: null
             - type: custom:gap-card
 
         - type: horizontal-stack
@@ -124,41 +128,45 @@ cards:
             - type: custom:gap-card
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: null
               variables:
                 icon: mdi:bathtub-outline
                 name: "Bathroom"
                 path: 'bathroom'
+                entities:
+                  light: null
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: null
               variables:
                 icon: mdi:bed-outline
                 name: "Bedroom"
                 path: 'bedroom'
+                entities:
+                  light: null
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: light.room_office
               variables:
                 icon: mdi:desk
                 name: "Office"
                 path: 'office'
+                entities:
+                  light: light.room_office
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: light.room_landing
               variables:
                 icon: mdi:home-floor-1
                 name: "Landing"
                 path: 'landing'
                 entities:
+                  light: light.room_landing
                   presence: binary_sensor.esp1_landing_occupancy
             - type: custom:button-card
               template: card_asmodai_tablet_button
-              entity: null
               variables:
                 icon: mdi:flower
                 name: "Rear Garden"
                 path: 'garden_rear'
+                entities:
+                  light: null
             - type: custom:gap-card
   
   #

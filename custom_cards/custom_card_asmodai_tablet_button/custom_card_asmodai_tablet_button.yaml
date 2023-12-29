@@ -8,35 +8,63 @@ card_asmodai_tablet_button:
     icon: "[[[ return variables.icon; ]]]"
     name: "[[[ return variables.name; ]]]"
     path: "[[[ return variables.path; ]]]"
+    entities:
+      light: >-
+        [[[ return variables.light      ? variables.light.entity_id      : null; ]]]
+      presence: >-
+        [[[ return variables.presence   ? variables.presence.entity_id   : null; ]]]
+      heating: >- 
+        [[[ return variables.heating    ? variables.heating.entity_id    : null; ]]]
+      windows: >-
+        [[[ return variables.windows    ? variables.windows.entity_id    : null; ]]]
+      multimedia: >-
+        [[[ return variables.multimedia ? variables.multimedia.entity_id : null; ]]]
     colors:
       default:  "#eae1fe"
-      occupied: "#ffd36e"
-    entities:
-      presence: "[[[ return variables.presence; ]]]"
-  type: custom:button-card
-  icon: "[[[ return variables.icon; ]]]"
-  name: "[[[ return variables.name; ]]]"
+      inactive: "#a284fc"
+      active:   "#ffd36e"
+      disabled: "#8b839d"
+    icons:
+      light:
+        active:   mdi:lightbulb-on
+        inactive: mdi:lightbulb
+        disabled: mdi:lightbulb-off
+      presence:
+        active:   mdi:account
+        inactive: mdi:account
+        disabled: mdi:account-off
+      heating:
+        active:   mdi:radiator
+        inactive: mdi:radiator-disabled
+        disabled: mdi:radiator-off
+      windows:
+        active:   mdi:window-open-variant
+        inactive: mdi:window-closed-variant
+        disabled: mdi:window-closed-variant
+      multimedia:
+        active:   mdi:television-play
+        stopped:  mdi:television-stop
+        pause:    mdi:television-pause
+        inactive: mdi:television
+        disabled: mdi:television-off
+  type:   custom:button-card
+  icon:   "[[[ return variables.icon; ]]]"
+  name:   "[[[ return variables.name; ]]]"
+  entity: "[[[ return variables.entities.light ]]]"
   style:
     .: |
       ha-card {
         --keep-background: true;
         background-color: rgba(66, 46, 94, 0.8);
         box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-        border-radius: 20px;
-        padding: 5px;
+        padding: 0px;
       }
   styles:
+    grid:
+      - grid-template-areas:   "'b1 b2 b3 b4 b5' 'i i i i i' 'n n n n n'"
+      - grid-template-columns: "auto auto auto auto auto"
+      - grid-template-rows:    "auto"
     name:
-      - color: >-
-          [[[
-            if (variables.entities.presence) {
-              if (states[variables.entities.presence].state == 'on') {
-                return variables.colors.occupied;
-              }
-            }
-
-            return variables.colors.default;
-          ]]]
       - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
     icon:
       - color: >- 
@@ -56,6 +84,139 @@ card_asmodai_tablet_button:
             return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)) ' +
                    'drop-shadow(0px 0px 3px rgba(' + entity.attributes.rgb_color + ', 0.8))'
           ]]]
+  tap_action:
+    action: navigate
+    navigation_path: "[[[ return variables.path; ]]]"
+  custom_fields:
+    b1:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity:   "[[[ return variables.entities.light ]]]"     
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.light.active; ]]]"
+            inactive: "[[[ return variables.icons.light.inactive; ]]]"
+            disabled: "[[[ return variables.icons.light.disabled; ]]]"
+    b2:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity: "[[[ return variables.entities.presence; ]]]"
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.presence.active; ]]]"
+            inactive: "[[[ return variables.icons.presence.inactive; ]]]"
+            disabled: "[[[ return variables.icons.presence.disabled; ]]]"
+    b3:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity: "[[[ return variables.entities.heating; ]]]"
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.heating.active; ]]]"
+            inactive: "[[[ return variables.icons.heating.inactive; ]]]"
+            disabled: "[[[ return variables.icons.heating.disabled; ]]]"
+    b4:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity: "[[[ return variables.entities.windows; ]]]"
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.windows.active; ]]]"
+            inactive: "[[[ return variables.icons.windows.inactive; ]]]"
+            disabled: "[[[ return variables.icons.windows.disabled; ]]]"
+    b5:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity: "[[[ return variables.entities.multimedia; ]]]"
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.multimedia.active; ]]]"
+            inactive: "[[[ return variables.icons.multimedia.inactive; ]]]"
+            disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
+card_asmodai_tablet_button__badge:
+  show_name:       false
+  show_icon:       true
+  show_label:      true
+  triggers_update: "all"
+  variables:
+    path: "[[[ return variables.path; ]]]"
+    colors:
+      default:  "[[[ return variables.colors.default; ]]]"
+      inactive: "[[[ return variables.colors.inactive; ]]]"
+      active:   "[[[ return variables.colors.active; ]]]"
+      disabled: "[[[ return variables.colors.disabled; ]]]"
+    icons:
+      active:   "[[[ return variables.icons.active; ]]]"
+      inactive: "[[[ return variables.icons.inactive; ]]]"
+      disabled: "[[[ return variables.icons.disabled; ]]]"
+  icon: >-
+    [[[
+      if (!entity) {
+        return variables.icons.disabled;
+      }
+      
+      if (entity.state == 'off') {
+        return variables.icons.inactive;
+      }
+      
+      return variables.icons.active;
+    ]]]
+  styles:
+    card:
+      - "--mdc-ripple-press-opacity": 0
+    icon:
+      - color: >-
+          [[[
+            if (!entity) {
+              return variables.colors.disabled;
+            }
+            
+            if (entity.state == 'off') {
+              return variables.colors.inactive;
+            }
+
+            return variables.colors.active;
+          ]]]
+  style:
+    .: |
+      ha-card {
+        background-color: rgba(0,0,0,0.0);
+      }
   tap_action:
     action: navigate
     navigation_path: "[[[ return variables.path; ]]]"
