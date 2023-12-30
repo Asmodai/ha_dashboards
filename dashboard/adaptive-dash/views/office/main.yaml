@@ -51,6 +51,8 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Office
+      entities:
+        light: light.room_office
 
   #
   # Right-hand banner.

@@ -16,9 +16,9 @@ card_asmodai_tablet_button:
       multimedia: null
     colors:
       default:  "#eae1fe"
-      inactive: "#a284fc"
-      active:   "#ffd36e"
-      disabled: "#8b839d"
+      inactive: "#54b4ff"  #"#a284fc"
+      active:   "#3ffe5e" #"#ffd36e"
+      disabled: "#8b839d" #"#8b839d"
     icons:
       light:
         active:   mdi:lightbulb

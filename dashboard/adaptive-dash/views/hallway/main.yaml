@@ -52,6 +52,9 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Hallway
+      entities:
+        light:    light.room_hallway
+        presence: binary_sensor.esp1_hallway_occupancy
 
   #
   # Right-hand banner.

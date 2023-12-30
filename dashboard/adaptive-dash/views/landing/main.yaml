@@ -52,6 +52,9 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Landing
+      entities:
+        light: light.room_landing
+        presence: binary_sensor.esp1_landing_occupancy
 
   #
   # Right-hand banner.
