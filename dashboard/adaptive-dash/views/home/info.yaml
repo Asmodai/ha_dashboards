@@ -19,9 +19,10 @@ icon: mdi:information-outline
 path: home_info
 visible: false
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -33,9 +34,10 @@ cards:
   - view_layout:
       grid-area: main
     type: custom:vertical-stack-in-card
-    style:
-      .: |
-        ha-card { background-color: transparent; }
+    card_mod:
+      style:
+        .: |
+          ha-card { background-color: transparent; }
     cards:
     
       ##
@@ -53,9 +55,10 @@ cards:
             - font-weight: regular
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
       - type: entities
-        style:
-          .: |
-            ha-card { background-color: transparent; }
+        card_mod:
+          style:
+            .: |
+              ha-card { background-color: transparent; }
         entities:
           - input_boolean.disable_light_automation
           - input_boolean.disable_display_light_automation
@@ -79,8 +82,9 @@ cards:
           type: glance
           state_color: true
           show_last_changed: false
-          style: |
-            ha-card { background-color: transparent; }
+          card_mod:
+            style: |
+              ha-card { background-color: transparent; }
         sort:
           method: state
           numeric: true
@@ -137,14 +141,15 @@ cards:
         element_8: # Menu
           icon: mdi:menu
           path: "home_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

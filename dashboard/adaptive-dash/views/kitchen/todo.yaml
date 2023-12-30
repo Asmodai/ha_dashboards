@@ -19,9 +19,10 @@ icon: mdi:cart-outline
 path: kitchen_todo
 visible: false
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -33,9 +34,10 @@ cards:
   - view_layout:
       grid-area: main
     type: custom:vertical-stack-in-card
-    style:
-      .: |
-        ha-card { background-color: transparent; }
+    card_mod:
+      style:
+        .: |
+          ha-card { background-color: transparent; }
     cards:
       - !include "../../includes/shopping.yaml"
 
@@ -91,14 +93,15 @@ cards:
         element_8: # Settings
           icon: mdi:menu
           path: "kitchen_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

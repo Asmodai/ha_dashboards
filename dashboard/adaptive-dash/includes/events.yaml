@@ -6,25 +6,26 @@ entities:
   - calendar.holidays_in_the_united_kingdom
   - calendar.asmodai_gmail_com
 initial_view: listMonth
-style:
-  .: |
-    ha-card {
-      background-color: rgba(0, 0, 0, 0.1);
-      margin: auto;
-      left: 0;
-      right: 0;
-      border: none;
-      box-shadow: none;
-      border-radius: 20px;
-    }
-    ha-full-calendar {
-      min-height: 650px !important;
-    }
-    div.header {
-      padding-top: 0px;
-    }
-  ha-full-calendar:
-    $: |
-      #calendar {
-        background-color: rgba(0,0,0,0.1) !important;
+card_mod:
+  style:
+    .: |
+      ha-card {
+        background-color: rgba(66, 46, 94, 0.8);
+        margin: auto;
+        left: 0;
+        right: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 20px;
       }
+      ha-full-calendar {
+        min-height: 650px !important;
+      }
+      div.header {
+        padding-top: 0px;
+      }
+    ha-full-calendar:
+      $: |
+        #calendar {
+          background-color: rgba(34, 24, 48, 0.7) !important;
+        }

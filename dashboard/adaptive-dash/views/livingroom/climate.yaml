@@ -19,9 +19,10 @@ icon: mdi:weather-partly-cloudy
 path: livingroom_climate
 visible: false
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -33,9 +34,10 @@ cards:
   - view_layout:
       grid-area: main
     type: custom:vertical-stack-in-card
-    style:
-      .: |
-        ha-card { background-color: transparent; }
+    card_mod:
+      style:
+        .: |
+          ha-card { background-color: transparent; }
     cards:
 
 ######################################################################
@@ -43,30 +45,32 @@ cards:
 
       - type: custom:vertical-stack-in-card
         horizontal: false
-        style:
-          .: |
-            ha-card { background-color: transparent; }
+        card_mod:
+          style:
+            .: |
+              ha-card { background-color: transparent; }
         cards:
 
           - type: custom:apexcharts-card
-            style:
-              .: |
-                ha-card {
-                  background-color: rgba(0,0,0,0.0);
-                  margin:auto;
-                  position: absolute; 
-                  left: 0;
-                  right: 0;
-                  border: none;
-                  box-shadow: none;
-                  border-radius: 20px;
-                }
-                div#header__title {
-                  font-size: 17px;
-                  font-weight: bold;
-                  text-align: center;
-                  color: #b083fe !important;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    background-color: rgba(0,0,0,0.0);
+                    margin:auto;
+                    position: absolute; 
+                    left: 0;
+                    right: 0;
+                    border: none;
+                    box-shadow: none;
+                    border-radius: 20px;
+                  }
+                  div#header__title {
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #b083fe !important;
+                  }
             apex_config:
               annotations:
                 position: back
@@ -120,30 +124,32 @@ cards:
 
       - type: custom:vertical-stack-in-card
         horizontal: true
-        style:
-          .: |
-            ha-card { background-color: transparent; }
+        card_mod:
+          style:
+            .: |
+              ha-card { background-color: transparent; }
         cards:
         
           - type: custom:apexcharts-card
-            style:
-              .: |
-                ha-card {
-                  background-color: rgba(0,0,0,0.0);
-                  margin:auto;
-                  position: absolute; 
-                  left: 0;
-                  right: 0;
-                  border: none;
-                  box-shadow: none;
-                  border-radius: 20px;
-                }
-                div#header__title {
-                  font-size: 17px;
-                  font-weight: bold;
-                  text-align: center;
-                  color: #b083fe !important;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    background-color: rgba(0,0,0,0.0);
+                    margin:auto;
+                    position: absolute; 
+                    left: 0;
+                    right: 0;
+                    border: none;
+                    box-shadow: none;
+                    border-radius: 20px;
+                  }
+                  div#header__title {
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #b083fe !important;
+                  }
             apex_config:
               annotations:
                 position: back
@@ -198,24 +204,25 @@ cards:
 ## Pressure
 
           - type: custom:apexcharts-card
-            style:
-              .: |
-                ha-card {
-                  background-color: rgba(0,0,0,0.0);
-                  margin:auto;
-                  position: absolute; 
-                  left: 0;
-                  right: 0;
-                  border: none;
-                  box-shadow: none;
-                  border-radius: 20px;
-                }
-                div#header__title {
-                  font-size: 17px;
-                  font-weight: bold;
-                  text-align: center;
-                  color: #b083fe !important;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    background-color: rgba(0,0,0,0.0);
+                    margin:auto;
+                    position: absolute; 
+                    left: 0;
+                    right: 0;
+                    border: none;
+                    box-shadow: none;
+                    border-radius: 20px;
+                  }
+                  div#header__title {
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #b083fe !important;
+                  }
             apex_config:
               annotations:
                 position: back
@@ -316,14 +323,15 @@ cards:
         element_8: #Settings
           icon: mdi:menu
           path: "livingroom_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

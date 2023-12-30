@@ -9,16 +9,11 @@ card_asmodai_tablet_button:
     name: "[[[ return variables.name; ]]]"
     path: "[[[ return variables.path; ]]]"
     entities:
-      light: >-
-        [[[ return variables.light      ? variables.light.entity_id      : null; ]]]
-      presence: >-
-        [[[ return variables.presence   ? variables.presence.entity_id   : null; ]]]
-      heating: >- 
-        [[[ return variables.heating    ? variables.heating.entity_id    : null; ]]]
-      windows: >-
-        [[[ return variables.windows    ? variables.windows.entity_id    : null; ]]]
-      multimedia: >-
-        [[[ return variables.multimedia ? variables.multimedia.entity_id : null; ]]]
+      light:      null
+      presence:   null
+      heating:    null
+      windows:    null
+      multimedia: null
     colors:
       default:  "#eae1fe"
       inactive: "#a284fc"
@@ -26,7 +21,7 @@ card_asmodai_tablet_button:
       disabled: "#8b839d"
     icons:
       light:
-        active:   mdi:lightbulb-on
+        active:   mdi:lightbulb
         inactive: mdi:lightbulb
         disabled: mdi:lightbulb-off
       presence:
@@ -51,14 +46,15 @@ card_asmodai_tablet_button:
   icon:   "[[[ return variables.icon; ]]]"
   name:   "[[[ return variables.name; ]]]"
   entity: "[[[ return variables.entities.light ]]]"
-  style:
-    .: |
-      ha-card {
-        --keep-background: true;
-        background-color: rgba(66, 46, 94, 0.8);
-        box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-        padding: 0px;
-      }
+  card_mod:
+    style:
+      .: |
+        ha-card {
+          --keep-background: true;
+          background-color: rgba(66, 46, 94, 0.8);
+          box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+          padding: 0px;
+        }
   styles:
     grid:
       - grid-template-areas:   "'b1 b2 b3 b4 b5' 'i i i i i' 'n n n n n'"
@@ -75,15 +71,7 @@ card_asmodai_tablet_button:
 
             return 'rgba(' + entity.attributes.rgb_color + ',0.8)';
           ]]]
-      - filter: >-
-          [[[
-            if (!entity || entity.state == "off") {
-              return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))';
-            }
-
-            return 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)) ' +
-                   'drop-shadow(0px 0px 3px rgba(' + entity.attributes.rgb_color + ', 0.8))'
-          ]]]
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
   tap_action:
     action: navigate
     navigation_path: "[[[ return variables.path; ]]]"
@@ -170,9 +158,9 @@ card_asmodai_tablet_button:
             disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
 card_asmodai_tablet_button__badge:
   show_name:       false
-  show_icon:       true
-  show_label:      true
+  show_label:      false
   triggers_update: "all"
+  show_icon:       true
   variables:
     path: "[[[ return variables.path; ]]]"
     colors:
@@ -200,6 +188,7 @@ card_asmodai_tablet_button__badge:
     card:
       - "--mdc-ripple-press-opacity": 0
     icon:
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
       - color: >-
           [[[
             if (!entity) {
@@ -212,12 +201,18 @@ card_asmodai_tablet_button__badge:
 
             return variables.colors.active;
           ]]]
-  style:
-    .: |
-      ha-card {
-        background-color: rgba(0,0,0,0.0);
+  card_mod:
+    style:
+      .: |
+        ha-card {
+          background-color: rgba(0,0,0,0.0);
+        }
+  tap_action: >
+    [[[
+      if (variables.path) {
+        return { "action": "navigate", "navigation_path": variables.path" };
       }
-  tap_action:
-    action: navigate
-    navigation_path: "[[[ return variables.path; ]]]"
+      
+      return { "action": "none" };
+    ]]]
 

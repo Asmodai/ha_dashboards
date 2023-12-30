@@ -11,15 +11,21 @@ card_asmodai_tablet_scene:
   icon:   "[[[ return variables.custom_card_asmodai_tablet_scene_icon ]]]"
   name:   "[[[ return variables.custom_card_asmodai_tablet_scene_name ]]]"
   entity: "[[[ return variables.custom_card_asmodai_tablet_scene_entity_id ]]]"
-  style:
-    .: |
-      ha-card {
-        --keep-background: true;
-        background-color: rgba(66, 46, 94, 0.8);
-        box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-        border-radius: 20px;
-        padding: 5px;
-      }
+  styles:
+    name:
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+    icon:
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+  card_mod:
+    style:
+      .: |
+        ha-card {
+          --keep-background: true;
+          background-color: rgba(66, 46, 94, 0.8);
+          box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+          border-radius: 20px;
+          padding: 5px;
+        }
   tap_action:
     action: "call-service"
     service: >

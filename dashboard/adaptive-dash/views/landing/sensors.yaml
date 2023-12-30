@@ -19,9 +19,10 @@ icon: mdi:access-point
 path: landing_sensors
 visible: false
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -33,9 +34,10 @@ cards:
   - view_layout:
       grid-area: graph
     type: custom:vertical-stack-in-card
-    style:
-      .: |
-        ha-card { background-color: transparent; }
+    card_mod:
+      style:
+        .: |
+          ha-card { background-color: transparent; }
     cards:
 
 ######################################################################
@@ -43,20 +45,22 @@ cards:
 
       - type: custom:vertical-stack-in-card
         horizontal: true
-        style:
-          .: |
-            ha-card { background-color: transparent; }
+        card_mod:
+          style:
+            .: |
+              ha-card { background-color: transparent; }
         cards:
 
           - type: custom:mini-graph-card
-            style:
-              .: |
-                ha-card {
-                  width: 250px;
-                  height: 150px;
-                  padding: 5px;
-                  background-color: transparent;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    width: 250px;
+                    height: 150px;
+                    padding: 5px;
+                    background-color: transparent;
+                  }
             entities:
               - entity: sensor.aqara_landing_temperature_temperature
                 name: landing
@@ -85,14 +89,15 @@ cards:
                 color: "#63a3fc"
 
           - type: custom:mini-graph-card
-            style:
-              .: |
-                ha-card {
-                  width: 250px;
-                  height: 150px;
-                  padding: 5px;
-                  background-color: transparent;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    width: 250px;
+                    height: 150px;
+                    padding: 5px;
+                    background-color: transparent;
+                  }
             entities:
               - entity: sensor.aqara_landing_temperature_humidity
                 name: landing
@@ -123,14 +128,15 @@ cards:
                 color: "#94b3f8"
 
           - type: custom:mini-graph-card
-            style:
-              .: |
-                ha-card {
-                  width: 250px;
-                  height: 150px;
-                  padding: 5px;
-                  background-color: transparent;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    width: 250px;
+                    height: 150px;
+                    padding: 5px;
+                    background-color: transparent;
+                  }
             entities:
               - entity: sensor.esp1_landing_illuminance
                 name: landing
@@ -150,14 +156,15 @@ cards:
             name: Illuminance
 
           - type: custom:gap-card
-            style:
-              .: |
-                ha-card {
-                  width: 250px;
-                  height: 150px;
-                  padding: 5px;
-                  background-color: transparent;
-                }
+            card_mod:
+              style:
+                .: |
+                  ha-card {
+                    width: 250px;
+                    height: 150px;
+                    padding: 5px;
+                    background-color: transparent;
+                  }
 
   #
   # Alarm area.
@@ -210,14 +217,15 @@ cards:
         element_8: # Settings
           icon: mdi:menu
           path: "landing_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

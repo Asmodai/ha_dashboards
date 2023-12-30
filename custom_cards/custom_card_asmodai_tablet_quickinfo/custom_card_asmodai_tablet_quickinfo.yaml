@@ -25,6 +25,7 @@ card_asmodai_tablet_quickinfo:
       info:
         - text-align: left !important
         - background-color: rgba(0, 0, 0, 0.0) !important
+        - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
   custom_fields:
     info:
       card:
@@ -37,11 +38,12 @@ card_asmodai_tablet_quickinfo:
           card:
             - cursor: default
             - padding: 0px
-        style:
-          .: |
-            ha-card {
-              background-color: rgba(0, 0, 0, 0.0) !important;
-            }
+        card_mod:
+          style:
+            .: |
+              ha-card {
+                background-color: rgba(0, 0, 0, 0.0) !important;
+              }
         entities: |
           [[[
             var objs = [];

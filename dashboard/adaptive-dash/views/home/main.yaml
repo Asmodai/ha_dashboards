@@ -12,9 +12,10 @@ layout:
 icon: mdi:home
 path: home
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -32,14 +33,15 @@ cards:
       pressure_entity:    sensor.aqara_livingroom_temperature_pressure
       humidity_entity:    sensor.aqara_livingroom_temperature_humidity
       air_quality_entity: sensor.frient_livingroom_voc_voc
-    style:
-      .: |
-        ha-card {
-          margin: 0px;
-          margin-top: -20px;
-          margin-left: -20px;
-          background-color: rgba(0, 0, 0, 0.0);
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            margin: 0px;
+            margin-top: -20px;
+            margin-left: -20px;
+            background-color: rgba(0, 0, 0, 0.0);
+          }
 
   #
   # Main banner.
@@ -50,6 +52,9 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Home
+      entities:
+        light:      null
+        multimedia: null
 
   #
   # Right-hand banner.
@@ -62,18 +67,19 @@ cards:
   - view_layout:
       grid-area: button
     type: custom:mod-card
-    style:
-      .: |
-        ha-card {
-          border-radius: 20px;
-          background-color: rgba(0,0,0,0.0);
-          margin: auto;
-          position: absolute !important;
-          bottom: 100px !important;
-          padding: 10px;
-          left: 0;
-          right: 0;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            border-radius: 20px;
+            background-color: rgba(0,0,0,0.0);
+            margin: auto;
+            position: absolute !important;
+            bottom: 100px !important;
+            padding: 10px;
+            left: 0;
+            right: 0;
+          }
     card:
       type: vertical-stack
       cards:
@@ -103,7 +109,8 @@ cards:
                 name: "Living Room"
                 path: 'livingroom'
                 entities:
-                  light: light.room_living_room
+                  light:     light.room_living_room
+                  multimedia: media_player.tv_43pus8807_12
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -111,7 +118,7 @@ cards:
                 name: "Hallway"
                 path: 'hallway'
                 entities:
-                  light: light.room_hallway
+                  light:    light.room_hallway
                   presence: binary_sensor.esp1_hallway_occupancy
             - type: custom:button-card
               template: card_asmodai_tablet_button
@@ -216,15 +223,15 @@ cards:
         element_8: # Menu
           icon: mdi:menu
           path: "home_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
-
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

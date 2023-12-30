@@ -116,7 +116,10 @@ card_asmodai_tablet_light:
               entity: "[[[ return entity ? entity.entity_id : null; ]]]"
               icon:   "[[[ return variables.icon; ]]]"
               styles:
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (!entity) {
@@ -147,6 +150,13 @@ card_asmodai_tablet_light:
 
                   return lbl;
                 ]]]
+              styles:
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+                label:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+                icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
               state:
                 - operator: "template"
                   value:    "[[[ return variables.ulm_active_state; ]]]"
@@ -210,11 +220,12 @@ card_asmodai_tablet_light:
         thumbHorizontalPadding: "0px"
         thumbVerticalPadding:   "0px"
         thumbWidth:             "12px"
-        style: |
-          ha-card {
-            border-radius: 14px;
-            box-shadow: none;
-          }
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 14px;
+              box-shadow: none;
+            }
     buttons:
       card:
         type: custom:button-card
@@ -246,7 +257,10 @@ card_asmodai_tablet_light:
 
                         return 'rgba(' + variables.colors.button + ',0.6)';
                       ]]]
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (entity.state == "off") {
@@ -317,7 +331,10 @@ card_asmodai_tablet_light:
 
                         return 'rgba(' + variables.colors.button + ',0.6)';
                       ]]]
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (entity.state == "off") {
@@ -350,7 +367,10 @@ card_asmodai_tablet_light:
 
                         return 'rgba(' + variables.colors.button + ',0.6)';
                       ]]]
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (entity.state == "off") {
@@ -383,7 +403,10 @@ card_asmodai_tablet_light:
 
                         return 'rgba(' + variables.colors.button + ',0.6)';
                       ]]]
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (entity.state == "off") {
@@ -416,7 +439,10 @@ card_asmodai_tablet_light:
 
                         return 'rgba(' + variables.colors.button + ',0.6)';
                       ]]]
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (entity.state == "off") {
@@ -449,7 +475,10 @@ card_asmodai_tablet_light:
 
                         return 'rgba(' + variables.colors.button + ',0.6)';
                       ]]]
+                name:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                 icon:
+                  - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
                   - color: >
                       [[[
                         if (entity.state == "off") {

@@ -12,9 +12,10 @@ layout:
 icon: mdi:home-floor-1
 path: landing
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -32,14 +33,15 @@ cards:
       pressure_entity:    sensor.aqara_landing_temperature_pressure
       humidity_entity:    sensor.aqara_landing_temperature_humidity
       illuminance_entity: sensor.esp1_landing_illuminance
-    style:
-      .: |
-        ha-card {
-          margin: 0px;
-          margin-top: -20px;
-          margin-left: -20px;
-          background-color: rgba(0, 0, 0, 0.0);
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            margin: 0px;
+            margin-top: -20px;
+            margin-left: -20px;
+            background-color: rgba(0, 0, 0, 0.0);
+          }
 
   #
   # Main banner.
@@ -62,18 +64,19 @@ cards:
   - view_layout:
       grid-area: button
     type: custom:mod-card
-    style:
-      .: |
-        ha-card {
-          border-radius: 20px;
-          background-color: rgba(0,0,0,0.0);
-          margin: auto;
-          position: absolute !important;
-          bottom: 100px !important;
-          padding: 10px;
-          left: 0;
-          right: 0;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            border-radius: 20px;
+            background-color: rgba(0,0,0,0.0);
+            margin: auto;
+            position: absolute !important;
+            bottom: 100px !important;
+            padding: 10px;
+            left: 0;
+            right: 0;
+          }
     card:
       type: vertical-stack
       title: null
@@ -182,14 +185,15 @@ cards:
         element_8: # Settings
           icon: mdi:menu
           path: "landing_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

@@ -19,9 +19,10 @@ icon: mdi:multimedia
 path: livingroom_multimedia
 visible: false
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -32,20 +33,37 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_asmodai_media_player
-    entity: media_player.tv_43pus8807_12
-    variables:
-      custom_card_asmodai_media_player_name: "Philips TV"
-      custom_card_asmodai_media_player_enable_art: false
-      custom_card_asmodai_media_player_enable_controls: true
-      custom_card_asmodai_media_player_enable_volume_buttons: true
-      custom_card_asmodai_media_player_enable_popup: true
-      custom_card_asmodai_media_player_more_info: true
-      custom_card_asmodai_media_player_collapsible: true
-      custom_card_asmodai_media_player_power_button: true
-      custom_card_asmodai_media_player_force_background_color: true
-      custom_card_asmodai_media_player_navigation_path: 'philips_tv'
+    type: grid
+    columns: 3
+    square: false
+    cards:
+
+    - view_layout:
+        column: 1
+      type: custom:button-card
+      template: card_asmodai_media_player
+      entity: media_player.tv_43pus8807_12
+      variables:
+        custom_card_asmodai_media_player_name: "Philips TV"
+        custom_card_asmodai_media_player_enable_art: true
+        custom_card_asmodai_media_player_enable_controls: true
+        custom_card_asmodai_media_player_enable_volume_buttons: true
+        custom_card_asmodai_media_player_enable_popup: true
+        custom_card_asmodai_media_player_more_info: true
+        custom_card_asmodai_media_player_collapsible: true
+        custom_card_asmodai_media_player_power_button: true
+        custom_card_asmodai_media_player_force_background_color: false
+        custom_card_asmodai_media_player_navigation_path: 'philips_tv'
+      styles:
+        card:
+          - background-color: rgba(66, 46, 94, 0.8)
+          - box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3)
+        icon:
+          - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        name:
+          - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        label:
+          - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
 
   #
   # Alarm area.
@@ -97,14 +115,15 @@ cards:
         element_8: #Settings
           icon: mdi:menu
           path: "livingroom_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

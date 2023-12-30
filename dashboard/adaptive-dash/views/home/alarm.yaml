@@ -19,9 +19,10 @@ icon: mdi:shield-home-outline
 path: home_alarm
 visible: false
 badges: []
-style:
-  .: |
-    margin: 0px;
+card_mod:
+  style:
+    .: |
+      margin: 0px;
 background: >-
   center / cover no-repeat fixed
   url('/local/PurpleAbstractDark.png')
@@ -36,11 +37,12 @@ cards:
     entity: alarm_control_panel.alarmo
     use_clear_icon: true
     name: Self-Destruct System
-    style:
-      .: |
-        ha-card {
-          background-color: rgba(0, 0, 0, 0.4) !important;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            background-color: rgba(0, 0, 0, 0.4) !important;
+          }
 
   #
   # Alarm area.
@@ -88,14 +90,15 @@ cards:
         element_8: # Menu
           icon: mdi:menu
           path: "home_settings"
-    style:
-      .: |
-        ha-card {
-          width: 600px;
-          margin:auto;
-          position: absolute;
-          bottom: 0%;
-          left: 0;
-          right: 0;
-          height: 70px;
-        }
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            width: 600px;
+            margin:auto;
+            position: absolute;
+            bottom: 0%;
+            left: 0;
+            right: 0;
+            height: 70px;
+          }

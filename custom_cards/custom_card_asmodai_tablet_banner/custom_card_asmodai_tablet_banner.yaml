@@ -1,28 +1,69 @@
 ---
 card_asmodai_tablet_banner:
-  show_icon: false
-  show_name: false
+  show_icon:  false
+  show_name:  false
   show_label: false
   variables:
     room_name: "[[[ return variables.room_name; ]]]"
+    colors:
+      title:    "#b083fe"
+      time:     "#eae1fe"
+      date:     "#b083fe"
+      default:  "#eae1fe"
+      inactive: "#a284fc"
+      active:   "#ffd36e"
+      disabled: "#8b839d"
+    entities:
+      light:      null
+      presence:   null
+      heating:    null
+      windows:    null
+      multimedia: null
+    icons:
+      light:
+        active:   mdi:lightbulb
+        inactive: mdi:lightbulb
+        disabled: mdi:lightbulb-off
+      presence:
+        active:   mdi:account
+        inactive: mdi:account
+        disabled: mdi:account-off
+      heating:
+        active:   mdi:radiator
+        inactive: mdi:radiator-disabled
+        disabled: mdi:radiator-off
+      windows:
+        active:   mdi:window-open-variant
+        inactive: mdi:window-closed-variant
+        disabled: mdi:window-closed-variant
+      multimedia:
+        active:   mdi:television-play
+        stopped:  mdi:television-stop
+        pause:    mdi:television-pause
+        inactive: mdi:television
+        disabled: mdi:television-off
   styles:
     grid:
-      - grid-template-areas: "'room' 'time'"
+      - grid-template-areas:   "'room' 'time'"
       - grid-template-columns: "'auto'"
-      - grid-template-rows: "'auto'"
-      - row-gap: "8px"
+      - grid-template-rows:    "'auto'"
+      - row-gap:               "8px"
+      - cursor:                "default"
     card:
-      - border-radius: 0px
-      - background-color: transparent !important
-      - padding: "0px"
-      - cursor: "default"
-      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+      - border-radius:                0px
+      - background-color:             transparent !important
+      - padding:                      "0px"
+      - cursor:                       "default"
+      - "--mdc-ripple-press-opacity": 0
     custom_fields:
+      room:
+        - cursor: "default"
       time:
-        - border: none;
-        - box-shadow: none;
-        - margin: 0px;
+        - border:           none;
+        - box-shadow:       none;
+        - margin:           0px;
         - background-color: rgba(0, 0, 0, 0.0) !important
+        - cursor:           "default"
   custom_fields:
     room:
       card:
@@ -36,50 +77,165 @@ card_asmodai_tablet_banner:
         tap_action:
           action: none
         styles:
+          grid:
+            - grid-template-areas: |
+                "n  n  n  n  n"
+                "b1 b2 b3 b4 b5"
+            - grid-template-columns: "auto"
+            - grid-template-rows:    "auto"
+          img_cell:
+            - cursor: "default"
           icon:
+            - cursor: "default"
             - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
           name:
-            - font-size: 2.2em
+            - font-size:   2.2em
             - font-family: roboto
-            - opacity: 1
-            - color: "#b083fe"
+            - opacity:     1
+            - color:       "[[[ return variables.colors.title; ]]]"
             - font-weight: regular
-            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-            - height: 60px
+            - filter:      drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+            - height:      60px
+            - cursor:      "default"
           card:
-            - margin-top: -20px
-            - padding: 20px
+            - margin-top:       -20px
+            - padding:          20px
             - background-color: transparent !important
+            - cursor:           "default"
+        custom_fields:
+          b1:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.light ]]]"     
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.light.active; ]]]"
+                  inactive: "[[[ return variables.icons.light.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.light.disabled; ]]]"
+              styles:
+                icon:
+                  - cursor: "default"
+          b2:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.presence; ]]]"
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.presence.active; ]]]"
+                  inactive: "[[[ return variables.icons.presence.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.presence.disabled; ]]]"
+              styles:
+                icon:
+                  - cursor: "default"
+          b3:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.heating; ]]]"
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.heating.active; ]]]"
+                  inactive: "[[[ return variables.icons.heating.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.heating.disabled; ]]]"
+              styles:
+                icon:
+                  - cursor: "default"
+          b4:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.windows; ]]]"
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.windows.active; ]]]"
+                  inactive: "[[[ return variables.icons.windows.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.windows.disabled; ]]]"
+              styles:
+                icon:
+                  - cursor: "default"
+          b5:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.multimedia; ]]]"
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.multimedia.active; ]]]"
+                  inactive: "[[[ return variables.icons.multimedia.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
+              styles:
+                icon:
+                  - cursor: "default"
     time:
       card:
         type: custom:digital-clock
         dateFormat:
           weekday: 'long'
-          day: '2-digit'
-          month: 'long'
+          day:     '2-digit'
+          month:   'long'
         firstLineFormat: "HH:mm"
         tap_action:
           action: none
-        style:
-          .: |
-            ha-card {
-              background-color: rgba(0, 0, 0, 0.0) !important;
-            }
-            .first-line {
-              font-size: 6.6em !important;
-              font-family: roboto !important;
-              font-weight: 300 !important;
-              color: #eae1fe !important;
-              text-transform: uppercase;
-              text-align: center !important;
-              filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
-            }
-            .second-line {
-              font-size: 1.4em !important;
-              font-weight: 300 !important;
-              font-family: roboto !important;
-              color: #b083fe !important;
-              text-transform: uppercase;
-              text-align: center !important;
-              filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
-            }
+        card_mod:
+          style:
+            .: |
+              [[[
+                return `ha-card {
+                    background-color: rgba(0, 0, 0, 0.0) !important;
+                  }
+                  .first-line {
+                    font-size: 6.6em !important;
+                    font-family: roboto !important;
+                    font-weight: 300 !important;
+                    color: ` + variables.colors.time + ` !important;
+                    text-transform: uppercase;
+                    text-align: center !important;
+                    filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
+                  }
+                  .second-line {
+                    font-size: 1.4em !important;
+                    font-weight: 300 !important;
+                    font-family: roboto !important;
+                    color: ` + variables.colors.date + ` !important;
+                    text-transform: uppercase;
+                    text-align: center !important;
+                    filter: drop-shadow(4px 4px 5px rgb(0 0 0 / 0.6));
+                  }`
+              ]]]

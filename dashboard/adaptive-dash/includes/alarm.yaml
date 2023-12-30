@@ -7,18 +7,36 @@ entities:
     name: Alarm
     secondary_info: none
     state_color: true
+    variables:
+      colors:
+        disabled: "#8b839d"
+        default:  "#eae1fe"
+    styles:
+      name:
+        - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+        - color: >
+            [[[
+              if (entity.state == "Disarmed") {
+                return variables.colors.disabled;
+              }
+              
+              return variables.colors.default;
+            ]]]
+      icon:
+        - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
     tap_action:
       action: none
 tap_action:
   action: none
-style:
-  .: |
-    ha-card {
-      background-color: rgba(0, 0, 0, 0.0);
-      box-shadow: none;
-      width: 250px !important;
-      position: fixed !important;
-      bottom: 0% !important;
-      margin-left: -20px !important;
-      height: 65px !important;
-    }
+card_mod:
+  style:
+    .: |
+      ha-card {
+        background-color: rgba(0, 0, 0, 0.0);
+        box-shadow: none;
+        width: 250px !important;
+        position: fixed !important;
+        bottom: 0% !important;
+        margin-left: -20px !important;
+        height: 65px !important;
+      }
