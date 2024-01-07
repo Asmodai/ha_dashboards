@@ -1,0 +1,56 @@
+---
+
+card_asmodai_sensor_graph_illuminance:
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    name: "[[[ return variables.name ? variables.name : 'Illuminance'; ]]]"
+  styles:
+    grid:
+      - grid-template-areas:   "'graph'"
+      - grid-template-columns: "'1fr'"
+      - grid-template-rows:    "auto"
+    card:
+      - background-color: rgba(0, 0, 0, 0.0) !important
+      - padding: 0px
+      - cursor: default
+      - "--mdc-ripple-press-opacity": 0
+  custom_fields:
+    graph:
+      card:
+        type:            custom:mini-graph-card
+        name:            "[[[ return variables.name; ]]]"
+        points_per_hour: 1
+        align_state:     center
+        align_header:    center
+        hour24:          true
+        show:
+          labels:           false
+          labels_secondary: false
+          name:             true
+        card_mod:
+          style:
+            .: |
+              ha-card {
+                padding:          5px;
+                background-color: transparent !important;
+              }
+        entities:
+          - entity:      "[[[ return entity.entity_id; ]]]"
+            name:        "[[[ return variables.name; ]]]"
+            show_state:  true
+            show_points: true
+            show_legend: false
+            show_name:   true
+        color_thresholds:
+          - value: 99
+            color: "#fffcf7"
+          - value: 11
+            color: "#ffd4b2"
+          - value: 8
+            color: "#ffad66"
+          - value: 5
+            color: "#ff942b"
+          - value: 2
+            color: "#635b4c"
