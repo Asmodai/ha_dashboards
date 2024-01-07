@@ -17,7 +17,8 @@ card_asmodai_tablet_banner:
       light:      null
       presence:   null
       heating:    null
-      windows:    null
+      window:     null
+      door:       null
       multimedia: null
     icons:
       hide:       false
@@ -33,10 +34,14 @@ card_asmodai_tablet_banner:
         active:   mdi:radiator
         inactive: mdi:radiator-disabled
         disabled: mdi:radiator-off
-      windows:
+      window:
         active:   mdi:window-open-variant
         inactive: mdi:window-closed-variant
         disabled: mdi:window-closed-variant
+      door:
+        active:   mdi:door-open
+        inactive: mdi:door-closed
+        disabled: mdi:door-closed
       multimedia:
         active:   mdi:television-play
         stopped:  mdi:television-stop
@@ -80,8 +85,8 @@ card_asmodai_tablet_banner:
         styles:
           grid:
             - grid-template-areas: |
-                "n  n  n  n  n"
-                "b1 b2 b3 b4 b5"
+                "n  n  n  n  n  n"
+                "b1 b2 b3 b4 b5 b6"
             - grid-template-columns: "auto"
             - grid-template-rows:    "auto"
           img_cell:
@@ -171,27 +176,6 @@ card_asmodai_tablet_banner:
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.windows; ]]]"
-              size:     16px
-              variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
-                colors:
-                  default:  "[[[ return variables.colors.default; ]]]"
-                  inactive: "[[[ return variables.colors.inactive; ]]]"
-                  active:   "[[[ return variables.colors.active; ]]]"
-                  disabled: "[[[ return variables.colors.disabled; ]]]"
-                icons:
-                  active:   "[[[ return variables.icons.windows.active; ]]]"
-                  inactive: "[[[ return variables.icons.windows.inactive; ]]]"
-                  disabled: "[[[ return variables.icons.windows.disabled; ]]]"
-              styles:
-                icon:
-                  - cursor: "default"
-          b5:
-            card:
-              type:     custom:button-card
-              template: card_asmodai_tablet_button__badge
               entity:   "[[[ return variables.entities.multimedia; ]]]"
               size:     16px
               variables:
@@ -207,6 +191,50 @@ card_asmodai_tablet_banner:
                   inactive: "[[[ return variables.icons.multimedia.inactive; ]]]"
                   disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
               styles:
+                icon:
+                  - cursor: "default"
+          b5:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.window; ]]]"
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.window.active; ]]]"
+                  inactive: "[[[ return variables.icons.window.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.window.disabled; ]]]"
+              styles:
+                icon:
+                  - cursor: "default"
+          b6:
+            card:
+              type:     custom:button-card
+              template: card_asmodai_tablet_button__badge
+              entity:   "[[[ return variables.entities.window; ]]]"
+              size:     16px
+              variables:
+                path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
+                colors:
+                  default:  "[[[ return variables.colors.default; ]]]"
+                  inactive: "[[[ return variables.colors.inactive; ]]]"
+                  active:   "[[[ return variables.colors.active; ]]]"
+                  disabled: "[[[ return variables.colors.disabled; ]]]"
+                icons:
+                  active:   "[[[ return variables.icons.door.active; ]]]"
+                  inactive: "[[[ return variables.icons.door.inactive; ]]]"
+                  disabled: "[[[ return variables.icons.door.disabled; ]]]"
+              styles:
+                img_cell:
+                  - cursor: "default"
                 icon:
                   - cursor: "default"
     time:

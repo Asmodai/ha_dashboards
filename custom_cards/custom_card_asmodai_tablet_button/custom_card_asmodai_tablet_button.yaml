@@ -14,13 +14,13 @@ card_asmodai_tablet_button:
       presence:   null
       heating:    null
       window:     null
+      door:       null
       multimedia: null
-      is_door:    false
     colors:
       default:  "#eae1fe"
-      inactive: "#54b4ff"  #"#a284fc"
-      active:   "#3ffe5e" #"#ffd36e"
-      disabled: "#8b839d" #"#8b839d"
+      inactive: "#54b4ff"
+      active:   "#3ffe5e"
+      disabled: "#8b839d"
     icons:
       light:
         active:   mdi:lightbulb
@@ -63,7 +63,7 @@ card_asmodai_tablet_button:
         }
   styles:
     grid:
-      - grid-template-areas:   "'b1 b2 b3 b4 b5' 'i i i i i' 'n n n n n'"
+      - grid-template-areas:   "'b1 b2 b3 b4 b5 b6' 'i i i i i i' 'n n n n n n'"
       - grid-template-columns: "auto auto auto auto auto"
       - grid-template-rows:    "auto"
     name:
@@ -137,38 +137,6 @@ card_asmodai_tablet_button:
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.window; ]]]"
-        variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
-          colors:
-            default:  "[[[ return variables.colors.default; ]]]"
-            inactive: "[[[ return variables.colors.inactive; ]]]"
-            active:   "[[[ return variables.colors.active; ]]]"
-            disabled: "[[[ return variables.colors.disabled; ]]]"
-          icons:
-            active: >
-              [[[
-                return variables.entities.is_door
-                         ? variables.icons.door.active
-                         : variables.icons.window.active;
-              ]]]
-            inactive: >
-              [[[
-                return variables.entities.is_door
-                         ? variables.icons.door.inactive
-                         : variables.icons.window.inactive;
-              ]]]
-            disabled:  >
-              [[[
-                return variables.entities.is_door
-                         ? variables.icons.door.disabled
-                         : variables.icons.window.disabled;
-              ]]]
-    b5:
-      card:
-        type: custom:button-card
-        template: card_asmodai_tablet_button__badge
         entity: "[[[ return variables.entities.multimedia; ]]]"
         variables:
           path: "[[[ return variables.path; ]]]"
@@ -182,6 +150,40 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.multimedia.active; ]]]"
             inactive: "[[[ return variables.icons.multimedia.inactive; ]]]"
             disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
+    b5:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity: "[[[ return variables.entities.window; ]]]"
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.window.active; ]]]"
+            inactive: "[[[ return variables.icons.window.inactive; ]]]"
+            disabled: "[[[ return variables.icons.window.disabled; ]]]"
+    b6:
+      card:
+        type: custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity: "[[[ return variables.entities.door; ]]]"
+        variables:
+          path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.door.active; ]]]"
+            inactive: "[[[ return variables.icons.door.inactive; ]]]"
+            disabled: "[[[ return variables.icons.door.disabled; ]]]"
 card_asmodai_tablet_button__badge:
   show_name:       false
   show_label:      false

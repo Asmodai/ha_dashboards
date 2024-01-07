@@ -98,7 +98,6 @@ cards:
                 entities:
                   light:    light.room_hallway
                   presence: binary_sensor.esp1_hallway_occupancy
-                  is_door:  true
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
