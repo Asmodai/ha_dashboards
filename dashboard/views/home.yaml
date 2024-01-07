@@ -122,19 +122,6 @@ cards:
           ]]]
   - type: horizontal-stack
     cards:
-      # Kitchen
-      - type: 'custom:button-card'
-        template: card_asmodai_room
-        name: Kitchen
-        icon: mdi:fridge
-        tap_action:
-          action: navigate
-          navigation_path: 'kitchen'
-        label: >
-          [[[
-            return "🌡️ " + states['sensor.aqara_kitchen_temperature_temperature'].state + "°C" +
-                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_kitchen_temperature_humidity'].state + "%"
-          ]]]
       # Living Room
       - type: 'custom:button-card'
         template: card_asmodai_room
@@ -153,22 +140,7 @@ cards:
             return "🌡️ " + states['sensor.aqara_livingroom_temperature_temperature'].state + "°C" +
                    "&nbsp;&nbsp;💧 " + states['sensor.aqara_livingroom_temperature_humidity'].state + "%"
           ]]]
-  - type: horizontal-stack
-    cards:
-        # Will be my room.
-      - type: 'custom:button-card'
-        template: card_asmodai_room
-        name: Bedroom
-        icon: mdi:bed
-        tap_action:
-          action: navigate
-          navigation_path: 'bedroom'
-        label: >
-          [[[
-            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C" +
-                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_bedroom_temperature_humidity'].state + "%"
-          ]]]
-      # Will be 'office'.
+      # Office
       - type: 'custom:button-card'
         template: card_asmodai_room
         name: Office
@@ -185,6 +157,34 @@ cards:
           [[[
             return "🌡️ " + states['sensor.aqara_office_temperature_temperature'].state + "°C" +
                    "&nbsp;&nbsp;💧 " + states['sensor.aqara_office_temperature_humidity'].state + "%"
+          ]]]
+  - type: horizontal-stack
+    cards:
+      # Kitchen
+      - type: 'custom:button-card'
+        template: card_asmodai_room
+        name: Kitchen
+        icon: mdi:fridge
+        tap_action:
+          action: navigate
+          navigation_path: 'kitchen'
+        label: >
+          [[[
+            return "🌡️ " + states['sensor.aqara_kitchen_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_kitchen_temperature_humidity'].state + "%"
+          ]]]
+        # Bedroom
+      - type: 'custom:button-card'
+        template: card_asmodai_room
+        name: Bedroom
+        icon: mdi:bed
+        tap_action:
+          action: navigate
+          navigation_path: 'bedroom'
+        label: >
+          [[[
+            return "🌡️ " + states['sensor.aqara_bedroom_temperature_temperature'].state + "°C" +
+                   "&nbsp;&nbsp;💧 " + states['sensor.aqara_bedroom_temperature_humidity'].state + "%"
           ]]]
   - type: horizontal-stack
     cards:
