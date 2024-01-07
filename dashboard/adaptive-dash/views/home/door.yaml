@@ -15,7 +15,7 @@ layout:
     "alarm footer security"
   justify-items: stretch
   justify-self: stretch
-icon: mdi:doorbell
+icon: mdi:doorbell-video
 path: home_door
 visible: false
 badges: []
@@ -65,7 +65,7 @@ cards:
           icon:  mdi:shield-home-outline
           path: "home_alarm"
         element_3: # Doorbell
-          icon: mdi:doorbell
+          icon: mdi:doorbell-video
           path: "home_door"
           active: true
         element_4: # CCTV

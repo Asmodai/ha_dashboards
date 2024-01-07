@@ -124,7 +124,7 @@ cards:
           icon:  mdi:shield-home-outline
           path: "home_alarm"
         element_3: # Doorbell
-          icon: mdi:doorbell
+          icon: mdi:doorbell-video
           path: "home_door"
         element_4: # CCTV
           icon: mdi:cctv

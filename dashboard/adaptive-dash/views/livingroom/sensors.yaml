@@ -34,123 +34,36 @@ cards:
   - view_layout:
       grid-area: graph
     type: grid
-    columns: 4
+    columns: 5
     square: false
     cards:
 
 ######################################################################
 ## ROW 1
 
-      - type: custom:mini-graph-card
+      - type:     custom:button-card
         view_layout:
           column: 1
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                width: 250px;
-                height: 150px;
-                padding: 5px;
-                background-color: transparent;
-              }
-        entities:
-          - entity: sensor.aqara_livingroom_temperature_temperature
-            name: livingroom
-            show_state: true
-            show_points: true
-            show_legend: false
-            show_name: true
-        points_per_hour: 1
-        align_state: center
-        align_header: center
-        hour24: true
-        group_by: hour
-        show:
-          labels: false
-          labels_secondary: false
-          name: true
-        name: Temperature
-        color_thresholds:
-          - value: 30
-            color: "#f17e82"
-          - value: 24
-            color: "#fcd663"
-          - value: 20
-            color: "#63fc91"
-          - value: 10
-            color: "#63a3fc"
+        template: card_asmodai_sensor_graph_temperature
+        entity:   sensor.aqara_livingroom_temperature_temperature
 
-      - type: custom:mini-graph-card
+      - type:     custom:button-card
         view_layout:
           column: 2
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                width: 250px;
-                height: 150px;
-                padding: 5px;
-                background-color: transparent;
-              }
-        entities:
-          - entity: sensor.aqara_livingroom_temperature_humidity
-            name: livingroom
-            show_state: true
-            show_points: true
-            show_legend: false
-            show_name: true
-        points_per_hour: 1
-        align_state: center
-        align_header: center
-        hour24: true
-        group_by: hour
-        show:
-          labels: false
-          labels_secondary: false
-          name: true
-        name: Humidity
-        color_thresholds:
-          - value: 60
-            color: "#f17e82"
-          - value: 50
-            color: "#fca363"
-          - value: 40
-            color: "#fcd663"
-          - value: 30
-            color: "#63fc91"
-          - value: 0
-            color: "#94b3f8"
+        template: card_asmodai_sensor_graph_humidity
+        entity:   sensor.aqara_livingroom_temperature_humidity
 
-      - type: custom:mini-graph-card
+      - type:     custom:button-card
         view_layout:
           column: 3
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                width: 250px;
-                height: 150px;
-                padding: 5px;
-                background-color: transparent;
-              }
-        entities:
-          - entity: sensor.frient_livingroom_voc_voc
-            name: livingroom
-            show_state: true
-            show_points: true
-            show_legend: false
-            show_name: true
-        points_per_hour: 1
-        align_state: center
-        align_header: center
-        hour24: true
-        group_by: hour
-        show:
-          labels: false
-          labels_secondary: false
-          name: true
-        name: Air Quality
+        template: card_asmodai_sensor_graph_pressure
+        entity:   sensor.aqara_livingroom_temperature_pressure
 
+      - type:     custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_sensor_graph_air_quality
+        entity:   sensor.frient_livingroom_voc_voc
 
   #
   # Alarm area.

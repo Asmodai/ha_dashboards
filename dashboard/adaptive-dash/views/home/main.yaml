@@ -55,6 +55,8 @@ cards:
       entities:
         light:      null
         multimedia: null
+      icons:
+        hide: true
 
   #
   # Right-hand banner.
@@ -89,9 +91,21 @@ cards:
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
+                icon:          mdi:home-floor-g
+                name:          "Hallway"
+                path:          'hallway'
+                hide_disabled: true
+                entities:
+                  light:    light.room_hallway
+                  presence: binary_sensor.esp1_hallway_occupancy
+                  is_door:  true
+            - type: custom:button-card
+              template: card_asmodai_tablet_button
+              variables:
                 icon: mdi:shower-head
                 name: "Wet Room"
                 path: 'wetroom'
+                hide_disabled: true
                 entities:
                   light: null
             - type: custom:button-card
@@ -100,6 +114,7 @@ cards:
                 icon: mdi:fridge-outline
                 name: "Kitchen"
                 path: 'kitchen'
+                hide_disabled: true
                 entities:
                   light: null
             - type: custom:button-card
@@ -108,24 +123,17 @@ cards:
                 icon: mdi:sofa-outline
                 name: "Living Room"
                 path: 'livingroom'
+                hide_disabled: true
                 entities:
                   light:     light.room_living_room
                   multimedia: media_player.tv_43pus8807_12
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
-                icon: mdi:home-floor-g
-                name: "Hallway"
-                path: 'hallway'
-                entities:
-                  light:    light.room_hallway
-                  presence: binary_sensor.esp1_hallway_occupancy
-            - type: custom:button-card
-              template: card_asmodai_tablet_button
-              variables:
                 icon: mdi:pine-tree
                 name: "Front Garden"
                 path: 'garden_front'
+                hide_disabled: true
                 entities:
                   light: null
             - type: custom:gap-card
@@ -136,9 +144,20 @@ cards:
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
+                icon: mdi:home-floor-1
+                name: "Landing"
+                path: 'landing'
+                hide_disabled: true
+                entities:
+                  light: light.room_landing
+                  presence: binary_sensor.esp1_landing_occupancy
+            - type: custom:button-card
+              template: card_asmodai_tablet_button
+              variables:
                 icon: mdi:bathtub-outline
                 name: "Bathroom"
                 path: 'bathroom'
+                hide_disabled: true
                 entities:
                   light: null
             - type: custom:button-card
@@ -147,6 +166,7 @@ cards:
                 icon: mdi:bed-outline
                 name: "Bedroom"
                 path: 'bedroom'
+                hide_disabled: true
                 entities:
                   light: null
             - type: custom:button-card
@@ -155,23 +175,16 @@ cards:
                 icon: mdi:desk
                 name: "Office"
                 path: 'office'
+                hide_disabled: true
                 entities:
                   light: light.room_office
-            - type: custom:button-card
-              template: card_asmodai_tablet_button
-              variables:
-                icon: mdi:home-floor-1
-                name: "Landing"
-                path: 'landing'
-                entities:
-                  light: light.room_landing
-                  presence: binary_sensor.esp1_landing_occupancy
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
                 icon: mdi:flower
                 name: "Rear Garden"
                 path: 'garden_rear'
+                hide_disabled: true
                 entities:
                   light: null
             - type: custom:gap-card
@@ -206,7 +219,7 @@ cards:
           icon:  mdi:shield-home-outline
           path: "home_alarm"
         element_3: # Doorbell
-          icon: mdi:doorbell
+          icon: mdi:doorbell-video
           path: "home_door"
         element_4: # CCTV
           icon: mdi:cctv
