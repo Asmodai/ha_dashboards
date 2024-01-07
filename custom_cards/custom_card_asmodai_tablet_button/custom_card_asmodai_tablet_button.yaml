@@ -5,15 +5,17 @@ card_asmodai_tablet_button:
   show_label:      false
   triggers_update: "all"
   variables:
-    icon: "[[[ return variables.icon; ]]]"
-    name: "[[[ return variables.name; ]]]"
-    path: "[[[ return variables.path; ]]]"
+    icon:          "[[[ return variables.icon; ]]]"
+    name:          "[[[ return variables.name; ]]]"
+    path:          "[[[ return variables.path; ]]]"
+    hide_disabled: false
     entities:
       light:      null
       presence:   null
       heating:    null
-      windows:    null
+      window:     null
       multimedia: null
+      is_door:    false
     colors:
       default:  "#eae1fe"
       inactive: "#54b4ff"  #"#a284fc"
@@ -32,10 +34,14 @@ card_asmodai_tablet_button:
         active:   mdi:radiator
         inactive: mdi:radiator-disabled
         disabled: mdi:radiator-off
-      windows:
+      window:
         active:   mdi:window-open-variant
         inactive: mdi:window-closed-variant
         disabled: mdi:window-closed-variant
+      door:
+        active:   mdi:door-open
+        inactive: mdi:door-closed
+        disabled: mdi:door-closed
       multimedia:
         active:   mdi:television-play
         stopped:  mdi:television-stop
@@ -83,6 +89,7 @@ card_asmodai_tablet_button:
         entity:   "[[[ return variables.entities.light ]]]"     
         variables:
           path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -99,6 +106,7 @@ card_asmodai_tablet_button:
         entity: "[[[ return variables.entities.presence; ]]]"
         variables:
           path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -115,6 +123,7 @@ card_asmodai_tablet_button:
         entity: "[[[ return variables.entities.heating; ]]]"
         variables:
           path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -128,18 +137,34 @@ card_asmodai_tablet_button:
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.windows; ]]]"
+        entity: "[[[ return variables.entities.window; ]]]"
         variables:
           path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
             active:   "[[[ return variables.colors.active; ]]]"
             disabled: "[[[ return variables.colors.disabled; ]]]"
           icons:
-            active:   "[[[ return variables.icons.windows.active; ]]]"
-            inactive: "[[[ return variables.icons.windows.inactive; ]]]"
-            disabled: "[[[ return variables.icons.windows.disabled; ]]]"
+            active: >
+              [[[
+                return variables.entities.is_door
+                         ? variables.icons.door.active
+                         : variables.icons.window.active;
+              ]]]
+            inactive: >
+              [[[
+                return variables.entities.is_door
+                         ? variables.icons.door.inactive
+                         : variables.icons.window.inactive;
+              ]]]
+            disabled:  >
+              [[[
+                return variables.entities.is_door
+                         ? variables.icons.door.disabled
+                         : variables.icons.window.disabled;
+              ]]]
     b5:
       card:
         type: custom:button-card
@@ -147,6 +172,7 @@ card_asmodai_tablet_button:
         entity: "[[[ return variables.entities.multimedia; ]]]"
         variables:
           path: "[[[ return variables.path; ]]]"
+          hide: "[[[ return variables.hide_disabled; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -163,6 +189,7 @@ card_asmodai_tablet_button__badge:
   show_icon:       true
   variables:
     path: "[[[ return variables.path; ]]]"
+    hide: false
     colors:
       default:  "[[[ return variables.colors.default; ]]]"
       inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -177,11 +204,11 @@ card_asmodai_tablet_button__badge:
       if (!entity) {
         return variables.icons.disabled;
       }
-      
+
       if (entity.state == 'off') {
         return variables.icons.inactive;
       }
-      
+
       return variables.icons.active;
     ]]]
   styles:
@@ -192,9 +219,13 @@ card_asmodai_tablet_button__badge:
       - color: >-
           [[[
             if (!entity) {
+              if (variables.hide) {
+                return "transparent !important";
+              }
+
               return variables.colors.disabled;
             }
-            
+
             if (entity.state == 'off') {
               return variables.colors.inactive;
             }

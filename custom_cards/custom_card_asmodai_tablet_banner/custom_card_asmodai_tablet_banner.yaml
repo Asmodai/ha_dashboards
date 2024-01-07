@@ -20,6 +20,7 @@ card_asmodai_tablet_banner:
       windows:    null
       multimedia: null
     icons:
+      hide:       false
       light:
         active:   mdi:lightbulb
         inactive: mdi:lightbulb
@@ -111,6 +112,7 @@ card_asmodai_tablet_banner:
               size:     16px
               variables:
                 path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -131,6 +133,7 @@ card_asmodai_tablet_banner:
               size:     16px
               variables:
                 path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -151,6 +154,7 @@ card_asmodai_tablet_banner:
               size:     16px
               variables:
                 path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -171,6 +175,7 @@ card_asmodai_tablet_banner:
               size:     16px
               variables:
                 path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -191,6 +196,7 @@ card_asmodai_tablet_banner:
               size:     16px
               variables:
                 path: "[[[ return variables.path; ]]]"
+                hide: "[[[ return variables.icons.hide; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
