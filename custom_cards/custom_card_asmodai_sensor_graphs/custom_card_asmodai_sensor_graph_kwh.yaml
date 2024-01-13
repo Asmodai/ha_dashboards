@@ -1,0 +1,53 @@
+---
+
+card_asmodai_sensor_graph_kwh:
+  show_icon:  false
+  show_name:  false
+  show_label: false
+  variables:
+    name: "[[[ return variables.name ? variables.name : 'Power Consumption'; ]]]"
+  styles:
+    grid:
+      - grid-template-areas:   "'graph'"
+      - grid-template-columns: "'1fr'"
+      - grid-template-rows:    "auto"
+    card:
+      - background-color: rgba(0, 0, 0, 0.0) !important
+      - padding: 0px
+      - cursor: default
+      - "--mdc-ripple-press-opacity": 0
+  custom_fields:
+    graph:
+      card:
+        type:            custom:mini-graph-card
+        name:            "[[[ return variables.name; ]]]"
+        points_per_hour: 1
+        align_state:     center
+        align_header:    center
+        hour24:          true
+        unit:            "kWH"
+        show:
+          labels:           false
+          labels_secondary: false
+          name:             true
+        card_mod:
+          style:
+            .: |
+              ha-card {
+                padding:          5px;
+                background-color: transparent !important;
+              }
+        entities:
+          - entity:      "[[[ return entity.entity_id; ]]]"
+            name:        "[[[ return variables.name; ]]]"
+            show_state:  true
+            show_points: true
+            show_legend: false
+            show_name:   true
+        color_thresholds:
+          - value: 9999
+            color: "#f17e82"    # Red
+          - value: 50
+            color: "#fcd663"    # Yellow
+          - value: 25
+            color: "#63fc91"    # Green
