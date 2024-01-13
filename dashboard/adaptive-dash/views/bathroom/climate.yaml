@@ -12,7 +12,7 @@ layout:
   grid-template-rows:    80% fit-content(20%)
   grid-template-areas: |
     "main  main   main"
-    "alarm footer security"
+    "alarm footer notices"
   justify-items: stretch
   justify-self: stretch
 icon: mdi:weather-partly-cloudy
@@ -277,10 +277,9 @@ cards:
   - !include "../../includes/alarm.yaml"
 
   #
-  # Door/window sensor area.
+  # Notices area.
   #
-  #- view_layout:
-  #    grid-area: security
+  - !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -323,8 +322,8 @@ cards:
         element_8: # Settings
           icon: mdi:menu
           path: "bathroom_settings"
-    style:
-      card_mod:
+    card_mod:
+      style:
         .: |
           ha-card {
             width: 600px;
@@ -334,4 +333,5 @@ cards:
             left: 0;
             right: 0;
             height: 70px;
+            z-index: 999;
           }

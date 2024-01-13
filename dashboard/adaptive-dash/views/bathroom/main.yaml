@@ -7,7 +7,7 @@ layout:
   grid-template-areas: |
     "left    empty1  main    empty2  right"
     "button  button  button  button  button"
-    "alarm   footer  footer  footer  security"
+    "alarm   footer  footer  footer  notices"
   justify-items: stretch
 icon: mdi:bathtub-outline
 path: bathroom
@@ -83,10 +83,9 @@ cards:
   - !include "../../includes/alarm.yaml"
 
   #
-  # Door/window sensor area.
+  # Notices area.
   #
-  #- view_layout:
-  #    grid-area: security
+  - !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -139,4 +138,5 @@ cards:
             left: 0;
             right: 0;
             height: 70px;
+            z-index: 999;
           }

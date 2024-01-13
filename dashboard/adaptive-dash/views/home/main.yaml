@@ -7,7 +7,7 @@ layout:
   grid-template-areas: |
     "left    empty1  main    empty2  right"
     "button  button  button  button  button"
-    "alarm   footer  footer  footer  security"
+    "alarm   footer  footer  footer  notices"
   justify-items: stretch
 icon: mdi:home
 path: home
@@ -194,10 +194,9 @@ cards:
   - !include "../../includes/alarm.yaml"
 
   #
-  # Door/window sensor area.
+  # Notices area.
   #
-  #- view_layout:
-  #    grid-area: security
+  - !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -210,6 +209,7 @@ cards:
       template: card_asmodai_tablet_menu
       variables:
         parent:
+          icon:     "mdi:home-assistant"
           disabled: true
         element_1: # Information
           icon: mdi:information-outline
@@ -224,8 +224,8 @@ cards:
           icon: mdi:cctv
           path: "home_cctv"
         element_5: # Security
-          icon: mdi:lock-outline
-          path: "home_security"
+          icon: mdi:home-lightning-bolt-outline
+          path: "home_power"
         element_6: # Calendar
           icon: mdi:calendar-month-outline
           path: "home_events"
@@ -246,4 +246,5 @@ cards:
             left: 0;
             right: 0;
             height: 70px;
+            z-index: 999;
           }

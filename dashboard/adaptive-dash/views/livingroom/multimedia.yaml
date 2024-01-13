@@ -12,7 +12,7 @@ layout:
   grid-template-rows:    80% fit-content(20%)
   grid-template-areas: |
     "main  main   main"
-    "alarm footer security"
+    "alarm footer notices"
   justify-items: stretch
   justify-self: stretch
 icon: mdi:multimedia
@@ -57,7 +57,7 @@ cards:
       styles:
         card:
           - background-color: rgba(66, 46, 94, 0.8)
-          - box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3)
+          - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
         icon:
           - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
         name:
@@ -71,10 +71,9 @@ cards:
   - !include "../../includes/alarm.yaml"
 
   #
-  # Door/window sensor area.
+  # Notices area.
   #
-  #- view_layout:
-  #    grid-area: security
+  - !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -126,4 +125,5 @@ cards:
             left: 0;
             right: 0;
             height: 70px;
+            z-index: 999;
           }

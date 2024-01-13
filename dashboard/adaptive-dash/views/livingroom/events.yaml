@@ -12,7 +12,7 @@ layout:
   grid-template-rows:    80% fit-content(20%)
   grid-template-areas: |
     "main  main   main"
-    "alarm footer security"
+    "alarm footer notices"
   justify-items: stretch
   justify-self: stretch
 icon: mdi:calendar-month-outline
@@ -47,10 +47,9 @@ cards:
   - !include "../../includes/alarm.yaml"
 
   #
-  # Door/window sensor area.
+  # Notices area.
   #
-  #- view_layout:
-  #    grid-area: security
+  - !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -102,4 +101,5 @@ cards:
             left: 0;
             right: 0;
             height: 70px;
+            z-index: 999;
           }
