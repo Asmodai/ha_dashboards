@@ -15,7 +15,7 @@ views:
   - !include "views/home/events.yaml"
   - !include "views/home/info.yaml"
   - !include "views/home/main.yaml"
-  - !include "views/home/security.yaml"
+  - !include "views/home/power.yaml"
   - !include "views/home/settings.yaml"
   - !include "views/home/todo.yaml"
     
