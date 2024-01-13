@@ -11,7 +11,7 @@ card_asmodai_tablet_light:
       include: null
       exclude: null
     colors:
-      background: "#422e5e"
+      background: "rgba(66, 46, 94, 0.8);"
       button:     "#573d7c"
       active:     "234,225,254"
       inactive:   "143,142,144"
