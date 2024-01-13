@@ -21,6 +21,7 @@ cards:
 
   #
   # Sensors.
+  #
   - type: 'custom:button-card'
     template: card_title
     label: Sensors

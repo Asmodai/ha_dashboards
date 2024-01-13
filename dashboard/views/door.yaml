@@ -10,7 +10,7 @@ cards:
     variables:
       custom_card_asmodai_banner_back_path: "home"
       custom_card_asmodai_banner_name: "Door"
-      custom_card_asmodai_banner_icon: "mdi:doorbell"
+      custom_card_asmodai_banner_icon: "mdi:doorbell-video"
 
   #
   # Devices.
