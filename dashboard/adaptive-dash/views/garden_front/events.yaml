@@ -104,5 +104,5 @@ cards:
             left: 0;
             right: 0;
             height: 70px;
-            z-index: 999;
+            z-index: 5;
           }

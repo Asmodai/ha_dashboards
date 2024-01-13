@@ -280,7 +280,7 @@ card_asmodai_tablet_light:
                                   : "Select Style";
                     var obj   = variables.color_select_mode
                                   ? {
-                                      "type": "custom:light-entity-card",
+                                      "type":   "custom:light-entity-card",
                                       "entity": entity.entity_id
                                     }
                                   : {
@@ -291,8 +291,12 @@ card_asmodai_tablet_light:
                                           { "border-radius":              "none"    },
                                           { "box-shadow":                 "none"    },
                                           { "cursor":                     "default" },
+                                          { "z-index":                    "9"     },
                                           { "--mdc-ripple-press-opacity": 0         },
                                         ]
+                                      },
+                                      "card_mod": {
+                                        "style": ".mdc-dialog .mdc-dialog__surface { z-index: 9; }"
                                       },
                                       "variables": {
                                         "light_entity":  entity.entity_id,
@@ -500,26 +504,27 @@ card_asmodai_tablet_light_scenes:
     scene_include: "[[[ return variables.scene_include ]]]"
     scene_exclude: "[[[ return variables.scene_exclude ]]]"
     light_entity:  "[[[ return variables.light_entity ]]]"
-  show_icon: false
-  show_name: false
+  show_icon:  false
+  show_name:  false
   show_label: false
   styles:
     grid:
-      - grid-template-areas: "'item1'"
+      - grid-template-areas:   "'item1'"
       - grid-template-columns: "100%"
-      - grid-template-rows: "100%"
-      - row-gap: "5px"
-      - justify-items: "center"
-      - column-gap: "auto"
+      - grid-template-rows:    "100%"
+      - row-gap:               "5px"
+      - justify-items:         "center"
+      - column-gap:            "auto"
     card:
       - border-radius: "none"
-      - box-shadow: "none"
-      - padding: 0px
+      - box-shadow:    "none"
+      - padding:       0px
+      - z-index:       9
     custom_fields:
       item1:
         - border-radius: "none"
-        - box-shadow: "none"
-        - padding: 0px
+        - box-shadow:    "none"
+        - padding:       0px
   custom_fields:
     item1:
       card:
@@ -527,27 +532,29 @@ card_asmodai_tablet_light_scenes:
         styles:
           card:
             - border-radius: "none"
-            - box-shadow: "none"
+            - box-shadow:    "none"
+            - z-index:       9
         card:
           type: entities
           styles:
             card:
               - border-radius: "none"
-              - box-shadow: "none"
+              - box-shadow:    "none"
+              - z-index:       9
         filter:
           include:
             - entity_id: "[[[ return variables.scene_include ]]]"
               options:
-                show_name: true
-                show_icon: true
-                show_state: false
+                show_name:          true
+                show_icon:          true
+                show_state:         false
                 show_header_toggle: false
                 styles:
                   card:
                     - border-radius: "none"
-                    - box-shadow: "none"
+                    - box-shadow:    "none"
                 tap_action:
-                  action: call-service
+                  action:  call-service
                   service: scene.turn_on
                   service_data:
                     entity_id: this.entity_id
