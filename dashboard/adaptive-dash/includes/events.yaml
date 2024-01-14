@@ -10,7 +10,7 @@ card_mod:
   style:
     .: |
       ha-card {
-        background-color: rgba(66, 46, 94, 0.8);
+        background-color: transparent;
         margin: auto;
         left: 0;
         right: 0;
@@ -19,7 +19,7 @@ card_mod:
         border-radius: 20px;
       }
       ha-full-calendar {
-        min-height: 650px !important;
+        min-height: 640px !important;
       }
       div.header {
         padding-top: 0px;
