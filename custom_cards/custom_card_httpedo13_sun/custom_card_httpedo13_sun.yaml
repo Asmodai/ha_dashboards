@@ -32,8 +32,8 @@ custom_card_httpedo13_sun:
         timeFormat: "[[[ return variables.timeFormat; ]]]"
         title: "[[[ return variables.title; ]]]"
         card_mod:
-        style: |
-          ha-card.type-custom-sun-card {
-            border-radius: 14px;
-            box-shadow: none;
-          }
+          style: |
+            ha-card.type-custom-sun-card {
+              border-radius: 14px;
+              box-shadow: none;
+            }
