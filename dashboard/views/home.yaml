@@ -81,7 +81,7 @@ cards:
         type: custom:button-card
         template: chip_asmodai_shopping_count
         variables:
-          chip_asmodai_shopping_count_entity: sensor.items_in_shopping_list_number
+          chip_asmodai_shopping_count_entity: todo.shopping_list
 
   #
   # Rooms.

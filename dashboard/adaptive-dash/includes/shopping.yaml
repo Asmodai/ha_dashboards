@@ -1,213 +1,23 @@
 view_layout:
   grid-area: main
-type: vertical-stack
+type: shopping-list
+title: ""
 card_mod:
   style:
     .: |
       ha-card {
-        background-color: rgba(66, 46, 94, 0.8);
+        background-color: transparent !important; //rgba(66, 46, 94, 0.8);
         margin: auto;
         left: 0;
         right: 0;
         border: none;
         box-shadow: none;
         border-radius: 20px;
+        z-index: 0;
       }
-cards:
-  - type: horizontal-stack
-    cards:
-      - type: entities
-        entities:
-          - entity: input_text.shopping_list_new_product
-            name: Add a product
-            icon: mdi:plus-thick
-            tap_action:
-              action: none
-        card_mod:
-          style: |
-            ha-card {
-              background: transparent !important;
-            }
-  - type: conditional
-    conditions:
-      - entity: sensor.items_in_shopping_list_number
-        state_not: '0'
-    card:
-      type: vertical-stack
-      cards:
-        - type: custom:mushroom-title-card
-          title: Shopping list ({{ states('sensor.items_in_shopping_list_number')}})
-          title_tap_action:
-            action: none
-          card_mod:
-            style: |
-              ha-card {
-                background-color: rgba(66, 46, 94, 0.8);
-                --title-font-size: 20px !important;
-                margin-left: -10px;
-                margin-top: -15px;
-                margin-bottom: -20px;
-              }
-        - type: custom:auto-entities
-          show_empty: false
-          card:
-            square: true
-            type: grid
-            columns: 10
-          card_mod:
-            style: |
-              ha-card {
-                background-color: rgba(66, 46, 94, 0.8);
-              }
-          card_param: cards
-          filter:
-            template: |-
-              {% set LISTA = states('sensor.items_in_shopping_list_list') %}
-              {% set ITEMS = states('sensor.items_in_shopping_list_number') | int %}
-              {% for INDEX in range(ITEMS) -%}
-                {%- set product = LISTA.split(',')[INDEX] -%}
-                {{
-                  {
-                    'type':           'custom:button-card',
-                    'entity':         'sensor.items_in_shopping_list_number',
-                    'show_label':     true,
-                    'show_icon':      true,
-                    'show_name':      false,
-                    'size':           '24px',
-                    'aspect_ratio':   '1/1',
-                    'icon':           'mdi:receipt-text-outline',
-                    'color':          '#94b3f8',
-                    'layout':         'vertical',
-                    'label':
-                        '<span style=\'height:        30px;' +
-                                      'width:         100px;' +
-                                      'overflow-wrap: break-word;' +
-                                      'white-space:   pre-wrap;\'>' +
-                        product +
-                        '</span>',
-                    'tap_action': {
-                      'action':  'call-service',
-                      'service': 'shopping_list.complete_item',
-                      'data':    { 'name': product }
-                    },
-                    'styles': {
-                        'icon': [
-                          { 'top': '-20px' }
-                        ],
-                        'card': [
-                          { 'background-color': 'rgba(66, 46, 94, 0.8) !important' },
-                          { 'box-shadow':       '4px 4px 5px 1px rgba(0,0,0,0.3)' }
-                        ],
-                        'label': [
-                          { 'margin-top':    '-70px'      },
-                          { 'font-size':     '11px'       },
-                          { 'width':         '100px'      },
-                          { 'height':        '30px'       },
-                          { 'color':         '#eae1fe'    },
-                          { 'word-wrap':     'break-word' },
-                          { 'overflow-wrap': 'break-word' },
-                          { 'overflow':      'visible'    },
-                        ]
-                    }
-                  }
-                }},
-              {%- endfor %}
-  - type: custom:gap-card
-  - type: conditional
-    conditions:
-      - entity: sensor.bought_items_number
-        state_not: '0'
-    card:
-      type: vertical-stack
-      cards:
-        - type: custom:mushroom-title-card
-          title: Recently purchased
-          title_tap_action:
-            action: none
-          card_mod:
-            style: |
-              ha-card {
-                --title-font-size: 20px !important;
-                margin-left: -10px;
-                margin-top: -15px;
-                margin-bottom: -20px;
-              }
-        - type: custom:mushroom-chips-card
-          chips:
-            - type: template
-              tap_action:
-                action: call-service
-                service: shopping_list.clear_completed_items
-                target: {}
-              icon: mdi:delete-forever
-              content: Clear
-              card_mod:
-                style: |
-                  ha-card {
-                    margin-top: -42px;
-                    height: 30px !important;
-                    background-color: rgba(66, 46, 94, 0.8) !important;
-                    color: #fe5f3f !important;
-                    box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3) !important;
-                  }
-          alignment: end
-        - type: custom:auto-entities
-          show_empty: false
-          card:
-            square: true
-            type: grid
-            columns: 10
-          card_param: cards
-          filter:
-            template: |-
-              {% set LISTA = states('sensor.bought_items_list') %}
-              {% set ITEMS = states('sensor.bought_items_number') | int %}
-              {% for INDEX in range(ITEMS) -%}
-                {%- set product = LISTA.split(',')[INDEX] -%}
-                {{
-                  {
-                    'type':           'custom:button-card',
-                    'entity':         'sensor.items_in_shopping_list_number',
-                    'show_label':     true,
-                    'show_icon':      true,
-                    'show_name':      false,
-                    'size':           '24px',
-                    'aspect_ratio':   '1/1',
-                    'icon':           'mdi:receipt-text-check-outline',
-                    'color':          '#63fc91',
-                    'layout':         'vertical',
-                    'label':
-                        '<span style=\'height:        30px;' +
-                                      'width:         100px;' +
-                                      'overflow-wrap: break-word;' +
-                                      'white-space:   pre-wrap;\'>' +
-                        product +
-                        '</span>',
-                    'tap_action': {
-                      'action':  'call-service',
-                      'service': 'shopping_list.incomplete_item',
-                      'data':    { 'name': product }
-                    },
-                    'styles': {
-                        'icon': [
-                          { 'top': '-20px' }
-                        ],
-                        'card': [
-                          { 'background-color': 'rgba(66, 46, 94, 0.8) !important' },
-                          { 'box-shadow':       '4px 4px 5px 1px rgba(0,0,0,0.3)' }
-                        ],
-                        'label': [
-                          { 'margin-top':    '-70px'      },
-                          { 'font-size':     '11px'       },
-                          { 'width':         '100px'      },
-                          { 'height':        '30px'       },
-                          { 'color':         '#eae1fe'    },
-                          { 'word-wrap':     'break-word' },
-                          { 'overflow-wrap': 'break-word' },
-                          { 'overflow':      'visible'    },
-                        ]
-                    }
-                  }
-                }},
-              {%- endfor %}
-        - type: custom:gap-card
+      ha-full-calendar {
+        min-height: 650px !important;
+      }
+      div.header {
+        padding-top: 0px;
+      }

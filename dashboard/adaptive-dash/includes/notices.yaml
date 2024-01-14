@@ -2,7 +2,7 @@ view_layout:
   grid-area: notices
 type: entities
 entities:
-  - entity: sensor.items_in_shopping_list_number
+  - entity: todo.shopping_list
     icon: mdi:shopping
     name: Shopping List
     secondary_info: none
