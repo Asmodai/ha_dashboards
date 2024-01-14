@@ -1,0 +1,41 @@
+view_layout:
+  grid-area: main
+type: vertical-stack
+cards:
+
+  - type: horizontal-stack
+    cards:
+    
+      #
+      # Automation toggles.
+      #
+      - type: custom:vertical-stack-in-card
+        card_mod:
+          style:
+            .: |
+              ha-card { background-color: transparent; }
+        cards:
+        - type: 'custom:button-card'
+          template: card_title
+          label: Automations
+          styles:
+            label:
+              - font-size: 1.2em
+              - font-family: roboto
+              - opacity: 1
+              - color: "#b083fe"
+              - font-weight: regular
+              - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+        - type: entities
+          card_mod:
+            style:
+              .: |
+                ha-card { background-color: transparent; }
+          entities:
+            - input_boolean.disable_light_automation
+            - input_boolean.disable_display_light_automation
+
+      #
+      # Gap card.
+      #
+      - type: custom:gap-card

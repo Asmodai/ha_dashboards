@@ -31,11 +31,10 @@ cards:
 ######################################################################
 ## MAIN
 
-  - view_layout:
-      grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+  #
+  # Settings.
+  #
+  - !include "../../includes/settings.yaml"
 
   #
   # Alarm area.

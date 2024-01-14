@@ -1,3 +1,14 @@
+#
+# I N F O R M A T I O N   V I E W
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#
+#
+# This view should contain various bits of information from a home
+# automation setup.  That is, things like battery levels, tablet backlights,
+# and so on.
+#
+# Settings should be kept in the "settings" view.
+#
 type: custom:grid-layout
 title: Information
 square: false
@@ -70,52 +81,28 @@ cards:
                   - binary_sensor.home_assistant_versions_update_available
 
           #
-          # Automation toggles.
+          # Gap card.
           #
-          - type: custom:vertical-stack-in-card
-            card_mod:
-              style:
-                .: |
-                  ha-card { background-color: transparent; }
-            cards:
-            - type: 'custom:button-card'
-              template: card_title
-              label: Settings
-              styles:
-                label:
-                  - font-size: 1.2em
-                  - font-family: roboto
-                  - opacity: 1
-                  - color: "#b083fe"
-                  - font-weight: regular
-                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-            - type: entities
-              card_mod:
-                style:
-                  .: |
-                    ha-card { background-color: transparent; }
-              entities:
-                - input_boolean.disable_light_automation
-                - input_boolean.disable_display_light_automation
+          - type: custom:gap-card
 
-      ##
-      ## Device battery information.
-      ##
+      #
+      # Device battery information.
+      #
       - type: 'custom:button-card'
         template: card_title
         label: Battery Levels
         styles:
           label:
-            - font-size: 1.2em
+            - font-size:   1.2em
             - font-family: roboto
-            - opacity: 1
-            - color: "#b083fe"
+            - opacity:     1
+            - color:       "#b083fe"
             - font-weight: regular
-            - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+            - filter:      drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
       - type: custom:auto-entities
         card:
-          type: glance
-          state_color: true
+          type:              glance
+          state_color:       true
           show_last_changed: false
           card_mod:
             style: |
@@ -126,7 +113,7 @@ cards:
         filter:
           include:
             - entity_id: '*_battery'
-              domain: sensor
+              domain:    sensor
           exclude:
             - entity_id: '*_browser_*'
 
