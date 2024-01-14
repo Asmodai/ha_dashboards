@@ -240,7 +240,7 @@ cards:
         .: |
           ha-card {
             width: 600px;
-            margin:auto;
+            margin: auto;
             position: absolute;
             bottom: 0%;
             left: 0;
