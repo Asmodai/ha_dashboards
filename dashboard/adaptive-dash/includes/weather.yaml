@@ -16,7 +16,7 @@ cards:
     entity: weather.openweathermap
     current: true
     details: true
-    forecast: true
+    forecast: false
     hourly_forecast: false
     tap_action: none
     styles:
