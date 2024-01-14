@@ -1,43 +1,88 @@
 view_layout:
   grid-area: alarm
-type: entities
-entities:
-  - entity: alarm_control_panel.alarmo
-    icon: mdi:shield-home-outline
-    name: Alarm
-    secondary_info: none
-    state_color: true
-    variables:
-      colors:
-        disabled: "#8b839d"
-        default:  "#eae1fe"
-    styles:
-      name:
-        - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
-        - color: >
-            [[[
-              if (entity.state == "Disarmed") {
-                return variables.colors.disabled;
-              }
-              
-              return variables.colors.default;
-            ]]]
-      icon:
-        - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
-    tap_action:
-      action: none
-tap_action:
-  action: none
+type: custom:stack-in-card
+mode: horizontal
+variables:
+  colors:
+    disabled: "#8b839d"
+    default:  "#eae1fe"
 card_mod:
   style:
     .: |
       ha-card {
-        background-color: rgba(0, 0, 0, 0.0);
-        box-shadow: none;
-        width: 250px !important;
-        position: fixed !important;
-        bottom: 0% !important;
-        margin-left: -20px !important;
-        margin-bottom: -10px !important;
-        height: 65px !important;
+        background: transparent !important;
+        width: 600px;
+        margin: auto;
+        position: absolute;
+        bottom: 0%;
+        height: 64px;
+        width: 96px;
+        padding: 0px;
+        margin-left: -10px !important;
+        margin-bottom: 0px !important;
       }
+cards:
+
+  #
+  # Alarm status.
+  #
+  - type: custom:button-card
+    show_name: false
+    show_icon: true
+    show_label: false
+    icon: mdi:shield-home-outline
+    entity: alarm_control_panel.alarmo
+    state:
+      - value: 'disabled'
+        color: "#8b839d"
+      - value: 'disarmed'
+        color: "#fe8b3f"
+    tap_action:
+#      action: navigate
+#      navigation_path: "home_alarm"
+      action: fire-dom-event
+      browser_mod:
+        service: browser_mod.popup
+        deviceID: this
+        data:
+          title: ' '
+          size: wide
+          content:
+            type: custom:alarmo-card
+            entity: alarm_control_panel.alarmo
+            use_clear_icon: true
+            name: Self-Destruct System
+    styles:
+      img_cell:
+        - width: 64px
+        - height: 64px
+      card:
+        - "--mdc-ripple-press-opacity": 0
+        - background-color: transparent !important
+        - box-shadow: none
+
+  #
+  # Doorbell status.
+  #
+  - type: custom:button-card
+    show_name: false
+    show_icon: true
+    show_label: false
+    icon: mdi:doorbell-video
+    entity: alarm_control_panel.alarmo
+    state:
+      - value: 'disabled'
+        color: "#8b839d"
+      - value: 'disarmed'
+        color: "#eae1fe"
+    tap_action:
+      action: navigate
+      navigation_path: "home_door"
+    styles:
+      img_cell:
+        - width: 64px
+        - height: 64px
+      card:
+        - "--mdc-ripple-press-opacity": 0
+        - background-color: transparent !important
+        - box-shadow: none
