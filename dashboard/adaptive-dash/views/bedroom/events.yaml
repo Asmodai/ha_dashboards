@@ -67,7 +67,6 @@ cards:
         element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "bedroom_lights"
-          disabled: true
         element_2: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"

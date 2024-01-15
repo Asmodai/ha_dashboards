@@ -184,6 +184,11 @@ cards:
         template: card_asmodai_room
         name: Bedroom
         icon: mdi:bed
+        entity: light.room_bedroom
+        variables:
+          custom_card_asmodai_room_light_entity: light.room_bedroom
+          ulm_card_light_enable_popup: true
+          ulm_card_dynamic_color: true
         tap_action:
           action: navigate
           navigation_path: 'bedroom'

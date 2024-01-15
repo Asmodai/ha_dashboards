@@ -11,6 +11,28 @@ cards:
       custom_card_asmodai_banner_back_path: "home"
       custom_card_asmodai_banner_name: "Bedroom"
       custom_card_asmodai_banner_icon: 'mdi:bed'
+      custom_card_asmodai_banner_light_entity: light.room_bedroom
+      custom_card_asmodai_banner_scene_filter: "scene.(room_)?bedroom_*"
+      custom_card_asmodai_banner_scene_exclude: "scene.(room_)?bedroom_tv_*"
+
+  #
+  # Lights.
+  #
+  - type: 'custom:button-card'
+    template: card_title
+    label: Lights
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.zone_bedroom_ceiling
+        variables:
+          ulm_card_light_name: "Ceiling #1"
+          ulm_card_light_icon: "mdi:chandelier"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
 
   #
   # Devices group.

@@ -76,7 +76,63 @@ cards:
             left: 0;
             right: 0;
           }
-
+    card:
+      type: vertical-stack
+      title: null
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:gap-card
+            - type: custom:button-card
+              template: card_asmodai_tablet_light
+              entity: light.room_bedroom
+              variables:
+                name: "Lights"
+                icon: "mdi:bed-outline"
+                filters:
+                  include: "scene.(room_)?bedroom_*"
+                  exclude: "scene.(room_)?bedroom_tv_*"
+            - type: custom:gap-card
+        - type: horizontal-stack
+          cards:
+            - type: custom:gap-card
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:lightbulb-outline"
+                custom_card_asmodai_tablet_scene_name: "Normal"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_bedroom_normal
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:solar-power-variant-outline"
+                custom_card_asmodai_tablet_scene_name: "Energise"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_bedroom_energize
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunny"
+                custom_card_asmodai_tablet_scene_name: "Concentrate"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_bedroom_concentrate
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:book-outline"
+                custom_card_asmodai_tablet_scene_name: "Read"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_bedroom_read
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunset-up"
+                custom_card_asmodai_tablet_scene_name: "Relax"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_bedroom_relax
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:bed-outline"
+                custom_card_asmodai_tablet_scene_name: "Rest"
+                custom_card_asmodai_tablet_scene_entity_id: scene.room_bedroom_rest
+            - type: custom:gap-card
 
   #
   # Alarm area.
@@ -104,7 +160,6 @@ cards:
         element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "bedroom_lights"
-          disabled: true
         element_2: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"

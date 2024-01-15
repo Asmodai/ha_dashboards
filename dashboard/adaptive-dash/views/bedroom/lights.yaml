@@ -33,9 +33,30 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    type: grid
+    columns: 3
+    square: false
+    cards:
+
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
+        entity: light.room_bedroom
+        variables:
+          name: "All"
+          icon: "mdi:bed-outline"
+          color_select_mode: true
+
+      - type: custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_tablet_light
+        entity: light.zone_bedroom_ceiling
+        variables:
+          name: "Ceiling"
+          icon: mdi:chandelier
+          color_select_mode: true
 
   #
   # Alarm area.
@@ -63,7 +84,6 @@ cards:
         element_1: # Lighting
           icon: mdi:lightbulb-outline
           path: "bedroom_lights"
-          disabled: true
           active: true
         element_2: # Heating
           icon: mdi:radiator
