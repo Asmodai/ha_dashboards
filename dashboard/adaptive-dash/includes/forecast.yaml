@@ -1,0 +1,66 @@
+view_layout:
+  grid-area: main
+type: custom:stack-in-card
+mode: vertical
+card_mod:
+  style:
+    .: |
+      ha-card {
+        margin: 0px;
+        margin-top: -10px;
+        margin-left: -20px;
+        background-color: rgba(0, 0, 0, 0.0);
+      }
+cards:
+  - type: horizontal-stack
+    cards:
+    
+      #
+      # Weather.
+      #
+      - type: custom:weather-card
+        entity: weather.openweathermap
+        current: true
+        details: true
+        forecast: true
+        hourly_forecast: false
+        tap_action: none
+        styles:
+          - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+        card_mod:
+          style:
+            .: |
+              svg {
+                filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.4));
+              }
+
+      #
+      # Solar cycle.
+      #
+      - type: custom:horizon-card
+        moon: true
+        fields:
+          sunrise: false
+          sunset: false
+          dawn: true
+          noon: true
+          dusk: true
+          azimuth: true
+          sun_azimuth: true
+          moon_azimuth: true
+          elevation: true
+          sun_elevation: true
+          moon_elevation: true
+          moonrise: true
+          moonset: true
+          moon_phase: true
+        card_mod:
+          style: |
+            ha-card.type-custom-sun-card {
+              background: transparent !important;
+              border-radius: 14px;
+              box-shadow: none;
+              top: -24px;
+            }
+        tap_action: none
+        
