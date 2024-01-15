@@ -141,9 +141,9 @@ cards:
           icon: mdi:information-outline
           path: "home_info"
           active: true
-        element_2: # Alarm
-          icon:  mdi:shield-home-outline
-          path: "home_alarm"
+        element_2: # Graphs
+          icon:  mdi:chart-areaspline
+          path: "home_graphs"
         element_3: # Doorbell
           icon: mdi:doorbell-video
           path: "home_door"

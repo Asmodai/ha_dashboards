@@ -167,7 +167,7 @@ cards:
                 path: 'bedroom'
                 hide_disabled: true
                 entities:
-                  light: null
+                  light: light.room_bedroom
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -214,9 +214,9 @@ cards:
         element_1: # Information
           icon: mdi:information-outline
           path: "home_info"
-        element_2: # Alarm
-          icon:  mdi:shield-home-outline
-          path: "home_alarm"
+        element_2: # Graphs
+          icon:  mdi:chart-areaspline
+          path: "home_graphs"
         element_3: # Doorbell
           icon: mdi:doorbell-video
           path: "home_door"
