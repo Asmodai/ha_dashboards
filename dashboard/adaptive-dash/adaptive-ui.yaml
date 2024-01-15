@@ -9,10 +9,10 @@ kiosk_mode:
     hide_header: true
     hide_sidebar: true
 views:
-  - !include "views/home/alarm.yaml"
   - !include "views/home/cctv.yaml"
   - !include "views/home/door.yaml"
   - !include "views/home/events.yaml"
+  - !include "views/home/graphs.yaml"
   - !include "views/home/info.yaml"
   - !include "views/home/main.yaml"
   - !include "views/home/power.yaml"
