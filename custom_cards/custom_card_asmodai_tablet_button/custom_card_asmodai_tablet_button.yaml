@@ -52,16 +52,12 @@ card_asmodai_tablet_button:
   icon:   "[[[ return variables.icon; ]]]"
   name:   "[[[ return variables.name; ]]]"
   entity: "[[[ return variables.entities.light ]]]"
-  card_mod:
-    style:
-      .: |
-        ha-card {
-          --keep-background: true;
-          background-color: rgba(66, 46, 94, 0.8);
-          box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-          padding: 0px;
-        }
   styles:
+    card:
+      - "--keep-background": true
+      - background-color: rgba(66, 46, 94, 0.8);
+      - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+      - padding: 0px;
     grid:
       - grid-template-areas:   "'b1 b2 b3 b4 b5 b6' 'i i i i i i' 'n n n n n n'"
       - grid-template-columns: "auto auto auto auto auto"
@@ -82,14 +78,14 @@ card_asmodai_tablet_button:
     action: navigate
     navigation_path: "[[[ return variables.path; ]]]"
   custom_fields:
-    b1:
+    b1:   # Light
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity:   "[[[ return variables.entities.light ]]]"     
         variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
+          path:     "[[[ return variables.path; ]]]"
+          hide:     "[[[ return variables.hide_disabled; ]]]"
+          entities: "[[[ return variables.entities.light ]]]"     
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -99,14 +95,14 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.light.active; ]]]"
             inactive: "[[[ return variables.icons.light.inactive; ]]]"
             disabled: "[[[ return variables.icons.light.disabled; ]]]"
-    b2:
+    b2:   # Presence
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.presence; ]]]"
         variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
+          path:     "[[[ return variables.path; ]]]"
+          hide:     "[[[ return variables.hide_disabled; ]]]"
+          entities: "[[[ return variables.entities.presence; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -116,14 +112,14 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.presence.active; ]]]"
             inactive: "[[[ return variables.icons.presence.inactive; ]]]"
             disabled: "[[[ return variables.icons.presence.disabled; ]]]"
-    b3:
+    b3:   # Heating
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.heating; ]]]"
         variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
+          path:     "[[[ return variables.path; ]]]"
+          hide:     "[[[ return variables.hide_disabled; ]]]"
+          entities: "[[[ return variables.entities.heating; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -133,14 +129,14 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.heating.active; ]]]"
             inactive: "[[[ return variables.icons.heating.inactive; ]]]"
             disabled: "[[[ return variables.icons.heating.disabled; ]]]"
-    b4:
+    b4:   # Multimedia
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.multimedia; ]]]"
         variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
+          path:     "[[[ return variables.path; ]]]"
+          hide:     "[[[ return variables.hide_disabled; ]]]"
+          entities: "[[[ return variables.entities.multimedia; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -150,14 +146,14 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.multimedia.active; ]]]"
             inactive: "[[[ return variables.icons.multimedia.inactive; ]]]"
             disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
-    b5:
+    b5:   # Window(s)
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.window; ]]]"
         variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
+          path:     "[[[ return variables.path; ]]]"
+          hide:     "[[[ return variables.hide_disabled; ]]]"
+          entities: "[[[ return variables.entities.window; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -167,14 +163,14 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.window.active; ]]]"
             inactive: "[[[ return variables.icons.window.inactive; ]]]"
             disabled: "[[[ return variables.icons.window.disabled; ]]]"
-    b6:
+    b6:   # Door
       card:
         type: custom:button-card
         template: card_asmodai_tablet_button__badge
-        entity: "[[[ return variables.entities.door; ]]]"
         variables:
-          path: "[[[ return variables.path; ]]]"
-          hide: "[[[ return variables.hide_disabled; ]]]"
+          path:     "[[[ return variables.path; ]]]"
+          hide:     "[[[ return variables.hide_disabled; ]]]"
+          entities: "[[[ return variables.entities.door; ]]]"
           colors:
             default:  "[[[ return variables.colors.default; ]]]"
             inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -184,14 +180,19 @@ card_asmodai_tablet_button:
             active:   "[[[ return variables.icons.door.active; ]]]"
             inactive: "[[[ return variables.icons.door.inactive; ]]]"
             disabled: "[[[ return variables.icons.door.disabled; ]]]"
+
+#
+# Badge
+#
 card_asmodai_tablet_button__badge:
   show_name:       false
   show_label:      false
   triggers_update: "all"
   show_icon:       true
   variables:
-    path: "[[[ return variables.path; ]]]"
-    hide: false
+    path:     "[[[ return variables.path; ]]]"
+    hide:     false
+    entities: null
     colors:
       default:  "[[[ return variables.colors.default; ]]]"
       inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -203,49 +204,52 @@ card_asmodai_tablet_button__badge:
       disabled: "[[[ return variables.icons.disabled; ]]]"
   icon: >-
     [[[
-      if (!entity) {
+      if (!variables.entities) {
         return variables.icons.disabled;
       }
 
-      if (entity.state == 'off') {
-        return variables.icons.inactive;
+      var ents = variables.entities;
+      if (!Array.isArray(variables.entities)) {
+        ents = [ variables.entities ];
       }
 
-      return variables.icons.active;
+      for (var elt in ents) {
+        if (states[ents[elt]].state == 'on') {
+          return variables.icons.active;
+        }
+      }
+
+      return variables.icons.inactive;
     ]]]
   styles:
     card:
       - "--mdc-ripple-press-opacity": 0
+      - background-color: rgba(0,0,0,0.0)
     icon:
       - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
       - color: >-
           [[[
-            if (!entity) {
+            if (!variables.entities) {
               if (variables.hide) {
                 return "transparent !important";
               }
-
+              
               return variables.colors.disabled;
             }
 
-            if (entity.state == 'off') {
-              return variables.colors.inactive;
+            var ents = variables.entities;
+            if (!Array.isArray(variables.entities)) {
+              ents = [ variables.entities ];
             }
 
-            return variables.colors.active;
+            for (var elt in ents) {
+              if (states[ents[elt]].state == 'on') {
+                return variables.colors.active;
+              }
+            }
+
+            return variables.colors.inactive;
           ]]]
-  card_mod:
-    style:
-      .: |
-        ha-card {
-          background-color: rgba(0,0,0,0.0);
-        }
-  tap_action: >
-    [[[
-      if (variables.path) {
-        return { "action": "navigate", "navigation_path": variables.path };
-      }
-      
-      return { "action": "none" };
-    ]]]
+  tap_action:
+    action: none
 

@@ -109,15 +109,15 @@ card_asmodai_tablet_banner:
             - background-color: transparent !important
             - cursor:           "default"
         custom_fields:
-          b1:
+          b1:   # Light
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.light ]]]"     
               size:     16px
               variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
+                path:     "[[[ return variables.path; ]]]"
+                hide:     "[[[ return variables.icons.hide; ]]]"
+                entities: "[[[ return variables.entities.light ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -130,15 +130,15 @@ card_asmodai_tablet_banner:
               styles:
                 icon:
                   - cursor: "default"
-          b2:
+          b2:   # Presence
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.presence; ]]]"
               size:     16px
               variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
+                path:     "[[[ return variables.path; ]]]"
+                hide:     "[[[ return variables.icons.hide; ]]]"
+                entities: "[[[ return variables.entities.presence; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -151,15 +151,15 @@ card_asmodai_tablet_banner:
               styles:
                 icon:
                   - cursor: "default"
-          b3:
+          b3:   # Heating
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.heating; ]]]"
               size:     16px
               variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
+                path:     "[[[ return variables.path; ]]]"
+                hide:     "[[[ return variables.icons.hide; ]]]"
+                entities: "[[[ return variables.entities.heating; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -172,15 +172,15 @@ card_asmodai_tablet_banner:
               styles:
                 icon:
                   - cursor: "default"
-          b4:
+          b4:   # Multimedia
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.multimedia; ]]]"
               size:     16px
               variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
+                path:     "[[[ return variables.path; ]]]"
+                hide:     "[[[ return variables.icons.hide; ]]]"
+                entities: "[[[ return variables.entities.multimedia; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -193,15 +193,15 @@ card_asmodai_tablet_banner:
               styles:
                 icon:
                   - cursor: "default"
-          b5:
+          b5:   # Window(s)
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.window; ]]]"
               size:     16px
               variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
+                path:     "[[[ return variables.path; ]]]"
+                hide:     "[[[ return variables.icons.hide; ]]]"
+                entities: "[[[ return variables.entities.window; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
@@ -214,15 +214,15 @@ card_asmodai_tablet_banner:
               styles:
                 icon:
                   - cursor: "default"
-          b6:
+          b6:   # Door(s)
             card:
               type:     custom:button-card
               template: card_asmodai_tablet_button__badge
-              entity:   "[[[ return variables.entities.window; ]]]"
               size:     16px
               variables:
-                path: "[[[ return variables.path; ]]]"
-                hide: "[[[ return variables.icons.hide; ]]]"
+                path:     "[[[ return variables.path; ]]]"
+                hide:     "[[[ return variables.icons.hide; ]]]"
+                entities: "[[[ return variables.entities.door; ]]]"
                 colors:
                   default:  "[[[ return variables.colors.default; ]]]"
                   inactive: "[[[ return variables.colors.inactive; ]]]"
