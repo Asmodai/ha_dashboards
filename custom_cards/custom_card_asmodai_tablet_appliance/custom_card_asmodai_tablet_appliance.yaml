@@ -1,0 +1,332 @@
+---
+
+card_asmodai_tablet_appliance_washing_machine:
+  type: custom:button-card
+  show_icon:       true
+  show_name:       true
+  show_label:      false
+  triggers_update: "all"
+  variables:
+    name: "Washer"
+    entities:
+      power:       null
+      door:        null
+      temperature: null
+      vibration:
+        active:   null
+        strength: null
+    colors:
+      default:  "#eae1fe"
+      inactive: "#54b4ff"
+      active:   "#3ffe5e"
+      disabled: "#8b839d"
+    icons:
+      state:
+        disabled: mdi:washing-machine-off
+        active:   mdi:washing-machine
+        inactive: mdi:washing-machine-off
+      door:
+        active:   mdi:door-open
+        inactive: mdi:door-closed
+        disabled: mdi:door-closed
+      temperature:
+        active:   mdi:thermometer
+        inactive: mdi:thermometer-low
+        disabled: mdi:thermometer-off
+  name: "[[[ return variables.name; ]]]"
+  icon: >
+    [[[
+      if (!variables.entities.power) {
+        return variables.icons.state.disabled;
+      }
+
+      if (states[variables.entities.power].state == "off") {
+        return variables.icons.state.inactive;
+      }
+
+      return variables.icons.state.active;
+    ]]]
+  styles:
+    card:
+      - "--mdc-ripple-press-opacity": 0
+      - "--keep-background": true
+      - background-color: rgba(66, 46, 94, 0.8)
+      - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+      - padding: 0px
+      - width: 178px
+      - height: 178px
+    grid:
+      - grid-template-areas:   "'t1 b2 b3' 'i  i  i' 'n  n  n'"
+      - grid-template-columns: "auto auto auto"
+      - grid-template-rows:    "min-content auto min-content"
+    name:
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+    icon:
+      - color: >- 
+          [[[
+            if (!variables.entities.power) {
+              return variables.colors.disabled;
+            }
+
+            if (states[variables.entities.power].state == "off") {
+              return variables.colors.inactive;
+            }
+
+            return variables.colors.active;
+          ]]]
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+  tap_action:
+    action: none
+  custom_fields:
+    t1:   # Text
+      card:
+        type:      custom:button-card
+        template:  card_asmodai_tablet_appliance_washing_machine__text
+        entity:    "[[[ return variables.entities.vibration.active; ]]]"
+        variables:
+          vibration:
+            active:   "[[[ return variables.entities.vibration.active; ]]]"
+            strength: "[[[ return variables.entities.vibration.strength; ]]]"
+    b2:   # Temperature
+      card:
+        type:     custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity:   "[[[ return variables.entities.temperature; ]]]"
+        variables:
+          path: null
+          hide: true
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.temperature.active; ]]]"
+            inactive: "[[[ return variables.icons.temperature.inactive; ]]]"
+            disabled: "[[[ return variables.icons.temperature.disabled; ]]]"
+    b3:   # Door
+      card:
+        type:     custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity:   "[[[ return variables.entities.door; ]]]"
+        variables:
+          path:   null
+          hide:   true
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.door.active; ]]]"
+            inactive: "[[[ return variables.icons.door.inactive; ]]]"
+            disabled: "[[[ return variables.icons.door.disabled; ]]]"
+
+card_asmodai_tablet_appliance_washing_machine__text:
+  show_icon:       false
+  show_name:       true
+  show_label:      false
+  #triggers_update: "all"
+  variables:
+    vibration:
+      active:   null
+      strength: null
+      text:     "Spin"
+  styles:
+    card:
+      - "--mdc-ripple-press-opacity": 0
+      - background-color: rgba(0,0,0,0.0)
+      - width: 100px
+    name:
+      - font-weight: "bolder"
+      - font-size: "12px"
+      - width: 100px
+      - filter: "opacity(70%)"
+      - padding-left:  8px
+      - padding-right: 8px
+      - color: "rgb(var(--color-theme))"
+  name: >
+    [[[
+      if (!variables.vibration.active || !variables.vibration.strength) {
+        return "&nbsp;&nbsp;&nbsp;&nbsp;";
+      }
+
+      if (states[variables.vibration.strength].state > 90) {
+        return variables.vibration.text;
+      }
+
+      return "&nbsp;&nbsp;&nbsp;&nbsp;";
+    ]]]
+  tap_action:
+    action: none
+
+
+
+
+
+
+
+
+card_asmodai_tablet_appliance_fridge:
+  type: custom:button-card
+  show_icon:       true
+  show_name:       true
+  show_label:      false
+  triggers_update: "all"
+  variables:
+    name: "Fridge"
+    entities:
+      power:       null
+      door:        null
+      temperature: null
+    colors:
+      default:  "#eae1fe"
+      inactive: "#54b4ff"
+      active:   "#3ffe5e"
+      disabled: "#8b839d"
+    icons:
+      state:
+        disabled: mdi:fridge-off-outline
+        active:   mdi:fridge-outline
+        inactive: mdi:fridge-off-outline
+      door:
+        active:   mdi:door-open
+        inactive: mdi:door-closed
+        disabled: mdi:door-closed
+      temperature:
+        active:   mdi:thermometer
+        inactive: mdi:thermometer-low
+        disabled: mdi:thermometer-off
+  name: "[[[ return variables.name; ]]]"
+  icon: >
+    [[[
+      if (!variables.entities.power) {
+        return variables.icons.state.disabled;
+      }
+
+      if (states[variables.entities.power].state == "off") {
+        return variables.icons.state.inactive;
+      }
+
+      return variables.icons.state.active;
+    ]]]
+  styles:
+    card:
+      - "--mdc-ripple-press-opacity": 0
+      - "--keep-background": true
+      - background-color: rgba(66, 46, 94, 0.8)
+      - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+      - padding: 0px
+      - width: 178px
+      - height: 178px
+    grid:
+      - grid-template-areas:   "'t1 b2 b3' 'i  i  i' 'n  n  n'"
+      - grid-template-columns: "auto auto auto"
+      - grid-template-rows:    "min-content auto min-content"
+    name:
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+    icon:
+      - color: >- 
+          [[[
+            if (!variables.entities.power) {
+              return variables.colors.disabled;
+            }
+
+            if (states[variables.entities.power].state == "off") {
+              return variables.colors.inactive;
+            }
+
+            return variables.colors.active;
+          ]]]
+      - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+  tap_action:
+    action: none
+  custom_fields:
+    t1:   # Text
+      card:
+        type:      custom:button-card
+        template:  card_asmodai_tablet_appliance_fridge__text
+        entity:    "[[[ return variables.entities.temperature; ]]]"
+    b2:   # Temperature
+      card:
+        type:     custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity:   "[[[ return variables.entities.temperature; ]]]"
+        variables:
+          path: null
+          hide: true
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.temperature.active; ]]]"
+            inactive: "[[[ return variables.icons.temperature.inactive; ]]]"
+            disabled: "[[[ return variables.icons.temperature.disabled; ]]]"
+    b3:   # Door
+      card:
+        type:     custom:button-card
+        template: card_asmodai_tablet_button__badge
+        entity:   "[[[ return variables.entities.door; ]]]"
+        variables:
+          path:   null
+          hide:   true
+          colors:
+            default:  "[[[ return variables.colors.default; ]]]"
+            inactive: "[[[ return variables.colors.inactive; ]]]"
+            active:   "[[[ return variables.colors.active; ]]]"
+            disabled: "[[[ return variables.colors.disabled; ]]]"
+          icons:
+            active:   "[[[ return variables.icons.door.active; ]]]"
+            inactive: "[[[ return variables.icons.door.inactive; ]]]"
+            disabled: "[[[ return variables.icons.door.disabled; ]]]"
+
+card_asmodai_tablet_appliance_fridge__text:
+  show_icon:       false
+  show_name:       true
+  show_label:      false
+  triggers_update: "all"
+  variables:
+    temperature:
+      unit:   "°C"
+      min:    0
+      mid:    5
+      max:    8
+  styles:
+    card:
+      - "--mdc-ripple-press-opacity": 0
+      - background-color: rgba(0,0,0,0.0)
+      - width: 100px
+    name:
+      - font-weight: "bolder"
+      - font-size: "12px"
+      - width: 100px
+      - filter: "opacity(70%)"
+      - padding-left:  8px
+      - padding-right: 8px
+      - color: >-
+          [[[
+            if (!entity) {
+              return "rgb(var(--color-theme))";
+            }
+
+            var temp = entity.state;
+            if (temp <= variables.temperature.mid) {
+              return "#3ffe5e"; // green
+            }
+            if (temp <= variables.temperature.max) {
+              return "#fed53f"; // yellow
+            }
+            return "#fe5f3f"; // red
+          ]]]
+  name: >
+    [[[
+      if (!entity) {
+        return "&nbsp;&nbsp;&nbsp;&nbsp;";
+      }
+
+      return entity.state + variables.temperature.unit;
+    ]]]
+  tap_action:
+    action: none

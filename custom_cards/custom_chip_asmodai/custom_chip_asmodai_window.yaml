@@ -1,0 +1,62 @@
+---
+##
+## Window chip.
+##
+chip_asmodai_window:
+  template: "chips"
+  tap_action:
+    action: "more-info"
+  show_icon: true
+  triggers_update: "all"
+  variables:
+    chip_asmodai_window_entities: "[[[ return variables.chip_asmodai_window_entities; ]]]"
+    chip_asmodai_window_label:    "Windows"
+  label: "[[[ return variables.chip_asmodai_window_label; ]]]" 
+  icon: >
+    [[[
+      if (!variables.chip_asmodai_window_entities) {
+        return 'mdi:window-closed-variant';
+      }
+
+      var ents = variables.chip_asmodai_window_entities;
+      if (!Array.isArray(variables.chip_asmodai_window_entities)) {
+        ents = [ variables.chip_asmodai_window_entities ];
+      }
+
+      for (var elt in ents) {
+        if (states[ents[elt]].state == 'on') {
+          return 'mdi:window-open-variant';
+        }
+      }
+
+      return 'mdi:window-closed-variant';
+    ]]]
+  triggers_update:
+    - "[[[ return variables.chip_asmodai_door_entity; ]]]" 
+  styles:
+    grid:
+      - grid-template-areas: "'i l'"
+    icon:
+      - color: >
+          [[[
+            if (!variables.chip_asmodai_window_entities) {             
+              return '#54b4ff';
+            }
+
+            var ents = variables.chip_asmodai_window_entities;
+            if (!Array.isArray(variables.chip_asmodai_window_entities)) {
+              ents = [ variables.chip_asmodai_window_entities ];
+            }
+
+            for (var elt in ents) {
+              if (states[ents[elt]].state == 'on') {
+                return '#3ffe5e';
+              }
+            }
+
+            return '#54b4ff';
+          ]]]
+    label:
+      - color: "primary-text-color"
+
+# EOF
