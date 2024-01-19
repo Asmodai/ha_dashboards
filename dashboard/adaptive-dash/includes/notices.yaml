@@ -4,7 +4,7 @@ type: entities
 entities:
   - entity: todo.shopping_list
     icon: mdi:shopping
-    name: Shopping List
+    name: " "
     secondary_info: none
     state_color: true
     variables:
@@ -35,9 +35,9 @@ card_mod:
         background-color: rgba(0, 0, 0, 0.0);
         box-shadow: none;
         width: 250px !important;
-        position: fixed !important;
-        bottom: 0% !important;
-        left: calc(100% - 250px) !important;
-        margin-bottom: 0px !important;
+        //position: fixed !important;
+        //bottom: 0% !important;
+        //left: calc(100% - 250px) !important;
+        //margin-bottom: 0px !important;
         height: 65px !important;
       }

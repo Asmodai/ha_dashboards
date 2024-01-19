@@ -2,12 +2,11 @@ type: custom:grid-layout
 title: Hallway
 square: false
 layout:
-  grid-template-columns: 300px auto auto auto 300px
-  grid-template-rows:    75% min-content auto
+  grid-template-columns: 300px auto 300px 70px
+  grid-template-rows:    75% auto
   grid-template-areas: |
-    "left    empty1  main    empty2  right"
-    "button  button  button  button  button"
-    "alarm   footer  footer  footer  notices"
+    "left     main     right   footer"
+    "button   button   button  alarm"
   justify-items: stretch
 icon: mdi:home-floor-g
 path: hallway
@@ -33,15 +32,6 @@ cards:
       pressure_entity:    sensor.aqara_hallway_temperature_pressure
       humidity_entity:    sensor.aqara_hallway_temperature_humidity
       illuminance_entity: sensor.esp1_hallway_illuminance
-    card_mod:
-      style:
-        .: |
-          ha-card {
-            margin: 0px;
-            margin-top: -20px;
-            margin-left: -20px;
-            background-color: rgba(0, 0, 0, 0.0);
-          }
 
   #
   # Main banner.
@@ -145,11 +135,6 @@ cards:
   - !include "../../includes/alarm.yaml"
 
   #
-  # Notices area.
-  #
-  - !include "../../includes/notices.yaml"
-
-  #
   # Footer area.
   #
   - view_layout:
@@ -188,16 +173,3 @@ cards:
         element_8: # Settings
           icon: mdi:menu
           path: "hallway_settings"
-    card_mod:
-      style:
-        .: |
-          ha-card {
-            width: 600px;
-            margin:auto;
-            position: absolute;
-            bottom: 0%;
-            left: 0;
-            right: 0;
-            height: 70px;
-            z-index: 5;
-          }

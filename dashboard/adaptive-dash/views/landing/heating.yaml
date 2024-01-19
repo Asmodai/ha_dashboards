@@ -2,19 +2,12 @@ type: custom:grid-layout
 title: Heating
 square: false
 layout:
-  width: 250
-  max-width: 250
-  height: 88%
-  grid-width: 250
-  grid-max-width: 250
-  grid-item--max-width: 250
-  grid-template-columns: 1fr 1fr fit-content(1fr)
-  grid-template-rows:    80% fit-content(20%)
+  grid-template-columns: auto 70px
+  grid-template-rows:    auto
   grid-template-areas: |
-    "main  main   main"
-    "alarm footer notices"
+    "main footer"
+    "main alarm"
   justify-items: stretch
-  justify-self: stretch
 icon: mdi:radiator
 path: landing_heating
 visible: false
@@ -41,11 +34,6 @@ cards:
   # Alarm area.
   #
   - !include "../../includes/alarm.yaml"
-
-  #
-  # Notices area.
-  #
-  - !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -87,16 +75,3 @@ cards:
         element_8: # Settings
           icon: mdi:menu
           path: "landing_settings"
-    card_mod:
-      style:
-        .: |
-          ha-card {
-            width: 600px;
-            margin:auto;
-            position: absolute;
-            bottom: 0%;
-            left: 0;
-            right: 0;
-            height: 70px;
-            z-index: 5;
-          }

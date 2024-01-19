@@ -2,19 +2,12 @@ type: custom:grid-layout
 title: Alarm
 square: false
 layout:
-  width: 250
-  max-width: 250
-  height: 88%
-  grid-width: 250
-  grid-max-width: 250
-  grid-item--max-width: 250
-  grid-template-columns: 1fr 1fr fit-content(1fr)
-  grid-template-rows:    80% fit-content(20%)
+  grid-template-columns: auto 70px
+  grid-template-rows:    auto auto
   grid-template-areas: |
-    "main  main   main"
-    "alarm footer notices"
+    "main footer"
+    "main alarm"
   justify-items: stretch
-  justify-self: stretch
 icon: mdi:chart-areaspline
 path: home_graphs
 visible: false
@@ -33,252 +26,211 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:vertical-stack-in-card
-    card_mod:
-      style:
-        .: |
-          ha-card { background-color: transparent; }
+    type: vertical-stack
     cards:
 
 ######################################################################
 ## Temperatures
 
-      - type: custom:vertical-stack-in-card
-        horizontal: false
-        card_mod:
-          style:
-            .: |
-              ha-card { background-color: transparent; }
-        cards:
-
-          - type: custom:apexcharts-card
-            card_mod:
-              style:
-                .: |
-                  ha-card {
-                    background-color: rgba(0,0,0,0.0);
-                    margin:auto;
-                    position: absolute; 
-                    left: 0;
-                    right: 0;
-                    border: none;
-                    box-shadow: none;
-                    border-radius: 20px;
-                  }
-                  div#header__title {
-                    font-size: 17px;
-                    font-weight: bold;
-                    text-align: center;
-                    color: #b083fe !important;
-                  }
-            apex_config:
-              annotations:
-                position: back
-                yaxis:
-                  - 'y': 0
-                    strokeDashArray: 5
-                    borderColor: '#5b5b5b'
-                    borderWidth: 1
-              xaxis:
-                labels:
-                  format: HH:mm
-                axisBorder:
-                  show: false
-              legend:
+        - type: custom:apexcharts-card
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(0,0,0,0.0);
+                }
+                div#header__title {
+                  font-size: 17px;
+                  font-weight: bold;
+                  text-align: center;
+                  color: #b083fe !important;
+                }
+          apex_config:
+            annotations:
+              position: back
+              yaxis:
+                - 'y': 0
+                  strokeDashArray: 5
+                  borderColor: '#5b5b5b'
+                  borderWidth: 1
+            xaxis:
+              labels:
+                format: HH:mm
+              axisBorder:
                 show: false
-              grid:
-                show: true
-              fill:
-                type: gradient
-                gradient:
-                  type: vertical
-                  shadeIntensity: 0.4
-                  opacityFrom: 0.9
-                  opacityTo: 0
-                  stops:
-                    - 1
-                    - 95
-                    - 100
-              chart:
-                dropshadow:
-                  enabled: true
-                height: 200px
-            header:
+            legend:
+              show: false
+            grid:
               show: true
-              title: Temperature
-              show_states: true
-              colorize_states: true
-            all_series_config:
-              stroke_width: 2
-              unit: "°C"
-              type: area
-            hours_12: false
-            graph_span: 1d
-            series:
-              - entity: sensor.aqara_bathroom_temperature_temperature
-              - entity: sensor.aqara_bedroom_temperature_temperature
-              - entity: sensor.aqara_hallway_temperature_temperature
-              - entity: sensor.aqara_kitchen_temperature_temperature
-              - entity: sensor.aqara_landing_temperature_temperature
-              - entity: sensor.aqara_livingroom_temperature_temperature
-              - entity: sensor.aqara_office_temperature_temperature
-              - entity: sensor.aqara_wetroom_temperature_temperature
-              - entity: sensor.openweathermap_temperature
-                name: Outside Temperature
+            fill:
+              type: gradient
+              gradient:
+                type: vertical
+                shadeIntensity: 0.4
+                opacityFrom: 0.9
+                opacityTo: 0
+                stops:
+                  - 1
+                  - 95
+                  - 100
+            chart:
+              dropshadow:
+                enabled: true
+              height: 200px
+          header:
+            show: true
+            title: Temperature
+            show_states: true
+            colorize_states: true
+          all_series_config:
+            stroke_width: 2
+            unit: "°C"
+            type: area
+          hours_12: false
+          graph_span: 1d
+          series:
+            - entity: sensor.aqara_bathroom_temperature_temperature
+            - entity: sensor.aqara_bedroom_temperature_temperature
+            - entity: sensor.aqara_hallway_temperature_temperature
+            - entity: sensor.aqara_kitchen_temperature_temperature
+            - entity: sensor.aqara_landing_temperature_temperature
+            - entity: sensor.aqara_livingroom_temperature_temperature
+            - entity: sensor.aqara_office_temperature_temperature
+            - entity: sensor.aqara_wetroom_temperature_temperature
+            - entity: sensor.openweathermap_temperature
+              name: Outside Temperature
 
 ######################################################################
 ## Humidity
 
-      - type: custom:vertical-stack-in-card
-        horizontal: true
-        card_mod:
-          style:
-            .: |
-              ha-card { background-color: transparent; }
-        cards:
-        
-          - type: custom:apexcharts-card
-            card_mod:
-              style:
-                .: |
-                  ha-card {
-                    background-color: rgba(0,0,0,0.0);
-                    margin:auto;
-                    position: absolute; 
-                    left: 0;
-                    right: 0;
-                    border: none;
-                    box-shadow: none;
-                    border-radius: 20px;
-                  }
-                  div#header__title {
-                    font-size: 17px;
-                    font-weight: bold;
-                    text-align: center;
-                    color: #b083fe !important;
-                  }
-            apex_config:
-              annotations:
-                position: back
-                yaxis:
-                  - 'y': 0
-                    strokeDashArray: 5
-                    borderColor: '#5b5b5b'
-                    borderWidth: 1
-              xaxis:
-                labels:
-                  format: HH:mm
-                axisBorder:
-                  show: false
-              legend:
+        - type: custom:apexcharts-card
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(0,0,0,0.0);
+                }
+                div#header__title {
+                  font-size: 17px;
+                  font-weight: bold;
+                  text-align: center;
+                  color: #b083fe !important;
+                }
+          apex_config:
+            annotations:
+              position: back
+              yaxis:
+                - 'y': 0
+                  strokeDashArray: 5
+                  borderColor: '#5b5b5b'
+                  borderWidth: 1
+            xaxis:
+              labels:
+                format: HH:mm
+              axisBorder:
                 show: false
-              grid:
-                show: true
-              fill:
-                type: gradient
-                gradient:
-                  type: vertical
-                  shadeIntensity: 0.4
-                  opacityFrom: 0.9
-                  opacityTo: 0
-                  stops:
-                    - 1
-                    - 95
-                    - 100
-              chart:
-                dropshadow:
-                  enabled: true
-                height: 200px
-            header:
+            legend:
+              show: false
+            grid:
               show: true
-              title: Humidity
-              show_states: true
-              colorize_states: true
-            all_series_config:
-              stroke_width: 2
-            hours_12: false
-            graph_span: 1d
-            series:
-              - entity: sensor.aqara_livingroom_temperature_humidity
-                unit: '%'
-                type: area
-              - entity: sensor.openweathermap_humidity
-                name: Outside Humidity
-                unit: '%'
-                type: area
+            fill:
+              type: gradient
+              gradient:
+                type: vertical
+                shadeIntensity: 0.4
+                opacityFrom: 0.9
+                opacityTo: 0
+                stops:
+                  - 1
+                  - 95
+                  - 100
+            chart:
+              dropshadow:
+                enabled: true
+              height: 200px
+          header:
+            show: true
+            title: Humidity
+            show_states: true
+            colorize_states: true
+          all_series_config:
+            stroke_width: 2
+          hours_12: false
+          graph_span: 1d
+          series:
+            - entity: sensor.aqara_livingroom_temperature_humidity
+              unit: '%'
+              type: area
+            - entity: sensor.openweathermap_humidity
+              name: Outside Humidity
+              unit: '%'
+              type: area
 
 ######################################################################
 ## Pressure
 
-          - type: custom:apexcharts-card
-            card_mod:
-              style:
-                .: |
-                  ha-card {
-                    background-color: rgba(0,0,0,0.0);
-                    margin:auto;
-                    position: absolute; 
-                    left: 0;
-                    right: 0;
-                    border: none;
-                    box-shadow: none;
-                    border-radius: 20px;
-                  }
-                  div#header__title {
-                    font-size: 17px;
-                    font-weight: bold;
-                    text-align: center;
-                    color: #b083fe !important;
-                  }
-            apex_config:
-              annotations:
-                position: back
-                yaxis:
-                  - 'y': 0
-                    strokeDashArray: 5
-                    borderColor: '#5b5b5b'
-                    borderWidth: 1
-              xaxis:
-                labels:
-                  format: HH:mm
-                axisBorder:
-                  show: false
-              legend:
+        - type: custom:apexcharts-card
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  background-color: rgba(0,0,0,0.0);
+                }
+                div#header__title {
+                  font-size: 17px;
+                  font-weight: bold;
+                  text-align: center;
+                  color: #b083fe !important;
+                }
+          apex_config:
+            annotations:
+              position: back
+              yaxis:
+                - 'y': 0
+                  strokeDashArray: 5
+                  borderColor: '#5b5b5b'
+                  borderWidth: 1
+            xaxis:
+              labels:
+                format: HH:mm
+              axisBorder:
                 show: false
-              grid:
-                show: true
-              fill:
-                type: gradient
-                gradient:
-                  type: vertical
-                  shadeIntensity: 0.4
-                  opacityFrom: 0.9
-                  opacityTo: 0
-                  stops:
-                    - 1
-                    - 95
-                    - 100
-              chart:
-                dropshadow:
-                  enabled: true
-                height: 200px
-            header:
+            legend:
+              show: false
+            grid:
               show: true
-              title: Pressure
-              show_states: true
-              colorize_states: true
-            all_series_config:
-              stroke_width: 2
-            hours_12: false
-            graph_span: 1d
-            series:
-              - entity: sensor.aqara_livingroom_temperature_pressure
-                unit: hPa
-                type: area
-              - entity: sensor.openweathermap_pressure
-                name: Outside Pressure
-                unit: hPa
-                type: area
+            fill:
+              type: gradient
+              gradient:
+                type: vertical
+                shadeIntensity: 0.4
+                opacityFrom: 0.9
+                opacityTo: 0
+                stops:
+                  - 1
+                  - 95
+                  - 100
+            chart:
+              dropshadow:
+                enabled: true
+              height: 200px
+          header:
+            show: true
+            title: Pressure
+            show_states: true
+            colorize_states: true
+          all_series_config:
+            stroke_width: 2
+          hours_12: false
+          graph_span: 1d
+          series:
+            - entity: sensor.aqara_livingroom_temperature_pressure
+              unit: hPa
+              type: area
+            - entity: sensor.openweathermap_pressure
+              name: Outside Pressure
+              unit: hPa
+              type: area
 
   #
   # Alarm area.
@@ -288,7 +240,7 @@ cards:
   #
   # Notices area.
   #
-  - !include "../../includes/notices.yaml"
+  #- !include "../../includes/notices.yaml"
 
   #
   # Footer area.
@@ -325,16 +277,3 @@ cards:
         element_8: # Menu
           icon: mdi:menu
           path: "home_settings"
-    card_mod:
-      style:
-        .: |
-          ha-card {
-            width: 600px;
-            margin:auto;
-            position: absolute;
-            bottom: 0%;
-            left: 0;
-            right: 0;
-            height: 70px;
-            z-index: 5;
-          }

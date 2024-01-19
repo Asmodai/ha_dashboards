@@ -48,22 +48,24 @@ card_asmodai_tablet_menu:
       disabled: false
   styles:
     grid:
-      - grid-template-areas: "'pi e1 e2 e3 e4 e5 e6 e7 e8'"
-      - grid-template-columns: "auto auto auto auto auto auto auto auto auto"
+      - grid-template-areas: "'pi' 'e1' 'e2' 'e3' 'e4' 'e5' 'e6' 'e7' 'e8'"
+      - grid-template-columns: "auto"
       - grid-template-rows: "auto"
-      - row-gap: "8px"
+      - row-gap: "4px"
     card:
-      - border-radius: 0px
-      - border-top-right-radius: 20px
-      - border-top-left-radius: 20px
-      - background-color: rgba(66, 46, 94, 0.8)
-      - box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3)
-      - padding: "10px"
-      - padding-top: "0px"
-      - padding-bottom: "0px"
-      - cursor: "default"
-      - "--mdc-ripple-press-opacity": 0   # prevent click animation
-      - height: 70px
+      - position:                     fixed
+      - float:                        right
+      - display:                      block
+      - width:                        70px
+      - height:                       580px
+      - top:                          10px
+      - border-radius:                0px
+      - border-bottom-left-radius:    20px
+      - background-color:             rgba(66, 46, 94, 0.8)
+      - box-shadow:                   0px 0px 10px 5px rgba(0,0,0,0.3)
+      - margin:                       auto
+      - cursor:                       default
+      - "--mdc-ripple-press-opacity": 0
     custom_fields:
       pi:
         - cursor: "default"

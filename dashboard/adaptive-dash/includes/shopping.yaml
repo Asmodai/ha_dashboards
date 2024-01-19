@@ -6,7 +6,7 @@ card_mod:
   style:
     .: |
       ha-card {
-        background-color: transparent !important; //rgba(66, 46, 94, 0.8);
+        background-color: transparent !important;
         margin: auto;
         left: 0;
         right: 0;

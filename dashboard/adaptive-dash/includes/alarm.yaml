@@ -1,7 +1,7 @@
 view_layout:
   grid-area: alarm
 type: custom:stack-in-card
-mode: horizontal
+mode: vertical
 variables:
   colors:
     disabled: "#8b839d"
@@ -10,16 +10,17 @@ card_mod:
   style:
     .: |
       ha-card {
-        background: transparent !important;
-        width: 600px;
-        margin: auto;
-        position: absolute;
-        bottom: 0%;
-        height: 64px;
-        width: 96px;
-        padding: 0px;
-        margin-left: -10px !important;
-        margin-bottom: 0px !important;
+        background:     transparent !important;
+        width:          70px;
+        position:       fixed;
+        display:        block;
+        bottom:         0%;
+        margin:         0px;
+        margin-right:   -10px;
+        //margin-top:     150px;
+        padding:        0px;
+        padding-top:    8px;
+        padding-bottom: 8px;
       }
 cards:
 
@@ -32,6 +33,7 @@ cards:
     show_label: false
     icon: mdi:shield-home-outline
     entity: alarm_control_panel.alarmo
+    size: 28px
     state:
       - value: 'disabled'
         color: "#8b839d"
@@ -54,8 +56,8 @@ cards:
             name: Self-Destruct System
     styles:
       img_cell:
-        - width: 64px
-        - height: 64px
+        - width:  28px
+        - height: 28px
       card:
         - "--mdc-ripple-press-opacity": 0
         - background-color: transparent !important
@@ -70,6 +72,7 @@ cards:
     show_label: false
     icon: mdi:doorbell-video
     entity: alarm_control_panel.alarmo
+    size: 28px
     state:
       - value: 'disabled'
         color: "#8b839d"
@@ -80,8 +83,8 @@ cards:
       navigation_path: "home_door"
     styles:
       img_cell:
-        - width: 64px
-        - height: 64px
+        - width:  28px
+        - height: 28px
       card:
         - "--mdc-ripple-press-opacity": 0
         - background-color: transparent !important

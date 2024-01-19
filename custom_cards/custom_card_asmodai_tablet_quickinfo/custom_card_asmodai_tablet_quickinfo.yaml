@@ -16,11 +16,14 @@ card_asmodai_tablet_quickinfo:
       - grid-template-rows:    "min-content"
       - row-gap: 8px
     card:
-      - border-radius: 0px
-      - background-color: rgba(0, 0, 0, 0.0) !important
-      - padding: 0px
-      - cursor: default
-      - "--mdc-ripple-press-opacity": 0   # prevent click animation
+      - margin:                       0px
+      - margin-top:                   -20px
+      - margin-left:                  -20px
+      - border-radius:                0px
+      - background-color:             rgba(0, 0, 0, 0.0) !important
+      - padding:                      0px
+      - cursor:                       default
+      - "--mdc-ripple-press-opacity": 0
     custom_fields:
       info:
         - text-align: left !important
