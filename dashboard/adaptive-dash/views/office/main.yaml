@@ -62,14 +62,14 @@ cards:
       style:
         .: |
           ha-card {
-            border-radius: 20px;
+            border-radius:    20px;
             background-color: rgba(0,0,0,0.0);
-            margin: auto;
-            position: absolute !important;
-            bottom: 100px !important;
-            padding: 10px;
-            left: 0;
-            right: 0;
+            margin:           auto;
+            position:         absolute !important;
+            bottom:           20px !important;
+            padding:          10px;
+            left:             0;
+            right:            0;
           }
     card:
       type: vertical-stack

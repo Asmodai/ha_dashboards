@@ -98,10 +98,10 @@ cards:
           type:              glance
           state_color:       true
           show_last_changed: false
-          show_icon:         false
+          show_icon:         true
           card_mod:
             style: |
-              ha-card { background-color: transparent; font-size: 12px; }
+              ha-card { background-color: transparent; }
         sort:
           method: state
           numeric: true
@@ -116,11 +116,6 @@ cards:
   # Alarm area.
   #
   - !include "../../includes/alarm.yaml"
-
-  #
-  # Notices area.
-  #
-  #- !include "../../includes/notices.yaml"
 
   #
   # Footer area.
