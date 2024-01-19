@@ -45,19 +45,21 @@ cards:
         name: "Events"
         color: "yellow"
 
-  - type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      grid-template-columns: auto auto auto
-      grid-template-rows: auto
-      grid-template-areas: |
-        "garden general lights shopping"
-      place-content: center
+  - type: horizontal-stack
     cards:
+#    layout_type: custom:grid-layout
+#    layout:
+#      grid-template-columns: auto auto auto auto
+#      grid-template-rows: auto
+#      grid-template-areas: |
+#        "garden     garden     general   general  lights   shopping"
+#        "front_door front_door back_door back_door wind_dn wind_up"
+#      place-content: center
       - view_layout:
           grid-area: garden
         type: custom:button-card
         template: chip_asmodai_waste
+        triggers_update: "all"
         variables:
           chip_asmodai_waste_entity: sensor.waste_collection_garden
           chip_asmodai_waste_icon: 'mdi:leaf'
@@ -66,6 +68,7 @@ cards:
           grid-area: general
         type: custom:button-card
         template: chip_asmodai_waste
+        triggers_update: "all"
         variables:
           chip_asmodai_waste_entity: sensor.waste_collection_general
           chip_asmodai_waste_icon: 'mdi:trash-can'
@@ -74,14 +77,65 @@ cards:
           grid-area: lights
         type: custom:button-card
         template: chip_asmodai_lights_count
+        triggers_update: "all"
         variables:
           chip_asmodai_lights_count_entity: sensor.current_lights_on
       - view_layout:
           grid-area: shopping
         type: custom:button-card
         template: chip_asmodai_shopping_count
+        triggers_update: "all"
         variables:
           chip_asmodai_shopping_count_entity: todo.shopping_list
+  - type: horizontal-stack
+    cards:
+      - view_layout:
+          grid-area: front_door
+        type: custom:button-card
+        template: chip_asmodai_door
+        triggers_update: "all"
+        variables:
+          chip_asmodai_door_entity: binary_sensor.aqara_front_door_open_contact
+          chip_asmodai_door_label:  "Front"
+      - view_layout:
+          grid-area: back_door
+        type: custom:button-card
+        template: chip_asmodai_door
+        triggers_update: "all"
+        variables:
+          chip_asmodai_door_entity: binary_sensor.aqara_back_door_open_contact
+          chip_asmodai_door_label:  "Back"
+      - view_layout:
+          grid-area: wind_dn
+        type: custom:button-card
+        template: chip_asmodai_window
+        triggers_update: "all"
+        variables:
+          chip_asmodai_window_entities:
+            - binary_sensor.aqara_kitchen_window_1_contact
+            - binary_sensor.aqara_kitchen_window_2_contact
+            - binary_sensor.aqara_kitchen_window_3_contact
+            - binary_sensor.aqara_bedroom_window_2_contact
+            - binary_sensor.aqara_livingroom_window_1_contact
+            - binary_sensor.aqara_livingroom_window_2_contact
+            - binary_sensor.aqara_livingroom_window_3_contact
+            - binary_sensor.aqara_livingroom_window_4_contact
+            - binary_sensor.aqara_wetroom_window_contact
+          chip_asmodai_window_label:  "Lower"
+      - view_layout:
+          grid-area: wind_up
+        type: custom:button-card
+        template: chip_asmodai_window
+        triggers_update: "all"
+        variables:
+          chip_asmodai_window_entities:
+            - binary_sensor.aqara_landing_window_contact
+            - binary_sensor.aqara_bathroom_window_contact
+            - binary_sensor.aqara_bedroom_window_1_contact
+            - binary_sensor.aqara_bedroom_window_2_contact
+            - binary_sensor.aqara_office_window_1_contact
+            - binary_sensor.aqara_office_window_2_contact
+          chip_asmodai_window_label:  "Upper"
 
   #
   # Rooms.
