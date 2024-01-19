@@ -59,6 +59,23 @@ cards:
         template: card_asmodai_sensor_graph_pressure
         entity:   sensor.aqara_bathroom_temperature_pressure
 
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+######################################################################
+## ROW 1
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_bathroom_window_contact
+
   #
   # Alarm area.
   #

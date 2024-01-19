@@ -71,6 +71,17 @@ cards:
         template: card_asmodai_sensor_graph_occupancy
         entity:   binary_sensor.esp1_hallway_occupancy
 
+######################################################################
+## ROW 2
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_front_door_open_contact
+        variables:
+          name: Door
+
   #
   # Alarm area.
   #

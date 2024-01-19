@@ -61,10 +61,77 @@ cards:
 
       - type:     custom:button-card
         view_layout:
-          column: 3
+          column: 4
         template: card_asmodai_sensor_graph_air_quality
         entity:   sensor.frient_kitchen_voc_voc
 
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+######################################################################
+## ROW 2
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_temperature
+        entity:   sensor.aqara_kitchen_fridge_temperature_temperature
+        variables:
+          name:   "Fridge Temperature"
+
+      - type:     custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_sensor_graph_humidity
+        entity:   sensor.aqara_kitchen_fridge_temperature_humidity
+        variables:
+          name:   "Fridge Humidity"
+        
+      - type: custom:gap-card
+        view_layout:
+          column: 3
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+######################################################################
+## ROW 3
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_back_door_open_contact
+        variables:
+          name: Door
+
+      - type:     custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_kitchen_window_1_contact
+        variables:
+          name: Window 1
+
+      - type:     custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_kitchen_window_2_contact
+        variables:
+          name: Window 2
+
+      - type:     custom:button-card
+        view_layout:
+          column: 4
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_kitchen_window_3_contact
+        variables:
+          name: Window 3
 
   #
   # Alarm area.

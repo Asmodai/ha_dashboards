@@ -59,6 +59,62 @@ cards:
         template: card_asmodai_sensor_graph_pressure
         entity:   sensor.aqara_bedroom_temperature_pressure
 
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+######################################################################
+## ROW 2
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_bedroom_window_1_contact
+        variables:
+          name: Window 1
+
+      - type:     custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_bedroom_window_2_contact
+        variables:
+          name: Window 2
+
+      - type: custom:gap-card
+        view_layout:
+          column: 3
+
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+######################################################################
+## ROW 3
+
+      - view_layout:
+          column: 1
+        type: history-graph
+        entities:
+          - entity: climate.aqara_bedroom_trv
+        show_names: false
+        hours_to_show: 24
+        title: Radiator
+        card_mod:
+          style:
+            .: |
+              ha-card {
+                background-color: transparent !important;
+              }
   #
   # Alarm area.
   #
@@ -88,7 +144,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "bedroom_multimedia"

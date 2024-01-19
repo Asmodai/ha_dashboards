@@ -21,6 +21,7 @@ card_asmodai_sensor_graph_pressure:
       card:
         type:            custom:mini-graph-card
         name:            "[[[ return variables.name; ]]]"
+        icon:            "mdi:thermometer-lines"
         points_per_hour: 1
         align_state:     center
         align_header:    center
@@ -39,6 +40,7 @@ card_asmodai_sensor_graph_pressure:
         entities:
           - entity:      "[[[ return entity.entity_id; ]]]"
             name:        "[[[ return variables.name; ]]]"
+            icon:        "mdi:thermometer-lines"
             show_state:  true
             show_points: true
             show_legend: false

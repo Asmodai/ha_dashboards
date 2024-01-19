@@ -96,6 +96,7 @@ cards:
                 path:          'hallway'
                 hide_disabled: true
                 entities:
+                  door:     binary_sensor.aqara_front_door_open_contact
                   light:    light.room_hallway
                   presence: binary_sensor.esp1_hallway_occupancy
             - type: custom:button-card
@@ -107,6 +108,7 @@ cards:
                 hide_disabled: true
                 entities:
                   light: null
+                  window: binary_sensor.aqara_wetroom_window_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -115,7 +117,12 @@ cards:
                 path: 'kitchen'
                 hide_disabled: true
                 entities:
+                  door:  binary_sensor.aqara_back_door_open_contact
                   light: null
+                  window:
+                    - binary_sensor.aqara_kitchen_window_1_contact
+                    - binary_sensor.aqara_kitchen_window_2_contact
+                    - binary_sensor.aqara_kitchen_window_3_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -126,6 +133,11 @@ cards:
                 entities:
                   light:     light.room_living_room
                   multimedia: media_player.tv_43pus8807_12
+                  window:
+                    - binary_sensor.aqara_livingroom_window_1_contact
+                    - binary_sensor.aqara_livingroom_window_2_contact
+                    - binary_sensor.aqara_livingroom_window_3_contact
+                    - binary_sensor.aqara_livingroom_window_4_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -148,8 +160,9 @@ cards:
                 path: 'landing'
                 hide_disabled: true
                 entities:
-                  light: light.room_landing
+                  light:   light.room_landing
                   presence: binary_sensor.esp1_landing_occupancy
+                  window:   binary_sensor.aqara_landing_window_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -158,7 +171,8 @@ cards:
                 path: 'bathroom'
                 hide_disabled: true
                 entities:
-                  light: null
+                  light:  null
+                  window: binary_sensor.aqara_bathroom_window_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -167,7 +181,11 @@ cards:
                 path: 'bedroom'
                 hide_disabled: true
                 entities:
-                  light: light.room_bedroom
+                  light:   light.room_bedroom
+                  heating: climate.aqara_bedroom_trv
+                  window:
+                    - binary_sensor.aqara_bedroom_window_1_contact
+                    - binary_sensor.aqara_bedroom_window_2_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -177,6 +195,9 @@ cards:
                 hide_disabled: true
                 entities:
                   light: light.room_office
+                  window:
+                    - binary_sensor.aqara_office_window_1_contact
+                    - binary_sensor.aqara_office_window_2_contact
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:

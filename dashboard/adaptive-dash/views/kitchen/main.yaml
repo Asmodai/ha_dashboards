@@ -52,6 +52,12 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Kitchen
+      entities:
+        door:  binary_sensor.aqara_back_door_open_contact
+        window:
+          - binary_sensor.aqara_kitchen_window_1_contact
+          - binary_sensor.aqara_kitchen_window_2_contact
+          - binary_sensor.aqara_kitchen_window_3_contact
 
   #
   # Right-hand banner.
@@ -77,6 +83,79 @@ cards:
             left: 0;
             right: 0;
           }
+    card:
+      type: vertical-stack
+      title: null
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:gap-card
+            - type: custom:button-card
+              template: card_asmodai_tablet_light
+              entity: light.room_office
+              variables:
+                name: "Lights"
+                icon: "mdi:desk"
+                filters:
+                  include: "scene.(room_)?office_*"
+                  exclude: "scene.(room_)?office_desk_*"
+            - type: custom:button-card
+              template: card_asmodai_tablet_appliance_washing_machine
+              variables:
+                entities:
+                  #power: sensor.fibaro_wall_plug_1_electric_consumption_w
+                  door:  binary_sensor.aqara_washing_machine_door_contact
+                  vibration:
+                    active:   binary_sensor.aqara_washing_machine_vibration_vibration
+                    strength: sensor.aqara_washing_machine_vibration_strength 
+            - type: custom:button-card
+              template: card_asmodai_tablet_appliance_fridge
+              variables:
+                entities:
+                  #power:       sensor.fibaro_wall_plug_1_electric_consumption_w
+                  temperature: sensor.aqara_kitchen_fridge_temperature_temperature
+                  #door:        binary_sensor.aqara_front_door_open_contact
+            - type: custom:gap-card
+        - type: horizontal-stack
+          cards:
+            - type: custom:gap-card
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:lightbulb-outline"
+                custom_card_asmodai_tablet_scene_name: "Normal"
+                custom_card_asmodai_tablet_scene_entity_id: scene.office_purple
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:solar-power-variant-outline"
+                custom_card_asmodai_tablet_scene_name: "Energise"
+                custom_card_asmodai_tablet_scene_entity_id: scene.office_energise
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunny"
+                custom_card_asmodai_tablet_scene_name: "Concentrate"
+                custom_card_asmodai_tablet_scene_entity_id: scene.office_concentrate
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:book-outline"
+                custom_card_asmodai_tablet_scene_name: "Read"
+                custom_card_asmodai_tablet_scene_entity_id: scene.office_read
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunset-up"
+                custom_card_asmodai_tablet_scene_name: "Relax"
+                custom_card_asmodai_tablet_scene_entity_id: scene.office_relax
+            - type: custom:button-card
+              template: card_asmodai_tablet_scene
+              variables:
+                custom_card_asmodai_tablet_scene_icon: "mdi:bed-outline"
+                custom_card_asmodai_tablet_scene_name: "Rest"
+                custom_card_asmodai_tablet_scene_entity_id: scene.office_rest
+            - type: custom:gap-card
 
   #
   # Alarm area.

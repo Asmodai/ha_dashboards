@@ -51,6 +51,8 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Wet Room
+      entities:
+        window: binary_sensor.aqara_wetroom_window_contact
 
   #
   # Right-hand banner.

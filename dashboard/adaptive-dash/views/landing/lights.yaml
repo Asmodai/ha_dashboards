@@ -58,6 +58,15 @@ cards:
           icon: mdi:ceiling-light
           color_select_mode: true
 
+      - type: custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_tablet_light
+        entity: light.hue_lightstrip_plus_1
+        variables:
+          name: LED strip
+          icon: mdi:led-strip-variant
+          color_select_mode: true
   #
   # Alarm area.
   #

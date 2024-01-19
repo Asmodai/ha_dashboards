@@ -51,9 +51,10 @@ cards:
           column: 2
         type:     custom:button-card
         template: card_asmodai_sensor_graph_kwh
-        entity:   sensor.dcc_sourced_smart_electricity_meter_usage_today
+        entity:   sensor.smart_meter_electricity_energy_import_daily
         variables:
           name:   "Electricity Usage"
+          icon:   "mdi:lightning-bolt-circle"
           
       - view_layout:
           column: 3
@@ -67,9 +68,10 @@ cards:
           column: 4
         type:     custom:button-card
         template: card_asmodai_sensor_graph_kwh
-        entity:   sensor.dcc_sourced_smart_gas_meter_usage_today
+        entity:   sensor.smart_meter_gas_import_daily
         variables:
           name:   "Gas Usage"
+          icon:   "mdi:fire-circle"
           
       - view_layout:
           column: 5
@@ -105,12 +107,12 @@ cards:
         min_box_height:        22
         in_box_distance:       5
         round:                 1
-        unit_prefix:           "k"
+        #unit_prefix:           "k"
         wide:                  true
         sections:
           - sort_by: "state"
             entities:
-            - entity_id: sensor.dcc_sourced_smart_electricity_meter_usage_today
+            - entity_id: sensor.smart_meter_electricity_power
               name: Grid
               type: entity
               color: var(--warning-color)
@@ -156,17 +158,17 @@ cards:
               tap_action:
                 action: none
               children:
-                - sensor.fibaro_wall_plug_1_utility_meter
-                - sensor.fibaro_wall_plug_2_utility_meter
+                - sensor.fibaro_wall_plug_1_electric_consumption_w
+                - sensor.fibaro_wall_plug_2_electric_consumption_w
 
           - sort_by: "state"
             entities:
-            - entity_id: sensor.fibaro_wall_plug_1_utility_meter
+            - entity_id: sensor.fibaro_wall_plug_1_electric_consumption_w
               type: entity
               name: "Wall Plug #1"
               color: purple
               children: []
-            - entity_id: sensor.fibaro_wall_plug_2_utility_meter
+            - entity_id: sensor.fibaro_wall_plug_2_electric_consumption_w
               type: entity
               name: "Wall Plug #2"
               color: purple

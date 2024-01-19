@@ -61,9 +61,48 @@ cards:
 
       - type:     custom:button-card
         view_layout:
-          column: 3
+          column: 4
         template: card_asmodai_sensor_graph_air_quality
         entity:   sensor.frient_livingroom_voc_voc
+
+      - type: custom:gap-card
+        view_layout:
+          column: 5
+
+######################################################################
+## ROW 2
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_livingroom_window_1_contact
+        variables:
+          name: Window 1
+
+      - type:     custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_livingroom_window_2_contact
+        variables:
+          name: Window 2
+
+      - type:     custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_livingroom_window_3_contact
+        variables:
+          name: Window 3
+
+      - type:     custom:button-card
+        view_layout:
+          column: 4
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_livingroom_window_4_contact
+        variables:
+          name: Window 4
 
   #
   # Alarm area.

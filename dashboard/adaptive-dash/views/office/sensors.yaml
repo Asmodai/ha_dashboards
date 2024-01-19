@@ -65,27 +65,21 @@ cards:
         variables:
           name:   "Office Pressure"
 
-      - type: custom:gap-card
+      - type:     custom:button-card
         view_layout:
           column: 4
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                padding: 5px;
-                background-color: transparent;
-              }
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_office_window_1_contact
+        variables:
+          name: Window 1
 
-      - type: custom:gap-card
+      - type:     custom:button-card
         view_layout:
-          column: 5
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                padding: 5px;
-                background-color: transparent;
-              }
+          column: 4
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_office_window_2_contact
+        variables:
+          name: Window 2
 
 ######################################################################
 ## ROW 2

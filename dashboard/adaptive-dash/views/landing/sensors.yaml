@@ -71,6 +71,16 @@ cards:
         template: card_asmodai_sensor_graph_occupancy
         entity:   binary_sensor.esp1_landing_occupancy
 
+######################################################################
+## ROW 1
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_landing_window_contact
+
+
   #
   # Alarm area.
   #

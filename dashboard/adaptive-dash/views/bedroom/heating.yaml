@@ -33,9 +33,26 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    type: grid
+    columns: 3
+    square: false
+    cards:
+
+      - view_layout:
+          column: 1
+        type: custom:better-thermostat-ui-card
+        entity: climate.aqara_bedroom_trv
+        name: Radiator
+        eco_temperature: 20
+        disable_buttons: true
+        set_current_as_main: true
+        card_mod:
+          style:
+            .: |
+              ha-card {
+                background-color: rgba(66, 46, 94, 0.8);
+                box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+              }
 
   #
   # Alarm area.
@@ -66,7 +83,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"
-          disabled: true
           active: true
         element_3: # Multimedia
           icon: mdi:multimedia

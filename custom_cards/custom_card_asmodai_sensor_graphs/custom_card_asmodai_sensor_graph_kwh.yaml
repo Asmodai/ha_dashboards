@@ -6,6 +6,7 @@ card_asmodai_sensor_graph_kwh:
   show_label: false
   variables:
     name: "[[[ return variables.name ? variables.name : 'Power Consumption'; ]]]"
+    icon: "mdi:eye"
   styles:
     grid:
       - grid-template-areas:   "'graph'"
@@ -21,6 +22,7 @@ card_asmodai_sensor_graph_kwh:
       card:
         type:            custom:mini-graph-card
         name:            "[[[ return variables.name; ]]]"
+        icon:            "[[[ return variables.icon; ]]]"
         points_per_hour: 1
         align_state:     center
         align_header:    center

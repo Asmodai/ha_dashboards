@@ -1,14 +1,15 @@
 ---
 ##
-## Waste collection chip
+## Door chip.
 ##
 chip_asmodai_door:
   template: "chips"
   tap_action:
     action: "more-info"
-  show_icon: true
-  entity:    "[[[ return variables.chip_asmodai_door_entity; ]]]"
-  label:     "[[[ return variables.chip_asmodai_door_label; ]]]" 
+  show_icon:       true
+  triggers_update: "all"
+  entity:          "[[[ return variables.chip_asmodai_door_entity; ]]]"
+  label:           "[[[ return variables.chip_asmodai_door_label; ]]]" 
   icon: >
     [[[
       if (states[variables.chip_asmodai_door_entity].state == "on") {

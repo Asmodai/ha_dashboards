@@ -88,7 +88,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "bedroom_multimedia"

@@ -53,6 +53,9 @@ cards:
       room_name: Office
       entities:
         light: light.room_office
+        window:
+          - binary_sensor.aqara_office_window_1_contact
+          - binary_sensor.aqara_office_window_2_contact
 
   #
   # Right-hand banner.

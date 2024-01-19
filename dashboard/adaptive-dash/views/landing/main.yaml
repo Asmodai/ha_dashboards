@@ -53,8 +53,9 @@ cards:
     variables:
       room_name: Landing
       entities:
-        light: light.room_landing
+        light:    light.room_landing
         presence: binary_sensor.esp1_landing_occupancy
+        window:   binary_sensor.aqara_landing_window_contact
 
   #
   # Right-hand banner.

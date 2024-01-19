@@ -51,6 +51,12 @@ cards:
     template: card_asmodai_tablet_banner
     variables:
       room_name: Bedroom
+      entities:
+        light: light.room_bedroom
+        heating: climate.aqara_bedroom_trv
+        window:
+          - binary_sensor.aqara_bedroom_window_1_contact
+          - binary_sensor.aqara_bedroom_window_2_contact
 
   #
   # Right-hand banner.
@@ -92,6 +98,23 @@ cards:
                 filters:
                   include: "scene.(room_)?bedroom_*"
                   exclude: "scene.(room_)?bedroom_tv_*"
+            - type: "custom:button-card"
+              template: card_thermostat
+              entity: climate.aqara_bedroom_trv
+              variables:
+                ulm_card_thermostat_name: "Radiator"
+                ulm_card_thermostat_enable_collapse:            false
+                ulm_card_thermostat_enable_background_color:    false
+                ulm_card_thermostat_enable_controls:            true
+                ulm_card_thermostat_enable_hvac_modes:          true
+                ulm_card_thermostat_enable_popup:               false
+              card_mod:
+                styles:
+                  .: |
+                    ha-card {
+                      background-color: rgba(66, 46, 94, 0.8);
+                      box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+                    }
             - type: custom:gap-card
         - type: horizontal-stack
           cards:
@@ -163,7 +186,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "bedroom_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "bedroom_multimedia"
