@@ -70,8 +70,7 @@ cards:
             position:         absolute !important;
             bottom:           20px !important;
             padding:          10px;
-            left:             0;
-            right:            0;
+            left:             -70px !important;
           }
     card:
       type: vertical-stack

@@ -3,7 +3,7 @@ title: Living Room
 square: false
 layout:
   grid-template-columns: 300px auto 300px 70px
-  grid-template-rows:    75% auto
+  grid-template-rows:    25% auto
   grid-template-areas: |
     "left     main     right   footer"
     "button   button   button  alarm"
@@ -72,8 +72,7 @@ cards:
             position:         absolute !important;
             bottom:           20px !important;
             padding:          10px;
-            left:             0;
-            right:            0;
+            left:             -70px !important;
           }
     card:
       type: vertical-stack
