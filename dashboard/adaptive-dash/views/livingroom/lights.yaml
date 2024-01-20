@@ -71,6 +71,26 @@ cards:
           icon: mdi:wardrobe-outline
           color_select_mode: true
 
+      - type: custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_tablet_light
+        entity: light.living_room_floor_1
+        variables:
+          name: Signe Floor Light
+          icon: mdi:floor-lamp
+          color_select_mode: true
+
+      - type: custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_tablet_light
+        entity: light.living_room_tube
+        variables:
+          name: Gradient Tube
+          icon: mdi:led-strip
+          color_select_mode: true
+
   #
   # Alarm area.
   #

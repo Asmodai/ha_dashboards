@@ -55,6 +55,28 @@ cards:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_floor_1
+        variables:
+          ulm_card_light_name: "Signe Floor"
+          ulm_card_light_icon: "mdi:floor-lamp"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_tube
+        variables:
+          ulm_card_light_name: "Gradient Tube"
+          ulm_card_light_icon: "mdi:led-strip"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
 
   #
   # Media players.
