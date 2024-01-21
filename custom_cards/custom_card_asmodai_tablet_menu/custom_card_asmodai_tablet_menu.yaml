@@ -57,13 +57,13 @@ card_asmodai_tablet_menu:
       - position:                     fixed
       - width:                        70px
       - height:                       610px
-      - top:                          10px
+      - top:                          0px
       - border-radius:                0px
       - border-bottom-left-radius:    20px
       - background-color:             rgba(66, 46, 94, 0.8)
       - box-shadow:                   0px 0px 10px 5px rgba(0,0,0,0.3)
-      - margin:                       auto
-      - margin-top:                   -30px
+      - margin:                       0px
+      - padding:                      0px
       - cursor:                       default
       - "--mdc-ripple-press-opacity": 0
     custom_fields:
@@ -110,7 +110,7 @@ card_asmodai_tablet_menu:
         color: "[[[ return variables.colors.hilite; ]]]"
         styles:
           card:
-            - margin-top:       -34px
+            - margin-top:       -8px
             - padding-top:      15px
             - padding-bottom:   10px
             - background-color: rgba(0, 0, 0, 0.3)
