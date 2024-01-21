@@ -43,6 +43,53 @@ cards:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
+          
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_signe_table
+        variables:
+          ulm_card_light_name: "Signe Table"
+          ulm_card_light_icon: "mdi:lamp"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_signe_floor
+        variables:
+          ulm_card_light_name: "Signe Floor"
+          ulm_card_light_icon: "mdi:floor-lamp"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+          
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_gradient_tube
+        variables:
+          ulm_card_light_name: "Gradient Tube"
+          ulm_card_light_icon: "mdi:led-strip"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_gradient_strip
+        variables:
+          ulm_card_light_name: "Gradient Strip"
+          ulm_card_light_icon: "mdi:led-strip"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
   - type: horizontal-stack
     cards:
       - type: "custom:button-card"
@@ -51,28 +98,6 @@ cards:
         variables:
           ulm_card_light_name: "Cabinet"
           ulm_card_light_icon: "mdi:wardrobe-outline"
-          ulm_card_light_enable_slider: true
-          ulm_card_light_enable_color: true
-          ulm_card_light_force_background_color: true
-          ulm_card_light_enable_collapse: true
-      - type: "custom:button-card"
-        template: card_light
-        entity: light.living_room_floor_1
-        variables:
-          ulm_card_light_name: "Signe Floor"
-          ulm_card_light_icon: "mdi:floor-lamp"
-          ulm_card_light_enable_slider: true
-          ulm_card_light_enable_color: true
-          ulm_card_light_force_background_color: true
-          ulm_card_light_enable_collapse: true
-  - type: horizontal-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_light
-        entity: light.living_room_tube
-        variables:
-          ulm_card_light_name: "Gradient Tube"
-          ulm_card_light_icon: "mdi:led-strip"
           ulm_card_light_enable_slider: true
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true

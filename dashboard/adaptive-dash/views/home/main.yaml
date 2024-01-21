@@ -70,6 +70,7 @@ cards:
             bottom:           20px !important;
             padding:          10px;
             left:             -70px !important;
+            right:            0px;
           }
     card:
       type: vertical-stack
@@ -122,6 +123,7 @@ cards:
                 entities:
                   light:     light.room_living_room
                   multimedia: media_player.tv_43pus8807_12
+                  heating: climate.aqara_livingroom_trv
                   window:
                     - binary_sensor.aqara_livingroom_window_1_contact
                     - binary_sensor.aqara_livingroom_window_2_contact

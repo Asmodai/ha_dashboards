@@ -69,6 +69,7 @@ cards:
             bottom:           20px !important;
             padding:          10px;
             left:             -70px !important;
+            right:            0px;
           }
     card:
       type: vertical-stack
@@ -93,39 +94,45 @@ cards:
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:lightbulb-outline"
-                custom_card_asmodai_tablet_scene_name: "Normal"
-                custom_card_asmodai_tablet_scene_entity_id: scene.hallway_normal
+                icon:      "mdi:lightbulb-outline"
+                name:      "Normal"
+                color:     "#a56bff"
+                entity_id: scene.hallway_normal
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:solar-power-variant-outline"
-                custom_card_asmodai_tablet_scene_name: "Energise"
-                custom_card_asmodai_tablet_scene_entity_id: scene.room_hallway_energize
+                icon:      "mdi:solar-power-variant-outline"
+                name:      "Energise"
+                color:     "#e1deda"
+                entity_id: scene.room_hallway_energize
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunny"
-                custom_card_asmodai_tablet_scene_name: "Concentrate"
-                custom_card_asmodai_tablet_scene_entity_id: scene.hallway_concentrate
+                icon:      "mdi:weather-sunny"
+                name:      "Concentrate"
+                color:     "#ffc699"
+                entity_id: scene.hallway_concentrate
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:book-outline"
-                custom_card_asmodai_tablet_scene_name: "Read"
-                custom_card_asmodai_tablet_scene_entity_id: scene.hallway_read
+                icon:      "mdi:book-outline"
+                name:      "Read"
+                color:     "#ffad66"
+                entity_id: scene.hallway_read
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunset-up"
-                custom_card_asmodai_tablet_scene_name: "Relax"
-                custom_card_asmodai_tablet_scene_entity_id: scene.room_hallway_relax
+                icon:      "mdi:weather-sunset-up"
+                name:      "Relax"
+                color:     "#ff942b"
+                entity_id: scene.room_hallway_relax
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:bed-outline"
-                custom_card_asmodai_tablet_scene_name: "Rest"
-                custom_card_asmodai_tablet_scene_entity_id: scene.room_hallway_rest
+                icon:      "mdi:bed-outline"
+                name:      "Rest"
+                color:     "#ffa128"
+                entity_id: scene.room_hallway_rest
             - type: custom:gap-card
 
   #

@@ -50,7 +50,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "livingroom_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "livingroom_multimedia"

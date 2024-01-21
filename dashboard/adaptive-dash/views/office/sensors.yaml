@@ -58,21 +58,14 @@ cards:
         variables:
           name:   "Office Pressure"
 
-      - type:     custom:button-card
-        view_layout:
+      - view_layout:
           column: 4
-        template: card_asmodai_sensor_graph_opening
-        entity:   binary_sensor.aqara_office_window_1_contact
-        variables:
-          name: Window 1
+        type: custom:gap-card
 
-      - type:     custom:button-card
+
+      - type: custom:gap-card
         view_layout:
-          column: 4
-        template: card_asmodai_sensor_graph_opening
-        entity:   binary_sensor.aqara_office_window_2_contact
-        variables:
-          name: Window 2
+          column: 5
 
 ######################################################################
 ## ROW 2
@@ -104,27 +97,44 @@ cards:
       - view_layout:
           column: 4
         type: custom:gap-card
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                padding: 5px;
-                background-color: transparent;
-              }
 
       - type: custom:gap-card
         view_layout:
           column: 5
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                padding: 5px;
-                background-color: transparent;
-              }
 
 ######################################################################
 ## ROW 3
+
+      - type:     custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_office_window_1_contact
+        variables:
+          name: Window 1
+
+      - type:     custom:button-card
+        view_layout:
+          column: 2
+        template: card_asmodai_sensor_graph_opening
+        entity:   binary_sensor.aqara_office_window_2_contact
+        variables:
+          name: Window 2
+
+      - view_layout:
+          column: 3
+        type: custom:gap-card
+
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+
+      - type: custom:gap-card
+        view_layout:
+          column: 4
+
+######################################################################
+## ROW 4
 
       - view_layout:
           column: 1
@@ -170,7 +180,7 @@ cards:
               }
 
 ######################################################################
-## ROW 4
+## ROW 5
 
       - view_layout:
           column: 1

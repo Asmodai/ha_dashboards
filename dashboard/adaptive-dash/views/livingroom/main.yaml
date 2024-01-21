@@ -45,6 +45,7 @@ cards:
       entities:
         light:      light.room_living_room
         multimedia: media_player.tv_43pus8807_12
+        heating:    climate.aqara_livingroom_trv
         window:
           - binary_sensor.aqara_livingroom_window_1_contact
           - binary_sensor.aqara_livingroom_window_2_contact
@@ -73,6 +74,7 @@ cards:
             bottom:           20px !important;
             padding:          10px;
             left:             -70px !important;
+            right:            0px;
           }
     card:
       type: vertical-stack
@@ -90,6 +92,47 @@ cards:
                 filters:
                   include: "scene.(room_)?living_room_*"
                   exclude: "scene.(room_)?living_room_tv_*"
+            - type: "custom:button-card"
+              template: card_thermostat
+              entity: climate.aqara_livingroom_trv
+              variables:
+                ulm_card_thermostat_name: "Radiator"
+                ulm_card_thermostat_enable_collapse:            false
+                ulm_card_thermostat_enable_background_color:    false
+                ulm_card_thermostat_enable_controls:            true
+                ulm_card_thermostat_enable_hvac_modes:          true
+                ulm_card_thermostat_enable_popup:               false
+              card_mod:
+                styles:
+                  .: |
+                    ha-card {
+                      background-color: rgba(66, 46, 94, 0.8);
+                      box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+                    }
+            - type: custom:button-card
+              template: card_asmodai_media_player
+              entity: media_player.tv_43pus8807_12
+              variables:
+                custom_card_asmodai_media_player_name: "Philips TV"
+                custom_card_asmodai_media_player_enable_art: true
+                custom_card_asmodai_media_player_enable_controls: true
+                custom_card_asmodai_media_player_enable_volume_buttons: true
+                custom_card_asmodai_media_player_enable_popup: true
+                custom_card_asmodai_media_player_more_info: true
+                custom_card_asmodai_media_player_collapsible: true
+                custom_card_asmodai_media_player_power_button: true
+                custom_card_asmodai_media_player_force_background_color: false
+                custom_card_asmodai_media_player_navigation_path: 'philips_tv'
+              styles:
+                card:
+                  - background-color: rgba(66, 46, 94, 0.8)
+                  - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
+                icon:
+                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+                name:
+                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
+                label:
+                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
             - type: custom:gap-card
         - type: horizontal-stack
           cards:
@@ -97,39 +140,45 @@ cards:
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:lightbulb-outline"
-                custom_card_asmodai_tablet_scene_name: "Normal"
-                custom_card_asmodai_tablet_scene_entity_id: scene.living_room_normal
+                icon:      "mdi:lightbulb-outline"
+                name:      "Normal"
+                color:     "#a56bff"
+                entity_id: scene.living_room_normal
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:solar-power-variant-outline"
-                custom_card_asmodai_tablet_scene_name: "Energise"
-                custom_card_asmodai_tablet_scene_entity_id: scene.room_living_room_energise
+                icon:      "mdi:solar-power-variant-outline"
+                name:      "Energise"
+                color:     "#e1deda"
+                entity_id: scene.room_living_room_energise
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunny"
-                custom_card_asmodai_tablet_scene_name: "Concentrate"
-                custom_card_asmodai_tablet_scene_entity_id: scene.living_room_concentrate
+                icon:      "mdi:weather-sunny"
+                name:      "Concentrate"
+                color:     "#ffc699"
+                entity_id: scene.living_room_concentrate
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:book-outline"
-                custom_card_asmodai_tablet_scene_name: "Read"
-                custom_card_asmodai_tablet_scene_entity_id: scene.living_room_read
+                icon:      "mdi:book-outline"
+                name:      "Read"
+                color:     "#ffad66"
+                entity_id: scene.living_room_read
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:weather-sunset-up"
-                custom_card_asmodai_tablet_scene_name: "Relax"
-                custom_card_asmodai_tablet_scene_entity_id: scene.room_living_room_relax
+                icon:      "mdi:weather-sunset-up"
+                name:      "Relax"
+                color:     "#ff942b"
+                entity_id: scene.room_living_room_relax
             - type: custom:button-card
               template: card_asmodai_tablet_scene
               variables:
-                custom_card_asmodai_tablet_scene_icon: "mdi:bed-outline"
-                custom_card_asmodai_tablet_scene_name: "Rest"
-                custom_card_asmodai_tablet_scene_entity_id: scene.room_living_room_rest
+                icon:      "mdi:bed-outline"
+                name:      "Rest"
+                color:     "#ffa128"
+                entity_id: scene.room_living_room_rest
             - type: custom:gap-card
 
   #
@@ -156,7 +205,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "livingroom_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "livingroom_multimedia"

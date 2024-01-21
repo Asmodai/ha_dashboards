@@ -75,19 +75,39 @@ cards:
         view_layout:
           column: 2
         template: card_asmodai_tablet_light
-        entity: light.living_room_floor_1
+        entity: light.living_room_signe_table
         variables:
-          name: Signe Floor Light
+          name: Signe Table
+          icon: mdi:lamp
+          color_select_mode: true
+          
+      - type: custom:button-card
+        view_layout:
+          column: 3
+        template: card_asmodai_tablet_light
+        entity: light.living_room_signe_floor
+        variables:
+          name: Signe Floor
           icon: mdi:floor-lamp
           color_select_mode: true
 
       - type: custom:button-card
         view_layout:
-          column: 3
+          column: 1
         template: card_asmodai_tablet_light
-        entity: light.living_room_tube
+        entity: light.living_room_gradient_tube
         variables:
           name: Gradient Tube
+          icon: mdi:led-strip
+          color_select_mode: true
+          
+      - type: custom:button-card
+        view_layout:
+          column: 1
+        template: card_asmodai_tablet_light
+        entity: light.living_room_gradient_strip
+        variables:
+          name: Gradient Strip
           icon: mdi:led-strip
           color_select_mode: true
 
@@ -116,7 +136,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "livingroom_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "livingroom_multimedia"

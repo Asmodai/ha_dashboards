@@ -66,6 +66,7 @@ cards:
             bottom:           20px !important;
             padding:          10px;
             left:             -70px !important;
+            right:            0px;
           }
 
   #
