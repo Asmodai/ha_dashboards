@@ -109,30 +109,6 @@ cards:
                       background-color: rgba(66, 46, 94, 0.8);
                       box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
                     }
-            - type: custom:button-card
-              template: card_asmodai_media_player
-              entity: media_player.tv_43pus8807_12
-              variables:
-                custom_card_asmodai_media_player_name: "Philips TV"
-                custom_card_asmodai_media_player_enable_art: true
-                custom_card_asmodai_media_player_enable_controls: true
-                custom_card_asmodai_media_player_enable_volume_buttons: true
-                custom_card_asmodai_media_player_enable_popup: true
-                custom_card_asmodai_media_player_more_info: true
-                custom_card_asmodai_media_player_collapsible: true
-                custom_card_asmodai_media_player_power_button: true
-                custom_card_asmodai_media_player_force_background_color: false
-                custom_card_asmodai_media_player_navigation_path: 'philips_tv'
-              styles:
-                card:
-                  - background-color: rgba(66, 46, 94, 0.8)
-                  - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
-                icon:
-                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-                name:
-                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
-                label:
-                  - filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))
             - type: custom:gap-card
         - type: horizontal-stack
           cards:

@@ -89,6 +89,7 @@ cards:
                   door:     binary_sensor.aqara_front_door_open_contact
                   light:    light.room_hallway
                   presence: binary_sensor.esp1_hallway_occupancy
+                  heating:  climate.aqara_hallway_trv
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:
@@ -113,6 +114,9 @@ cards:
                     - binary_sensor.aqara_kitchen_window_1_contact
                     - binary_sensor.aqara_kitchen_window_2_contact
                     - binary_sensor.aqara_kitchen_window_3_contact
+                  heating:
+                    - climate.aqara_kitchen_trv_1
+                    - climate.aqara_kitchen_trv_2
             - type: custom:button-card
               template: card_asmodai_tablet_button
               variables:

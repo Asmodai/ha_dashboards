@@ -55,9 +55,9 @@ card_asmodai_tablet_button:
   styles:
     card:
       - "--keep-background": true
-      - background-color: rgba(66, 46, 94, 0.8);
-      - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
-      - padding: 0px;
+      - background-color:    rgba(66, 46, 94, 0.8);
+      - box-shadow:          4px 4px 5px 1px rgba(0,0,0,0.3);
+      - padding:             0px;
     grid:
       - grid-template-areas:   "'b1 b2 b3 b4 b5 b6' 'i i i i i i' 'n n n n n n'"
       - grid-template-columns: "auto auto auto auto auto"
@@ -80,7 +80,7 @@ card_asmodai_tablet_button:
   custom_fields:
     b1:   # Light
       card:
-        type: custom:button-card
+        type:     custom:button-card
         template: card_asmodai_tablet_button__badge
         variables:
           path:     "[[[ return variables.path; ]]]"
@@ -97,7 +97,7 @@ card_asmodai_tablet_button:
             disabled: "[[[ return variables.icons.light.disabled; ]]]"
     b2:   # Presence
       card:
-        type: custom:button-card
+        type:     custom:button-card
         template: card_asmodai_tablet_button__badge
         variables:
           path:     "[[[ return variables.path; ]]]"
@@ -114,7 +114,7 @@ card_asmodai_tablet_button:
             disabled: "[[[ return variables.icons.presence.disabled; ]]]"
     b3:   # Heating
       card:
-        type: custom:button-card
+        type:     custom:button-card
         template: card_asmodai_tablet_button__badge
         variables:
           path:     "[[[ return variables.path; ]]]"
@@ -131,7 +131,7 @@ card_asmodai_tablet_button:
             disabled: "[[[ return variables.icons.heating.disabled; ]]]"
     b4:   # Multimedia
       card:
-        type: custom:button-card
+        type:     custom:button-card
         template: card_asmodai_tablet_button__badge
         variables:
           path:     "[[[ return variables.path; ]]]"
@@ -148,7 +148,7 @@ card_asmodai_tablet_button:
             disabled: "[[[ return variables.icons.multimedia.disabled; ]]]"
     b5:   # Window(s)
       card:
-        type: custom:button-card
+        type:     custom:button-card
         template: card_asmodai_tablet_button__badge
         variables:
           path:     "[[[ return variables.path; ]]]"
@@ -165,7 +165,7 @@ card_asmodai_tablet_button:
             disabled: "[[[ return variables.icons.window.disabled; ]]]"
     b6:   # Door
       card:
-        type: custom:button-card
+        type:     custom:button-card
         template: card_asmodai_tablet_button__badge
         variables:
           path:     "[[[ return variables.path; ]]]"

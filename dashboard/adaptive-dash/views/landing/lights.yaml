@@ -55,7 +55,7 @@ cards:
         view_layout:
           column: 3
         template: card_asmodai_tablet_light
-        entity: light.hue_lightstrip_plus_1
+        entity: light.landing_strip_1
         variables:
           name: LED strip
           icon: mdi:led-strip-variant

@@ -26,20 +26,20 @@ card_asmodai_tablet_quickinfo:
       - "--mdc-ripple-press-opacity": 0
     custom_fields:
       info:
-        - text-align: left !important
+        - text-align:       left !important
         - background-color: rgba(0, 0, 0, 0.0) !important
-        - filter: "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
+        - filter:           "drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))"
   custom_fields:
     info:
       card:
-        type: entities
-        state_color: false
+        type:               entities
+        state_color:        false
         show_header_toggle: false
         tap_action:
           action: none
         styles:
           card:
-            - cursor: default
+            - cursor:  default
             - padding: 0px
         card_mod:
           style:

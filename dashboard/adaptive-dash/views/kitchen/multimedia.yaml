@@ -55,7 +55,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "kitchen_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "kitchen_multimedia"

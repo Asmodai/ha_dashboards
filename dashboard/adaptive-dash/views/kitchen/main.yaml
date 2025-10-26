@@ -48,6 +48,9 @@ cards:
           - binary_sensor.aqara_kitchen_window_1_contact
           - binary_sensor.aqara_kitchen_window_2_contact
           - binary_sensor.aqara_kitchen_window_3_contact
+        heating:
+          - climate.aqara_kitchen_trv_1
+          - climate.aqara_kitchen_trv_2
 
   #
   # Right-hand banner.
@@ -80,15 +83,40 @@ cards:
         - type: horizontal-stack
           cards:
             - type: custom:gap-card
-            - type: custom:button-card
-              template: card_asmodai_tablet_light
-              entity: light.room_office
+            - type: "custom:button-card"
+              template: card_thermostat
+              entity: climate.aqara_kitchen_trv_1
               variables:
-                name: "Lights"
-                icon: "mdi:desk"
-                filters:
-                  include: "scene.(room_)?office_*"
-                  exclude: "scene.(room_)?office_desk_*"
+                ulm_card_thermostat_name: "Radiator 1"
+                ulm_card_thermostat_enable_collapse:            false
+                ulm_card_thermostat_enable_background_color:    false
+                ulm_card_thermostat_enable_controls:            true
+                ulm_card_thermostat_enable_hvac_modes:          true
+                ulm_card_thermostat_enable_popup:               false
+              card_mod:
+                styles:
+                  .: |
+                    ha-card {
+                      background-color: rgba(66, 46, 94, 0.8);
+                      box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+                    }
+            - type: "custom:button-card"
+              template: card_thermostat
+              entity: climate.aqara_kitchen_trv_2
+              variables:
+                ulm_card_thermostat_name: "Radiator 2"
+                ulm_card_thermostat_enable_collapse:            false
+                ulm_card_thermostat_enable_background_color:    false
+                ulm_card_thermostat_enable_controls:            true
+                ulm_card_thermostat_enable_hvac_modes:          true
+                ulm_card_thermostat_enable_popup:               false
+              card_mod:
+                styles:
+                  .: |
+                    ha-card {
+                      background-color: rgba(66, 46, 94, 0.8);
+                      box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+                    }
             - type: custom:button-card
               template: card_asmodai_tablet_appliance_washing_machine
               variables:
@@ -172,7 +200,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "kitchen_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "kitchen_multimedia"

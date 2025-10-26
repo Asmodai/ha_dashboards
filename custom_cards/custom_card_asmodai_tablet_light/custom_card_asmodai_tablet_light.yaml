@@ -76,11 +76,11 @@ card_asmodai_tablet_light:
           ]]]
       - row-gap: "12px"
     card:
-      - background-color: "[[[ return variables.colors.background; ]]]"
+      - background-color:  "[[[ return variables.colors.background; ]]]"
       - --keep-background: 'true'
-      - box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3)
-      - border-radius: 20px;
-      - padding:          "12px"
+      - box-shadow:        4px 4px 5px 1px rgba(0,0,0,0.3)
+      - border-radius:     20px;
+      - padding:           "12px"
     custom_fields:
       title: 
         - display: >
@@ -242,9 +242,9 @@ card_asmodai_tablet_light:
         custom_fields:
           sty: # Scenes
             card:
-              type: custom:button-card
+              type:     custom:button-card
               template: widget_icon
-              entity: "[[[ return entity ? entity.entity_id : null; ]]]"
+              entity:   "[[[ return entity ? entity.entity_id : null; ]]]"
               styles:
                 card:
                   - background-color: "[[[ return variables.colors.button; ]]]"
@@ -320,9 +320,9 @@ card_asmodai_tablet_light:
               icon: "[[[ return variables.icons.scenes; ]]]"
           btn1: # Brightness preset #1
             card:
-              type: custom:button-card
+              type:     custom:button-card
               template: widget_icon
-              entity: "[[[ return entity.entity_id; ]]]"
+              entity:   "[[[ return entity.entity_id; ]]]"
               styles:
                 card:
                   - background-color: "[[[ return variables.colors.button; ]]]"
@@ -356,9 +356,9 @@ card_asmodai_tablet_light:
               icon: "[[[ return variables.icons.brightness_1; ]]]"
           btn2: # Brightness preset #2
             card:
-              type: custom:button-card
+              type:     custom:button-card
               template: widget_icon
-              entity: "[[[ return entity.entity_id; ]]]"
+              entity:   "[[[ return entity.entity_id; ]]]"
               styles:
                 card:
                   - background-color: "[[[ return variables.colors.button; ]]]"
@@ -392,7 +392,7 @@ card_asmodai_tablet_light:
               icon: "[[[ return variables.icons.brightness_2; ]]]"
           btn3: # Brightness preset #3
             card:
-              type: custom:button-card
+              type:     custom:button-card
               template: widget_icon
               entity: "[[[ return entity.entity_id; ]]]"
               styles:
@@ -428,9 +428,9 @@ card_asmodai_tablet_light:
               icon: "[[[ return variables.icons.brightness_3; ]]]"
           btn4: # Brightness preset #4
             card:
-              type: custom:button-card
+              type:     custom:button-card
               template: widget_icon
-              entity: "[[[ return entity.entity_id; ]]]"
+              entity:   "[[[ return entity.entity_id; ]]]"
               styles:
                 card:
                   - background-color: "[[[ return variables.colors.button; ]]]"
@@ -464,9 +464,9 @@ card_asmodai_tablet_light:
               icon: "[[[ return variables.icons.brightness_4; ]]]"
           btn5: # Brightness preset #5
             card:
-              type: custom:button-card
+              type:     custom:button-card
               template: widget_icon
-              entity: "[[[ return entity.entity_id; ]]]"
+              entity:   "[[[ return entity.entity_id; ]]]"
               styles:
                 card:
                   - background-color: "[[[ return variables.colors.button; ]]]"

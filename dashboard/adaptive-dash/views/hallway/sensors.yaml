@@ -99,7 +99,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "hallway_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "hallway_multimedia"

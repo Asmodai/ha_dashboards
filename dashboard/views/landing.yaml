@@ -34,6 +34,16 @@ cards:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.landing_strip_1
+        variables:
+          ulm_card_light_name: "LED strip"
+          ulm_card_light_icon: "mdi:led-strip-variant"
+          ulm_card_light_enable_slider: true
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
           
   #
   # Sensors.

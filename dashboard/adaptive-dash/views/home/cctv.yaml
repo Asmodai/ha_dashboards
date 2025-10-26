@@ -27,9 +27,42 @@ cards:
 
   - view_layout:
       grid-area: main
-    type: custom:button-card
-    template: card_title
-    label: "NOTHING TO SEE HERE!"
+    type: grid
+    columns: 5
+    square: false
+    cards:
+    
+      - view_layout:
+          column: 1
+        type:        picture-entity
+        show_state:  true
+        show_name:   true
+        camera_view: live
+        entity:      camera.agent_upstairs_bedroom_upstairs_bedroom
+
+      - view_layout:
+          column: 2
+        type:        picture-entity
+        show_state:  true
+        show_name:   true
+        camera_view: live
+        entity:      camera.jupiter_downstairs_living_room_downstairs_living_room
+
+      - view_layout:
+          column: 3
+        type:        picture-entity
+        show_state:  true
+        show_name:   true
+        camera_view: live
+        entity:      camera.jupiter_back_living_room_back_living_room
+
+      - view_layout:
+          column: 4
+        type:        picture-entity
+        show_state:  true
+        show_name:   true
+        camera_view: live
+        entity:      camera.jupiter_hallway_hallway
 
   #
   # Alarm area.

@@ -43,7 +43,7 @@ cards:
         custom_card_asmodai_media_player_enable_volume_buttons: true
         custom_card_asmodai_media_player_enable_popup: true
         custom_card_asmodai_media_player_more_info: true
-        custom_card_asmodai_media_player_collapsible: true
+        custom_card_asmodai_media_player_collapsible: false
         custom_card_asmodai_media_player_power_button: true
         custom_card_asmodai_media_player_force_background_color: false
         custom_card_asmodai_media_player_navigation_path: 'philips_tv'

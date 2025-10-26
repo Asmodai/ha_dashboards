@@ -46,6 +46,7 @@ cards:
         door:     binary_sensor.aqara_front_door_open_contact
         light:    light.room_hallway
         presence: binary_sensor.esp1_hallway_occupancy
+        heating:  climate.aqara_hallway_trv
 
   #
   # Right-hand banner.
@@ -87,6 +88,23 @@ cards:
                 filters:
                   include: "scene.(room_)?hallway*"
                   exclude: "scene.(room_)?hallway_nope*"
+            - type: "custom:button-card"
+              template: card_thermostat
+              entity: climate.aqara_hallway_trv
+              variables:
+                ulm_card_thermostat_name: "Radiator"
+                ulm_card_thermostat_enable_collapse:            false
+                ulm_card_thermostat_enable_background_color:    false
+                ulm_card_thermostat_enable_controls:            true
+                ulm_card_thermostat_enable_hvac_modes:          true
+                ulm_card_thermostat_enable_popup:               false
+              card_mod:
+                styles:
+                  .: |
+                    ha-card {
+                      background-color: rgba(66, 46, 94, 0.8);
+                      box-shadow: 4px 4px 5px 1px rgba(0,0,0,0.3);
+                    }
             - type: custom:gap-card
         - type: horizontal-stack
           cards:
@@ -159,7 +177,6 @@ cards:
         element_2: # Heating
           icon: mdi:radiator
           path: "hallway_heating"
-          disabled: true
         element_3: # Multimedia
           icon: mdi:multimedia
           path: "hallway_multimedia"
